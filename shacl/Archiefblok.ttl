@@ -14,6 +14,7 @@
 @prefix groep:          <https://example.memorix-test.nl/resources/recordtypes/Groep#> .
 
 @prefix rico:            <https://www.ica.org/standards/RiC/ontology#> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
 
 archiefblok:identificationGroup
     rdf:type   sh:PropertyGroup ;
@@ -100,7 +101,7 @@ recordtypes:Archiefblok
         sh:datatype       xsd:string ;
         sh:group          archiefblok:identificationGroup ;
         sh:order          3.0 ;
-        sh:path           archiefblok:shortTitle
+        sh:path           rico:title
     ] ;
     sh:property          [
         rdfs:label        "Samenvatting van de inhoud"@nl ;
@@ -108,7 +109,7 @@ recordtypes:Archiefblok
         sh:datatype       xsd:string ;
         sh:group          archiefblok:descriptionGroup ;
         sh:order          4.0 ;
-        sh:path           archiefblok:contentDescription ;
+        sh:path           rico:scopeAndContent ;
         dash:editor dash:TextAreaEditor ;
     ] ;
     sh:property [
@@ -131,7 +132,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Categorie"@nl ;
-        sh:path archiefblok:category ;
+        sh:path rico:hasOrHadCategory ;
         sh:maxCount 1 ;
         sh:order 9.0 ;
         sh:group archiefblok:descriptionGroup ;
@@ -142,7 +143,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Trefwoord"@nl ;
-        sh:path archiefblok:keyword ;
+        sh:path dc:subject ;
         sh:maxCount 10 ;
         sh:order 10.0 ;
         sh:group archiefblok:descriptionGroup ;
@@ -156,7 +157,7 @@ recordtypes:Archiefblok
         sh:order     11.0 ;
         sh:maxCount 100 ;
         sh:group archiefblok:descriptionGroup ;
-        sh:path      archiefblok:attachement ;
+        sh:path      sioc:attachement ;
         sh:nodeKind sh:IRI ;
         sh:or (
             [ sh:class recordtypes:Bijlage ]
