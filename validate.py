@@ -24,5 +24,5 @@ def shacl_validate():
         assert conforms, f'{sample_file} incorrect: {results_text}'
 
 
-if __name__ == 'main':
+if __name__ == '__main__':
     raise SystemExit(main())
