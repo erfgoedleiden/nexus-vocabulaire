@@ -1,3 +1,4 @@
+@prefix schema: <http://schema.org/> .
 @prefix archiefblok: </resources/recordtypes/Archiefblok#> .
 @prefix vocabularies: </resources/vocabularies/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -14,7 +15,6 @@
 @prefix groep:          <https://example.memorix-test.nl/resources/recordtypes/Groep#> .
 
 @prefix rico:            <https://www.ica.org/standards/RiC/ontology#> .
-@prefix sioc: <http://rdfs.org/sioc/ns#> .
 
 archiefblok:identificationGroup
     rdf:type   sh:PropertyGroup ;
@@ -143,7 +143,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Trefwoord"@nl ;
-        sh:path dc:subject ;
+        sh:path schema:keywords ;
         sh:maxCount 10 ;
         sh:order 10.0 ;
         sh:group archiefblok:descriptionGroup ;
@@ -157,7 +157,7 @@ recordtypes:Archiefblok
         sh:order     11.0 ;
         sh:maxCount 100 ;
         sh:group archiefblok:descriptionGroup ;
-        sh:path      sioc:attachement ;
+        sh:path      rico:isRecordResourceAssociatedWithRecordResource ;
         sh:nodeKind sh:IRI ;
         sh:or (
             [ sh:class recordtypes:Bijlage ]
