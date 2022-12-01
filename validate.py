@@ -46,6 +46,9 @@ def check_links() -> None:
         for triple in graph:
             for triple_part in triple:
                 if isinstance(triple_part, rdflib.URIRef):
+                    # TODO: parse response from URI to match hash uris against subjects in the graph in order to
+                    #  validate
+
                     # urlopen will throw an error on 400 or larger responses
                     try:
                         urlopen(triple_part).read()
