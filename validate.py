@@ -1,4 +1,5 @@
 import os
+from urllib.error import HTTPError
 from urllib.request import urlopen
 
 import pyshacl
@@ -40,10 +41,15 @@ def check_links() -> None:
         graph = rdflib.Graph()
         graph.parse(os.path.join('voorbeelddata', sample_file))
 
-        for (subject, predicate, object_) in graph:
-            if isinstance(subject, rdflib.URIRef):
-                # urlopen will throw an error on 400 or larger responses
-                urlopen(subject).read()
+        for triple in graph:
+            for triple_part in triple:
+                if isinstance(triple_part, rdflib.URIRef):
+                    # urlopen will throw an error on 400 or larger responses
+                    try:
+                        urlopen(triple_part).read()
+                    except HTTPError as e:
+                        f'{triple_part} could not be resolved: {e}'
+                        raise
 
 
 if __name__ == '__main__':
