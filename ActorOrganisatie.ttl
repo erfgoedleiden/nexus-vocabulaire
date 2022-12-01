@@ -1,0 +1,206 @@
+@prefix actorOrganisatie: </resources/recordtypes/ActorOrganisatie#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+
+actorOrganisatie:identificationGroup a sh:PropertyGroup ;
+    rdfs:label "Identificatie"@nl ;
+    sh:order 1.0
+.
+actorOrganisatie:contactGroup a sh:PropertyGroup ;
+    rdfs:label "Contactgegevens"@nl ;
+    sh:order 2.0
+.
+actorOrganisatie:managementGroup a sh:PropertyGroup ;
+    rdfs:label "Beheer"@nl ;
+    sh:order 3.0
+.
+actorOrganisatie:notesGroup a sh:PropertyGroup ;
+    rdfs:label "Opmerkingen"@nl ;
+    sh:order 4.0
+.
+
+recordtypes:ActorOrganisatie
+    a memorix:Recordtype, sh:NodeShape ;
+    rdfs:label "Organisatie"@nl ;
+    rdfs:comment "Actoren - Organisatie - Erfgoed Leiden"@nl ;
+    dc:identifier "ActorOrganisatie" ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass recordtypes:ActorOrganisatie ;
+    dash:defaultViewForRole dash:all ;
+
+    sh:property [
+        rdfs:label "Identificatiecode"@nl ;
+        sh:datatype xsd:string ;
+        sh:maxCount 1 ;
+        sh:group actorOrganisatie:identificationGroup ;
+        memorix:inTitleAt 1.0 ;
+        sh:order    1.0 ;
+        sh:path actorOrganisatie:identifier ;
+    ] ;
+    sh:property [
+        rdfs:label "Naam"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        memorix:inTitleAt 3.0 ;
+        sh:order    1.0 ;
+        sh:path actorOrganisatie:name ;
+        sh:group actorOrganisatie:identificationGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Identiek aan (extern)"@nl ;
+        sh:path actorOrganisatie:sameAs ;
+        sh:maxCount 1 ;
+        sh:order 3.0 ;
+        sh:group actorOrganisatie:identificationGroup ;
+        dash:editor memorix:VocabularyEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( <https://data.rkd.nl/rkdartists> <http://data.bibliotheken.nl/id/dataset/persons> ) ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        rdfs:label "Datering van organisatie"@nl ;
+        sh:maxCount 1 ;
+        sh:path actorOrganisatie:date ;
+        sh:order 4.0 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class actorOrganisatie:Date ;
+        sh:group actorOrganisatie:identificationGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Functies, beroepen en activiteiten"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:order    5.0 ;
+        dash:editor  dash:TextAreaEditor ;
+        sh:path actorOrganisatie:functions ;
+        sh:group actorOrganisatie:identificationGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Adres"@nl ;
+        sh:maxCount 1 ;
+        sh:path actorOrganisatie:address ;
+        sh:datatype xsd:string;
+        sh:group actorOrganisatie:contactGroup ;
+        sh:order 6.0 ;
+    ] ;
+    sh:property [
+        rdfs:label "Postcode"@nl ;
+        sh:maxCount 1 ;
+        sh:path actorOrganisatie:zipcode ;
+        sh:datatype xsd:string;
+        sh:group actorOrganisatie:contactGroup ;
+        sh:order 7.0 ;
+    ] ;
+    sh:property [
+        rdfs:label "Plaats"@nl ;
+        sh:maxCount 1 ;
+        sh:path actorOrganisatie:city ;
+        sh:datatype xsd:string;
+        sh:group actorOrganisatie:contactGroup ;
+        sh:order 8.0 ;
+    ] ;
+    sh:property [
+        rdfs:label "Land"@nl ;
+        sh:maxCount 1 ;
+        sh:path actorOrganisatie:country ;
+        sh:datatype xsd:string;
+        sh:group actorOrganisatie:contactGroup ;
+        sh:order 9.0 ;
+    ] ;
+    sh:property [
+        rdfs:label "Telefoon"@nl ;
+        sh:maxCount 5 ;
+        sh:path actorOrganisatie:phone ;
+        sh:datatype xsd:string;
+        sh:group actorOrganisatie:contactGroup ;
+        sh:order 10.0 ;
+    ] ;
+    sh:property [
+        rdfs:label "Email"@nl ;
+        sh:path actorOrganisatie:email ;
+        sh:datatype xsd:string;
+        sh:maxCount 5 ;
+        sh:group actorOrganisatie:contactGroup ;
+        sh:order 11.0 ;
+    ] ;
+    sh:property [
+        rdfs:label "Website"@nl ;
+        sh:maxCount 1 ;
+        sh:path actorOrganisatie:website ;
+        sh:datatype xsd:string;
+        sh:group actorOrganisatie:contactGroup ;
+        sh:order 12.0 ;
+    ] ;
+    sh:property [
+        rdfs:label "Regels en/of afspraken"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:order    14.0 ;
+        dash:editor  dash:TextAreaEditor ;
+        sh:path actorOrganisatie:rulesAndConventions ;
+        sh:group actorOrganisatie:managementGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Contactpersoon"@nl ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:group actorOrganisatie:managementGroup ;
+        sh:order 15.0 ;
+        sh:path actorOrganisatie:contactPerson ;
+        sh:or (
+            [ sh:class recordtypes:ActorPersoon ]
+        ) ;
+        dash:editor memorix:LinkedRecordEditor ;
+    ] ;
+    sh:property [
+        rdfs:label "Opmerkingen intern"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:order    16.0 ;
+        dash:editor  dash:TextAreaEditor ;
+        sh:path actorOrganisatie:notes ;
+        sh:group actorOrganisatie:notesGroup ;
+    ] ;
+.
+
+actorOrganisatie:Date
+    a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass actorOrganisatie:Date ;
+    sh:property [
+        rdfs:label "Leefperiode"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:path actorOrganisatie:period ;
+        sh:order 1.0 ;
+    ] ;
+    sh:property [
+        rdfs:label "Periode (van)"@nl ;
+        sh:maxCount 1 ;
+        sh:path actorOrganisatie:startDate  ;
+        sh:order 2.0 ;
+        dash:editor  memorix:DateEditor ;
+        sh:datatype  xsd:integer ;
+    ] ;
+    sh:property [
+        rdfs:label "Periode (tot)"@nl ;
+        sh:maxCount 1 ;
+        sh:path actorOrganisatie:endDate  ;
+        sh:order 3.0 ;
+        dash:editor  memorix:DateEditor ;
+        sh:datatype  xsd:integer ;
+    ] ;
+.

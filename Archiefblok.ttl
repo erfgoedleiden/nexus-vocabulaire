@@ -1,0 +1,372 @@
+@prefix archiefblok: </resources/recordtypes/Archiefblok#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix bestanddeel:         <https://example.memorix-test.nl/resources/recordtypes/Bestanddeel#> .
+@prefix groep:          <https://example.memorix-test.nl/resources/recordtypes/Groep#> .
+
+@prefix rico:            <https://www.ica.org/standards/RiC/ontology#> .
+
+archiefblok:identificationGroup
+    rdf:type   sh:PropertyGroup ;
+    rdfs:label "Identificatie"@nl , "Identification"@en ;
+    sh:order   1.0 .
+archiefblok:descriptionGroup a sh:PropertyGroup ;
+    rdfs:label "Beschrijving"@nl ;
+    sh:order 2.0
+.
+archiefblok:contextGroup a sh:PropertyGroup ;
+    rdfs:label "Context"@nl ;
+    sh:order 3.0
+.
+archiefblok:accessGroup a sh:PropertyGroup ;
+    rdfs:label "Toegang"@nl ;
+    sh:order 4.0
+.
+archiefblok:notesGroup a sh:PropertyGroup ;
+    rdfs:label "Opmerkingen"@nl ;
+    sh:order 5.0
+.
+
+recordtypes:Archiefblok
+    rdf:type             sh:NodeShape,
+                         memorix:Recordtype ;
+    rdfs:label           "Archiefblok"@nl ;
+    rdfs:comment "Archiefblok - Erfgoed Leiden"@nl ;
+    memorix:hasInformationComponent
+    [ rdf:type               memorix:HasRecordsComponent ;
+        memorix:hasRecordType  recordtypes:Bestanddeel ;
+        memorix:path           bestanddeel:archiefblok ;
+        dc:title               "Bestanddelen"
+    ] ;
+    memorix:hasInformationComponent
+    [ rdf:type         memorix:TreeComponent ;
+        memorix:hasLeaf  [
+            memorix:hasRecordType  recordtypes:Bestanddeel ;
+            memorix:path           bestanddeel:archiefblok
+        ] ;
+        memorix:hasNode  [
+            memorix:hasRecordType  recordtypes:Groep ;
+            memorix:inlineField    [
+                memorix:order  2.0 ;
+                memorix:path   rico:title
+            ] ;
+            memorix:inlineField    [
+                memorix:order  1.0 ;
+                memorix:path   rico:identifier
+            ]
+        ] ;
+        dc:title         "Groep"
+    ] ;
+    memorix:typeOf        memorix:Fonds ;
+    dc:identifier        "Archiefblok" ;
+    sh:targetClass       recordtypes:Archiefblok ;
+    rdfs:subClassOf                 rico:RecordSet ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    memorix:hasInformationComponent [ rdf:type  memorix:DepotLocationComponent ] ;
+    sh:property          [
+        rdfs:label        "Nummer toegang"@nl ;
+        sh:group          archiefblok:identificationGroup ;
+        memorix:inTitleAt 1.0 ;
+        sh:order          1.0 ;
+        memorix:typeOf     memorix:Identifier ;
+        sh:maxCount  1 ;
+        sh:minCount 1 ;
+        sh:message        "Nummer toegang mag niet leeg zijn"@nl ;
+        sh:path           rico:identifier ;
+        sh:datatype       xsd:string
+    ] ;
+    sh:property          [
+        rdfs:label        "Titel"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype       xsd:string ;
+        sh:group          archiefblok:identificationGroup ;
+        sh:order          2.0 ;
+        memorix:inTitleAt 2.0 ;
+        sh:path           rico:title
+    ] ;
+    sh:property          [
+        rdfs:label        "Verkorte titel"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype       xsd:string ;
+        sh:group          archiefblok:identificationGroup ;
+        sh:order          3.0 ;
+        sh:path           archiefblok:shortTitle
+    ] ;
+    sh:property          [
+        rdfs:label        "Samenvatting van de inhoud"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype       xsd:string ;
+        sh:group          archiefblok:descriptionGroup ;
+        sh:order          4.0 ;
+        sh:path           archiefblok:contentDescription ;
+        dash:editor dash:TextAreaEditor ;
+    ] ;
+    sh:property [
+        rdfs:label "Datering van archief"@nl ;
+        sh:maxCount 1 ;
+        sh:path rico:isAssociatedWithDate ;
+        sh:order 7.0 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class rico:DateRange ;
+        sh:group archiefblok:descriptionGroup ;
+    ] ;
+    sh:property [
+        rdfs:label   "Omvang (meters)"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype  xsd:decimal ;
+        sh:order     8.0 ;
+        sh:path      rico:recordResourceExtent ;
+        sh:group archiefblok:descriptionGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Categorie"@nl ;
+        sh:path archiefblok:category ;
+        sh:maxCount 1 ;
+        sh:order 9.0 ;
+        sh:group archiefblok:descriptionGroup ;
+        dash:editor memorix:VocabularyEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/59dd2557-a079-38ab-9db7-7269f9a80241> ) ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        rdfs:label "Trefwoord"@nl ;
+        sh:path archiefblok:keyword ;
+        sh:maxCount 10 ;
+        sh:order 10.0 ;
+        sh:group archiefblok:descriptionGroup ;
+        dash:editor memorix:VocabularyEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/4190de09-7dca-44ce-a9bd-04716cfa70aa> ) ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        rdfs:label   "Bijlage"@nl ;
+        sh:order     11.0 ;
+        sh:maxCount 100 ;
+        sh:group archiefblok:descriptionGroup ;
+        sh:path      archiefblok:attachement ;
+        sh:nodeKind sh:IRI ;
+        sh:or (
+            [ sh:class recordtypes:Bijlage ]
+        ) ;
+        dash:editor memorix:LinkedRecordEditor ;
+    ] ;
+    sh:property [
+        rdfs:label   "Archiefvormer"@nl ;
+        sh:order     12.0 ;
+        sh:maxCount 100 ;
+        sh:path      rico:hasAccumulator ;
+        sh:group archiefblok:contextGroup ;
+        sh:nodeKind sh:IRI ;
+        sh:or (
+            [ sh:class recordtypes:ActorFamilie ]
+            [ sh:class recordtypes:ActorOrganisatie ]
+            [ sh:class recordtypes:ActorPersoon ]
+        ) ;
+        dash:editor memorix:LinkedRecordEditor ;
+    ] ;
+    sh:property          [
+        rdfs:label        "Instelling"@nl ;
+        sh:maxCount  1 ;
+        sh:datatype       xsd:string ;
+        sh:group          archiefblok:contextGroup ;
+        sh:order          14.0 ;
+        sh:path           archiefblok:institution ;
+    ] ;
+    sh:property [
+        rdfs:label   "Zorgdrager"@nl ;
+        dash:editor memorix:LinkedRecordEditor ;
+        sh:maxCount  1 ;
+        sh:nodeKind sh:IRI ;
+        sh:or (
+            [ sh:class recordtypes:ActorFamilie ]
+            [ sh:class recordtypes:ActorOrganisatie ]
+            [ sh:class recordtypes:ActorPersoon ]
+        ) ;
+        sh:order     15.0 ;
+        sh:path      archiefblok:caregiver ;
+        sh:group archiefblok:contextGroup ;
+    ] ;
+    sh:property          [
+        rdfs:label        "Geschiedenis van het archief"@nl ;
+        sh:maxCount  1 ;
+        sh:datatype       xsd:string ;
+        sh:group          archiefblok:contextGroup ;
+        sh:order          16.0 ;
+        sh:path           archiefblok:archiveHistory ;
+        dash:editor dash:TextAreaEditor
+    ] ;
+    sh:property [
+        rdfs:label "Publicaties"@nl ;
+        sh:maxCount  1 ;
+        sh:datatype xsd:string ;
+        sh:group archiefblok:contextGroup ;
+        sh:order    17.0 ;
+        sh:path archiefblok:publication ;
+        dash:editor  dash:TextAreaEditor ;
+    ] ;
+    sh:property [
+        rdfs:label "Identificatiecode"@nl ;
+        sh:maxCount  1 ;
+        sh:datatype xsd:string ;
+        sh:group archiefblok:accessGroup ;
+        sh:order    18.0 ;
+        sh:path archiefblok:identifier ;
+    ] ;
+    sh:property [
+        rdfs:label "Titel"@nl ;
+        sh:maxCount  1 ;
+        sh:datatype xsd:string ;
+        sh:group archiefblok:accessGroup ;
+        sh:order    19.0 ;
+        sh:path archiefblok:title ;
+        dash:editor dash:TextAreaEditor ;
+    ] ;
+    sh:property [
+        rdfs:label "Status"@nl ;
+        sh:maxCount  1 ;
+        sh:path archiefblok:status ;
+        sh:order 20.0 ;
+        sh:group archiefblok:accessGroup ;
+        dash:editor             dash:EnumSelectEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/3348861e-3f20-3720-94f8-00d429612388> );
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        rdfs:label "Soort"@nl ;
+        sh:maxCount  1 ;
+        sh:path archiefblok:type ;
+        sh:order 21.0 ;
+        sh:group archiefblok:accessGroup ;
+        dash:editor             dash:EnumSelectEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/f9c3d992-e77a-36ff-9c28-ac57b41c5a66> );
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        rdfs:label "Auteur"@nl ;
+        sh:maxCount  1 ;
+        sh:datatype xsd:string ;
+        sh:group archiefblok:accessGroup ;
+        sh:order    22.0 ;
+        sh:path rico:hasAuthor ;
+    ] ;
+    sh:property [
+        rdfs:label "Uitgever"@nl ;
+        sh:maxCount  1 ;
+        sh:datatype xsd:string ;
+        sh:group archiefblok:accessGroup ;
+        sh:order    23.0 ;
+        sh:path archiefblok:publisher ;
+    ] ;
+    sh:property [
+        rdfs:label   "Datum van vervaardiging"@nl ;
+        sh:maxCount 1 ;
+        dash:editor  memorix:DateEditor ;
+        sh:datatype  xsd:integer ;
+        sh:order     24.0 ;
+        sh:path      archiefblok:creationDate ;
+        sh:group archiefblok:accessGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Verantwoording"@nl ;
+        sh:maxCount  1 ;
+        sh:datatype xsd:string ;
+        sh:group archiefblok:accessGroup ;
+        sh:order    25.0 ;
+        sh:path archiefblok:responsibility ;
+        dash:editor  dash:TextAreaEditor ;
+    ] ;
+    sh:property [
+        rdfs:label "Opmerkingen openbaar"@nl ;
+        sh:maxCount 1 ;
+        sh:path archiefblok:notesPublic ;
+        sh:order 26.0 ;
+        sh:datatype xsd:string ;
+        dash:editor  dash:TextAreaEditor ;
+        sh:group archiefblok:notesGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Opmerkingen intern"@nl ;
+        sh:maxCount 100 ;
+        sh:path archiefblok:notes ;
+        sh:order 27.0 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class archiefblok:Notes ;
+        sh:group archiefblok:notesGroup ;
+    ] ;
+.
+
+rico:DateRange
+    rdf:type             sh:NodeShape ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [
+        rdfs:label   "Periode"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype  xsd:string ;
+        sh:order     1.0 ;
+        sh:path      rico:expressedDate ;
+    ] ;
+    sh:property [
+        rdfs:label   "Periode (van)"@nl ;
+        sh:maxCount 1 ;
+        dash:editor  memorix:DateEditor ;
+        sh:datatype  xsd:gYear ;
+        sh:order     2.0 ;
+        sh:path      rico:hasBeginningDate ;
+    ] ;
+    sh:property [
+        rdfs:label   "Periode (tot)"@nl ;
+        sh:maxCount 1 ;
+        dash:editor  memorix:DateEditor ;
+        sh:datatype  xsd:gYear ;
+        sh:order     3.0 ;
+        sh:path      rico:hasEndDate ;
+    ] ;
+    sh:targetClass       rico:DateRange ;
+.
+
+archiefblok:Notes
+    a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass archiefblok:Notes ;
+    sh:property [
+          rdfs:label   "Datering"@nl ;
+          sh:maxCount 1 ;
+          dash:editor  memorix:DateEditor ;
+          sh:datatype  xsd:integer ;
+          sh:order     1.0 ;
+          sh:path      archiefblok:notesDate ;
+      ] ;
+    sh:property [
+          rdfs:label "Gebruiker"@nl ;
+          sh:maxCount 1 ;
+          sh:datatype xsd:string ;
+          sh:order    2.0 ;
+          sh:path archiefblok:notesUser ;
+      ] ;
+    sh:property [
+          rdfs:label "Opmerkingen intern"@nl ;
+          sh:maxCount 1 ;
+          sh:datatype xsd:string ;
+          sh:order    3.0 ;
+          sh:path archiefblok:notesInternal ;
+          dash:editor  dash:TextAreaEditor ;
+      ] ;
+.

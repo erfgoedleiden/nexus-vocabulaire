@@ -1,0 +1,469 @@
+@prefix image: </resources/recordtypes/Image#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+recordtypes:Image
+  a memorix:Recordtype, sh:NodeShape ;
+  rdfs:label "Afbeelding"@nl ;
+  rdfs:comment "Afbeeldingen - Erfgoed Leiden"@nl ;
+  dc:identifier "Image" ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass recordtypes:Image ;
+  dash:defaultViewForRole dash:all ;
+  memorix:hasInformationComponent
+          [ rdf:type  memorix:DigitalAssetComponent ] ;
+  sh:property [
+    rdfs:label "Collectie"@nl ;
+    sh:path image:collection ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    sh:group image:identificationGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/8490ee59-818e-41a8-b37f-7b5040f3c4a4> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Bestandsnaam"@nl ;
+    sh:path image:filename ;
+    memorix:inSummaryAt 1.0 ;
+    sh:maxCount 200 ;
+    sh:order 2.0 ;
+    sh:group image:identificationGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Objectnummer"@nl ;
+    sh:path image:objectNumber ;
+    memorix:inTitleAt 1.0 ;
+    sh:maxCount 100 ;
+    sh:order 3.0 ;
+    sh:group image:identificationGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Document type"@nl ;
+    sh:path image:documentType ;
+    sh:maxCount 10 ;
+    sh:order 4.0 ;
+    sh:group image:identificationGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/5f449ae6-01a2-44a3-a5a6-f74dfa587a87> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Titel"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:title ;
+    memorix:inTitleAt 2.0 ;
+    sh:order 10.0 ;
+    sh:group image:contentDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Beschrijving"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:description ;
+    sh:order 11.0 ;
+    sh:group image:contentDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Extra informatie"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:extraInformation ;
+    sh:order 12.0 ;
+    sh:group image:contentDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Afgebeelde personen"@nl ;
+    sh:path image:depictedPerson ;
+    sh:maxCount 100 ;
+    sh:order 13.0 ;
+    sh:nodeKind sh:IRI ;
+    sh:group image:contentDescriptionGroup ;
+    sh:or (
+      [ sh:class recordtypes:Persoon ]
+      [ sh:class recordtypes:Organisatie ]
+    ) ;
+    dash:editor memorix:LinkedRecordEditor ;
+  ] ;
+
+  sh:property [
+    rdfs:label "Trefwoorden"@nl ;
+    sh:path image:keyword ;
+    sh:maxCount 10 ;
+    sh:order 14.0 ;
+    sh:group image:contentDescriptionGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/4190de09-7dca-44ce-a9bd-04716cfa70aa> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Datering gebeurtenis"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:eventDate ;
+    sh:order 15.0 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class image:EventDate ;
+    sh:group image:contentDescriptionGroup ;
+  ] ;
+  sh:property [
+    rdfs:label "Afgebeelde locatie"@nl ;
+    sh:maxCount 10 ;
+    sh:path image:depictedLocation ;
+    sh:order 16.0 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class image:DepictedLocation ;
+    sh:group image:contentDescriptionGroup ;
+  ] ;
+
+  sh:property [
+    rdfs:label "Techniek"@nl ;
+    sh:path image:technique ;
+    sh:maxCount 10 ;
+    sh:order 17.0 ;
+    sh:group image:physicalDescriptionGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/421b42cd-90c2-495d-86bd-8d49ddec08df> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+
+  sh:property [
+    rdfs:label "Vervaardigers"@nl ;
+    sh:maxCount 10 ;
+    sh:path image:creator ;
+    sh:order 18.0 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class image:Creator ;
+    sh:group image:physicalDescriptionGroup ;
+  ] ;
+  sh:property [
+    rdfs:label "Datering vervaardiging"@nl ;
+    sh:path image:creationDate ;
+    sh:maxCount 1 ;
+    sh:order 19.0 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class image:CreationDate ;
+    sh:group image:physicalDescriptionGroup ;
+  ] ;
+  sh:property [
+    rdfs:label "Afmetingen"@nl ;
+    sh:path image:dimension ;
+    sh:maxCount 1 ;
+    sh:order 20.0 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class image:Dimension ;
+    sh:group image:physicalDescriptionGroup ;
+  ] ;
+  sh:property [
+    rdfs:label "Geogerefereerd"@nl ;
+    sh:path image:georeferenced ;
+    sh:maxCount 1 ;
+    sh:order 21.0 ;
+    sh:group image:physicalDescriptionGroup ;
+    sh:datatype xsd:boolean ;
+  ] ;
+
+  sh:property [
+    rdfs:label "Herkomst"@nl ;
+    sh:path image:aquisitionOrigin ;
+    sh:maxCount 10 ;
+    sh:order 30.0 ;
+    sh:group image:aquisitionGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/cae01719-c37a-4e31-bd5a-9e063db0bab5> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Persoon/Organisatie"@nl ;
+    sh:path image:aquisitionSource ;
+    sh:maxCount 10 ;
+    sh:order 31.0 ;
+    sh:nodeKind sh:IRI ;
+    sh:group image:aquisitionGroup ;
+    sh:or (
+      [ sh:class recordtypes:Persoon ]
+      [ sh:class recordtypes:Organisatie ]
+    ) ;
+    dash:editor memorix:LinkedRecordEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Datum"@nl ;
+    sh:maxCount 1 ;
+    sh:group image:aquisitionGroup ;
+    sh:path image:aquisitionDate ;
+    sh:order 32.0 ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Opmerking"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:aquisitionNotes ;
+    sh:order 33.0 ;
+    sh:group image:aquisitionGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+
+  sh:property [
+    rdfs:label "Standplaatsnummer"@nl ;
+    sh:path image:identifierCode ;
+    memorix:inSummaryAt 2.0 ;
+    sh:maxCount 10 ;
+    sh:order 40.0 ;
+    sh:group image:managementGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Tentoonstellingen"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:exhibitions ;
+    sh:order 41.0 ;
+    sh:group image:managementGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Digitalisering"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:digitization ;
+    sh:order 42.0 ;
+    sh:group image:managementGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Opmerkingen beheer"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:managementNotes ;
+    sh:order 43.0 ;
+    sh:group image:managementGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+
+.
+
+image:EventDate
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass image:EventDate ;
+  sh:property [
+    rdfs:label "Datum tekstveld"@nl ;
+    sh:path image:eventDateDateText ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Datum van"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:eventDateDateStart ;
+    sh:order 2.0 ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Datum tot"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:eventDateDateEnd ;
+    sh:order 3.0 ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
+.
+
+image:DepictedLocation
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass image:DepictedLocation ;
+  sh:property [
+    rdfs:label "Plaats"@nl ;
+    sh:path image:locationCity ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/026baf4a-c14f-4819-be3e-2301fb6b4a67> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Straat"@nl ;
+    sh:path image:locationStreet ;
+    sh:maxCount 1 ;
+    sh:order 2.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/2540c439-bebf-4ce7-bca9-3c3cba71a6c9> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+      rdfs:label "Huisnummer"@nl ;
+      sh:maxCount 1 ;
+      sh:path image:locationHousenumber ;
+      sh:order 3.0 ;
+      sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+      rdfs:label "Coördinaten"@nl ;
+      sh:path image:locationCoordinates  ;
+      sh:maxCount 10 ;
+      sh:order 4.0 ;
+      sh:datatype xsd:string ;
+      memorix:searchWeight 1.0 ;
+    # TODO dit moet een link naar coordinates
+  ] ;
+.
+
+image:Creator
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass image:Creator ;
+  sh:property [
+    rdfs:label "Vervaardiger"@nl ;
+    sh:path image:creatorCreator ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    sh:nodeKind sh:IRI ;
+    sh:or (
+      [ sh:class recordtypes:Persoon ]
+      [ sh:class recordtypes:Organisatie ]
+    ) ;
+    dash:editor memorix:LinkedRecordEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Rol"@nl ;
+    sh:path image:creatorRole ;
+    sh:maxCount 5 ;
+    sh:order 2.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/3136ddd0-0eb0-4fc9-b78e-5df18be5313f> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+.
+
+image:CreationDate
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass image:CreationDate ;
+  sh:property [
+    rdfs:label "Datum tekstveld"@nl ;
+    sh:path image:creationDateDateText ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Datum van"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:creationDateDateStart ;
+    sh:order 2.0 ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Datum tot"@nl ;
+    sh:maxCount 1 ;
+    sh:path image:creationDateDateEnd ;
+    sh:order 3.0 ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
+.
+
+image:Dimension
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass image:Dimension ;
+  sh:property [
+    rdfs:label "Hoogte"@nl ;
+    sh:path image:dimensionHeight ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Hoogte waarde"@nl ;
+    sh:path image:dimensionHeightUnit ;
+    sh:maxCount 1 ;
+    sh:order 2.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/5fbfb737-54a9-4e55-a9fd-156ccf4d0f5f> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Breedte"@nl ;
+    sh:path image:dimensionWidth ;
+    sh:maxCount 1 ;
+    sh:order 3.0 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Breedte waarde"@nl ;
+    sh:path image:dimensionWidthUnit ;
+    sh:maxCount 1 ;
+    sh:order 4.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/5fbfb737-54a9-4e55-a9fd-156ccf4d0f5f> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+.
+
+image:identificationGroup a sh:PropertyGroup ;
+  rdfs:label "Identificatie"@nl ;
+  sh:order 1.0
+.
+image:contentDescriptionGroup a sh:PropertyGroup ;
+  rdfs:label "Voorstelling"@nl ;
+  sh:order 2.0
+.
+image:physicalDescriptionGroup a sh:PropertyGroup ;
+  rdfs:label "Fysieke beschrijving"@nl ;
+  sh:order 3.0
+.
+image:aquisitionGroup a sh:PropertyGroup ;
+  rdfs:label "Verwerving"@nl ;
+  sh:order 4.0
+.
+image:managementGroup a sh:PropertyGroup ;
+  rdfs:label "Beheer en behoud"@nl ;
+  sh:order 5.0
+.

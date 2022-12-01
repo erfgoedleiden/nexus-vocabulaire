@@ -1,0 +1,645 @@
+@prefix bibliotheek: </resources/recordtypes/Bibliotheek#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+recordtypes:Bibliotheek
+  a memorix:Recordtype, sh:NodeShape ;
+  rdfs:label "Bibliotheek"@nl ;
+  rdfs:comment "Bibliotheek collectie voor Erfgoed Leiden"@nl ;
+  dc:identifier "Bibliotheek" ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass recordtypes:Bibliotheek ;
+  memorix:typeOf        memorix:File ;
+  memorix:hasInformationComponent [ rdf:type  memorix:DepotLocationComponent, memorix:DigitalAssetComponent ] ;
+  dash:defaultViewForRole dash:all ;
+
+  sh:property           [
+    rdfs:label      "Archiefbibliotheek" ;
+    dash:editor     memorix:LinkedRecordEditor ;
+    memorix:typeOf  memorix:FondsFieldLink ;
+    sh:group        bibliotheek:identityGroup ;
+    sh:maxCount     1 ;
+    sh:minCount     1 ;
+    sh:nodeKind     sh:IRI ;
+    sh:or           ( [ sh:class  recordtypes:Archiefbibliotheek ] ) ;
+    sh:order        0.3 ;
+    sh:path         bibliotheek:archiefbibliotheek
+  ] ;
+  sh:property [
+    rdfs:label "Signatuur"@nl ;
+    sh:path bibliotheek:objectnumber ;
+    sh:maxCount 1 ;
+    sh:minCount 1 ;
+    sh:order 1.0 ;
+    memorix:inSummaryAt 1.0 ;
+    sh:group bibliotheek:identityGroup ;
+    memorix:typeOf     memorix:Identifier ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Standplaats"@nl ;
+    sh:path bibliotheek:locationDocument ;
+    sh:maxCount 1 ;
+    sh:order 2.0 ;
+    sh:group bibliotheek:identityGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Documenttype"@nl ;
+    sh:path bibliotheek:documentType ;
+    sh:maxCount 10 ;
+    sh:order 3.0 ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/5f449ae6-01a2-44a3-a5a6-f74dfa587a87> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Titel werkveld"@nl ;
+    sh:path bibliotheek:titleWorkField ;
+    sh:maxCount 1 ;
+    sh:order 4.0 ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Titel"@nl ;
+    sh:path bibliotheek:title ;
+    sh:maxCount 1 ;
+    sh:order 5.0 ;
+    memorix:inTitleAt 1.0 ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Digitale publicatie"@nl ;
+    sh:path bibliotheek:digitalPublication ;
+    sh:maxCount 10 ;
+    sh:order 6.0 ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Auteur"@nl ;
+    sh:maxCount 10 ;
+    sh:path bibliotheek:author ;
+    sh:order 7.0 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class bibliotheek:Author ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+  ] ;
+  sh:property [
+    rdfs:label "Editie"@nl ;
+    sh:path bibliotheek:edition ;
+    sh:maxCount 1 ;
+    sh:order 9.5 ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Plaats van uitgave"@nl ;
+    sh:maxCount 10 ;
+    sh:path bibliotheek:placeOfPublication ;
+    sh:order 8.0 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class bibliotheek:PlaceOfPublication ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+  ] ;
+  sh:property [
+    rdfs:label "Uitgever"@nl ;
+    sh:path bibliotheek:publisher ;
+    sh:order 9.0 ;
+    sh:maxCount 5 ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+    sh:nodeKind sh:IRI ;
+    sh:or (
+      [ sh:class recordtypes:Persoon ]
+      [ sh:class recordtypes:Organisatie ]
+    ) ;
+    dash:editor memorix:LinkedRecordEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Datum van uitgave"@nl ;
+    sh:maxCount 10 ;
+    sh:path bibliotheek:publicationDate ;
+    sh:order 10.0 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class bibliotheek:PublicationDate ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+  ] ;
+  sh:property [
+    rdfs:label "Pagina's"@nl ;
+    sh:path bibliotheek:pages ;
+    sh:maxCount 1 ;
+    sh:order 11.0 ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Geïllustreerd"@nl ;
+    sh:path bibliotheek:illustrated ;
+    sh:maxCount 1 ;
+    sh:order 12.0 ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Serie"@nl ;
+    sh:path bibliotheek:series ;
+    sh:maxCount 1 ;
+    sh:order 13.0 ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/5ca204af-c3c4-42ad-9d18-af483670d8f5> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Annotatie"@nl ;
+    sh:path bibliotheek:annotation ;
+    sh:maxCount 1 ;
+    sh:order 14.0 ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "ISBN"@nl ;
+    sh:path bibliotheek:isbn ;
+    sh:maxCount 1 ;
+    sh:order 15.0 ;
+    sh:group bibliotheek:physicalDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+
+  sh:property [
+    rdfs:label "Korte inhoud"@nl ;
+    sh:path bibliotheek:shortContent ;
+    sh:maxCount 1 ;
+    sh:order 16.0 ;
+    sh:group bibliotheek:contentDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Persoon"@nl ;
+    sh:path bibliotheek:person ;
+    sh:maxCount 100 ;
+    sh:order 17.0 ;
+    sh:group bibliotheek:contentDescriptionGroup ;
+    sh:nodeKind sh:IRI ;
+    sh:or (
+      [ sh:class recordtypes:Persoon ]
+      [ sh:class recordtypes:Organisatie ]
+    ) ;
+    dash:editor memorix:LinkedRecordEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Onderwerp"@nl ;
+    sh:path bibliotheek:keyword ;
+    sh:maxCount 20 ;
+    sh:order 18.0 ;
+    sh:group bibliotheek:contentDescriptionGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/4190de09-7dca-44ce-a9bd-04716cfa70aa> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Opmerking inhoudelijk"@nl ;
+    sh:path bibliotheek:contentNotes ;
+    sh:maxCount 1 ;
+    sh:order 19.0 ;
+    sh:group bibliotheek:contentDescriptionGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Locatie"@nl ;
+    sh:maxCount 10 ;
+    sh:path bibliotheek:location ;
+    sh:order 20.0 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class bibliotheek:Location ;
+    sh:group bibliotheek:contentDescriptionGroup ;
+  ] ;
+
+  sh:property [
+    rdfs:label "Bron"@nl ;
+    sh:maxCount 10 ;
+    sh:path bibliotheek:source ;
+    sh:order 21.0 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class bibliotheek:Source ;
+    sh:group bibliotheek:partOfGroup ;
+  ] ;
+  sh:property [
+    rdfs:label "Jaargang"@nl ;
+    sh:path bibliotheek:year ;
+    sh:maxCount 1 ;
+    sh:order 22.0 ;
+    sh:group bibliotheek:partOfGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Aflevering"@nl ;
+    sh:path bibliotheek:installment ;
+    sh:maxCount 1 ;
+    sh:order 23.0 ;
+    sh:group bibliotheek:partOfGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Deel"@nl ;
+    sh:path bibliotheek:part ;
+    sh:maxCount 1 ;
+    sh:order 24.0 ;
+    sh:group bibliotheek:partOfGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Nummering"@nl ;
+    sh:path bibliotheek:numbering ;
+    sh:maxCount 1 ;
+    sh:order 25.0 ;
+    sh:group bibliotheek:partOfGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Aanwezig"@nl ;
+    sh:path bibliotheek:present ;
+    sh:maxCount 1 ;
+    sh:order 26.0 ;
+    sh:group bibliotheek:partOfGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Ingebonden in"@nl ;
+    sh:path bibliotheek:boundIn ;
+    sh:maxCount 10 ;
+    sh:order 27.0 ;
+    sh:group bibliotheek:partOfGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+
+  sh:property [
+    rdfs:comment  "Bijzonderheid bij deze akte"@nl ;
+    rdfs:label    "Bijzonderheid"@nl ;
+    dash:viewer   dash:DetailsEditor ;
+    sh:class      bibliotheek:Details ;
+    sh:group      bibliotheek:detailsGroup ;
+    sh:maxCount   10 ;
+    sh:nodeKind   sh:BlankNode ;
+    sh:order      8.0 ;
+    sh:path       bibliotheek:details
+  ] ;
+
+  sh:property [
+    rdfs:label "Recordtype"@nl ;
+    sh:path bibliotheek:recordType ;
+    sh:maxCount 1 ;
+    sh:order 28.0 ;
+    sh:group bibliotheek:managementGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/28a07f1f-a398-4d81-b907-a0a356f3429b> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Opmerking beheerder"@nl ;
+    sh:path bibliotheek:managementNotes ;
+    sh:maxCount 1 ;
+    sh:order 29.0 ;
+    sh:group bibliotheek:managementGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Retro"@nl ;
+    sh:path bibliotheek:retro ;
+    sh:maxCount 1 ;
+    sh:order 30.0 ;
+    sh:group bibliotheek:managementGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Aanwinst"@nl ;
+    sh:path bibliotheek:assetDate ;
+    sh:maxCount 1 ;
+    sh:order 31.0 ;
+    sh:group bibliotheek:managementGroup ;
+    sh:datatype xsd:gYear ;
+  ] ;
+  sh:property [
+    rdfs:label "Archief"@nl ;
+    sh:path bibliotheek:archive ;
+    sh:maxCount 1 ;
+    sh:order 32.0 ;
+    sh:group bibliotheek:managementGroup ;
+    sh:datatype xsd:boolean ;
+  ] ;
+  sh:property [
+    rdfs:label "Gecontroleerd"@nl ;
+    sh:path bibliotheek:checked ;
+    sh:maxCount 1 ;
+    sh:order 33.0 ;
+    sh:group bibliotheek:managementGroup ;
+    sh:datatype xsd:boolean ;
+  ] ;
+  sh:property [
+    rdfs:label "Op studiezaal"@nl ;
+    sh:path bibliotheek:studyroom ;
+    sh:maxCount 1 ;
+    sh:order 34.0 ;
+    sh:group bibliotheek:managementGroup ;
+    sh:datatype xsd:boolean ;
+  ] ;
+  sh:property [
+    rdfs:label "Verwerving"@nl ;
+    sh:maxCount 1 ;
+    sh:path bibliotheek:Acquisition ;
+    sh:order 34.0 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class bibliotheek:Acquisition ;
+    sh:group bibliotheek:managementGroup ;
+  ] ;
+.
+
+bibliotheek:Author
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass bibliotheek:Author ;
+  sh:property [
+    rdfs:label "Auteur als in publicatie"@nl ;
+    sh:path bibliotheek:authorAuthorAsNames ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    memorix:inSummaryAt 2.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/304b0173-711b-4670-8045-5d85cb8b24b1> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+
+  sh:property [
+    rdfs:label "Auteur / maker"@nl ;
+    sh:path bibliotheek:authorAuthor ;
+    sh:order 2.0 ;
+    sh:nodeKind sh:IRI ;
+    sh:or (
+      [ sh:class recordtypes:Persoon ]
+      [ sh:class recordtypes:Organisatie ]
+    ) ;
+    dash:editor memorix:LinkedRecordEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Rol"@nl ;
+    sh:path bibliotheek:authorRole ;
+    sh:maxCount 5 ;
+    sh:order 3.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/efcca629-b7ad-4bb0-b9f5-ab88b57cb79c> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+.
+
+bibliotheek:PlaceOfPublication
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass bibliotheek:PlaceOfPublication ;
+  sh:property [
+    rdfs:label "Plaats van uitgave geonames"@nl ;
+    sh:path bibliotheek:placeOfPublicationGeonamesPlace  ;
+    sh:order 2.0 ;
+    sh:datatype xsd:string ;
+    dash:editor dash:TextFieldEditor ;
+    memorix:searchWeight 1.0 ;
+    # TODO dit moet een link naar Geonames worden
+  ] ;
+  sh:property [
+    rdfs:label "Plaats van uitgave als in publicatie"@nl ;
+    sh:path bibliotheek:placeOfPublicationTextPlace ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+.
+
+bibliotheek:PublicationDate
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass bibliotheek:PublicationDate ;
+  sh:property [
+    rdfs:label "Jaar van uitgave"@nl ;
+    sh:path bibliotheek:PublicationDatePublication ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    memorix:inSummaryAt 3.0 ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Jaar van uitgave / datum publicatie (van)"@nl ;
+    sh:path bibliotheek:PublicationDatePublicationStart ;
+    sh:order 2.0 ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Jaar van uitgave / datum publicatie (tot)"@nl ;
+    sh:path bibliotheek:PublicationDatePublicationEnd ;
+    sh:order 3.0 ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
+.
+
+bibliotheek:Location
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass bibliotheek:Location ;
+
+  sh:property [
+    rdfs:label "Regio trefwoord"@nl ;
+    sh:path bibliotheek:locationRegionKeyword ;
+    sh:maxCount 100 ;
+    sh:order 1.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn (
+        </resources/vocabularies/conceptschemes/026baf4a-c14f-4819-be3e-2301fb6b4a67>
+        </resources/vocabularies/conceptschemes/2540c439-bebf-4ce7-bca9-3c3cba71a6c9>
+        </resources/vocabularies/conceptschemes/5e2c373d-3451-3ce6-af6a-cdbc6fba861e> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+      rdfs:label "Werkveld locatie"@nl ;
+      sh:path bibliotheek:locationLocation ;
+      sh:order 2.0 ;
+      sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+      rdfs:label "Coördinaten"@nl ;
+      sh:path bibliotheek:locationCoordinates  ;
+      sh:maxCount 10 ;
+      sh:order 3.0 ;
+      sh:datatype xsd:string ;
+      memorix:searchWeight 1.0 ;
+    # TODO dit moet een link naar coordinates
+  ] ;
+.
+
+bibliotheek:Source
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass bibliotheek:Source ;
+  sh:property [
+    rdfs:label "Bron tekst"@nl ;
+    sh:path bibliotheek:sourceSource ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Bron link"@nl ;
+    sh:path bibliotheek:sourceIsPartOf ;
+    sh:maxCount 5 ;
+    sh:order 2.0 ;
+    sh:nodeKind sh:IRI ;
+    sh:or (
+      [ sh:class recordtypes:Bibliotheek ]
+    ) ;
+    dash:editor memorix:LinkedRecordEditor ;
+  ] ;
+.
+
+bibliotheek:Acquisition
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass bibliotheek:Acquisition ;
+  sh:property [
+    rdfs:label "Herkomst"@nl ;
+    sh:path bibliotheek:acquisitionOrigin ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/0afc54d2-d623-4ab3-9e27-b1ea6d866cc1> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Persoon/Organisatie"@nl ;
+    sh:path bibliotheek:acquisitionSource ;
+    sh:maxCount 10 ;
+    sh:order 2.0 ;
+    sh:nodeKind sh:IRI ;
+    sh:or (
+      [ sh:class recordtypes:Persoon ]
+      [ sh:class recordtypes:Organisatie ]
+    ) ;
+    dash:editor memorix:LinkedRecordEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Verwervingsdatum"@nl ;
+    sh:path bibliotheek:acquisitionDate ;
+    sh:maxCount 1 ;
+    sh:order 3.0 ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Opmerking verwerving"@nl ;
+    sh:path bibliotheek:acquisitionNotes ;
+    sh:maxCount 1 ;
+    sh:order 4.0 ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+.
+bibliotheek:Details
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass bibliotheek:Details ;
+  sh:property [
+    rdfs:label   "Bijzonderheid - Type"@nl ;
+    sh:order     1.0 ;
+    sh:path      bibliotheek:detailType ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/e2f783dd-710d-473a-9515-b97eaa0da52d> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label   "Bijzonderheid"@nl ;
+    sh:datatype  xsd:string ;
+    sh:order     2.0 ;
+    sh:path      bibliotheek:detailDetail
+  ] ;
+.
+
+bibliotheek:identityGroup a sh:PropertyGroup ;
+  rdfs:label "Vindplaats"@nl ;
+  sh:order 1.0
+.
+bibliotheek:physicalDescriptionGroup a sh:PropertyGroup ;
+  rdfs:label "Fysieke beschrijving"@nl ;
+  sh:order 2.0
+.
+bibliotheek:contentDescriptionGroup a sh:PropertyGroup ;
+  rdfs:label "Inhoudelijke beschrijving"@nl ;
+  sh:order 3.0
+.
+bibliotheek:partOfGroup a sh:PropertyGroup ;
+  rdfs:label "Onderdeel van / deel"@nl ;
+  sh:order 4.0
+.
+bibliotheek:detailsGroup a sh:PropertyGroup ;
+  rdfs:label "Bijzonderheden"@nl ;
+  sh:order 4.5
+.
+bibliotheek:managementGroup a sh:PropertyGroup ;
+  rdfs:label "Beheer"@nl ;
+  sh:order 5.0
+.
