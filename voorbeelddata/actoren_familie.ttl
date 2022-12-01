@@ -1,0 +1,43 @@
+@prefix actorFamilie: <https://lei-migrate.memorix.io/resources/recordtypes/ActorFamilie#> .
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix dc:           <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  <https://lei-migrate.memorix.io/resources/recordtypes/> .
+@prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: <https://lei-migrate.memorix.io/resources/vocabularies/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.rkd.nl/artists/478998>
+        rdf:type        skos:Concept ;
+        skos:prefLabel  "Rem, Galerie" .
+
+<https://lei-migrate.memorix.io/resources/records/0108b061-d666-1aed-c950-c8e7342e5a15>
+        rdf:type  recordtypes:ActorPersoon .
+
+<https://lei-migrate.memorix.io/resources/records/0108b061-d666-1aed-c950-c8e7342e5a15/context>
+        rdf:type           memorix:Context ;
+        memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/0108b061-d666-1aed-c950-c8e7342e5a15> ;
+        dcterms:title      "Erik Hengsdijk (teamchef PHM)" .
+
+<https://lei-migrate.memorix.io/resources/records/0e6fc06e-be8a-34e1-b149-4fd5594d6ad3>
+        rdf:type                    memorix:Record , recordtypes:ActorFamilie ;
+        actorFamilie:address        "kerklaan 1" ;
+        actorFamilie:city           "test" ;
+        actorFamilie:contactPerson  <https://lei-migrate.memorix.io/resources/records/0108b061-d666-1aed-c950-c8e7342e5a15> ;
+        actorFamilie:country        "test" ;
+        actorFamilie:email          "test" ;
+        actorFamilie:identifier     "1990" ;
+        actorFamilie:name           "Familie Tydeman" ;
+        actorFamilie:notes          "Periode: 1646 - 1958" ;
+        actorFamilie:phone          "0123153" ;
+        actorFamilie:rulesAndConventions
+                "test" ;
+        actorFamilie:sameAs         <https://data.rkd.nl/artists/478998> ;
+        actorFamilie:website        "test" ;
+        actorFamilie:zipcode        "1234 ab" .
