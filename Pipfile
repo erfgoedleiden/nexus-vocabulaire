@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 pyshacl = "*"
+rdflib = "*"
 
 [dev-packages]
 
