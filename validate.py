@@ -7,8 +7,8 @@ import rdflib
 
 
 def main() -> int:
-    check_links()
     shacl_validate()
+    check_links()
 
     return 0
 
