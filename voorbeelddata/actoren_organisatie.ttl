@@ -1,0 +1,49 @@
+@prefix actorOrganisatie: <https://lei-migrate.memorix.io/resources/recordtypes/ActorOrganisatie#> .
+@prefix dash:             <http://datashapes.org/dash#> .
+@prefix dc:               <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:          <http://purl.org/dc/terms/> .
+@prefix html:             <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:          <http://memorix.io/ontology#> .
+@prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:      <https://lei-migrate.memorix.io/resources/recordtypes/> .
+@prefix schema:           <http://schema.org/> .
+@prefix sh:               <http://www.w3.org/ns/shacl#> .
+@prefix skos:             <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies:     <https://lei-migrate.memorix.io/resources/vocabularies/> .
+@prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.bibliotheken.nl/id/thes/p06757615X>
+        rdf:type        skos:Concept ;
+        skos:prefLabel  "Winkel, Christiaan te (1942-)" .
+
+<https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f>
+        rdf:type  recordtypes:ActorPersoon .
+
+<https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f/context>
+        rdf:type           memorix:Context ;
+        memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f> ;
+        dcterms:title      "Ferenc Schneiders" .
+
+<https://lei-migrate.memorix.io/resources/records/087d1c6d-e859-3a38-afa0-c3d9c6d29d51>
+        rdf:type                        memorix:Record , recordtypes:ActorOrganisatie ;
+        actorOrganisatie:address        "test" ;
+        actorOrganisatie:city           "test" ;
+        actorOrganisatie:contactPerson  <https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f> ;
+        actorOrganisatie:country        "test" ;
+        actorOrganisatie:date           [ rdf:type                    actorOrganisatie:Date ;
+                                          actorOrganisatie:endDate    19990000 ;
+                                          actorOrganisatie:period     "1986 - 1999" ;
+                                          actorOrganisatie:startDate  19860000
+                                        ] ;
+        actorOrganisatie:email          "test" ;
+        actorOrganisatie:functions      "test" ;
+        actorOrganisatie:identifier     "2843" ;
+        actorOrganisatie:name           "IJssportvereniging Leiden" ;
+        actorOrganisatie:notes          "test" ;
+        actorOrganisatie:phone          "test" ;
+        actorOrganisatie:rulesAndConventions
+                "test" ;
+        actorOrganisatie:sameAs         <http://data.bibliotheken.nl/id/thes/p06757615X> ;
+        actorOrganisatie:website        "test" ;
+        actorOrganisatie:zipcode        "test" .
