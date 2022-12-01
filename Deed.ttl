@@ -1,0 +1,273 @@
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix dc:           <http://purl.org/dc/elements/1.1/> .
+@prefix deed:         </resources/recordtypes/Deed#> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix owl:          <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  </resources/recordtypes/> .
+@prefix ric-dft:      <https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#> .
+@prefix ric-rst:      <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#> .
+@prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+
+deed:detailsGroup  rdf:type  sh:PropertyGroup ;
+    rdfs:label  "Bijzonderheden"@nl ;
+    sh:order    5.0 .
+
+deed:personsGroup  rdf:type  sh:PropertyGroup ;
+    rdfs:label  "Personen"@nl ;
+    sh:order    3.0 .
+
+deed:remarksGroup  rdf:type  sh:PropertyGroup ;
+    rdfs:label  "Opmerkingen"@nl ;
+    sh:order    6.0 .
+
+deed:locationsGroup  rdf:type  sh:PropertyGroup ;
+    rdfs:label  "Locaties"@nl ;
+    sh:order    2.0 .
+
+deed:deedGroup  rdf:type  sh:PropertyGroup ;
+    rdfs:label  "Akte"@nl ;
+    sh:order    1.0 .
+
+recordtypes:Deed  rdf:type       sh:NodeShape , memorix:Recordtype ;
+    rdfs:comment             "Standaard Recordtype voor Aktes"@nl ;
+    rdfs:label               "Akte"@nl ;
+    dash:defaultViewForRole  dash:all ;
+    dc:identifier            "Deed" ;
+    owl:equivalentClass      rico:Record ;
+    memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
+    sh:closed                true ;
+    sh:ignoredProperties     ( rdf:type ) ;
+    sh:targetClass        recordtypes:Deed ;
+    sh:property              [
+    rdfs:label   "Titel"@nl ;
+    sh:datatype  xsd:string ;
+    sh:maxCount  1 ;
+    sh:group deed:deedGroup ;
+    sh:order     0.4 ;
+    sh:path      deed:title
+    ] ;
+    sh:property              [
+        rdfs:label   "Registernaam"@nl ;
+        sh:datatype  xsd:string ;
+        memorix:inTitleAt  2.0 ;
+        sh:maxCount  1 ;
+        sh:group deed:deedGroup ;
+        sh:order     0.6 ;
+        sh:path      deed:registry
+    ] ;
+
+    sh:property [
+        rdfs:label "Archief bestanddeel"@nl ;
+        sh:path deed:archive ;
+        sh:order 8.0 ;
+        sh:nodeKind sh:IRI ;
+        sh:group deed:deedGroup ;
+        sh:or (
+            [ sh:class recordtypes:Bestanddeel ]
+        ) ;
+        dash:editor memorix:LinkedRecordEditor ;
+    ] ;
+    sh:property              [
+        rdfs:label   "Opmerkingen openbaar"@nl ;
+        dash:editor  dash:TextAreaEditor ;
+        sh:datatype  xsd:string ;
+        sh:group     deed:remarksGroup ;
+        sh:maxCount  1 ;
+        sh:order     10.0 ;
+        sh:path      deed:publicNotes
+    ] ;
+    sh:property              [
+        rdfs:label   "Opmerkingen intern"@nl ;
+        dash:editor  dash:TextAreaEditor ;
+        sh:datatype  xsd:string ;
+        sh:group     deed:remarksGroup ;
+        sh:maxCount  1 ;
+        sh:order     10.5 ;
+        sh:path      deed:internalNotes
+    ] ;
+    sh:property              [
+        rdfs:label   "Gebeurtenis" ;
+        dash:viewer  dash:DetailsEditor ;
+        sh:class     deed:Event ;
+        sh:group     deed:deedGroup ;
+        sh:maxCount  10 ;
+        sh:nodeKind  sh:BlankNode ;
+        sh:order     2.0 ;
+        sh:path      rico:isAssociatedWithEvent
+    ] ;
+    sh:property              [
+        rdfs:comment  "Locaties die voorkomen op de akte"@nl ;
+        rdfs:label    "Locatie"@nl ;
+        dash:viewer   dash:DetailsEditor ;
+        sh:class      deed:Location ;
+        sh:group      deed:locationsGroup ;
+        sh:maxCount   999 ;
+        sh:nodeKind   sh:BlankNode ;
+        sh:order      6.0 ;
+        sh:path       deed:location
+    ] ;
+    sh:property              [
+        rdfs:comment  "Persoon die voorkomt op de akte en zijn rol"@nl ;
+        rdfs:label    "Persoon"@nl ;
+        dash:viewer   dash:DetailsEditor ;
+        sh:class      deed:Person ;
+        sh:group      deed:personsGroup ;
+        sh:maxCount   999 ;
+        sh:nodeKind   sh:BlankNode ;
+        sh:order      5.0 ;
+        sh:path       rico:hasOrHadSubject
+    ] ;
+    sh:property              [
+        rdfs:label           "Akte - Type"@nl ;
+        memorix:inTitleAt  1.0 ;
+
+        dash:editor memorix:VocabularyEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( vocabularies:636f4239-6069-46ab-b8ce-cda56ab489d1 ) ;
+        sh:nodeKind sh:IRI ;
+        sh:group             deed:deedGroup ;
+        sh:maxCount          1 ;
+        sh:order             1.0 ;
+        sh:path              rico:hasDocumentaryFormType
+    ] ;
+    sh:property              [
+        rdfs:label           "Datum registratie"@nl ;
+        dash:editor  memorix:DateEditor ;
+        memorix:inSummaryAt  1.0 ;
+        sh:maxCount  1 ;
+        sh:datatype  xsd:integer ;
+        sh:group             deed:deedGroup ;
+        sh:order             1.3 ;
+        sh:path              deed:deedDate
+    ] ;
+    sh:property              [
+        rdfs:label           "Aktenummer"@nl ;
+        sh:maxCount  1 ;
+        sh:datatype          xsd:string ;
+        sh:group             deed:deedGroup ;
+        sh:order             1.5 ;
+        sh:path              deed:deedNumber
+    ] ;
+    sh:property              [
+        rdfs:label           "Pagina"@nl ;
+        sh:maxCount  1 ;
+        sh:datatype          xsd:string ;
+        sh:group             deed:deedGroup ;
+        sh:order             1.6 ;
+        sh:path              deed:page
+    ] ;
+    sh:property              [
+        rdfs:comment  "Bijzonderheid bij deze akte"@nl ;
+        rdfs:label    "Bijzonderheid"@nl ;
+        dash:viewer   dash:DetailsEditor ;
+        sh:class      deed:Details ;
+        sh:group      deed:detailsGroup ;
+        sh:maxCount   10 ;
+        sh:nodeKind   sh:BlankNode ;
+        sh:order      8.0 ;
+        sh:path       deed:details
+    ] ;
+    sh:targetClass           recordtypes:Deed .
+
+deed:Location  rdf:type       sh:NodeShape ;
+    sh:closed             true ;
+    sh:ignoredProperties  ( rdf:type ) ;
+    sh:property           [
+        rdfs:label   "Locatie - Type"@nl ;
+        sh:order     1.0 ;
+        sh:path      deed:locationType ;
+        sh:maxCount  1 ;
+        dash:editor memorix:VocabularyEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( vocabularies:42cfec07-894f-4e72-a80d-1418f5ecc324 ) ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property           [
+        rdfs:label   "Plaats"@nl ;
+        sh:order     2.0 ;
+        sh:path      deed:locationCity ;
+        sh:maxCount  1 ;
+        dash:editor memorix:VocabularyEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( vocabularies:889f909b-1057-46ed-bce6-104570ab939f ) ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property           [
+        rdfs:label   "Opmerking bij locatie"@nl ;
+        sh:maxCount  1 ;
+        dash:editor  dash:TextAreaEditor ;
+        sh:datatype  xsd:string ;
+        sh:order     5.0 ;
+        sh:path      deed:locationRemark
+    ] ;
+    sh:targetClass        deed:Location .
+
+deed:Person  rdf:type         sh:NodeShape ;
+    sh:closed             true ;
+    sh:ignoredProperties  ( rdf:type ) ;
+    sh:property           [
+        rdfs:label   "Persoonsvermelding"@nl ;
+        sh:maxCount  1 ;
+        dash:editor  memorix:LinkedRecordEditor ;
+        sh:nodeKind  sh:IRI ;
+        sh:or        ( [ sh:class  recordtypes:Persoonsvermelding ] ) ;
+        sh:order     2.0 ;
+        sh:path      deed:personObservation
+    ] ;
+    sh:targetClass        deed:Person .
+
+deed:Details  rdf:type        sh:NodeShape ;
+    sh:closed             true ;
+    sh:ignoredProperties  ( rdf:type ) ;
+    sh:property           [
+        rdfs:label   "Bijzonderheid - Type"@nl ;
+        sh:maxCount  1 ;
+        sh:order     1.0 ;
+        sh:path      deed:detailType ;
+        dash:editor memorix:VocabularyEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( vocabularies:e2f783dd-710d-473a-9515-b97eaa0da52d ) ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property           [
+        rdfs:label   "Bijzonderheid"@nl ;
+        sh:maxCount  1 ;
+        sh:datatype  xsd:string ;
+        sh:order     2.0 ;
+        sh:path      deed:detailDetail
+    ] ;
+    sh:targetClass        deed:Details .
+
+
+
+
+deed:Event  rdf:type          sh:NodeShape ;
+    sh:closed             true ;
+    sh:ignoredProperties  ( rdf:type ) ;
+    sh:property           [
+        rdfs:label         "Gebeurtenis - Type"@nl ;
+        sh:maxCount  1 ;
+        dash:editor memorix:VocabularyEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( vocabularies:2dff6cc5-1e18-4640-ae32-79c9c8cd0dd7 ) ;
+        sh:nodeKind sh:IRI ;
+        sh:order           1.0 ;
+        sh:path            rico:hasEventType
+    ] ;
+    sh:property           [
+        rdfs:label   "Datum gebeurtenis"@nl ;
+        dash:editor  memorix:DateEditor ;
+        sh:datatype  xsd:integer ;
+        sh:group     deed:deedGroup ;
+        sh:maxCount  1 ;
+        sh:order     3.0 ;
+        sh:path      deed:hasDate
+    ] ;
+    sh:targetClass        deed:Event .

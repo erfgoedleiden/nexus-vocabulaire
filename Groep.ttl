@@ -1,0 +1,202 @@
+@prefix groep: </resources/recordtypes/Groep#> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+@prefix rico:            <https://www.ica.org/standards/RiC/ontology#> .
+
+
+groep:identificationGroup a sh:PropertyGroup ;
+    rdfs:label "Identificatie"@nl ;
+    sh:order 1.0
+.
+groep:descriptionGroup a sh:PropertyGroup ;
+    rdfs:label "Beschrijving"@nl ;
+    sh:order 2.0
+.
+groep:notesGroup a sh:PropertyGroup ;
+    rdfs:label "Opmerkingen"@nl ;
+    sh:order 3.0
+.
+
+recordtypes:Groep
+    a memorix:Recordtype, sh:NodeShape ;
+    rdfs:label "Groep"@nl ;
+    rdfs:comment "Groep - Erfgoed Leiden"@nl ;
+    dc:identifier "Groep" ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass recordtypes:Groep ;
+    rdfs:subClassOf                 rico:RecordSet ;
+    dash:defaultViewForRole dash:all ;
+    memorix:hasInformationComponent
+    [ rdf:type               memorix:TreePathComponent ;
+      memorix:hasRecordtype  recordtypes:Archiefblok, recordtypes:Groep ;
+    ] ;
+    sh:property [
+        rdfs:label   "Bereik"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype  xsd:string ;
+        sh:group     groep:identificationGroup ;
+        sh:order     1.0 ;
+        sh:path      groep:range ;
+    ] ;
+    sh:property [
+        rdfs:label   "Sorteervolgorde"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype  xsd:integer ;
+        sh:group     groep:identificationGroup ;
+        sh:order     2.0 ;
+        sh:path      groep:order ;
+    ] ;
+    sh:property [
+        rdfs:label   "Titel"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype  xsd:string ;
+        sh:group     groep:identificationGroup ;
+        memorix:inTitleAt 2.0 ;
+        sh:order     4.0 ;
+        sh:path      rico:title ;
+    ] ;
+    sh:property [
+        rdfs:label "Bereik en inhoud"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:group groep:descriptionGroup ;
+        sh:order    5.0 ;
+        sh:path rico:scopeAndContent ;
+        dash:editor  dash:TextAreaEditor ;
+    ] ;
+
+    sh:property [
+        rdfs:label "Datering van groep"@nl ;
+        sh:maxCount 1 ;
+        sh:path rico:isAssociatedWithDate ;
+        memorix:inTitleAt 3.0 ;
+        sh:order 6.0 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class rico:DateRange ;
+        sh:group groep:descriptionGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Fysieke beschrijving"@nl ;
+        sh:maxCount 100 ;
+        sh:path rico:physicalOrLogicalExtent ;
+        sh:order 7.0 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class rico:PhysicalOrLogicalExtent ;
+        sh:group groep:descriptionGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Opmerkingen openbaar"@nl ;
+        sh:maxCount 1 ;
+        sh:path groep:notesPublic ;
+        sh:order 8.0 ;
+        sh:datatype xsd:string ;
+        dash:editor  dash:TextAreaEditor ;
+        sh:group groep:notesGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Opmerkingen intern"@nl ;
+        sh:maxCount 100 ;
+        sh:path groep:notes ;
+        sh:order 9.0 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class groep:Notes ;
+        sh:group groep:notesGroup ;
+    ] ;
+.
+
+rico:DateRange
+    rdf:type             sh:NodeShape ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [
+        rdfs:label   "Periode"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype  xsd:string ;
+        sh:order     5.0 ;
+        sh:path      rico:expressedDate ;
+    ] ;
+    sh:property [
+        rdfs:label   "Periode (van)"@nl ;
+        sh:maxCount 1 ;
+        dash:editor  memorix:DateEditor ;
+        sh:datatype  xsd:gYear ;
+        sh:order     6.0 ;
+        sh:path      rico:hasBeginningDate ;
+    ] ;
+    sh:property [
+        rdfs:label   "Periode (tot)"@nl ;
+        sh:maxCount 1 ;
+        dash:editor  memorix:DateEditor ;
+        sh:datatype  xsd:gYear ;
+        sh:order     7.0 ;
+        sh:path      rico:hasEndDate ;
+    ] ;
+    sh:targetClass       rico:DateRange ;
+.
+rico:PhysicalOrLogicalExtent
+    a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass rico:PhysicalOrLogicalExtent ;
+    sh:property [
+        rdfs:label   "Aantal"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype  xsd:integer ;
+        sh:order     1.0 ;
+        sh:path      groep:physicalDescriptionCount ;
+    ] ;
+    sh:property [
+        rdfs:label "Fysieke eenheid"@nl ;
+        sh:maxCount 1 ;
+        sh:path groep:physicalDescriptionUnit ;
+        sh:order 2.0 ;
+        dash:editor memorix:VocabularyEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( vocabularies:eacb36c5-fb34-385e-98c4-9c82e1857a6b ) ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+.
+
+groep:Notes
+    a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass groep:Notes ;
+    sh:property [
+        rdfs:label   "Datering"@nl ;
+        sh:maxCount 1 ;
+        dash:editor  memorix:DateEditor ;
+        sh:datatype  xsd:integer ;
+        sh:order     1.0 ;
+        sh:path      groep:notesDate ;
+    ] ;
+    sh:property [
+        rdfs:label "Gebruiker"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:order    2.0 ;
+        sh:path groep:notesUser ;
+    ] ;
+    sh:property [
+        rdfs:label "Opmerkingen intern"@nl ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:string ;
+        sh:order    3.0 ;
+        sh:path groep:notesInternal ;
+        dash:editor  dash:TextAreaEditor ;
+    ] ;
+    .

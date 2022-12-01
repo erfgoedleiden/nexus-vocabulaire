@@ -1,0 +1,153 @@
+@prefix erfgoedregisterAdres: </resources/recordtypes/ErfgoedregisterAdres#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+recordtypes:ErfgoedregisterAdres
+  a memorix:Recordtype, sh:NodeShape ;
+  rdfs:label "Adres"@nl ;
+  rdfs:comment "Erfgoedregister - Adressen van Erfgoed Leiden"@nl ;
+  dc:identifier "ErfgoedregisterAdres" ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass recordtypes:ErfgoedregisterAdres ;
+  dash:defaultViewForRole dash:all ;
+  sh:property [
+    rdfs:label "Adres ID"@nl ;
+    sh:path erfgoedregisterAdres:addressId ;
+    memorix:inTitleAt 9.0 ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Straat"@nl ;
+    memorix:inTitleAt 2.0 ;
+    sh:path erfgoedregisterAdres:street ;
+    sh:maxCount 1 ;
+    sh:order 2.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Huisnummer"@nl ;
+    sh:path erfgoedregisterAdres:houseNumber ;
+    memorix:inTitleAt 3.0 ;
+    sh:maxCount 1 ;
+    sh:order 3.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    sh:datatype xsd:integer ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Huisletter"@nl ;
+    sh:path erfgoedregisterAdres:houseLetter ;
+    memorix:inTitleAt 4.0 ;
+    sh:maxCount 1 ;
+    sh:order 4.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Toevoeging"@nl ;
+    sh:path erfgoedregisterAdres:houseAddition ;
+    memorix:inTitleAt 5.0 ;
+    sh:maxCount 1 ;
+    sh:order 5.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Postcode"@nl ;
+    sh:path erfgoedregisterAdres:zipcode ;
+    sh:maxCount 1 ;
+    sh:order 6.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Gemeente"@nl ;
+    sh:path erfgoedregisterAdres:municipality ;
+    sh:maxCount 1 ;
+    sh:order 7.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Stadsdeel"@nl ;
+    sh:path erfgoedregisterAdres:district ;
+    sh:maxCount 1 ;
+    sh:order 8.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/603ea3e8-81f9-4b32-b9a6-1e9d3f16f7e7> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Buurt"@nl ;
+    sh:path erfgoedregisterAdres:neighbourhood ;
+    sh:maxCount 1 ;
+    sh:order 9.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/6366587f-e155-4a87-a4a7-28113eaa7206> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "X"@nl ;
+    sh:path erfgoedregisterAdres:xCoordinate ;
+    sh:maxCount 1 ;
+    sh:order 10.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Y"@nl ;
+    sh:path erfgoedregisterAdres:yCoordinate ;
+    sh:maxCount 1 ;
+    sh:order 11.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Datum ingang"@nl ;
+    sh:path erfgoedregisterAdres:dateStart ;
+    sh:order 12.0 ;
+    memorix:inSummaryAt 1.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Datum einde"@nl ;
+    sh:path erfgoedregisterAdres:dateEnd ;
+    memorix:inSummaryAt 2.0 ;
+    sh:order 14.0 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
+.
+erfgoedregisterAdres:addressGroup a sh:PropertyGroup ;
+  rdfs:label "Adres"@nl ;
+  sh:order 1.0
+.
