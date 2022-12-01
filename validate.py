@@ -48,7 +48,7 @@ def check_links() -> None:
                     try:
                         urlopen(triple_part).read()
                     except HTTPError as e:
-                        f'{triple_part} could not be resolved: {e}'
+                        print(f'{triple_part} could not be resolved: {e}')
                         raise
 
 
