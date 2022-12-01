@@ -1,0 +1,54 @@
+@prefix actorPersoon: <https://lei-migrate.memorix.io/resources/recordtypes/ActorPersoon#> .
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix dc:           <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  <https://lei-migrate.memorix.io/resources/recordtypes/> .
+@prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: <https://lei-migrate.memorix.io/resources/vocabularies/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+
+<http://data.bibliotheken.nl/id/thes/p06757615X>
+        rdf:type        skos:Concept ;
+        skos:prefLabel  "Winkel, Christiaan te (1942-)" .
+
+<https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f>
+        rdf:type  recordtypes:ActorPersoon .
+
+<https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f/context>
+        rdf:type           memorix:Context ;
+        memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f> ;
+        dcterms:title      "Ferenc Schneiders" .
+
+<https://lei-migrate.memorix.io/resources/records/0393d91a-824d-c1aa-2252-fc1718eff917>
+        rdf:type                    recordtypes:ActorPersoon , memorix:Record ;
+        actorPersoon:address        "test" ;
+        actorPersoon:city           "test" ;
+        actorPersoon:contactPerson  <https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f> ;
+        actorPersoon:country        "test" ;
+        actorPersoon:date           [ rdf:type                actorPersoon:Date ;
+                                      actorPersoon:birthDate  10101 ;
+                                      actorPersoon:deathDate  10101 ;
+                                      actorPersoon:period     "test"
+                                    ] ;
+        actorPersoon:email          "test" ;
+        actorPersoon:functions      "test" ;
+        actorPersoon:identifier     "1" ;
+        actorPersoon:name           [ rdf:type                     actorPersoon:Name ;
+                                      actorPersoon:authorizedName  "J.W. van Rooden (Monumenten Leiden)" ;
+                                      actorPersoon:firstName       "test" ;
+                                      actorPersoon:lastName        "test" ;
+                                      actorPersoon:surnamePrefix   "test"
+                                    ] ;
+        actorPersoon:notes          "test" ;
+        actorPersoon:phone          "123" ;
+        actorPersoon:rulesAndConventions
+                "test" ;
+        actorPersoon:sameAs         <http://data.bibliotheken.nl/id/thes/p06757615X> ;
+        actorPersoon:website        "test" ;
+        actorPersoon:zipcode        "test" .
