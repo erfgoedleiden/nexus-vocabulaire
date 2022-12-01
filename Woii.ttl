@@ -1,0 +1,166 @@
+@prefix woII: </resources/recordtypes/Woii#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+recordtypes:Woii
+  a memorix:Recordtype, sh:NodeShape ;
+  rdfs:label "WOII"@nl ;
+  rdfs:comment "WOII collectie van Erfgoed Leiden"@nl ;
+  dc:identifier "Woii" ;
+  sh:closed true ;
+  memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass recordtypes:Woii ;
+  dash:defaultViewForRole dash:all ;
+  sh:property [
+    rdfs:label "Formaat hxb"@nl ;
+    sh:path woII:size ;
+    sh:order 1.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Objectnummer"@nl ;
+    sh:path woII:objectNumber ;
+    sh:order 2.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Instelling"@nl ;
+    sh:path woII:institution ;
+    sh:order 3.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Thema"@nl ;
+    sh:path woII:theme ;
+    sh:maxCount 1 ;
+    sh:order 4.0 ;
+    memorix:inTitleAt 3.0 ;
+    sh:group woII:identificationGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/f4feee18-e6d5-4add-9860-b5904c607ad4> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Collectie"@nl ;
+    sh:path woII:collection ;
+    sh:maxCount 1 ;
+    sh:order 4.5 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Signatuur"@nl ;
+    sh:path woII:signature ;
+    memorix:inTitleAt 2.0 ;
+    sh:order 5.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Soort document"@nl ;
+    memorix:inTitleAt 1.0 ;
+    sh:path woII:documentType ;
+    sh:maxCount 100 ;
+    sh:order 6.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Beschrijving"@nl ;
+    sh:path woII:description ;
+    sh:maxCount 100 ;
+    sh:order 7.0 ;
+    memorix:inSummaryAt 1.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Herkomst"@nl ;
+    sh:path woII:origin ;
+    sh:maxCount 100 ;
+    sh:order 8.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Aantal exemplaren"@nl ;
+    sh:path woII:numberOfCopies ;
+    sh:order 9.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Datum begin"@nl ;
+    sh:path woII:dateStart ;
+    dash:editor  memorix:DateEditor ;
+    sh:datatype  xsd:integer ;
+    sh:order 10.0 ;
+    sh:group woII:identificationGroup ;
+  ] ;
+  sh:property [
+    rdfs:label "Datum einde"@nl ;
+    sh:path woII:dateEnd ;
+    dash:editor  memorix:DateEditor ;
+    sh:datatype  xsd:integer ;
+    sh:order 11.0 ;
+    sh:group woII:identificationGroup ;
+  ] ;
+  sh:property [
+    rdfs:label "Bijzonderheden"@nl ;
+    sh:path woII:details ;
+    sh:maxCount 100 ;
+    sh:order 13.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Persoon"@nl ;
+    sh:path woII:person ;
+    sh:maxCount 999 ;
+    sh:order 14.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Schuilnaam"@nl ;
+    sh:path woII:pseudonym ;
+    sh:maxCount 100 ;
+    sh:order 15.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Geboortejaar"@nl ;
+    sh:path woII:birthDate ;
+    sh:order 16.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Vragen"@nl ;
+    sh:path woII:questions ;
+    sh:order 17.0 ;
+    sh:group woII:identificationGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+.
+
+woII:identificationGroup a sh:PropertyGroup ;
+  rdfs:label "Identificatie"@nl ;
+  sh:order 1.0
+.

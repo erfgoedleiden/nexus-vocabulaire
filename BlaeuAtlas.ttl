@@ -1,0 +1,37 @@
+@prefix blaeuAtlas: </resources/recordtypes/BlaeuAtlas#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+recordtypes:BlaeuAtlas
+  a memorix:Recordtype, sh:NodeShape ;
+  rdfs:label "Blaeu Atlas"@nl ;
+  rdfs:comment "Blaeu Atlas van Erfgoed Leiden"@nl ;
+  dc:identifier "BlaeuAtlas" ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
+  sh:targetClass recordtypes:BlaeuAtlas ;
+  dash:defaultViewForRole dash:all ;
+  sh:property [
+    rdfs:label "Titel"@nl ;
+    sh:path blaeuAtlas:title ;
+    memorix:inTitleAt 1.0 ;
+    sh:order 1.0 ;
+    sh:group blaeuAtlas:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+.
+
+blaeuAtlas:identificationGroup a sh:PropertyGroup ;
+  rdfs:label "Identificatie"@nl ;
+  sh:order 1.0
+.

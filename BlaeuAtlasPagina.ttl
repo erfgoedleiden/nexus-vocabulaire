@@ -1,0 +1,97 @@
+@prefix blaeuAtlasPagina: </resources/recordtypes/BlaeuAtlasPagina#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+recordtypes:BlaeuAtlasPagina
+  a memorix:Recordtype, sh:NodeShape ;
+  rdfs:label "Blaeu Atlas pagina's"@nl ;
+  rdfs:comment "Blaeu Atlas pagina's van Erfgoed Leiden"@nl ;
+  dc:identifier "BlaeuAtlasPagina" ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass recordtypes:BlaeuAtlasPagina ;
+  memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
+  dash:defaultViewForRole dash:all ;
+  memorix:hasInformationComponent
+    [ rdf:type               memorix:TreePathComponent ;
+      memorix:hasRecordtype  recordtypes:BlaeuAtlas
+    ] ;
+  sh:property [
+    rdfs:label "Bestandsnaam"@nl ;
+    sh:path blaeuAtlasPagina:filename ;
+    memorix:inSummaryAt 1.0 ;
+    sh:order 1.0 ;
+    sh:group blaeuAtlasPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Beschrijving"@nl ;
+    sh:path blaeuAtlasPagina:description ;
+    sh:order 2.0 ;
+    memorix:inTitleAt 1.0 ;
+    sh:group blaeuAtlasPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Werelddeel"@nl ;
+    sh:path blaeuAtlasPagina:continent ;
+    sh:order 3.0 ;
+    sh:maxCount 100 ;
+    sh:group blaeuAtlasPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Land"@nl ;
+    sh:path blaeuAtlasPagina:country ;
+    sh:order 4.0 ;
+    sh:maxCount 100 ;
+    sh:group blaeuAtlasPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Landstreek"@nl ;
+    sh:path blaeuAtlasPagina:region ;
+    sh:order 5.0 ;
+    sh:maxCount 100 ;
+    sh:group blaeuAtlasPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Plaats"@nl ;
+    sh:path blaeuAtlasPagina:city ;
+    sh:order 6.0 ;
+    sh:maxCount 100 ;
+    sh:group blaeuAtlasPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Type pagina"@nl ;
+    sh:path blaeuAtlasPagina:pageType ;
+    sh:order 7.0 ;
+    sh:maxCount 100 ;
+    sh:group blaeuAtlasPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Volgnummer"@nl ;
+    sh:path blaeuAtlasPagina:serialNumber ;
+    sh:order 8.0 ;
+    sh:group blaeuAtlasPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+.
+
+blaeuAtlasPagina:identificationGroup a sh:PropertyGroup ;
+  rdfs:label "Identificatie"@nl ;
+  sh:order 1.0
+.

@@ -1,0 +1,92 @@
+@prefix koorboekPagina: </resources/recordtypes/KoorboekPagina#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+recordtypes:KoorboekPagina
+  a memorix:Recordtype, sh:NodeShape ;
+  rdfs:label "Koorboek pagina's"@nl ;
+  rdfs:comment "Koorboek pagina's van Erfgoed Leiden"@nl ;
+  dc:identifier "KoorboekPagina" ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass recordtypes:KoorboekPagina ;
+  memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
+  dash:defaultViewForRole dash:all ;
+  sh:property [
+    rdfs:label "Koorboek"@nl ;
+    sh:path koorboekPagina:book ;
+    sh:order 0.5 ;
+    memorix:inTitleAt 1 ;
+    sh:nodeKind sh:IRI ;
+    sh:group koorboekPagina:identificationGroup ;
+    sh:or (
+     [ sh:class recordtypes:Koorboek ]
+    ) ;
+    dash:editor memorix:LinkedRecordEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Titel"@nl ;
+    sh:path koorboekPagina:title ;
+    memorix:inTitleAt 2 ;
+    sh:maxCount 100 ;
+    sh:order 1.0 ;
+    sh:group koorboekPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Bestandsnaam"@nl ;
+    sh:path koorboekPagina:filename ;
+    sh:order 2.0 ;
+    sh:group koorboekPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Folio"@nl ;
+    sh:path koorboekPagina:folio ;
+    memorix:inSummaryAt 1 ;
+    sh:order 4.0 ;
+    sh:group koorboekPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Componist"@nl ;
+    sh:path koorboekPagina:composer;
+    memorix:inTitleAt 3 ;
+    sh:order 5.0 ;
+    sh:group koorboekPagina:identificationGroup ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/6fb8c7a0-15a6-3974-aa6b-61f8656bcd28> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
+  sh:property [
+    rdfs:label "Bijzonderheden"@nl ;
+    sh:path koorboekPagina:notes ;
+    sh:order 6.0 ;
+    sh:group koorboekPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Volgnummer"@nl ;
+    sh:path koorboekPagina:serialNumber ;
+    memorix:inSummaryAt 2 ;
+    sh:order 7.0 ;
+    sh:group koorboekPagina:identificationGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+.
+
+koorboekPagina:identificationGroup a sh:PropertyGroup ;
+  rdfs:label "Identificatie"@nl ;
+  sh:order 1.0
+.

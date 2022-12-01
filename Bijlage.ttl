@@ -1,0 +1,112 @@
+@prefix bijlage: </resources/recordtypes/Bijlage#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+
+bijlage:attacementGroup a sh:PropertyGroup ;
+    rdfs:label "Bijlagen"@nl ;
+    sh:order 1.0
+.
+bijlage:listGroup a sh:PropertyGroup ;
+    rdfs:label "Lijst"@nl ;
+    sh:order 2.0
+.
+
+recordtypes:Bijlage
+    a memorix:Recordtype, sh:NodeShape ;
+    rdfs:label "Bijlagen"@nl ;
+    rdfs:comment "Archief bijlagen - Erfgoed Leiden"@nl ;
+    dc:identifier "Bijlage" ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass recordtypes:Bijlage ;
+    memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
+    dash:defaultViewForRole dash:all ;
+    sh:property [
+        rdfs:label "Titel"@nl ;
+        sh:maxCount 1;
+        memorix:inTitleAt 1.0 ;
+        sh:group bijlage:attacementGroup;
+        sh:datatype xsd:string ;
+        sh:order    1.0 ;
+        sh:path bijlage:title ;
+    ] ;
+    sh:property [
+        rdfs:label "Aantekeningen"@nl ;
+        sh:maxCount 1;
+        sh:group bijlage:attacementGroup;
+        sh:datatype xsd:string ;
+        sh:order    2.0 ;
+        sh:path bijlage:notes ;
+        dash:editor  dash:TextAreaEditor ;
+    ] ;
+    sh:property [
+        rdfs:label "Soort"@nl ;
+        sh:maxCount 1;
+        memorix:inTitleAt 2.0 ;
+        sh:group bijlage:attacementGroup;
+        sh:path bijlage:type ;
+        sh:order 3.0 ;
+        dash:editor             dash:EnumSelectEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/0e288be9-8887-3872-b082-906a55c0a755> ) ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        rdfs:label "Naam kolom 1"@nl ;
+        sh:maxCount 1;
+        sh:group bijlage:listGroup;
+        sh:path bijlage:nameFirstColumn ;
+        sh:datatype xsd:string ;
+        sh:order    4.0 ;
+    ] ;
+    sh:property [
+        rdfs:label "Naam kolom 2"@nl ;
+        sh:maxCount 1;
+        sh:group bijlage:listGroup;
+        sh:path bijlage:nameSecondColumn ;
+        sh:datatype xsd:string ;
+        sh:order    5.0 ;
+    ] ;
+    sh:property [
+        rdfs:label "Lijst"@nl ;
+        sh:maxCount 100 ;
+        sh:path bijlage:list ;
+        sh:order 6.0 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class bijlage:List ;
+        sh:group bijlage:listGroup ;
+    ] ;
+.
+
+bijlage:List
+    a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass bijlage:List ;
+    sh:property [
+          rdfs:label   "Eerste kolom"@nl ;
+          sh:maxCount 1 ;
+          sh:datatype xsd:string ;
+          sh:order     1.0 ;
+          sh:path      bijlage:listFirstColumn ;
+      ] ;
+    sh:property [
+          rdfs:label "Tweede kolom"@nl ;
+          sh:maxCount 1 ;
+          sh:datatype xsd:string ;
+          sh:order    2.0 ;
+          sh:path     bijlage:listSecondColumn ;
+      ] ;
+.
+
