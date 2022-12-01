@@ -1,0 +1,111 @@
+@prefix bestanddeel:  <https://lei-migrate.memorix.io/resources/recordtypes/Bestanddeel#> .
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix dc:           <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  <https://lei-migrate.memorix.io/resources/recordtypes/> .
+@prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: <https://lei-migrate.memorix.io/resources/vocabularies/conceptschemes/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+
+<https://lei-migrate.memorix.io/resources/records/0001fdf9-9c21-3120-a461-3514206fab24/context>
+        rdf:type           memorix:Context ;
+        memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/0001fdf9-9c21-3120-a461-3514206fab24> ;
+        dcterms:title      "205, Brandweer. Stukken betreffende de aankoop van brandweeruitrusting, 1935-1937." .
+
+<https://lei-migrate.memorix.io/resources/records/4275840f-09ec-360e-8c58-9c8623f77bad>
+        rdf:type  recordtypes:Archiefblok .
+
+<https://lei-migrate.memorix.io/resources/records/0001fdf9-9c21-3120-a461-3514206fab24>
+        rdf:type  recordtypes:Bestanddeel .
+
+<https://lei-migrate.memorix.io/resources/vocabularies/concepts/e2dc4633-5683-39a6-9e07-af6d724c8c95>
+        rdf:type        skos:Concept ;
+        skos:prefLabel  "Baan" .
+
+<https://lei-migrate.memorix.io/resources/records/042c7c87-1d5f-36ca-98aa-bd22c4244ab7>
+        rdf:type  recordtypes:ActorOrganisatie .
+
+<https://lei-migrate.memorix.io/resources/records/4275840f-09ec-360e-8c58-9c8623f77bad/context>
+        rdf:type           memorix:Context ;
+        memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/4275840f-09ec-360e-8c58-9c8623f77bad> ;
+        dcterms:title      "1093, Coninckshof, Leiden" .
+
+<https://lei-migrate.memorix.io/resources/records/042c7c87-1d5f-36ca-98aa-bd22c4244ab7/context>
+        rdf:type           memorix:Context ;
+        memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/042c7c87-1d5f-36ca-98aa-bd22c4244ab7> ;
+        dcterms:title      "2267, Nederlandse Hervormde Kerkenraad" .
+
+<https://lei-migrate.memorix.io/resources/vocabularies/concepts/c946779c-5364-4d52-942c-fada8310f049>
+        rdf:type        skos:Concept ;
+        skos:prefLabel  "test" .
+
+<https://lei-migrate.memorix.io/resources/records/00001bd3-5d9a-3c3b-ba0a-b44d9d253ec6>
+        rdf:type                       memorix:Record , recordtypes:Bestanddeel ;
+        bestanddeel:archiefblok        <https://lei-migrate.memorix.io/resources/records/4275840f-09ec-360e-8c58-9c8623f77bad> ;
+        bestanddeel:bag                [ rdf:type          memorix:GeoCoordinates ;
+                                         schema:latitude   5.215421734E1 ;
+                                         schema:longitude  4.48763807E0 ;
+                                         schema:name       "Boisotkade 2A, 2311PZ Leiden" ;
+                                         schema:sameAs     "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000063733"
+                                       ] ;
+        bestanddeel:coordinates        [ rdf:type          memorix:GeoCoordinates ;
+                                         schema:latitude   5.266263469597044E1 ;
+                                         schema:longitude  4.812183380126954E0 ;
+                                         schema:name       "52.66263469597044, 4.812183380126954"
+                                       ] ;
+        bestanddeel:digitalBorn        true ;
+        bestanddeel:historicalAddress  [ rdf:type                      bestanddeel:HistoricalAddress ;
+                                         bestanddeel:city              <https://lei-migrate.memorix.io/resources/vocabularies/concepts/ea805df4-4bf6-3930-90e1-b55b1d800bd9> ;
+                                         bestanddeel:housenumberFrom   "2" ;
+                                         bestanddeel:housenumberUntil  "1" ;
+                                         bestanddeel:street            <https://lei-migrate.memorix.io/resources/vocabularies/concepts/e2dc4633-5683-39a6-9e07-af6d724c8c95>
+                                       ] ;
+        bestanddeel:notes              [ rdf:type                   bestanddeel:Notes ;
+                                         bestanddeel:notesDate      20220112 ;
+                                         bestanddeel:notesInternal  "test" ;
+                                         bestanddeel:notesUser      "Ellen"
+                                       ] ;
+        bestanddeel:notesPublic        "test" ;
+        bestanddeel:order              96 ;
+        bestanddeel:reference          [ rdf:type                    bestanddeel:Reference ;
+                                         bestanddeel:referenceFile   <https://lei-migrate.memorix.io/resources/records/0001fdf9-9c21-3120-a461-3514206fab24> ;
+                                         bestanddeel:referenceNotes  "test"
+                                       ] ;
+        bestanddeel:relatedActor       [ rdf:type                bestanddeel:RelatedActor ;
+                                         bestanddeel:actorActor  <https://lei-migrate.memorix.io/resources/records/042c7c87-1d5f-36ca-98aa-bd22c4244ab7> ;
+                                         bestanddeel:actorRole   <https://lei-migrate.memorix.io/resources/vocabularies/concepts/c946779c-5364-4d52-942c-fada8310f049>
+                                       ] ;
+        bestanddeel:status             <https://lei-migrate.memorix.io/resources/vocabularies/concepts/155d5402-73ab-4e6d-b7d3-74ffda7b1b6a> ;
+        rico:identifier                "91" ;
+        rico:isAssociatedWithDate      [ rdf:type               rico:DateRange ;
+                                         rico:expressedDate     "1933-1934" ;
+                                         rico:hasBeginningDate  "1933"^^xsd:gYear ;
+                                         rico:hasEndDate        "1934"^^xsd:gYear
+                                       ] ;
+        rico:physicalOrLogicalExtent   [ rdf:type  rico:PhysicalOrLogicalExtent ;
+                                         bestanddeel:physicalDescriptionCount
+                                                 1 ;
+                                         bestanddeel:physicalDescriptionUnit
+                                                 <https://lei-migrate.memorix.io/resources/vocabularies/concepts/ac2968bf-3392-3033-90c5-1fb7c3cf9cde>
+                                       ] ;
+        rico:scopeAndContent           "test" ;
+        rico:title                     "Oude en Nieuwe Stichting over 1933. Met bijlagen, 1933-1934." .
+
+<https://lei-migrate.memorix.io/resources/vocabularies/concepts/ea805df4-4bf6-3930-90e1-b55b1d800bd9>
+        rdf:type        skos:Concept ;
+        skos:prefLabel  "Katwijk aan Zee" .
+
+<https://lei-migrate.memorix.io/resources/vocabularies/concepts/155d5402-73ab-4e6d-b7d3-74ffda7b1b6a>
+        rdf:type        skos:Concept ;
+        skos:prefLabel  "test status" .
+
+<https://lei-migrate.memorix.io/resources/vocabularies/concepts/ac2968bf-3392-3033-90c5-1fb7c3cf9cde>
+        rdf:type        skos:Concept ;
+        skos:prefLabel  "Omslag" .
