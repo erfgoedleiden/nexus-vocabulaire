@@ -93,7 +93,7 @@ recordtypes:Archiefblok
         sh:group          archiefblok:identificationGroup ;
         sh:order          2.0 ;
         memorix:inTitleAt 2.0 ;
-        sh:path           rico:title
+        sh:path           rico:hasOrHadTitle
     ] ;
     sh:property          [
         rdfs:label        "Verkorte titel"@nl ;
@@ -206,7 +206,7 @@ recordtypes:Archiefblok
         sh:datatype       xsd:string ;
         sh:group          archiefblok:contextGroup ;
         sh:order          16.0 ;
-        sh:path           archiefblok:archiveHistory ;
+        sh:path           rico:history ;
         dash:editor dash:TextAreaEditor
     ] ;
     sh:property [
@@ -215,7 +215,7 @@ recordtypes:Archiefblok
         sh:datatype xsd:string ;
         sh:group archiefblok:contextGroup ;
         sh:order    17.0 ;
-        sh:path archiefblok:publication ;
+        sh:path schema:publication ;
         dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [
@@ -224,7 +224,7 @@ recordtypes:Archiefblok
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
         sh:order    18.0 ;
-        sh:path archiefblok:identifier ;
+        sh:path rico:hasOrHadIdentifier ;
     ] ;
     sh:property [
         rdfs:label "Titel"@nl ;
@@ -232,13 +232,13 @@ recordtypes:Archiefblok
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
         sh:order    19.0 ;
-        sh:path archiefblok:title ;
+        sh:path rico:hasOrHadTitle ;
         dash:editor dash:TextAreaEditor ;
     ] ;
     sh:property [
         rdfs:label "Status"@nl ;
         sh:maxCount  1 ;
-        sh:path archiefblok:status ;
+        sh:path rico:hasRecordState ;
         sh:order 20.0 ;
         sh:group archiefblok:accessGroup ;
         dash:editor             dash:EnumSelectEditor ;
@@ -249,7 +249,7 @@ recordtypes:Archiefblok
     sh:property [
         rdfs:label "Soort"@nl ;
         sh:maxCount  1 ;
-        sh:path archiefblok:type ;
+        sh:path rico:hasOrHadCategory ;
         sh:order 21.0 ;
         sh:group archiefblok:accessGroup ;
         dash:editor             dash:EnumSelectEditor ;
@@ -271,7 +271,7 @@ recordtypes:Archiefblok
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
         sh:order    23.0 ;
-        sh:path archiefblok:publisher ;
+        sh:path rico:hasPublisher ;
     ] ;
     sh:property [
         rdfs:label   "Datum van vervaardiging"@nl ;
@@ -279,7 +279,7 @@ recordtypes:Archiefblok
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
         sh:order     24.0 ;
-        sh:path      archiefblok:creationDate ;
+        sh:path      rico:creationDate ;
         sh:group archiefblok:accessGroup ;
     ] ;
     sh:property [
@@ -288,13 +288,13 @@ recordtypes:Archiefblok
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
         sh:order    25.0 ;
-        sh:path archiefblok:responsibility ;
+        sh:path rico:descriptiveNote ;
         dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [
         rdfs:label "Opmerkingen openbaar"@nl ;
         sh:maxCount 1 ;
-        sh:path archiefblok:notesPublic ;
+        sh:path rico:descriptiveNote ;
         sh:order 26.0 ;
         sh:datatype xsd:string ;
         dash:editor  dash:TextAreaEditor ;
@@ -303,7 +303,7 @@ recordtypes:Archiefblok
     sh:property [
         rdfs:label "Opmerkingen intern"@nl ;
         sh:maxCount 100 ;
-        sh:path archiefblok:notes ;
+        sh:path rico:descriptiveNote ;
         sh:order 27.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
