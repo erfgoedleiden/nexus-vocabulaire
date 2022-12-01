@@ -20,7 +20,7 @@
         rdf:type  recordtypes:Bijlage .
 
 <https://lei-migrate.memorix.io/resources/records/014dcb80-8650-36c3-a4e4-12e5edce676d>
-        rdf:type                        recordtypes:Archiefblok , memorix:Record ;
+        rdf:type                        rico:RecordSet , memorix:Record ;
         archiefblok:archiveHistory      "INLEIDING\r\n\r\nDe Muziek- en Toneelvereniging \"Nut en Vermaak\" werd opgericht op 29 juni 1874. Een korte geschiedenis ervan is gepubliceerd in het artikel onder dezelfde titel door drs. J.K.S. Moes in de rubriek 'Archiefaanwinsten' in het Jaarboek der sociale en economische geschiedenis van Leiden en omstreken 1993 (uitgave van de Dirk van Eck-stichting) 167-176. \r\nBij dit artikel voegde de auteur een kort lijstje met de voornaamste archiefbestanddelen. Na de overdracht van het archiefje aan het Gemeentearchief op de jaarvergadering van de Dirk van Eckstichting op 20 december 1993, werd het archief opnieuw verpakt en geïnventariseerd. Omdat het archiefje maar klein is, is een gedetailleerd indelingsschema van de inventaris niet nodig. Op veel stukken staan getallen die vermoedelijk een oude archieforde aangeven, maar het leek niet zinvol ook maar een poging te doen die te reconstrueren.\r\nIn de bibliotheek van Erfgoed Leiden en Omstreken bevinden zich ook stukken betreffende deze vereniging." ;
         archiefblok:attachement         <https://lei-migrate.memorix.io/resources/records/0e373402-fb24-4963-a668-5622855107c0> ;
         archiefblok:caregiver           <https://lei-migrate.memorix.io/resources/records/fb19368c-5390-54bb-ba66-5be07ffed5f7> ;
