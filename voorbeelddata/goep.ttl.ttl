@@ -1,0 +1,41 @@
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix dc:           <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix groep:        <https://lei-migrate.memorix.io/resources/recordtypes/Groep#> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  <https://lei-migrate.memorix.io/resources/recordtypes/> .
+@prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: <https://lei-migrate.memorix.io/resources/vocabularies/conceptschemes/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+
+<https://lei-migrate.memorix.io/resources/records/03c69ea5-efd3-4aea-a249-53f6e4d474ef>
+        rdf:type                      recordtypes:Groep , memorix:Record ;
+        groep:notes                   [ rdf:type             groep:Notes ;
+                                        groep:notesDate      20220112 ;
+                                        groep:notesInternal  "Hoi Rein" ;
+                                        groep:notesUser      "Rein van 't Veer"
+                                      ] ;
+        groep:notesPublic             "test" ;
+        groep:order                   1 ;
+        groep:range                   "1-10" ;
+        rico:isAssociatedWithDate     [ rdf:type               rico:DateRange ;
+                                        rico:expressedDate     "test" ;
+                                        rico:hasBeginningDate  "1000"^^xsd:gYear ;
+                                        rico:hasEndDate        "1500"^^xsd:gYear
+                                      ] ;
+        rico:physicalOrLogicalExtent  [ rdf:type                        rico:PhysicalOrLogicalExtent ;
+                                        groep:physicalDescriptionCount  1 ;
+                                        groep:physicalDescriptionUnit   <https://lei-migrate.memorix.io/resources/vocabularies/concepts/2d1dca12-514d-330d-9014-d3ca6756901a>
+                                      ] ;
+        rico:scopeAndContent          "test" ;
+        rico:title                    "Overige families" .
+
+<https://lei-migrate.memorix.io/resources/vocabularies/concepts/2d1dca12-514d-330d-9014-d3ca6756901a>
+        rdf:type        skos:Concept ;
+        skos:prefLabel  "Bladen papier" .
