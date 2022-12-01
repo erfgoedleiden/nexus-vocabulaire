@@ -1,0 +1,130 @@
+@prefix bijlage:      <https://lei-migrate.memorix.io/resources/recordtypes/Bijlage#> .
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix dc:           <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  <https://lei-migrate.memorix.io/resources/recordtypes/> .
+@prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: <https://lei-migrate.memorix.io/resources/vocabularies/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+
+<https://lei-migrate.memorix.io/resources/vocabularies/concepts/892c04dd-3d8c-306d-b668-760fa59026e0>
+        rdf:type        skos:Concept ;
+        skos:prefLabel  "Table" .
+
+<https://lei-migrate.memorix.io/resources/records/2725e30d-7f1b-3386-8b23-8738ca32e4c2>
+        rdf:type                  recordtypes:Bijlage , memorix:Record ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1941" ;
+                                    bijlage:listSecondColumn  "25661"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1930" ;
+                                    bijlage:listSecondColumn  "11589"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1933" ;
+                                    bijlage:listSecondColumn  "10483"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1932" ;
+                                    bijlage:listSecondColumn  "10840"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1934" ;
+                                    bijlage:listSecondColumn  "9754"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1945" ;
+                                    bijlage:listSecondColumn  "53215"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1943" ;
+                                    bijlage:listSecondColumn  "39679"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1931" ;
+                                    bijlage:listSecondColumn  "11845"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1928" ;
+                                    bijlage:listSecondColumn  "11320"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1940" ;
+                                    bijlage:listSecondColumn  "19250"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1936" ;
+                                    bijlage:listSecondColumn  "8449"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1927" ;
+                                    bijlage:listSecondColumn  "5125"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1926" ;
+                                    bijlage:listSecondColumn  "3860"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1939" ;
+                                    bijlage:listSecondColumn  "16372"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1949" ;
+                                    bijlage:listSecondColumn  "63620"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1937" ;
+                                    bijlage:listSecondColumn  "9496"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1929" ;
+                                    bijlage:listSecondColumn  "11906"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1947" ;
+                                    bijlage:listSecondColumn  "56150"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1942" ;
+                                    bijlage:listSecondColumn  "41092"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1944" ;
+                                    bijlage:listSecondColumn  "37117"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1948" ;
+                                    bijlage:listSecondColumn  "57237"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1925" ;
+                                    bijlage:listSecondColumn  "6200"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1938" ;
+                                    bijlage:listSecondColumn  "15623"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1946" ;
+                                    bijlage:listSecondColumn  "55747 "
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1935" ;
+                                    bijlage:listSecondColumn  "8895"
+                                  ] ;
+        bijlage:list              [ rdf:type                  bijlage:List ;
+                                    bijlage:listFirstColumn   "1950" ;
+                                    bijlage:listSecondColumn  "67372"
+                                  ] ;
+        bijlage:nameFirstColumn   "Jaar" ;
+        bijlage:nameSecondColumn  "Ledenkapitaal" ;
+        bijlage:notes             "over de periode 1925-1950 van de cooperatieve groente , fruit  en bloemenveilingvereeniging \"leiden en omstreken\" g.a." ;
+        bijlage:title             "LEDENKAPITAAL " ;
+        bijlage:type              <https://lei-migrate.memorix.io/resources/vocabularies/concepts/892c04dd-3d8c-306d-b668-760fa59026e0> .
