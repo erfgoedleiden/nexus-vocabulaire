@@ -19,4 +19,4 @@ jobs:
           pipenv install --dev --deploy
 
       - name: run checks
-        run: pipenv run python validate.py
+        run: pipenv run python -u validate.py
