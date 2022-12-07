@@ -33,8 +33,8 @@ def main(config: Config) -> int:
             continue
 
         logging.info(f'Validating shape constraints for {record_type}')
-        sample_filepath = os.path.join('voorbeelddata', sample_file)
-        shacl_filepath = os.path.join('shacl', shacl_filename)
+        sample_filepath = os.path.join(config['validation']['data_dir'], sample_file)
+        shacl_filepath = os.path.join(config['validation']['shacl_dir'], shacl_filename)
         shacl_validate(sample_filepath, shacl_filepath)
 
         logging.info(f'Validating URI resolvability for {shacl_filepath}')
@@ -96,21 +96,38 @@ def validate_triple(triple: tuple, config: Config) -> None:
         if not isinstance(triple_part, rdflib.URIRef):
             continue
 
-        # Will throw an error on 400 or larger responses
+        # Avoid requesting the same uri for an ontology hiding behind a hash
+        resolvable_part = triple_part.split('#')[0]
         try:
-            resolved_uri_repr = http_get(triple_part, 'text/turtle')
+            # Will throw an error on 400 or larger responses
+            resolved_uri_repr = http_get(resolvable_part, 'text/turtle')
         except RuntimeError as e:
             logging.error(f'{triple_part} could not be resolved: {e}')
             raise
 
         if '#' in triple_part:
             # It's a hash uri!
-            resolved_uri_graph = rdflib.Graph()
-            # Try loading the contents of the URI directly
-            resolved_uri_graph.parse(triple_part)
+            resolved_uri_graph = load_graph_from_uri(resolvable_part)
 
             if triple_part not in resolved_uri_graph.subjects():
                 raise ValueError(f'URI {triple_part} is not a member of \n{resolved_uri_repr}')
+
+
+@retry(tries=3, delay=1, backoff=2)
+@functools.lru_cache
+def load_graph_from_uri(resolvable_part: str) -> rdflib.Graph:
+    """
+    Try loading the contents of the URI directly
+
+    :param resolvable_part: A URI part before the hash. Because this function is cached, should not contain parts
+                            including and after the #
+
+    :return: an rdflib.Graph
+    """
+    resolved_uri_graph = rdflib.Graph()
+    resolved_uri_graph.parse(resolvable_part)
+
+    return resolved_uri_graph
 
 
 @retry(tries=3, delay=1, backoff=2)
