@@ -31,12 +31,13 @@ def main(config: Config) -> int:
             continue
 
         logging.info(f'Validating shape constraints for {record_type}')
-
         sample_filepath = os.path.join('voorbeelddata', sample_file)
         shacl_filepath = os.path.join('shacl', shacl_filename)
-
         shacl_validate(sample_filepath, shacl_filepath)
-        check_uris(sample_filepath)
+
+        logging.info(f'Validating URI resolvability for {record_type}')
+        check_uris(shacl_filepath, config)
+        check_uris(sample_filepath, config)
 
     finish = datetime.datetime.now()
     logging.info(f'Script took {finish - start}')
