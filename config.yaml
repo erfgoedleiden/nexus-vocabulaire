@@ -1,0 +1,35 @@
+% YAML 1.2
+---
+validation:
+  # De "done" items worden gecontroleerd met het validatiescript
+  done:
+    - Archiefblok
+  # De "todo" items worden overgeslagen door het validatiescript
+  todo:
+    - Aanwinst
+    - ActorFamilie
+    - ActorOrganisatie
+    - ActorPersoon
+    - Archiefbibliotheek
+    - Av
+    - Bestanddeel
+    - Bibliotheek
+    - Bijlage
+    - BlaeuAtlas
+    - BlaeuAtlasPagina
+    - Complex
+    - DanielvdMeulen
+    - Deed
+    - ErfgoedregisterAdres
+    - Groep
+    - HeiligeGeestWeeshuis
+    - Image
+    - Koorboek
+    - KoorboekPagina
+    - LeFranqVanBerkhey
+    - Object
+    - Organisatie
+    - Persoon
+    - Persoonsvermelding
+    - Restauratie
+    - Woii
