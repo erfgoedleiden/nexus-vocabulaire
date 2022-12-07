@@ -8,6 +8,10 @@ pyshacl = "*"
 rdflib = "*"
 
 [dev-packages]
+coverage = "*"
+flake8 = "*"
+pytest = "*"
+mypy = "*"
 
 [requires]
 python_version = "3.10"
