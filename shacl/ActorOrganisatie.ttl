@@ -47,7 +47,7 @@ recordtypes:ActorOrganisatie
         sh:group actorOrganisatie:identificationGroup ;
         memorix:inTitleAt 1.0 ;
         sh:order    1.0 ;
-        sh:path actorOrganisatie:identifier ;
+        sh:path rico:identifier
     ] ;
     sh:property [
         rdfs:label "Naam"@nl ;
