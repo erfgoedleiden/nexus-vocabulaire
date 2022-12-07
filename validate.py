@@ -1,4 +1,5 @@
 import datetime
+import functools
 import logging
 import os
 from argparse import ArgumentParser
@@ -102,17 +103,20 @@ def validate_triple(triple: tuple, config: Config) -> None:
 
 
 @retry(tries=3, delay=1, backoff=2)
-def http_get(url: str, content_type: str) -> str:
+@functools.lru_cache
+def http_get(url: str, content_type: str = 'text/html') -> str:
     """
-    Simple helper function to get the text as utf-8 from a url
+    Simple helper function to get the text a URL given the provided content type.
+    Caches the response to make sure that the content is fetched only once
+
     :param url: The resource to get the text from
     :param content_type: The IANA representation type of content to request
 
-    :return: The response text, parsed as UTF-8
+    :return: The response text
     """
     response = requests.get(url=url, headers={'Accept': content_type})
-    if response.status_code != 200:
-        raise RuntimeError(f'Invalid response {response.status_code}')
+    if response.status_code >= 400:
+        raise RuntimeError(f'Invalid response {response.status_code} for {url}')
 
     return response.text
 
