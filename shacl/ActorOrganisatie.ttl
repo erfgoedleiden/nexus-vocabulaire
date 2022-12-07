@@ -3,7 +3,6 @@
 @prefix dash: <http://datashapes.org/dash#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix html: <http://www.w3.org/1999/xhtml/> .
 @prefix memorix: <http://memorix.io/ontology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -116,7 +115,7 @@ recordtypes:ActorOrganisatie
     sh:property [
         rdfs:label "Plaats"@nl ;
         sh:maxCount 1 ;
-        # "The key postal division of the address, usually the city."
+        # "The locality in which the street address is"
         sh:path schema:addressLocality ;
         sh:datatype xsd:string;
         sh:group actorOrganisatie:contactGroup ;
@@ -125,8 +124,7 @@ recordtypes:ActorOrganisatie
     sh:property [
         rdfs:label "Land"@nl ;
         sh:maxCount 1 ;
-        # "The uppermost administrative unit for the address, almost always a country."
-        sh:path locn:adminUnitL1 ;
+        sh:path schema:addressCountry ;
         sh:datatype xsd:string;
         sh:group actorOrganisatie:contactGroup ;
         sh:order 9.0 ;
