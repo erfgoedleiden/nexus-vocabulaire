@@ -1,12 +1,17 @@
 @prefix actorOrganisatie: </resources/recordtypes/ActorOrganisatie#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dash: <http://datashapes.org/dash#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix html: <http://www.w3.org/1999/xhtml/> .
 @prefix memorix: <http://memorix.io/ontology#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix recordtypes: </resources/recordtypes/> .
 @prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vocabularies: </resources/vocabularies/> .
@@ -55,28 +60,32 @@ recordtypes:ActorOrganisatie
         sh:datatype xsd:string ;
         memorix:inTitleAt 3.0 ;
         sh:order    1.0 ;
-        sh:path actorOrganisatie:name ;
+        sh:path rico:name ;
         sh:group actorOrganisatie:identificationGroup ;
     ] ;
     sh:property [
         rdfs:label "Identiek aan (extern)"@nl ;
-        sh:path actorOrganisatie:sameAs ;
+        # Ben zeer terughoudend in het gebruik van owl:sameAs of vergelijkbare concepten: ze verwachten
+        # _exact_ identieke entiteiten, wat het vaak net niet zijn. owl:sameAs kan veel reasoning verstoren.
+        sh:path rico:isFunctionallyEquivalentTo ;
         sh:maxCount 1 ;
         sh:order 3.0 ;
         sh:group actorOrganisatie:identificationGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( <https://data.rkd.nl/rkdartists> <http://data.bibliotheken.nl/id/dataset/persons> ) ;
+        # Removed http://data.rkd.nl/rkdartists: dit is geen SKOS concept scheme, zoals gespecificeerd in memorix:conceptSchemeIn
+        memorix:conceptSchemeIn ( <http://data.bibliotheken.nl/id/dataset/persons> ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
         rdfs:label "Datering van organisatie"@nl ;
         sh:maxCount 1 ;
-        sh:path actorOrganisatie:date ;
+        # Dit is de oprichtingsdatum
+        sh:path rico:hasBeginningDate ;
         sh:order 4.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
-        sh:class actorOrganisatie:Date ;
+        sh:class rico:Date ;
         sh:group actorOrganisatie:identificationGroup ;
     ] ;
     sh:property [
@@ -85,13 +94,13 @@ recordtypes:ActorOrganisatie
         sh:datatype xsd:string ;
         sh:order    5.0 ;
         dash:editor  dash:TextAreaEditor ;
-        sh:path actorOrganisatie:functions ;
+        sh:path dcat:Role ;
         sh:group actorOrganisatie:identificationGroup ;
     ] ;
     sh:property [
         rdfs:label "Adres"@nl ;
         sh:maxCount 1 ;
-        sh:path actorOrganisatie:address ;
+        sh:path schema:streetAddress ;
         sh:datatype xsd:string;
         sh:group actorOrganisatie:contactGroup ;
         sh:order 6.0 ;
@@ -99,7 +108,7 @@ recordtypes:ActorOrganisatie
     sh:property [
         rdfs:label "Postcode"@nl ;
         sh:maxCount 1 ;
-        sh:path actorOrganisatie:zipcode ;
+        sh:path schema:postalCode ;
         sh:datatype xsd:string;
         sh:group actorOrganisatie:contactGroup ;
         sh:order 7.0 ;
@@ -107,7 +116,8 @@ recordtypes:ActorOrganisatie
     sh:property [
         rdfs:label "Plaats"@nl ;
         sh:maxCount 1 ;
-        sh:path actorOrganisatie:city ;
+        # "The key postal division of the address, usually the city."
+        sh:path schema:addressLocality ;
         sh:datatype xsd:string;
         sh:group actorOrganisatie:contactGroup ;
         sh:order 8.0 ;
@@ -115,7 +125,8 @@ recordtypes:ActorOrganisatie
     sh:property [
         rdfs:label "Land"@nl ;
         sh:maxCount 1 ;
-        sh:path actorOrganisatie:country ;
+        # "The uppermost administrative unit for the address, almost always a country."
+        sh:path locn:adminUnitL1 ;
         sh:datatype xsd:string;
         sh:group actorOrganisatie:contactGroup ;
         sh:order 9.0 ;
@@ -123,14 +134,14 @@ recordtypes:ActorOrganisatie
     sh:property [
         rdfs:label "Telefoon"@nl ;
         sh:maxCount 5 ;
-        sh:path actorOrganisatie:phone ;
+        sh:path schema:telephone ;
         sh:datatype xsd:string;
         sh:group actorOrganisatie:contactGroup ;
         sh:order 10.0 ;
     ] ;
     sh:property [
         rdfs:label "Email"@nl ;
-        sh:path actorOrganisatie:email ;
+        sh:path schema:email ;
         sh:datatype xsd:string;
         sh:maxCount 5 ;
         sh:group actorOrganisatie:contactGroup ;
@@ -139,7 +150,7 @@ recordtypes:ActorOrganisatie
     sh:property [
         rdfs:label "Website"@nl ;
         sh:maxCount 1 ;
-        sh:path actorOrganisatie:website ;
+        sh:path schema:url ;
         sh:datatype xsd:string;
         sh:group actorOrganisatie:contactGroup ;
         sh:order 12.0 ;
@@ -159,7 +170,7 @@ recordtypes:ActorOrganisatie
         sh:nodeKind sh:IRI ;
         sh:group actorOrganisatie:managementGroup ;
         sh:order 15.0 ;
-        sh:path actorOrganisatie:contactPerson ;
+        sh:path schema:contactPoint ;
         sh:or (
             [ sh:class recordtypes:ActorPersoon ]
         ) ;
@@ -171,7 +182,7 @@ recordtypes:ActorOrganisatie
         sh:datatype xsd:string ;
         sh:order    16.0 ;
         dash:editor  dash:TextAreaEditor ;
-        sh:path actorOrganisatie:notes ;
+        sh:path rico:descriptiveNote ;
         sh:group actorOrganisatie:notesGroup ;
     ] ;
 .
@@ -185,13 +196,14 @@ actorOrganisatie:Date
         rdfs:label "Leefperiode"@nl ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
-        sh:path actorOrganisatie:period ;
+        # "A point or period of time associated with an event in the lifecycle of the resource."
+        sh:path dc:date ;
         sh:order 1.0 ;
     ] ;
     sh:property [
         rdfs:label "Periode (van)"@nl ;
         sh:maxCount 1 ;
-        sh:path actorOrganisatie:startDate  ;
+        sh:path rico:hasBeginningDate  ;
         sh:order 2.0 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -199,7 +211,7 @@ actorOrganisatie:Date
     sh:property [
         rdfs:label "Periode (tot)"@nl ;
         sh:maxCount 1 ;
-        sh:path actorOrganisatie:endDate  ;
+        sh:path rico:hasEndDate  ;
         sh:order 3.0 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
