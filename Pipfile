@@ -7,6 +7,8 @@ name = "pypi"
 pyshacl = "*"
 rdflib = "*"
 "ruamel.yaml" = "*"
+retry = "*"
+requests = "*"
 
 [dev-packages]
 coverage = "*"
