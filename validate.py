@@ -7,6 +7,7 @@ from argparse import ArgumentParser
 import pyshacl
 import rdflib
 import requests
+from tqdm import tqdm
 from retry import retry
 
 from lib.config import Config, load_config
@@ -75,7 +76,7 @@ def check_uris(data_filepath: str, config: Config) -> None:
     graph = rdflib.Graph()
     graph.parse(data_filepath)
 
-    for triple in graph:
+    for triple in tqdm(graph):
         validate_triple(triple, config)
 
 

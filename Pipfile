@@ -9,6 +9,7 @@ rdflib = "*"
 "ruamel.yaml" = "*"
 retry = "*"
 requests = "*"
+tqdm = "*"
 
 [dev-packages]
 coverage = "*"
