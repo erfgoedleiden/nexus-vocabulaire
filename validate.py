@@ -2,7 +2,6 @@ import datetime
 import logging
 import os
 from argparse import ArgumentParser
-from urllib.error import HTTPError
 
 import pyshacl
 import rdflib
@@ -76,12 +75,16 @@ def check_uris(data_filepath: str, config: Config) -> None:
     graph.parse(data_filepath)
 
     for triple in graph:
-        for triple_part in triple:
-            check = True
-            for ignore_item in config['validation']['ignore_uris_containing']:
-                if ignore_item in str(triple_part):
-                    check = False
-                    break
+        validate_triple(triple, config)
+
+
+def validate_triple(triple: tuple, config: Config) -> None:
+    for triple_part in triple:
+        check = True
+        for ignore_item in config['validation']['ignore_uris_containing']:
+            if ignore_item in str(triple_part):
+                check = False
+                break
 
             if not check:
                 continue
