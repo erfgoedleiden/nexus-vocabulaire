@@ -7,6 +7,7 @@ spec:
       - /resources/vocabularies/ActorFamilie/
       - /resources/vocabularies/ActorPersoon/
       - /resources/vocabularies/ArchiefBlok/
+      - /resources/recordtypes/Archiefblok
       # Negeer record URIs
       - https://lei-migrate.memorix.io/resources/records/
       # Negeer SKOS concept URIs
