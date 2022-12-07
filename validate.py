@@ -3,10 +3,11 @@ import logging
 import os
 from argparse import ArgumentParser
 from urllib.error import HTTPError
-from urllib.request import urlopen
 
 import pyshacl
 import rdflib
+import requests
+from retry import retry
 
 from lib.config import Config, load_config
 
@@ -95,6 +96,22 @@ def check_uris(data_filepath: str, config: Config) -> None:
                 except HTTPError as e:
                     logging.error(f'{triple_part} could not be resolved: {e}')
                     raise ValueError(f'{triple_part} could not be resolved: {e}')
+
+
+@retry(tries=3, delay=1, backoff=2)
+def http_get(url: str, content_type: str) -> str:
+    """
+    Simple helper function to get the text as utf-8 from a url
+    :param url: The resource to get the text from
+    :param content_type: The IANA representation type of content to request
+
+    :return: The response text, parsed as UTF-8
+    """
+    response = requests.get(url=url, headers={'Accept': content_type})
+    if response.status_code != 200:
+        raise RuntimeError(f'Invalid response {response.status_code}')
+
+    return response.text
 
 
 if __name__ == '__main__':
