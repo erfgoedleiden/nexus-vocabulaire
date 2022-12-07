@@ -30,7 +30,7 @@ def main(config: Config) -> int:
     return 0
 
 
-def shacl_validate(config: Config):
+def shacl_validate(config: Config) -> None:
     """
     Validates the data samples against the data shape constraint definitions
 
