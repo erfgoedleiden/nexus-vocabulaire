@@ -1,21 +1,40 @@
+import datetime
+import logging
 import os
+from argparse import ArgumentParser
 from urllib.error import HTTPError
 from urllib.request import urlopen
 
 import pyshacl
 import rdflib
 
+from lib.config import Config, load_config
 
-def main() -> int:
-    shacl_validate()
-    check_links()
+
+def main(config: Config) -> int:
+    """
+    Executes the validation steps
+
+    :param config: a Config instance returned by lib.config.load_config()
+
+    :return: 0 on successful validation
+    """
+    start = datetime.datetime.now()
+
+    shacl_validate(config)
+    check_links(config)
+
+    finish = datetime.datetime.now()
+    logging.info(f'Script took {finish - start}')
 
     return 0
 
 
-def shacl_validate():
+def shacl_validate(config: Config):
     """
     Validates the data samples against the data shape constraint definitions
+
+    :param config: a Config instance returned by lib.config.load_config()
 
     :return: None
     """
@@ -30,10 +49,12 @@ def shacl_validate():
         assert conforms, f'{sample_file} incorrect: {results_text}'
 
 
-def check_links() -> None:
+def check_links(config: Config) -> None:
     """
     This function will check _every_ URI in the sample graphs for being able to resolve. This will catch errors on
     vocab typos, or small happy accidents on hash/slash-URI mishaps and the likes.
+
+    :param config: a Config instance returned by lib.config.load_config()
 
     :return: None
     """
@@ -58,4 +79,10 @@ def check_links() -> None:
 
 
 if __name__ == '__main__':
-    raise SystemExit(main())
+    parser = ArgumentParser("Validates data samples against shape constraints, validates correctness of vocabulary")
+    parser.add_argument('-c', '--config', help='Path to config.yaml', default='config.yaml')
+    args = parser.parse_args()
+
+    config = load_config(path=args.config)
+
+    raise SystemExit(main(config))
