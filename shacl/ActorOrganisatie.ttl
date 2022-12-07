@@ -91,7 +91,7 @@ recordtypes:ActorOrganisatie
         sh:datatype xsd:string ;
         sh:order    5.0 ;
         dash:editor  dash:TextAreaEditor ;
-        sh:path dcat:Role ;
+        sh:path schema:roleName ;
         sh:group actorOrganisatie:identificationGroup ;
     ] ;
     sh:property [
