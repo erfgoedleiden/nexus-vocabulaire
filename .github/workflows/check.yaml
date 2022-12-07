@@ -20,4 +20,7 @@ jobs:
           pipenv install --dev --deploy
 
       - name: run checks
-        run: pipenv run python -u validate.py
+        run: | 
+          pipenv run mypy .
+          pipenv run flake8 .
+          pipenv run python -u validate.py
