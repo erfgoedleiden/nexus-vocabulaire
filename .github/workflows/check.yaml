@@ -2,6 +2,7 @@ on: push
 
 jobs:
   check:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
