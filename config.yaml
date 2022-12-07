@@ -8,6 +8,8 @@ spec:
       - /resources/vocabularies/ActorPersoon/
       - /resources/vocabularies/ArchiefBlok/
       - /resources/recordtypes/Archiefblok
+      # negeer 'xsd' prefix: die is niet op te vragen in linked data vorm
+      - http://www.w3.org/2001/XMLSchema
       # Negeer record URIs
       - https://lei-migrate.memorix.io/resources/records/
       # Negeer SKOS concept URIs
