@@ -92,7 +92,7 @@ def check_uris(data_filepath: str, config: Config) -> None:
 
                 # urlopen will throw an error on 400 or larger responses
                 try:
-                    urlopen(triple_part).read()
+                    http_get(triple_part, 'text/turtle')
                 except HTTPError as e:
                     logging.error(f'{triple_part} could not be resolved: {e}')
                     raise ValueError(f'{triple_part} could not be resolved: {e}')
