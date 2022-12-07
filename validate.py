@@ -37,8 +37,9 @@ def main(config: Config) -> int:
         shacl_filepath = os.path.join('shacl', shacl_filename)
         shacl_validate(sample_filepath, shacl_filepath)
 
-        logging.info(f'Validating URI resolvability for {record_type}')
+        logging.info(f'Validating URI resolvability for {shacl_filepath}')
         check_uris(shacl_filepath, config)
+        logging.info(f'Validating URI resolvability for {sample_filepath}')
         check_uris(sample_filepath, config)
 
     finish = datetime.datetime.now()
