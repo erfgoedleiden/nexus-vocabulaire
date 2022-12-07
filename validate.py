@@ -21,9 +21,11 @@ def shacl_validate():
     """
     data_samples = os.listdir('voorbeelddata')
     for sample_file in data_samples:
+        camel_cased = ''.join([name.capitalize() for name in sample_file.split('_')])
+
         conforms, results_graph, results_text = pyshacl.validate(
             data_graph=os.path.join('voorbeelddata', sample_file),
-            shacl_graph=os.path.join('shacl', sample_file),
+            shacl_graph=os.path.join('shacl', camel_cased),
         )
         assert conforms, f'{sample_file} incorrect: {results_text}'
 
@@ -44,6 +46,9 @@ def check_links() -> None:
         for triple in graph:
             for triple_part in triple:
                 if isinstance(triple_part, rdflib.URIRef):
+                    # TODO: parse response from URI to match hash uris against subjects in the graph in order to
+                    #  validate
+
                     # urlopen will throw an error on 400 or larger responses
                     try:
                         urlopen(triple_part).read()
