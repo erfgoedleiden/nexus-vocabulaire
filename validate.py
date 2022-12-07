@@ -87,19 +87,28 @@ def validate_triple(triple: tuple, config: Config) -> None:
                 check = False
                 break
 
-            if not check:
-                continue
+        if not check:
+            continue
 
-            if isinstance(triple_part, rdflib.URIRef):
-                # TODO: parse response from URI to match hash uris against subjects in the graph in order to
-                #  validate
+        # Skip literals: they do not need to be resolvable
+        if not isinstance(triple_part, rdflib.URIRef):
+            continue
 
-                # urlopen will throw an error on 400 or larger responses
-                try:
-                    http_get(triple_part, 'text/turtle')
-                except HTTPError as e:
-                    logging.error(f'{triple_part} could not be resolved: {e}')
-                    raise ValueError(f'{triple_part} could not be resolved: {e}')
+        # Will throw an error on 400 or larger responses
+        try:
+            resolved_uri_repr = http_get(triple_part, 'text/turtle')
+        except RuntimeError as e:
+            logging.error(f'{triple_part} could not be resolved: {e}')
+            raise
+
+        if '#' in triple_part:
+            # It's a hash uri!
+            resolved_uri_graph = rdflib.Graph()
+            # Try loading the contents of the URI directly
+            resolved_uri_graph.parse(triple_part)
+
+            if triple_part not in resolved_uri_graph.subjects():
+                raise ValueError(f'URI {triple_part} is not a member of \n{resolved_uri_repr}')
 
 
 @retry(tries=3, delay=1, backoff=2)
