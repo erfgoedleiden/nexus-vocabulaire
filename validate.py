@@ -40,11 +40,17 @@ def shacl_validate(config: Config) -> None:
     """
     data_samples = os.listdir('voorbeelddata')
     for sample_file in data_samples:
-        camel_cased = ''.join([name.capitalize() for name in sample_file.split('_')])
+        camel_cased_filename = ''.join([name.capitalize() for name in sample_file.split('_')])
 
+        record_type = camel_cased_filename.replace('.ttl', '')
+        if record_type not in config['validation']['done']:
+            logging.info(f"Skipping {camel_cased_filename}: it's not in the 'done' list in config.yaml")
+            continue
+
+        logging.info(f'Validating {record_type}')
         conforms, results_graph, results_text = pyshacl.validate(
             data_graph=os.path.join('voorbeelddata', sample_file),
-            shacl_graph=os.path.join('shacl', camel_cased),
+            shacl_graph=os.path.join('shacl', camel_cased_filename),
         )
         assert conforms, f'{sample_file} incorrect: {results_text}'
 
