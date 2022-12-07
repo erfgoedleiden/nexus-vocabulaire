@@ -61,7 +61,7 @@ def shacl_validate(data_filepath: str, shacl_filepath: str) -> None:
     assert conforms, f'{data_filepath} incorrect: {results_text}'
 
 
-def check_uris(data_filepath: str) -> None:
+def check_uris(data_filepath: str, config: Config) -> None:
     """
     This function will check _every_ URI in the sample graphs for being able to resolve. This will catch errors on
     vocab typos, or small happy accidents on hash/slash-URI mishaps and the likes.
@@ -75,6 +75,15 @@ def check_uris(data_filepath: str) -> None:
 
     for triple in graph:
         for triple_part in triple:
+            check = True
+            for ignore_item in config['validation']['ignore_uris_containing']:
+                if ignore_item in str(triple_part):
+                    check = False
+                    break
+
+            if not check:
+                continue
+
             if isinstance(triple_part, rdflib.URIRef):
                 # TODO: parse response from URI to match hash uris against subjects in the graph in order to
                 #  validate
@@ -84,7 +93,7 @@ def check_uris(data_filepath: str) -> None:
                     urlopen(triple_part).read()
                 except HTTPError as e:
                     logging.error(f'{triple_part} could not be resolved: {e}')
-                    raise
+                    raise ValueError(f'{triple_part} could not be resolved: {e}')
 
 
 if __name__ == '__main__':

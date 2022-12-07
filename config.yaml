@@ -2,6 +2,15 @@
 ---
 spec:
   validation:
+    ignore_uris_containing:
+      - /resources/vocabularies/conceptschemes/
+      - /resources/vocabularies/ActorFamilie/
+      - /resources/vocabularies/ActorPersoon/
+      - /resources/vocabularies/ArchiefBlok/
+      # Negeer record URIs
+      - https://lei-migrate.memorix.io/resources/records/
+      # Negeer SKOS concept URIs
+      - https://lei-migrate.memorix.io/resources/vocabularies/concepts/
     # De "done" items worden gecontroleerd met het validatiescript
     done:
       - Archiefblok
