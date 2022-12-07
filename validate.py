@@ -21,8 +21,22 @@ def main(config: Config) -> int:
     """
     start = datetime.datetime.now()
 
-    shacl_validate(config)
-    check_links(config)
+    data_samples = os.listdir('voorbeelddata')
+    for sample_file in data_samples:
+        shacl_filename = ''.join([name.capitalize() for name in sample_file.split('_')])
+        record_type = shacl_filename.replace('.ttl', '')
+
+        if record_type not in config['validation']['done']:
+            logging.info(f"Skipping {shacl_filename}: it's not in the 'done' list in config.yaml")
+            continue
+
+        logging.info(f'Validating shape constraints for {record_type}')
+
+        sample_filepath = os.path.join('voorbeelddata', sample_file)
+        shacl_filepath = os.path.join('shacl', shacl_filename)
+
+        shacl_validate(sample_filepath, shacl_filepath)
+        check_uris(sample_filepath)
 
     finish = datetime.datetime.now()
     logging.info(f'Script took {finish - start}')
@@ -30,58 +44,47 @@ def main(config: Config) -> int:
     return 0
 
 
-def shacl_validate(config: Config) -> None:
+def shacl_validate(data_filepath: str, shacl_filepath: str) -> None:
     """
     Validates the data samples against the data shape constraint definitions
 
-    :param config: a Config instance returned by lib.config.load_config()
+    :param data_filepath:   path to a data graph file to validate
+    :param shacl_filepath:  path to the SHACL definition to validate against
 
     :return: None
     """
-    data_samples = os.listdir('voorbeelddata')
-    for sample_file in data_samples:
-        camel_cased_filename = ''.join([name.capitalize() for name in sample_file.split('_')])
 
-        record_type = camel_cased_filename.replace('.ttl', '')
-        if record_type not in config['validation']['done']:
-            logging.info(f"Skipping {camel_cased_filename}: it's not in the 'done' list in config.yaml")
-            continue
-
-        logging.info(f'Validating {record_type}')
-        conforms, results_graph, results_text = pyshacl.validate(
-            data_graph=os.path.join('voorbeelddata', sample_file),
-            shacl_graph=os.path.join('shacl', camel_cased_filename),
-        )
-        assert conforms, f'{sample_file} incorrect: {results_text}'
+    conforms, results_graph, results_text = pyshacl.validate(
+        data_graph=data_filepath,
+        shacl_graph=shacl_filepath,
+    )
+    assert conforms, f'{data_filepath} incorrect: {results_text}'
 
 
-def check_links(config: Config) -> None:
+def check_uris(data_filepath: str) -> None:
     """
     This function will check _every_ URI in the sample graphs for being able to resolve. This will catch errors on
     vocab typos, or small happy accidents on hash/slash-URI mishaps and the likes.
 
-    :param config: a Config instance returned by lib.config.load_config()
+    :param data_filepath: path to the data graph to validate URIs
 
     :return: None
     """
-    data_samples = os.listdir('voorbeelddata')
+    graph = rdflib.Graph()
+    graph.parse(data_filepath)
 
-    for sample_file in data_samples:
-        graph = rdflib.Graph()
-        graph.parse(os.path.join('voorbeelddata', sample_file))
+    for triple in graph:
+        for triple_part in triple:
+            if isinstance(triple_part, rdflib.URIRef):
+                # TODO: parse response from URI to match hash uris against subjects in the graph in order to
+                #  validate
 
-        for triple in graph:
-            for triple_part in triple:
-                if isinstance(triple_part, rdflib.URIRef):
-                    # TODO: parse response from URI to match hash uris against subjects in the graph in order to
-                    #  validate
-
-                    # urlopen will throw an error on 400 or larger responses
-                    try:
-                        urlopen(triple_part).read()
-                    except HTTPError as e:
-                        print(f'{triple_part} could not be resolved: {e}')
-                        raise
+                # urlopen will throw an error on 400 or larger responses
+                try:
+                    urlopen(triple_part).read()
+                except HTTPError as e:
+                    logging.error(f'{triple_part} could not be resolved: {e}')
+                    raise
 
 
 if __name__ == '__main__':
