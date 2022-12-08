@@ -117,7 +117,7 @@ def validate_triple(triple: tuple, config: Config) -> None:
             resolved_uri_graph = load_graph_from_uri(resolvable_part)
 
             if triple_part not in resolved_uri_graph.subjects():
-                raise ValueError(f'URI {triple_part} is not a member of \n{resolved_uri_repr}')
+                raise ValueError(f'URI {triple_part} is not a member of \n{resolvable_part}')
 
 
 @retry(tries=3, delay=1, backoff=2)
