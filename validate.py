@@ -42,6 +42,8 @@ def main(config: Config) -> int:
         logging.info(f'Validating URI resolvability for {sample_filepath}')
         check_uris(sample_filepath, config)
 
+        # TODO: check consistent use of prefixes (http vs https etc.)
+
     finish = datetime.datetime.now()
     logging.info(f'Script took {finish - start}')
 
