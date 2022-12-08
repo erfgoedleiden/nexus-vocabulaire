@@ -20,6 +20,7 @@ spec:
       - http://memorix.io/ontology#hasNode
       - http://memorix.io/ontology#inlineField
       - http://memorix.io/ontology#searchWeight
+      - http://memorix.io/ontology#File
       - http://data.rkd.nl/rkdartists
       # Alle URIs met 'resources/vocabularies' zijn niet te dereferencen
       - /resources/vocabularies/
