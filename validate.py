@@ -107,7 +107,7 @@ def validate_triple(triple: tuple, config: Config) -> None:
         resolvable_part = triple_part.split('#')[0]
         try:
             # Will throw an error on 400 or larger responses
-            resolved_uri_repr = http_get(resolvable_part, 'text/turtle')
+            http_get(resolvable_part, 'text/turtle')
         except RuntimeError as e:
             logging.error(f'{triple_part} could not be resolved: {e}')
             raise
