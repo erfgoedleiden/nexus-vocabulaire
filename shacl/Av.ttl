@@ -1,11 +1,15 @@
 @prefix av: </resources/recordtypes/Av#> .
 @prefix dash: <http://datashapes.org/dash#> .
+@prefix dbpo: <http://dbpedia.org/ontology/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix html: <http://www.w3.org/1999/xhtml/> .
 @prefix memorix: <http://memorix.io/ontology#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix recordtypes: </resources/recordtypes/> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema: <http://schema.org/> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vocabularies: </resources/vocabularies/> .
@@ -23,7 +27,7 @@ recordtypes:Av
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Bestandsnaam"@nl ;
-    sh:path av:filename ;
+    sh:path dbpo:filename ;
     memorix:inTitleAt 1.0 ;
     sh:maxCount 100 ;
     sh:order 2.0 ;
@@ -33,7 +37,7 @@ recordtypes:Av
   ] ;
   sh:property [
     rdfs:label "Objectnummer"@nl ;
-    sh:path av:objectNumber ;
+    sh:path rico:hasOrHadIdentifier ;
     memorix:inTitleAt 2.0 ;
     sh:maxCount 100 ;
     sh:order 3.0 ;
@@ -43,7 +47,8 @@ recordtypes:Av
   ] ;
   sh:property [
     rdfs:label "Document type"@nl ;
-    sh:path av:documentType ;
+    # TODO: checken of dit hier bedoeld wordt - of is dit een IANA/MIME type?
+    sh:path rico:hasContentOfType ;
     sh:maxCount 10 ;
     sh:order 4.0 ;
     sh:group av:identificationGroup ;
@@ -55,7 +60,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Titel"@nl ;
     sh:maxCount 1 ;
-    sh:path av:title ;
+    sh:path rico:title ;
     memorix:inTitleAt 3.0 ;
     sh:order 10.0 ;
     sh:group av:contentDescriptionGroup ;
@@ -65,7 +70,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Beschrijving"@nl ;
     sh:maxCount 1 ;
-    sh:path av:description ;
+    sh:path dc:description ;
     sh:order 11.0 ;
     sh:group av:contentDescriptionGroup ;
     sh:datatype xsd:string ;
@@ -74,7 +79,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Extra informatie"@nl ;
     sh:maxCount 1 ;
-    sh:path av:extraInformation ;
+    sh:path rico:descriptiveNote ;
     sh:order 12.0 ;
     sh:group av:contentDescriptionGroup ;
     sh:datatype xsd:string ;
@@ -82,7 +87,7 @@ recordtypes:Av
   ] ;
   sh:property [
     rdfs:label "Afgebeelde personen"@nl ;
-    sh:path av:depictedPerson ;
+    sh:path foaf:depicts ;
     sh:maxCount 10 ;
     sh:order 13.0 ;
     sh:nodeKind sh:IRI ;
@@ -96,7 +101,7 @@ recordtypes:Av
 
   sh:property [
     rdfs:label "Trefwoorden"@nl ;
-    sh:path av:keyword ;
+    sh:path schema:keywords ;
     sh:maxCount 10 ;
     sh:order 14.0 ;
     sh:group av:contentDescriptionGroup ;
@@ -108,7 +113,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Datering gebeurtenis"@nl ;
     sh:maxCount 1 ;
-    sh:path av:eventDate ;
+    sh:path rico:Date ;
     sh:order 15.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -119,7 +124,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Afgebeelde locatie"@nl ;
     sh:maxCount 10 ;
-    sh:path av:depictedLocation ;
+    sh:path schema:contentLocation ;
     sh:order 16.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -129,7 +134,7 @@ recordtypes:Av
 
   sh:property [
     rdfs:label "Techniek"@nl ;
-    sh:path av:technique ;
+    sh:path rico:hasProductionTechniqueType ;
     sh:maxCount 10 ;
     sh:order 17.0 ;
     dash:viewer dash:DetailsEditor ;
@@ -140,7 +145,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Vervaardigers"@nl ;
     sh:maxCount 10 ;
-    sh:path av:creator ;
+    sh:path rico:hasCreator ;
     sh:order 18.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -149,7 +154,7 @@ recordtypes:Av
   ] ;
   sh:property [
     rdfs:label "Datering vervaardiging"@nl ;
-    sh:path av:creationDate ;
+    sh:path rico:creationDate ;
     sh:maxCount 1 ;
     sh:order 19.0 ;
     dash:viewer dash:DetailsEditor ;
@@ -160,7 +165,7 @@ recordtypes:Av
 
   sh:property [
     rdfs:label "Herkomst"@nl ;
-    sh:path av:aquisitionOrigin ;
+    sh:path rico:history ;
     sh:maxCount 10 ;
     sh:order 30.0 ;
     sh:group av:aquisitionGroup ;
@@ -171,7 +176,7 @@ recordtypes:Av
   ] ;
   sh:property [
     rdfs:label "Persoon/Organisatie"@nl ;
-    sh:path av:aquisitionSource ;
+    sh:path schema:acquiredFrom ;
     sh:maxCount 10 ;
     sh:order 31.0 ;
     sh:nodeKind sh:IRI ;
@@ -185,7 +190,8 @@ recordtypes:Av
   sh:property [
     rdfs:label "Datum"@nl ;
     sh:maxCount 1 ;
-    sh:group av:aquisitionGroup ;
+    # "The date and time of obtaining the product."
+    sh:group schema:ownedFrom ;
     sh:path av:aquisitionDate ;
     sh:order 32.0 ;
     sh:datatype xsd:integer ;
@@ -194,7 +200,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Opmerking"@nl ;
     sh:maxCount 1 ;
-    sh:path av:aquisitionNotes ;
+    sh:path rico:descriptiveNote ;
     sh:order 33.0 ;
     sh:group av:aquisitionGroup ;
     sh:datatype xsd:string ;
@@ -203,7 +209,7 @@ recordtypes:Av
 
   sh:property [
     rdfs:label "Standplaatsnummer"@nl ;
-    sh:path av:identifierCode ;
+    sh:path rico:hasOrHadIdentifier ;
     sh:maxCount 100 ;
     sh:order 40.0 ;
     sh:group av:managementGroup ;
@@ -213,7 +219,8 @@ recordtypes:Av
   sh:property [
     rdfs:label "Tentoonstellingen"@nl ;
     sh:maxCount 1 ;
-    sh:path av:exhibitions ;
+    # Er is een mooie "inverse property" hiervan: https://schema.org/workFeatured
+    sh:path dbpo:exhibition ;
     sh:order 41.0 ;
     sh:group av:managementGroup ;
     sh:datatype xsd:string ;
@@ -222,7 +229,8 @@ recordtypes:Av
   sh:property [
     rdfs:label "Digitalisering"@nl ;
     sh:maxCount 1 ;
-    sh:path av:digitization ;
+    # Range: eigenlijk rico:Instantiation
+    sh:path rico:hasDerivedInstantiation ;
     sh:order 42.0 ;
     sh:group av:managementGroup ;
     sh:datatype xsd:string ;
@@ -231,13 +239,12 @@ recordtypes:Av
   sh:property [
     rdfs:label "Opmerkingen beheer"@nl ;
     sh:maxCount 1 ;
-    sh:path av:managementNotes ;
+    sh:path rico:descriptiveNote ;
     sh:order 43.0 ;
     sh:group av:managementGroup ;
     sh:datatype xsd:string ;
     dash:editor  dash:TextAreaEditor ;
   ] ;
-
 .
 
 av:EventDate
@@ -247,7 +254,7 @@ av:EventDate
   sh:targetClass av:EventDate ;
   sh:property [
     rdfs:label "Datum tekstveld"@nl ;
-    sh:path av:eventDateDateText ;
+    sh:path rico:expressedDate ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
     sh:datatype xsd:string ;
@@ -256,7 +263,7 @@ av:EventDate
   sh:property [
     rdfs:label "Datum van"@nl ;
     sh:maxCount 1 ;
-    sh:path av:eventDateDateStart ;
+    sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
     sh:datatype xsd:integer ;
     dash:editor memorix:DateEditor ;
@@ -264,7 +271,7 @@ av:EventDate
   sh:property [
     rdfs:label "Datum tot"@nl ;
     sh:maxCount 1 ;
-    sh:path av:eventDateDateEnd ;
+    sh:path rico:hasEndDate ;
     sh:order 3.0 ;
     sh:datatype xsd:integer ;
     dash:editor memorix:DateEditor ;
@@ -278,7 +285,8 @@ av:Technique
   sh:targetClass av:Technique ;
   sh:property [
     rdfs:label "Bronformaat"@nl ;
-    sh:path av:sourceFormat ;
+    # "The file format, physical medium, or dimensions of the resource"
+    sh:path dc:format ;
     sh:maxCount 1 ;
     sh:order 17.2 ;
     dash:editor memorix:VocabularyEditor ;
@@ -289,7 +297,7 @@ av:Technique
 
   sh:property [
     rdfs:label "Kopieën"@nl ;
-    sh:path av:copy ;
+    sh:path rico:hasCopy ;
     sh:maxCount 10 ;
     sh:order 17.4 ;
     dash:editor memorix:VocabularyEditor ;
@@ -300,7 +308,7 @@ av:Technique
 
   sh:property [
     rdfs:label "Kleur"@nl ;
-    sh:path av:color ;
+    sh:path schema:color ;
     sh:maxCount 10 ;
     sh:order 17.6 ;
     dash:editor memorix:VocabularyEditor ;
@@ -311,7 +319,8 @@ av:Technique
 
   sh:property [
     rdfs:label "Geluid"@nl ;
-    sh:path av:sound ;
+    # Dit is een boolean veld, zonder goed corresponderende beschikbaar ontologisch equivalent
+    sh:path schema:audio ;
     sh:maxCount 1 ;
     sh:order 17.8 ;
     sh:datatype xsd:boolean ;
@@ -320,7 +329,9 @@ av:Technique
   sh:property [
     rdfs:label "Tijdsduur"@nl ;
     sh:maxCount 1 ;
-    sh:path av:lengthOfTime ;
+    # "The number, size or duration of the information content unit(s) remains the same even if the information is
+    #  instantiated in various carriers"
+    sh:path rico:recordResourceExtent ;
     sh:order 17.9 ;
     sh:datatype xsd:string ;
     dash:singleLine true ;
@@ -334,7 +345,8 @@ av:DepictedLocation
   sh:targetClass av:DepictedLocation ;
   sh:property [
     rdfs:label "Plaats"@nl ;
-    sh:path av:locationCity ;
+    # "The locality in which the street address is"
+    sh:path schema:addressLocality ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
@@ -344,7 +356,7 @@ av:DepictedLocation
   ] ;
   sh:property [
     rdfs:label "Straat"@nl ;
-    sh:path av:locationStreet ;
+    sh:path schema:streetAddress ;
     sh:maxCount 1 ;
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
@@ -355,13 +367,13 @@ av:DepictedLocation
   sh:property [
       rdfs:label "Huisnummer"@nl ;
       sh:maxCount 1 ;
-      sh:path av:locationHousenumber ;
+      sh:path schema:streetAddress ;
       sh:order 3.0 ;
       sh:datatype xsd:string ;
   ] ;
   sh:property [
       rdfs:label "Coördinaten"@nl ;
-      sh:path av:locationCoordinates  ;
+      sh:path schema:geo ;
       sh:maxCount 10 ;
       sh:order 4.0 ;
       sh:datatype xsd:string ;
@@ -377,7 +389,7 @@ av:Creator
   sh:targetClass av:Creator ;
   sh:property [
     rdfs:label "Vervaardiger"@nl ;
-    sh:path av:creatorCreator ;
+    sh:path rico:hasCreator ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
     sh:nodeKind sh:IRI ;
@@ -389,7 +401,8 @@ av:Creator
   ] ;
   sh:property [
     rdfs:label "Rol"@nl ;
-    sh:path av:creatorRole ;
+    # "Connects a Creation Relation to the Role Type that the creator Agent(s) has in the creation process"
+    sh:path rico:creationWithRole ;
     sh:maxCount 5 ;
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
@@ -406,7 +419,7 @@ av:CreationDate
   sh:targetClass av:CreationDate ;
   sh:property [
     rdfs:label "Datum tekstveld"@nl ;
-    sh:path av:creationDateDateText ;
+    sh:path rico:expressedDate ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
     sh:datatype xsd:string ;
@@ -415,7 +428,7 @@ av:CreationDate
   sh:property [
     rdfs:label "Datum van"@nl ;
     sh:maxCount 1 ;
-    sh:path av:creationDateDateStart ;
+    sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
     sh:datatype xsd:integer ;
     dash:editor memorix:DateEditor ;
@@ -423,7 +436,7 @@ av:CreationDate
   sh:property [
     rdfs:label "Datum tot"@nl ;
     sh:maxCount 1 ;
-    sh:path av:creationDateDateEnd ;
+    sh:path rico:hasEndDate ;
     sh:order 3.0 ;
     sh:datatype xsd:integer ;
     dash:editor memorix:DateEditor ;
