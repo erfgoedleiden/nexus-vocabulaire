@@ -1,0 +1,60 @@
+%YAML 1.2
+---
+spec:
+  validation:
+    data_dir: ./voorbeelddata/
+    shacl_dir: ./shacl/
+
+    ignore_uris_containing:
+      # Voor nu: negeer URIs die ontbreken in de memorix.io ontologie
+      - http://memorix.io/ontology#path
+      - http://memorix.io/ontology#order
+      - http://memorix.io/ontology#hasLeaf
+      - http://memorix.io/ontology#typeOf
+      - http://memorix.io/ontology#hasRecordType  # Bedoeld: http://memorix.io/ontology#hasRecordtype ?
+      - http://memorix.io/ontology#identifier     # Duplicaat van ↓ ?
+      - http://memorix.io/ontology#Identifier     # Duplicaat van ↑ ?
+      - http://memorix.io/ontology#Fonds
+      - http://memorix.io/ontology#HasRecordsComponent  # Bedoeld: http://memorix.io/ontology#hasInformationComponent ???
+      - http://memorix.io/ontology#TreeComponent        # Bedoeld: http://memorix.io/ontology#TreePathComponent ???
+      - http://memorix.io/ontology#hasNode
+      - http://memorix.io/ontology#inlineField
+      # Alle URIs met 'resources/vocabularies' zijn niet te dereferencen
+      - /resources/vocabularies/
+      # negeer 'xsd' prefix: die is niet op te vragen in linked data vorm
+      - http://www.w3.org/2001/XMLSchema
+      # Negeer record URIs
+      - /resources/records/
+      - /resources/recordtypes/
+    # De "done" items worden gecontroleerd met het validatiescript
+    done:
+      - ActorOrganisatie
+      - Archiefblok
+    # De "todo" items worden overgeslagen door het validatiescript
+    todo:
+      - Aanwinst
+      - ActorFamilie
+      - ActorPersoon
+      - Archiefbibliotheek
+      - Av  # Prio 1
+      - Bestanddeel  # Prio 1
+      - Bibliotheek  # Prio 1
+      - Bijlage  # Prio 1
+      - BlaeuAtlas
+      - BlaeuAtlasPagina
+      - Complex
+      - DanielvdMeulen
+      - Deed  # Prio 1
+      - ErfgoedregisterAdres
+      - Groep  # Prio 1
+      - HeiligeGeestWeeshuis
+      - Image  # Prio 1
+      - Koorboek
+      - KoorboekPagina
+      - LeFranqVanBerkhey
+      - Object  # Prio 1
+      - Organisatie
+      - Persoon
+      - Persoonsvermelding  # Prio 1
+      - Restauratie
+      - Woii

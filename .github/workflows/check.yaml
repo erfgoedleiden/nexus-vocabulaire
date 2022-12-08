@@ -2,6 +2,7 @@ on: push
 
 jobs:
   check:
+    timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,4 +20,8 @@ jobs:
           pipenv install --dev --deploy
 
       - name: run checks
-        run: pipenv run python -u validate.py
+        run: | 
+          pipenv run mypy .
+          pipenv run flake8 .
+          pipenv run python -u validate.py
+          pipenv run pytest

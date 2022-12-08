@@ -7,6 +7,7 @@
 @prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix recordtypes:      <https://lei-migrate.memorix.io/resources/recordtypes/> .
+@prefix rico:             <https://www.ica.org/standards/RiC/ontology#> .
 @prefix schema:           <http://schema.org/> .
 @prefix sh:               <http://www.w3.org/ns/shacl#> .
 @prefix skos:             <http://www.w3.org/2004/02/skos/core#> .
@@ -21,7 +22,7 @@
         rdf:type  recordtypes:ActorPersoon .
 
 <https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f/context>
-        rdf:type           memorix:Context ;
+        rdf:type           rico:RecordSet, memorix:Context ;
         memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f> ;
         dcterms:title      "Ferenc Schneiders" .
 

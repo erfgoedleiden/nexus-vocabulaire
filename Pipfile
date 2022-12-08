@@ -6,8 +6,16 @@ name = "pypi"
 [packages]
 pyshacl = "*"
 rdflib = "*"
+"ruamel.yaml" = "*"
+retry = "*"
+requests = "*"
+tqdm = "*"
 
 [dev-packages]
+coverage = "*"
+flake8 = "*"
+pytest = "*"
+mypy = "*"
 
 [requires]
 python_version = "3.10"
