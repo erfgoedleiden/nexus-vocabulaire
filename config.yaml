@@ -33,13 +33,13 @@ spec:
       - ActorOrganisatie
       - Archiefblok
       - Av
+      - Bestanddeel
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
       - Aanwinst
       - ActorFamilie
       - ActorPersoon
       - Archiefbibliotheek
-      - Bestanddeel  # Prio 1
       - Bibliotheek  # Prio 1
       - Bijlage  # Prio 1
       - BlaeuAtlas
