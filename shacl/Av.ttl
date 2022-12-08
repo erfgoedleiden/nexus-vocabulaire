@@ -27,6 +27,8 @@ recordtypes:Av
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Bestandsnaam"@nl ;
+    # Een goede mapping voor bestandsnaam is moeilijker te vinden dan je zou verwachten.
+    # Een concept uit de DBPedia ontologie gekozen
     sh:path dbpo:filename ;
     memorix:inTitleAt 1.0 ;
     sh:maxCount 100 ;
