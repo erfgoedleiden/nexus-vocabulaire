@@ -22,7 +22,7 @@ bestanddeel:descriptionGroup a sh:PropertyGroup ;
     sh:order 2.0
 .
 bestanddeel:locationGroup a sh:PropertyGroup ;
-    rdfs:label "Locties"@nl ;
+    rdfs:label "Locaties"@nl ;
     sh:order 3.0
 .
 bestanddeel:managementGroup a sh:PropertyGroup ;
