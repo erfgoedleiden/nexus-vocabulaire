@@ -3,6 +3,7 @@ import functools
 import logging
 import os
 import re
+import ssl
 from argparse import ArgumentParser
 
 import pyshacl
@@ -12,6 +13,7 @@ from tqdm import tqdm
 from retry import retry
 
 from lib.config import Config, load_config
+from lib.https_adapter import CustomHttpAdapter
 
 
 def main(config: Config) -> int:
@@ -23,6 +25,11 @@ def main(config: Config) -> int:
     :return: 0 on successful validation
     """
     start = datetime.datetime.now()
+
+    ctx = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
+    ctx.options |= 0x4
+    session = requests.session()
+    session.mount('https://', CustomHttpAdapter(ctx))
 
     shacl_files = os.listdir(config['validation']['shacl_dir'])
 
@@ -42,10 +49,10 @@ def main(config: Config) -> int:
         else:
             shacl_validate(data_filepath, shacl_filepath)
             logging.info(f'Validating URI resolvability for {data_filepath}')
-            check_uris(data_filepath, config)
+            check_uris(data_filepath, config, session)
 
         logging.info(f'Validating URI resolvability for {shacl_filepath}')
-        check_uris(shacl_filepath, config)
+        check_uris(shacl_filepath, config, session)
 
         # TODO: check consistent use of prefixes (http vs https etc.)
 
@@ -72,7 +79,7 @@ def shacl_validate(data_filepath: str, shacl_filepath: str) -> None:
     assert conforms, f'{data_filepath} incorrect: {results_text}'
 
 
-def check_uris(data_filepath: str, config: Config) -> None:
+def check_uris(data_filepath: str, config: Config, session: requests.Session) -> None:
     """
     This function will check _every_ URI in the sample graphs for being able to resolve. This will catch errors on
     vocab typos, or small happy accidents on hash/slash-URI mishaps and the likes.
@@ -85,10 +92,10 @@ def check_uris(data_filepath: str, config: Config) -> None:
     graph.parse(data_filepath)
 
     for triple in tqdm(graph):
-        validate_triple(triple, config)
+        validate_triple(triple, config, session)
 
 
-def validate_triple(triple: tuple, config: Config) -> None:
+def validate_triple(triple: tuple, config: Config, session: requests.Session) -> None:
     for triple_part in triple:
         check = True
         for ignore_item in config['validation']['ignore_uris_containing']:
@@ -107,7 +114,7 @@ def validate_triple(triple: tuple, config: Config) -> None:
         resolvable_part = triple_part.split('#')[0]
         try:
             # Will throw an error on 400 or larger responses
-            http_get(resolvable_part, 'text/turtle')
+            http_get(session, resolvable_part, 'text/turtle')
         except RuntimeError as e:
             logging.error(f'{triple_part} could not be resolved: {e}')
             raise
@@ -139,7 +146,7 @@ def load_graph_from_uri(resolvable_part: str) -> rdflib.Graph:
 
 @retry(tries=3, delay=1, backoff=2)
 @functools.lru_cache
-def http_get(url: str, content_type: str = 'text/html') -> str:
+def http_get(session: requests.Session, url: str, content_type: str = 'text/html') -> str:
     """
     Simple helper function to get the text a URL given the provided content type.
     Caches the response to make sure that the content is fetched only once
@@ -149,7 +156,7 @@ def http_get(url: str, content_type: str = 'text/html') -> str:
 
     :return: The response text
     """
-    response = requests.get(url=url, headers={'Accept': content_type})
+    response = session.get(url=url, headers={'Accept': content_type})
     if response.status_code >= 400:
         raise RuntimeError(f'Invalid response {response.status_code} for {url}')
 
