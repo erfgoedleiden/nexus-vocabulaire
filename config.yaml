@@ -36,25 +36,25 @@ spec:
       - ActorFamilie
       - ActorPersoon
       - Archiefbibliotheek
-      - Av
-      - Bestanddeel
-      - Bibliotheek
-      - Bijlage
+      - Av  # Prio 1
+      - Bestanddeel  # Prio 1
+      - Bibliotheek  # Prio 1
+      - Bijlage  # Prio 1
       - BlaeuAtlas
       - BlaeuAtlasPagina
       - Complex
       - DanielvdMeulen
-      - Deed
+      - Deed  # Prio 1
       - ErfgoedregisterAdres
-      - Groep
+      - Groep  # Prio 1
       - HeiligeGeestWeeshuis
-      - Image
+      - Image  # Prio 1
       - Koorboek
       - KoorboekPagina
       - LeFranqVanBerkhey
-      - Object
+      - Object  # Prio 1
       - Organisatie
       - Persoon
-      - Persoonsvermelding
+      - Persoonsvermelding  # Prio 1
       - Restauratie
       - Woii
