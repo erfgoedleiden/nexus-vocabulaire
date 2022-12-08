@@ -19,6 +19,8 @@ spec:
       - http://memorix.io/ontology#TreeComponent        # Bedoeld: http://memorix.io/ontology#TreePathComponent ???
       - http://memorix.io/ontology#hasNode
       - http://memorix.io/ontology#inlineField
+      - http://memorix.io/ontology#searchWeight
+      - http://data.rkd.nl/rkdartists
       # Alle URIs met 'resources/vocabularies' zijn niet te dereferencen
       - /resources/vocabularies/
       # negeer 'xsd' prefix: die is niet op te vragen in linked data vorm
@@ -30,13 +32,13 @@ spec:
     done:
       - ActorOrganisatie
       - Archiefblok
+      - Av
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
       - Aanwinst
       - ActorFamilie
       - ActorPersoon
       - Archiefbibliotheek
-      - Av  # Prio 1
       - Bestanddeel  # Prio 1
       - Bibliotheek  # Prio 1
       - Bijlage  # Prio 1

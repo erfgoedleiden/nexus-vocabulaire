@@ -2,6 +2,7 @@ import datetime
 import functools
 import logging
 import os
+import re
 from argparse import ArgumentParser
 
 import pyshacl
@@ -23,24 +24,30 @@ def main(config: Config) -> int:
     """
     start = datetime.datetime.now()
 
-    data_samples = os.listdir('voorbeelddata')
-    for sample_file in data_samples:
-        shacl_filename = ''.join([name.capitalize() for name in sample_file.split('_')])
-        record_type = shacl_filename.replace('.ttl', '')
+    shacl_files = os.listdir(config['validation']['shacl_dir'])
 
+    for shacl_filename in shacl_files:
+        record_type = shacl_filename.replace('.ttl', '')
         if record_type not in config['validation']['done']:
             logging.info(f"Skipping {shacl_filename}: it's not in the 'done' list in config.yaml")
             continue
 
         logging.info(f'Validating shape constraints for {record_type}')
-        sample_filepath = os.path.join(config['validation']['data_dir'], sample_file)
+        data_filename = re.sub(r'(?<!^)(?=[A-Z])', '_', shacl_filename).lower()
+        data_filepath = os.path.join(config['validation']['data_dir'], data_filename)
         shacl_filepath = os.path.join(config['validation']['shacl_dir'], shacl_filename)
-        shacl_validate(sample_filepath, shacl_filepath)
+
+        if not os.path.isfile(data_filepath):
+            logging.warning(f'Skipping SHACL validation for {record_type}: no data file found.')
+        else:
+            shacl_validate(data_filepath, shacl_filepath)
+            logging.info(f'Validating URI resolvability for {data_filepath}')
+            check_uris(data_filepath, config)
 
         logging.info(f'Validating URI resolvability for {shacl_filepath}')
         check_uris(shacl_filepath, config)
-        logging.info(f'Validating URI resolvability for {sample_filepath}')
-        check_uris(sample_filepath, config)
+
+        # TODO: check consistent use of prefixes (http vs https etc.)
 
     finish = datetime.datetime.now()
     logging.info(f'Script took {finish - start}')
