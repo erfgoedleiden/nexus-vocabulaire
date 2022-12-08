@@ -1,18 +1,18 @@
 @prefix bestanddeel: </resources/recordtypes/Bestanddeel#> .
-@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix: <http://memorix.io/ontology#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes: </resources/recordtypes/> .
-@prefix html: <http://www.w3.org/1999/xhtml/> .
 @prefix dash: <http://datashapes.org/dash#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
-
-@prefix rico:           <https://www.ica.org/standards/RiC/ontology#> .
-
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
+@prefix wikidata: <http://www.wikidata.org/entity/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 bestanddeel:identificationGroup a sh:PropertyGroup ;
     rdfs:label "Identificatie"@nl ;
@@ -23,7 +23,7 @@ bestanddeel:descriptionGroup a sh:PropertyGroup ;
     sh:order 2.0
 .
 bestanddeel:locationGroup a sh:PropertyGroup ;
-    rdfs:label "Locties"@nl ;
+    rdfs:label "Locaties"@nl ;
     sh:order 3.0
 .
 bestanddeel:managementGroup a sh:PropertyGroup ;
@@ -44,7 +44,9 @@ recordtypes:Bestanddeel
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass recordtypes:Bestanddeel ;
     rdfs:subClassOf                 rico:RecordSet ;
-    dash:defaultViewForRole dash:bestanddeel ;
+    # Was: dash:bestanddeel maar dat is geen entiteit in de dash ontologie
+    # Aangepast naar dash:all o.b.v. vergelijkbaar in ActorOrganisatie
+    dash:defaultViewForRole dash:all ;
     memorix:hasInformationComponent [ rdf:type  memorix:DepotLocationComponent, memorix:DigitalAssetComponent ] ;
     memorix:hasInformationComponent
     [ rdf:type               memorix:TreePathComponent ;
@@ -61,7 +63,8 @@ recordtypes:Bestanddeel
         sh:nodeKind     sh:IRI ;
         sh:or           ( [ sh:class  recordtypes:Archiefblok ] ) ;
         sh:order        0.3 ;
-        sh:path         bestanddeel:archiefblok
+        # Overgenomen uit SAA mapping
+        sh:path         rico:isOrWasIncludedIn
     ] ;
     sh:property          [
          rdfs:label        "Nummer bestanddeel"@nl ;
@@ -81,7 +84,7 @@ recordtypes:Bestanddeel
         sh:datatype  xsd:integer ;
         sh:group     bestanddeel:identificationGroup ;
         sh:order     3.0 ;
-        sh:path      bestanddeel:order ;
+        sh:path      schema:itemListOrder ;
     ] ;
     sh:property [
         rdfs:label   "Titel"@nl ;
@@ -105,11 +108,11 @@ recordtypes:Bestanddeel
     sh:property [
         rdfs:label "Fysieke beschrijving"@nl ;
         sh:maxCount 100 ;
-        sh:path rico:physicalOrLogicalExtent ;
+        sh:path rico:hasExtent ;
         sh:order 6.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
-        sh:class rico:PhysicalOrLogicalExtent ;
+        sh:class bestanddeel:PhysicalOrLogicalExtent ;
         sh:group bestanddeel:descriptionGroup ;
     ] ;
     sh:property [
@@ -126,7 +129,9 @@ recordtypes:Bestanddeel
     sh:property [
         rdfs:label "Gerelateerde actoren"@nl ;
         sh:maxCount 100 ;
-        sh:path bestanddeel:relatedActor ;
+        # "Bestanddeel" is geen "Work Relation", maar deze komt in de buurt:
+        # "Connects a Work Relation to an Agent."
+        sh:path rico:workRelationConnects ;
         sh:order 8.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -136,7 +141,7 @@ recordtypes:Bestanddeel
     sh:property [
         rdfs:label "Historisch adres"@nl ;
         sh:maxCount 100 ;
-        sh:path bestanddeel:historicalAddress ;
+        sh:path schema:PostalAddress ;
         sh:order 9.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -148,9 +153,12 @@ recordtypes:Bestanddeel
         sh:maxCount 1 ;
         dash:editor memorix:LocationBagEditor ;
         sh:group    bestanddeel:locationGroup ;
+        # Dit is waarschijnlijk incorrect, dit moet vermoedelijk een link zijn
         sh:class    memorix:GeoCoordinates ;
         sh:order    10.0 ;
-        sh:path     bestanddeel:bag ;
+        # Het is lastig om uit bovenstaande gegevens af te leiden waar het hier om gaat.
+        # memorix:GeoCoordinates -> Coordinaten? "BAG" -> Een pand identifier? Een adres identifier?
+        sh:path     <http://bag.basisregistraties.overheid.nl/def/bag#identificatieVanPand> ;
     ] ;
         sh:property             [
         rdfs:label  "Locatie coördinaten" ;
@@ -159,12 +167,15 @@ recordtypes:Bestanddeel
         sh:group    bestanddeel:locationGroup ;
         sh:class    memorix:GeoCoordinates ;
         sh:order    11.0 ;
-        sh:path     bestanddeel:coordinates ;
+        sh:path     schema:geo ;
     ] ;
     sh:property [
         rdfs:label "Digitaal geboren"@nl ;
         sh:maxCount 1 ;
-        sh:path bestanddeel:digitalBorn ;
+        # Dit is een lastige. De enige werkbare representatie van deze eigenschap staat in WikiData, maar de properties
+        # in WikiData zijn _genummerd_ in plaats van dat ze een menselijk leesbare naam hebben. De beste keus toch.
+        # "materials that originate in a digital form"
+        sh:path wikidata:Q14083178 ;
         sh:order 12.0 ;
         sh:group bestanddeel:managementGroup ;
         sh:datatype xsd:boolean ;
@@ -172,7 +183,7 @@ recordtypes:Bestanddeel
     sh:property [
         rdfs:label "Verwijzing"@nl ;
         sh:maxCount 100 ;
-        sh:path bestanddeel:reference ;
+        sh:path rico:Relation ;
         sh:order 14.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -190,7 +201,7 @@ recordtypes:Bestanddeel
     sh:property [
         rdfs:label "Status"@nl ;
         sh:maxCount 1 ;
-        sh:path bestanddeel:status ;
+        sh:path rico:hasRecordState ;
         sh:group     bestanddeel:managementGroup ;
         sh:order 16.0 ;
         dash:editor             dash:EnumSelectEditor ;
@@ -201,7 +212,7 @@ recordtypes:Bestanddeel
     sh:property [
         rdfs:label "Opmerkingen openbaar"@nl ;
         sh:maxCount 1 ;
-        sh:path bestanddeel:notesPublic ;
+        sh:path rico:descriptiveNote ;
         sh:order 26.0 ;
         sh:datatype xsd:string ;
         dash:editor  dash:TextAreaEditor ;
@@ -210,7 +221,7 @@ recordtypes:Bestanddeel
     sh:property [
         rdfs:label "Opmerkingen intern"@nl ;
         sh:maxCount 100 ;
-        sh:path bestanddeel:notes ;
+        sh:path rico:descriptiveNote ;
         sh:order 27.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -249,22 +260,25 @@ rico:DateRange
     sh:targetClass       rico:DateRange ;
 .
 
-rico:PhysicalOrLogicalExtent
+# Voorheen: niet-bestaande rico:PhysicalOrLogicalExtent
+bestanddeel:PhysicalOrLogicalExtent
     a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass rico:PhysicalOrLogicalExtent ;
+    # Voorheen: niet-bestaande rico:PhysicalOrLogicalExtent
+    sh:targetClass rico:CarrierExtent ;
     sh:property [
         rdfs:label   "Aantal"@nl ;
         sh:maxCount 1 ;
         sh:datatype  xsd:integer ;
         sh:order     1.0 ;
-        sh:path      bestanddeel:physicalDescriptionCount ;
+        sh:path      rico:quantity ;
     ] ;
     sh:property [
         rdfs:label "Fysieke eenheid"@nl ;
         sh:maxCount 1 ;
-        sh:path bestanddeel:physicalDescriptionUnit ;
+        # rico:CarrierType "Categorization of physical material in or on which information is represented"
+        sh:path rico:hasCarrierType ;
         sh:order 2.0 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
@@ -282,7 +296,7 @@ bestanddeel:Reference
         rdfs:comment   "verwijzing naar een ander bestanddeel"@nl ;
         sh:maxCount 1 ;
         sh:order     1.0 ;
-        sh:path      bestanddeel:referenceFile ;
+        sh:path      rico:recordResourceRelationConnects ;
         sh:nodeKind sh:IRI ;
         sh:or (
             [ sh:class recordtypes:Bestanddeel ]
@@ -294,10 +308,9 @@ bestanddeel:Reference
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    2.0 ;
-        sh:path bestanddeel:referenceNotes ;
+        sh:path rico:descriptiveNote ;
         dash:editor  dash:TextAreaEditor ;
     ] ;
-
 .
 
 bestanddeel:HistoricalAddress
@@ -307,7 +320,7 @@ bestanddeel:HistoricalAddress
     sh:targetClass bestanddeel:HistoricalAddress ;
     sh:property [
         rdfs:label "Plaats"@nl ;
-        sh:path bestanddeel:city ;
+        sh:path schema:addressLocality ;
         sh:maxCount 1 ;
         sh:order 1.0 ;
         dash:editor memorix:VocabularyEditor ;
@@ -317,7 +330,7 @@ bestanddeel:HistoricalAddress
     ] ;
     sh:property [
         rdfs:label "Straat"@nl ;
-        sh:path bestanddeel:street ;
+        sh:path schema:streetAddress ;
         sh:maxCount 1 ;
         sh:order 2.0 ;
         dash:editor memorix:VocabularyEditor ;
@@ -328,18 +341,21 @@ bestanddeel:HistoricalAddress
     sh:property [
         rdfs:label "Huisnummer van"@nl ;
         sh:maxCount 1 ;
-        sh:path bestanddeel:housenumberFrom ;
+        # Dit is een noodgreep. Hier bestaat geen goede property voor
+        sh:path schema:minValue ;
         sh:order 3.0 ;
         sh:datatype xsd:string ;
     ] ;
     sh:property [
         rdfs:label "Huisnummer tot"@nl ;
         sh:maxCount 1 ;
-        sh:path bestanddeel:housenumberUntil ;
+        # Dit is een noodgreep. Hier bestaat geen goede property voor
+        sh:path schema:maxValue ;
         sh:order 3.0 ;
         sh:datatype xsd:string ;
     ] ;
 .
+
 bestanddeel:RelatedActor
     a sh:NodeShape ;
     sh:closed true ;
@@ -348,7 +364,7 @@ bestanddeel:RelatedActor
     sh:property [
         rdfs:label "Rol actor"@nl ;
         sh:maxCount 1 ;
-        sh:path bestanddeel:actorRole ;
+        sh:path schema:roleName ;
         sh:order 1.0 ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
@@ -359,17 +375,17 @@ bestanddeel:RelatedActor
         rdfs:label   "Actor"@nl ;
         sh:maxCount 1 ;
         sh:order     2.0 ;
-        sh:path      bestanddeel:actorActor ;
+        sh:path      rico:Agent ;
         sh:nodeKind sh:IRI ;
         sh:or (
-            [ sh:class recordtypes:bestanddeel ]
+            # bestanddeel klinkt als een merkwaardige entiteit als "Actor"
+            [ sh:class recordtypes:Bestanddeel ]
             [ sh:class recordtypes:ActorOrganisatie ]
             [ sh:class recordtypes:ActorPersoon ]
         ) ;
         dash:editor memorix:LinkedRecordEditor ;
     ] ;
 .
-
 
 bestanddeel:Notes
     a sh:NodeShape ;
@@ -382,22 +398,21 @@ bestanddeel:Notes
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
         sh:order     1.0 ;
-        sh:path      bestanddeel:notesDate ;
+        sh:path      rico:expressedDate ;
     ] ;
     sh:property [
         rdfs:label "Gebruiker"@nl ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    2.0 ;
-        sh:path bestanddeel:notesUser ;
+        sh:path rico:hasOrHadAgentName ;
     ] ;
     sh:property [
         rdfs:label "Opmerkingen intern"@nl ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    3.0 ;
-        sh:path bestanddeel:notesInternal ;
+        sh:path rico:descriptiveNote ;
         dash:editor  dash:TextAreaEditor ;
     ] ;
 .
-

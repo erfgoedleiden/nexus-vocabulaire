@@ -89,10 +89,9 @@
                                          rico:hasBeginningDate  "1933"^^xsd:gYear ;
                                          rico:hasEndDate        "1934"^^xsd:gYear
                                        ] ;
-        rico:physicalOrLogicalExtent   [ rdf:type  rico:PhysicalOrLogicalExtent ;
-                                         bestanddeel:physicalDescriptionCount
-                                                 1 ;
-                                         bestanddeel:physicalDescriptionUnit
+        bestanddeel:PhysicalOrLogicalExtent   [ rdf:type  rico:CarrierExtent ;
+                                         rico:quantity 1 ;
+                                         rico:hasCarrierType
                                                  <https://lei-migrate.memorix.io/resources/vocabularies/concepts/ac2968bf-3392-3033-90c5-1fb7c3cf9cde>
                                        ] ;
         rico:scopeAndContent           "test" ;

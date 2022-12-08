@@ -107,7 +107,7 @@ def validate_triple(triple: tuple, config: Config) -> None:
         resolvable_part = triple_part.split('#')[0]
         try:
             # Will throw an error on 400 or larger responses
-            resolved_uri_repr = http_get(resolvable_part, 'text/turtle')
+            http_get(resolvable_part, 'text/turtle')
         except RuntimeError as e:
             logging.error(f'{triple_part} could not be resolved: {e}')
             raise
@@ -117,7 +117,7 @@ def validate_triple(triple: tuple, config: Config) -> None:
             resolved_uri_graph = load_graph_from_uri(resolvable_part)
 
             if triple_part not in resolved_uri_graph.subjects():
-                raise ValueError(f'URI {triple_part} is not a member of \n{resolved_uri_repr}')
+                raise ValueError(f'URI {triple_part} is not a member of \n{resolvable_part}')
 
 
 @retry(tries=3, delay=1, backoff=2)

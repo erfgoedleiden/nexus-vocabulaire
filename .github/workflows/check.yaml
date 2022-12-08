@@ -23,5 +23,5 @@ jobs:
         run: | 
           pipenv run mypy .
           pipenv run flake8 .
-          pipenv run python -u validate.py
+          OPENSSL_CONF=openssl.cnf pipenv run python -u validate.py
           pipenv run pytest
