@@ -32,13 +32,13 @@ spec:
     done:
       - ActorOrganisatie
       - Archiefblok
+      - Av
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
       - Aanwinst
       - ActorFamilie
       - ActorPersoon
       - Archiefbibliotheek
-      - Av  # Prio 1
       - Bestanddeel  # Prio 1
       - Bibliotheek  # Prio 1
       - Bijlage  # Prio 1
