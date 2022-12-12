@@ -48,7 +48,7 @@ recordtypes:Av
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Document type"@nl ;
+    rdfs:label "Documenttype"@nl ;
     # TODO: checken of dit hier bedoeld wordt - of is dit een IANA/MIME type?
     sh:path rico:hasContentOfType ;
     sh:maxCount 10 ;
