@@ -35,14 +35,14 @@ spec:
       - Archiefblok
       - Av
       - Bestanddeel
+      - Bibliotheek
+      - Bijlage
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
       - Aanwinst
       - ActorFamilie
       - ActorPersoon
       - Archiefbibliotheek
-      - Bibliotheek  # Prio 1
-      - Bijlage  # Prio 1
       - BlaeuAtlas
       - BlaeuAtlasPagina
       - Complex

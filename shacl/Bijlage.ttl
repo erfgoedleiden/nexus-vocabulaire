@@ -1,15 +1,17 @@
 @prefix bijlage: </resources/recordtypes/Bijlage#> .
-@prefix vocabularies: </resources/vocabularies/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix: <http://memorix.io/ontology#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes: </resources/recordtypes/> .
-@prefix html: <http://www.w3.org/1999/xhtml/> .
 @prefix dash: <http://datashapes.org/dash#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix html: <http://www.w3.org/1999/xhtml/> .
+@prefix memorix: <http://memorix.io/ontology#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes: </resources/recordtypes/> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
 bijlage:attacementGroup a sh:PropertyGroup ;
@@ -23,7 +25,7 @@ bijlage:listGroup a sh:PropertyGroup ;
 
 recordtypes:Bijlage
     a memorix:Recordtype, sh:NodeShape ;
-    rdfs:label "Bijlagen"@nl ;
+    rdfs:label "Bijlage"@nl ;
     rdfs:comment "Archief bijlagen - Erfgoed Leiden"@nl ;
     dc:identifier "Bijlage" ;
     sh:closed true ;
@@ -38,7 +40,7 @@ recordtypes:Bijlage
         sh:group bijlage:attacementGroup;
         sh:datatype xsd:string ;
         sh:order    1.0 ;
-        sh:path bijlage:title ;
+        sh:path rico:title ;
     ] ;
     sh:property [
         rdfs:label "Aantekeningen"@nl ;
@@ -46,7 +48,7 @@ recordtypes:Bijlage
         sh:group bijlage:attacementGroup;
         sh:datatype xsd:string ;
         sh:order    2.0 ;
-        sh:path bijlage:notes ;
+        sh:path rico:descriptiveNote ;
         dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [
@@ -54,7 +56,7 @@ recordtypes:Bijlage
         sh:maxCount 1;
         memorix:inTitleAt 2.0 ;
         sh:group bijlage:attacementGroup;
-        sh:path bijlage:type ;
+        sh:path rico:hasContentOfType ;
         sh:order 3.0 ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
@@ -65,7 +67,8 @@ recordtypes:Bijlage
         rdfs:label "Naam kolom 1"@nl ;
         sh:maxCount 1;
         sh:group bijlage:listGroup;
-        sh:path bijlage:nameFirstColumn ;
+        # Zelfde sh:path als ↓ ??
+        sh:path rico:name ;
         sh:datatype xsd:string ;
         sh:order    4.0 ;
     ] ;
@@ -73,14 +76,15 @@ recordtypes:Bijlage
         rdfs:label "Naam kolom 2"@nl ;
         sh:maxCount 1;
         sh:group bijlage:listGroup;
-        sh:path bijlage:nameSecondColumn ;
+        # Zelfde sh:path als ↑ ??
+        sh:path rico:name ;
         sh:datatype xsd:string ;
         sh:order    5.0 ;
     ] ;
     sh:property [
         rdfs:label "Lijst"@nl ;
         sh:maxCount 100 ;
-        sh:path bijlage:list ;
+        sh:path schema:ItemList ;
         sh:order 6.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -99,14 +103,14 @@ bijlage:List
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order     1.0 ;
-          sh:path      bijlage:listFirstColumn ;
+          sh:path      schema:itemListElement ;
       ] ;
     sh:property [
           rdfs:label "Tweede kolom"@nl ;
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order    2.0 ;
-          sh:path     bijlage:listSecondColumn ;
+          sh:path      schema:itemListElement ;
       ] ;
 .
 
