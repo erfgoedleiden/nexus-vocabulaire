@@ -54,7 +54,7 @@ recordtypes:Image
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Document type"@nl ;
+    rdfs:label "Documenttype"@nl ;
     sh:path image:documentType ;
     sh:maxCount 10 ;
     sh:order 4.0 ;
