@@ -37,7 +37,8 @@ recordtypes:Bibliotheek
     sh:nodeKind     sh:IRI ;
     sh:or           ( [ sh:class  recordtypes:Archiefbibliotheek ] ) ;
     sh:order        0.3 ;
-    sh:path         dbpo:Archive
+    # "Indicates a page or other link involved in archival of a CreativeWork"
+    sh:path         schema:archivedAt
   ] ;
   sh:property [
     rdfs:label "Signatuur"@nl ;
