@@ -356,7 +356,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Retro"@nl ;
-    # Niet zeker wat hier bedoeld wordt
+    # Bestaat wegens vroegere documentatiemethode
     sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
     sh:order 30.0 ;
