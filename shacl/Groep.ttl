@@ -1,27 +1,29 @@
-@prefix groep: </resources/recordtypes/Groep#> .
-@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix: <http://memorix.io/ontology#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes: </resources/recordtypes/> .
-@prefix html: <http://www.w3.org/1999/xhtml/> .
-@prefix dash: <http://datashapes.org/dash#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-
-@prefix rico:            <https://www.ica.org/standards/RiC/ontology#> .
+@prefix dash:           <http://datashapes.org/dash#> .
+@prefix dc:             <http://purl.org/dc/elements/1.1/> .
+@prefix groep:          </resources/recordtypes/Groep#> .
+@prefix html:           <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:        <http://memorix.io/ontology#> .
+@prefix rico:           <https://www.ica.org/standards/RiC/ontology#> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:    </resources/recordtypes/> .
+@prefix schema:         <http://schema.org/> .
+@prefix sh:             <http://www.w3.org/ns/shacl#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies:   </resources/vocabularies/conceptschemes/> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 
 
 groep:identificationGroup a sh:PropertyGroup ;
     rdfs:label "Identificatie"@nl ;
     sh:order 1.0
 .
+
 groep:descriptionGroup a sh:PropertyGroup ;
     rdfs:label "Beschrijving"@nl ;
     sh:order 2.0
 .
+
 groep:notesGroup a sh:PropertyGroup ;
     rdfs:label "Opmerkingen"@nl ;
     sh:order 3.0
@@ -47,15 +49,17 @@ recordtypes:Groep
         sh:datatype  xsd:string ;
         sh:group     groep:identificationGroup ;
         sh:order     1.0 ;
-        sh:path      groep:range ;
+        # "Connects a Record to a Record Part that is or was a component of that Record."
+        # Niet duidelijk of dit hier correct is.
+        sh:path      rico:hasOrHadConstituent ;
     ] ;
     sh:property [
         rdfs:label   "Sorteervolgorde"@nl ;
-        sh:maxCount 1 ;
+        sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
         sh:group     groep:identificationGroup ;
         sh:order     2.0 ;
-        sh:path      groep:order ;
+        sh:path      schema:itemListOrder ;
     ] ;
     sh:property [
         rdfs:label   "Titel"@nl ;
@@ -94,13 +98,13 @@ recordtypes:Groep
         sh:order 7.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
-        sh:class rico:PhysicalOrLogicalExtent ;
+        sh:class rico:physicalOrLogicalExtent ;
         sh:group groep:descriptionGroup ;
     ] ;
     sh:property [
         rdfs:label "Opmerkingen openbaar"@nl ;
         sh:maxCount 1 ;
-        sh:path groep:notesPublic ;
+        sh:path rico:descriptiveNote ;
         sh:order 8.0 ;
         sh:datatype xsd:string ;
         dash:editor  dash:TextAreaEditor ;
@@ -109,7 +113,7 @@ recordtypes:Groep
     sh:property [
         rdfs:label "Opmerkingen intern"@nl ;
         sh:maxCount 100 ;
-        sh:path groep:notes ;
+        sh:path rico:descriptiveNote ;
         sh:order 9.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -147,22 +151,22 @@ rico:DateRange
     ] ;
     sh:targetClass       rico:DateRange ;
 .
-rico:PhysicalOrLogicalExtent
+rico:physicalOrLogicalExtent
     a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass rico:PhysicalOrLogicalExtent ;
+    sh:targetClass rico:physicalOrLogicalExtent ;
     sh:property [
         rdfs:label   "Aantal"@nl ;
         sh:maxCount 1 ;
         sh:datatype  xsd:integer ;
         sh:order     1.0 ;
-        sh:path      groep:physicalDescriptionCount ;
+        sh:path      rico:hasExtent ;
     ] ;
     sh:property [
         rdfs:label "Fysieke eenheid"@nl ;
         sh:maxCount 1 ;
-        sh:path groep:physicalDescriptionUnit ;
+        sh:path rico:unitOfMeasurement ;
         sh:order 2.0 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
@@ -182,21 +186,21 @@ groep:Notes
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
         sh:order     1.0 ;
-        sh:path      groep:notesDate ;
+        sh:path      dc:date ;
     ] ;
     sh:property [
         rdfs:label "Gebruiker"@nl ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    2.0 ;
-        sh:path groep:notesUser ;
+        sh:path dc:creator ;
     ] ;
     sh:property [
         rdfs:label "Opmerkingen intern"@nl ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    3.0 ;
-        sh:path groep:notesInternal ;
+        sh:path rico:descriptiveNote ;
         dash:editor  dash:TextAreaEditor ;
     ] ;
     .
