@@ -66,12 +66,12 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path      dbpo:heritageRegister
     ] ;
     sh:property [
-        rdfs:label "Archief bestanddeel"@nl ;
-        sh:path deed:archive ;
-        sh:order 8.0 ;
-        sh:nodeKind sh:IRI ;
+        rdfs:label  "Archief bestanddeel"@nl ;
         # Dit is anders dan bibliotheek:"Ingebonden in": dat is een stringwaarde, dit is een verwijzing naar een record
-        sh:group rico:isOrWasIncludedIn ;
+        sh:path     rico:isOrWasIncludedIn ;
+        sh:order    8.0 ;
+        sh:nodeKind sh:IRI ;
+        sh:group    deed:deedGroup ;
         sh:or (
             [ sh:class recordtypes:Bestanddeel ]
         ) ;
