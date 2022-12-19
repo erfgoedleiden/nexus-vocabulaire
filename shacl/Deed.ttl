@@ -1,6 +1,5 @@
-@prefix schema: <http://schema.org/> .
 @prefix dash:         <http://datashapes.org/dash#> .
-@prefix dbpo: <http://dbpedia.org/ontology/> .
+@prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/elements/1.1/> .
 @prefix deed:         </resources/recordtypes/Deed#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
@@ -12,6 +11,7 @@
 @prefix ric-dft:      <https://www.ica.org/standards/RiC/vocabularies/documentaryFormTypes#> .
 @prefix ric-rst:      <https://www.ica.org/standards/RiC/vocabularies/recordSetTypes#> .
 @prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:        <http://schema.org/> .
 @prefix sh:           <http://www.w3.org/ns/shacl#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 @prefix vocabularies: </resources/vocabularies/conceptschemes/> .
@@ -37,7 +37,7 @@ deed:deedGroup  rdf:type  sh:PropertyGroup ;
     rdfs:label  "Akte"@nl ;
     sh:order    1.0 .
 
-recordtypes:Deed  rdf:type       sh:NodeShape , memorix:Recordtype ;
+recordtypes:Deed  rdf:type       sh:NodeShape, memorix:Recordtype ;
     rdfs:comment             "Standaard Recordtype voor Aktes"@nl ;
     rdfs:label               "Akte"@nl ;
     dash:defaultViewForRole  dash:all ;
