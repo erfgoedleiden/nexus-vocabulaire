@@ -37,6 +37,7 @@ spec:
       - Bestanddeel
       - Bibliotheek
       - Bijlage
+      - Deed
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
       - Aanwinst
@@ -47,7 +48,6 @@ spec:
       - BlaeuAtlasPagina
       - Complex
       - DanielvdMeulen
-      - Deed  # Prio 1
       - ErfgoedregisterAdres
       - Groep  # Prio 1
       - HeiligeGeestWeeshuis
