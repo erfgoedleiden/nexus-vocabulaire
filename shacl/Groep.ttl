@@ -18,10 +18,12 @@ groep:identificationGroup a sh:PropertyGroup ;
     rdfs:label "Identificatie"@nl ;
     sh:order 1.0
 .
+
 groep:descriptionGroup a sh:PropertyGroup ;
     rdfs:label "Beschrijving"@nl ;
     sh:order 2.0
 .
+
 groep:notesGroup a sh:PropertyGroup ;
     rdfs:label "Opmerkingen"@nl ;
     sh:order 3.0
