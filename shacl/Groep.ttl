@@ -98,7 +98,7 @@ recordtypes:Groep
         sh:order 7.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
-        sh:class rico:PhysicalOrLogicalExtent ;
+        sh:class rico:physicalOrLogicalExtent ;
         sh:group groep:descriptionGroup ;
     ] ;
     sh:property [
@@ -151,11 +151,11 @@ rico:DateRange
     ] ;
     sh:targetClass       rico:DateRange ;
 .
-rico:PhysicalOrLogicalExtent
+rico:physicalOrLogicalExtent
     a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass rico:PhysicalOrLogicalExtent ;
+    sh:targetClass rico:physicalOrLogicalExtent ;
     sh:property [
         rdfs:label   "Aantal"@nl ;
         sh:maxCount 1 ;

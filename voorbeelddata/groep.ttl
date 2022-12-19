@@ -29,9 +29,9 @@
                                         rico:hasBeginningDate  "1000"^^xsd:gYear ;
                                         rico:hasEndDate        "1500"^^xsd:gYear
                                       ] ;
-        rico:physicalOrLogicalExtent  [ rdf:type                        rico:PhysicalOrLogicalExtent ;
-                                        groep:physicalDescriptionCount  1 ;
-                                        groep:physicalDescriptionUnit   <https://lei-migrate.memorix.io/resources/vocabularies/concepts/2d1dca12-514d-330d-9014-d3ca6756901a>
+        rico:physicalOrLogicalExtent  [ rdf:type                rico:physicalOrLogicalExtent ;
+                                        rico:hasExtent          1 ;
+                                        rico:unitOfMeasurement  <https://lei-migrate.memorix.io/resources/vocabularies/concepts/2d1dca12-514d-330d-9014-d3ca6756901a>
                                       ] ;
         rico:scopeAndContent          "test" ;
         rico:title                    "Overige families" .
