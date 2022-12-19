@@ -82,7 +82,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Titel"@nl ;
-    sh:path dc:title ;
+    sh:path rico:title ;
     sh:maxCount 1 ;
     sh:order 5.0 ;
     memorix:inTitleAt 1.0 ;
