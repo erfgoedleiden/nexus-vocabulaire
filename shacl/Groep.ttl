@@ -49,15 +49,17 @@ recordtypes:Groep
         sh:datatype  xsd:string ;
         sh:group     groep:identificationGroup ;
         sh:order     1.0 ;
-        sh:path      groep:range ;
+        # "Connects a Record to a Record Part that is or was a component of that Record."
+        # Niet duidelijk of dit hier correct is.
+        sh:path      rico:hasOrHadConstituent ;
     ] ;
     sh:property [
         rdfs:label   "Sorteervolgorde"@nl ;
-        sh:maxCount 1 ;
+        sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
         sh:group     groep:identificationGroup ;
         sh:order     2.0 ;
-        sh:path      groep:order ;
+        sh:path      schema:itemListOrder ;
     ] ;
     sh:property [
         rdfs:label   "Titel"@nl ;
@@ -102,7 +104,7 @@ recordtypes:Groep
     sh:property [
         rdfs:label "Opmerkingen openbaar"@nl ;
         sh:maxCount 1 ;
-        sh:path groep:notesPublic ;
+        sh:path rico:descriptiveNote ;
         sh:order 8.0 ;
         sh:datatype xsd:string ;
         dash:editor  dash:TextAreaEditor ;
@@ -111,7 +113,7 @@ recordtypes:Groep
     sh:property [
         rdfs:label "Opmerkingen intern"@nl ;
         sh:maxCount 100 ;
-        sh:path groep:notes ;
+        sh:path rico:descriptiveNote ;
         sh:order 9.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -159,12 +161,12 @@ rico:PhysicalOrLogicalExtent
         sh:maxCount 1 ;
         sh:datatype  xsd:integer ;
         sh:order     1.0 ;
-        sh:path      groep:physicalDescriptionCount ;
+        sh:path      rico:hasExtent ;
     ] ;
     sh:property [
         rdfs:label "Fysieke eenheid"@nl ;
         sh:maxCount 1 ;
-        sh:path groep:physicalDescriptionUnit ;
+        sh:path rico:unitOfMeasurement ;
         sh:order 2.0 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
@@ -184,21 +186,21 @@ groep:Notes
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
         sh:order     1.0 ;
-        sh:path      groep:notesDate ;
+        sh:path      dc:date ;
     ] ;
     sh:property [
         rdfs:label "Gebruiker"@nl ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    2.0 ;
-        sh:path groep:notesUser ;
+        sh:path dc:creator ;
     ] ;
     sh:property [
         rdfs:label "Opmerkingen intern"@nl ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    3.0 ;
-        sh:path groep:notesInternal ;
+        sh:path rico:descriptiveNote ;
         dash:editor  dash:TextAreaEditor ;
     ] ;
     .
