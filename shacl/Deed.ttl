@@ -230,7 +230,7 @@ deed:Person  rdf:type         sh:NodeShape ;
         sh:nodeKind  sh:IRI ;
         sh:or        ( [ sh:class  recordtypes:Persoonsvermelding ] ) ;
         sh:order     2.0 ;
-        sh:path      deed:personObservation
+        sh:path      schema:mentions
     ] ;
     sh:targetClass        deed:Person .
 
@@ -241,7 +241,7 @@ deed:Details  rdf:type        sh:NodeShape ;
         rdfs:label   "Bijzonderheid - Type"@nl ;
         sh:maxCount  1 ;
         sh:order     1.0 ;
-        sh:path      deed:detailType ;
+        sh:path      rico:hasContentOfType ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
         memorix:conceptSchemeIn ( vocabularies:e2f783dd-710d-473a-9515-b97eaa0da52d ) ;
@@ -252,7 +252,7 @@ deed:Details  rdf:type        sh:NodeShape ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     2.0 ;
-        sh:path      deed:detailDetail
+        sh:path      rico:descriptiveNote
     ] ;
     sh:targetClass        deed:Details .
 
@@ -279,6 +279,6 @@ deed:Event  rdf:type          sh:NodeShape ;
         sh:group     deed:deedGroup ;
         sh:maxCount  1 ;
         sh:order     3.0 ;
-        sh:path      deed:hasDate
+        sh:path      dc:date
     ] ;
     sh:targetClass        deed:Event .
