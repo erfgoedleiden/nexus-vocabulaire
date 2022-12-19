@@ -48,12 +48,12 @@ recordtypes:Deed  rdf:type       sh:NodeShape, memorix:Recordtype ;
     sh:ignoredProperties     ( rdf:type ) ;
     sh:targetClass        recordtypes:Deed ;
     sh:property              [
-    rdfs:label   "Titel"@nl ;
-    sh:datatype  xsd:string ;
-    sh:maxCount  1 ;
-    sh:group deed:deedGroup ;
-    sh:order     0.4 ;
-    sh:path      deed:title
+        rdfs:label   "Titel"@nl ;
+        sh:datatype  xsd:string ;
+        sh:maxCount  1 ;
+        sh:group deed:deedGroup ;
+        sh:order     0.4 ;
+        sh:path      rico:title
     ] ;
     sh:property              [
         rdfs:label   "Registernaam"@nl ;
