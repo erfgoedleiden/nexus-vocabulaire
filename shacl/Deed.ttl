@@ -37,21 +37,21 @@ deed:deedGroup  rdf:type  sh:PropertyGroup ;
     rdfs:label  "Akte"@nl ;
     sh:order    1.0 .
 
-recordtypes:Deed  rdf:type       sh:NodeShape, memorix:Recordtype ;
-    rdfs:comment             "Standaard Recordtype voor Aktes"@nl ;
-    rdfs:label               "Akte"@nl ;
-    dash:defaultViewForRole  dash:all ;
-    dc:identifier            "Deed" ;
-    owl:equivalentClass      rico:Record ;
+recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
+    rdfs:comment                "Standaard Recordtype voor Aktes"@nl ;
+    rdfs:label                  "Akte"@nl ;
+    dash:defaultViewForRole     dash:all ;
+    dc:identifier               "Deed" ;
+    owl:equivalentClass         rico:Record ;
     memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
-    sh:closed                true ;
-    sh:ignoredProperties     ( rdf:type ) ;
-    sh:targetClass        recordtypes:Deed ;
+    sh:closed                   true ;
+    sh:ignoredProperties        ( rdf:type ) ;
+    sh:targetClass              recordtypes:Deed ;
     sh:property              [
         rdfs:label   "Titel"@nl ;
         sh:datatype  xsd:string ;
         sh:maxCount  1 ;
-        sh:group deed:deedGroup ;
+        sh:group     deed:deedGroup ;
         sh:order     0.4 ;
         sh:path      rico:title
     ] ;
@@ -60,12 +60,11 @@ recordtypes:Deed  rdf:type       sh:NodeShape, memorix:Recordtype ;
         sh:datatype  xsd:string ;
         memorix:inTitleAt  2.0 ;
         sh:maxCount  1 ;
-        sh:group deed:deedGroup ;
+        sh:group     deed:deedGroup ;
         sh:order     0.6 ;
         # "registered in a heritage register"
         sh:path      dbpo:heritageRegister
     ] ;
-
     sh:property [
         rdfs:label "Archief bestanddeel"@nl ;
         sh:path deed:archive ;
@@ -194,21 +193,21 @@ deed:Location  rdf:type       sh:NodeShape ;
         sh:order     1.0 ;
         sh:path      rico:hasOrHadPlaceType ;
         sh:maxCount  1 ;
-        dash:editor memorix:VocabularyEditor ;
-        sh:class skos:Concept ;
+        dash:editor  memorix:VocabularyEditor ;
+        sh:class     skos:Concept ;
         memorix:conceptSchemeIn ( vocabularies:42cfec07-894f-4e72-a80d-1418f5ecc324 ) ;
-        sh:nodeKind sh:IRI ;
+        sh:nodeKind  sh:IRI ;
     ] ;
     sh:property           [
         rdfs:label   "Plaats"@nl ;
         sh:order     2.0 ;
         # "The locality in which the street address is"
-        sh:path schema:addressLocality ;
+        sh:path      schema:addressLocality ;
         sh:maxCount  1 ;
-        dash:editor memorix:VocabularyEditor ;
-        sh:class skos:Concept ;
+        dash:editor  memorix:VocabularyEditor ;
+        sh:class     skos:Concept ;
         memorix:conceptSchemeIn ( vocabularies:889f909b-1057-46ed-bce6-104570ab939f ) ;
-        sh:nodeKind sh:IRI ;
+        sh:nodeKind  sh:IRI ;
     ] ;
     sh:property           [
         rdfs:label   "Opmerking bij locatie"@nl ;
@@ -232,7 +231,7 @@ deed:Person  rdf:type         sh:NodeShape ;
         sh:order     2.0 ;
         sh:path      schema:mentions
     ] ;
-    sh:targetClass        deed:Person .
+    sh:targetClass deed:Person .
 
 deed:Details  rdf:type        sh:NodeShape ;
     sh:closed             true ;
@@ -242,10 +241,10 @@ deed:Details  rdf:type        sh:NodeShape ;
         sh:maxCount  1 ;
         sh:order     1.0 ;
         sh:path      rico:hasContentOfType ;
-        dash:editor memorix:VocabularyEditor ;
-        sh:class skos:Concept ;
+        dash:editor  memorix:VocabularyEditor ;
+        sh:class     skos:Concept ;
         memorix:conceptSchemeIn ( vocabularies:e2f783dd-710d-473a-9515-b97eaa0da52d ) ;
-        sh:nodeKind sh:IRI ;
+        sh:nodeKind  sh:IRI ;
     ] ;
     sh:property           [
         rdfs:label   "Bijzonderheid"@nl ;
