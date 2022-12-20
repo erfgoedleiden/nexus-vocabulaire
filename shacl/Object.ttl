@@ -264,7 +264,7 @@ recordtypes:Object
   sh:property [
     rdfs:label "(BAG-)Adres gegevens"@nl ;
     sh:maxCount 999 ;
-    sh:path bag:identifier ;
+    sh:path bag:identificatie ;
     sh:order 21.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -299,43 +299,43 @@ object:Dating
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:Dating ;
   sh:property [
-      rdfs:label "Datering (tekst)"@nl ;
-      sh:path rico:expressedDate ;
-      sh:maxCount 1 ;
-      sh:order 1.0 ;
-      sh:datatype xsd:string ;
-      dash:singleLine true ;
-    ] ;
+    rdfs:label "Datering (tekst)"@nl ;
+    sh:path rico:expressedDate ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
   sh:property [
-      rdfs:label "Nauwkeurigheid"@nl ;
-      sh:path rico:certainty ;
-      sh:maxCount 1 ;
-      sh:order 1.5 ;
-      sh:datatype xsd:string ;
-      dash:singleLine true ;
-    ] ;
+    rdfs:label "Nauwkeurigheid"@nl ;
+    sh:path rico:certainty ;
+    sh:maxCount 1 ;
+    sh:order 1.5 ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
   sh:property [
-      rdfs:label "Startdatum"@nl ;
-      sh:path rico:hasBeginningDate ;
-      sh:order 2.0 ;
-      sh:datatype xsd:integer ;
-      dash:editor memorix:DateEditor ;
-    ] ;
+    rdfs:label "Startdatum"@nl ;
+    sh:path rico:hasBeginningDate ;
+    sh:order 2.0 ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
   sh:property [
-      rdfs:label "Einddatum"@nl ;
-      sh:path rico:hasEndDate ;
-      sh:order 3.0 ;
-      sh:datatype xsd:integer ;
-      dash:editor memorix:DateEditor ;
-    ] ;
+    rdfs:label "Einddatum"@nl ;
+    sh:path rico:hasEndDate ;
+    sh:order 3.0 ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
   sh:property [
-      rdfs:label "Datering betreft/opmerking"@nl ;
-      sh:path rico:descriptiveNote ;
-      sh:maxCount 1 ;
-      sh:order 0.5 ;
-      sh:datatype xsd:string ;
-      dash:editor  dash:TextAreaEditor ;
-    ] ;
+    rdfs:label "Datering betreft/opmerking"@nl ;
+    sh:path rico:descriptiveNote ;
+    sh:maxCount 1 ;
+    sh:order 0.5 ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
 .
 
 object:ZoningPlan
@@ -344,20 +344,20 @@ object:ZoningPlan
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:ZoningPlan ;
   sh:property [
-      rdfs:label "Datum bestemmingsplan"@nl ;
-      sh:path dc:date ;
-      sh:order 2.0 ;
-      sh:group object:procedureDataGroup ;
-      sh:datatype xsd:integer ;
-      dash:editor memorix:DateEditor ;
-    ] ;
+    rdfs:label "Datum bestemmingsplan"@nl ;
+    sh:path dc:date ;
+    sh:order 2.0 ;
+    sh:group object:procedureDataGroup ;
+    sh:datatype xsd:integer ;
+    dash:editor memorix:DateEditor ;
+  ] ;
   sh:property [
-      rdfs:label "Omgevingsplangebied"@nl ;
-      sh:path rico:location ;
-      sh:maxCount 1 ;
-      sh:order 1.0 ;
-      sh:datatype xsd:string ;
-    ] ;
+    rdfs:label "Omgevingsplangebied"@nl ;
+    sh:path rico:location ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    sh:datatype xsd:string ;
+  ] ;
 .
 
 object:Architecture
@@ -366,31 +366,31 @@ object:Architecture
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:Architecture ;
   sh:property [
-      rdfs:label "Bouwstijl"@nl ;
-      sh:path dbpo:architecturalStyle ;
-      sh:maxCount 1 ;
-      sh:order 1.0 ;
-      dash:editor memorix:VocabularyEditor ;
-      sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/3c90d4f9-bbd3-4c6a-a473-541b87d7a7af> ) ;
-      sh:nodeKind sh:IRI ;
-    ] ;
+    rdfs:label "Bouwstijl"@nl ;
+    sh:path dbpo:architecturalStyle ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/3c90d4f9-bbd3-4c6a-a473-541b87d7a7af> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
   sh:property [
-      rdfs:label "Zuiverheid"@nl ;
-      sh:path rico:certainty ;
-      sh:maxCount 1 ;
-      sh:order 1.5 ;
-      sh:datatype xsd:string ;
-      dash:singleLine true ;
-    ] ;
+    rdfs:label "Zuiverheid"@nl ;
+    sh:path rico:certainty ;
+    sh:maxCount 1 ;
+    sh:order 1.5 ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
   sh:property [
-      rdfs:label "Bouwstijl betreft/opmerking"@nl ;
-      sh:path rico:descriptiveNote ;
-      sh:maxCount 1 ;
-      sh:order 0.5 ;
-      sh:datatype xsd:string ;
-      dash:editor  dash:TextAreaEditor ;
-    ] ;
+    rdfs:label "Bouwstijl betreft/opmerking"@nl ;
+    sh:path rico:descriptiveNote ;
+    sh:maxCount 1 ;
+    sh:order 0.5 ;
+    sh:datatype xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
 .
 object:BagAddress
   a sh:NodeShape ;
@@ -398,24 +398,24 @@ object:BagAddress
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:BagAddress ;
   sh:property [
-      rdfs:label "Toestand"@nl ;
-      sh:path bag:status ;
-      sh:maxCount 1 ;
-      sh:order 3.0 ;
-      dash:editor memorix:VocabularyEditor ;
-      sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/da1d9451-8a91-4c83-b15a-04c8105e0ad7> ) ;
-      sh:nodeKind sh:IRI ;
-    ] ;
+    rdfs:label "Toestand"@nl ;
+    sh:path bag:status ;
+    sh:maxCount 1 ;
+    sh:order 3.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/da1d9451-8a91-4c83-b15a-04c8105e0ad7> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
   sh:property [
-      rdfs:label "Situering"@nl ;
-      sh:path rico:location ;
-      sh:maxCount 1 ;
-      sh:order 2.0 ;
-      memorix:inSummaryAt 2.0 ;
-      sh:datatype xsd:string ;
-      dash:singleLine true ;
-    ] ;
+    rdfs:label "Situering"@nl ;
+    sh:path rico:location ;
+    sh:maxCount 1 ;
+    sh:order 2.0 ;
+    memorix:inSummaryAt 2.0 ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
   sh:property [
     rdfs:label "BAG adres"@nl ;
     sh:path bag:identifier ;
@@ -435,34 +435,34 @@ object:BgtTopography
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:BgtTopography ;
   sh:property [
-      rdfs:label "Toestand"@nl ;
-      sh:path rico:hasRecordState ;
-      sh:maxCount 1 ;
-      sh:order 3.0 ;
-      dash:editor memorix:VocabularyEditor ;
-      sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/da1d9451-8a91-4c83-b15a-04c8105e0ad7> ) ;
-      sh:nodeKind sh:IRI ;
-    ] ;
+    rdfs:label "Toestand"@nl ;
+    sh:path rico:hasRecordState ;
+    sh:maxCount 1 ;
+    sh:order 3.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/da1d9451-8a91-4c83-b15a-04c8105e0ad7> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
   sh:property [
-      rdfs:label "Situering"@nl ;
-      # Zelfde sh:path als ↓ ??
-      sh:path rico:location ;
-      sh:maxCount 1 ;
-      sh:order 2.0 ;
-      sh:datatype xsd:string ;
-      dash:singleLine true ;
-    ] ;
+    rdfs:label "Situering"@nl ;
+    # Zelfde sh:path als ↓ ??
+    sh:path rico:location ;
+    sh:maxCount 1 ;
+    sh:order 2.0 ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
+  ] ;
   sh:property [
-      rdfs:label "BGT adres"@nl ;
-      # Zelfde sh:path als ↑ ??
-      sh:path rico:location ;
-      sh:order 1.0 ;
-      sh:datatype xsd:string ;
-      dash:editor dash:TextFieldEditor ;
-      memorix:searchWeight 1.0 ;
-      # TODO dit moet een link naar BAG worden
-    ]
+    rdfs:label "BGT adres"@nl ;
+    # Zelfde sh:path als ↑ ??
+    sh:path rico:location ;
+    sh:order 1.0 ;
+    sh:datatype xsd:string ;
+    dash:editor dash:TextFieldEditor ;
+    memorix:searchWeight 1.0 ;
+    # TODO dit moet een link naar BAG worden
+  ]
 .
 object:DicoData
   a sh:NodeShape ;
@@ -470,40 +470,40 @@ object:DicoData
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:DicoData ;
   sh:property [
-      rdfs:label "Geometrie data"@nl ;
-      sh:path geo:hasGeometry ;
-      sh:maxCount 1 ;
-      sh:order 1.0 ;
-      # TODO: geometriedata opnemen als Well-Known-Text data
-      sh:datatype geo:asWKT ;
-      dash:editor  dash:TextAreaEditor ;
-    ] ;
+    rdfs:label "Geometrie data"@nl ;
+    sh:path geo:asWKT ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    # TODO: geometriedata opnemen als Well-Known-Text data
+    sh:datatype geo:wktLiteral ;
+    dash:editor  dash:TextAreaEditor ;
+  ] ;
   sh:property [
-      rdfs:label "Geometrie vorm"@nl ;
-      # TODO: Wat is hier het doel van?
-      sh:path dbpo:shape ;
-      sh:maxCount 1 ;
-      sh:order 2.0 ;
-      dash:editor memorix:VocabularyEditor ;
-      sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/817164bb-03bb-3b68-8327-416558a8455c> ) ;
-      sh:nodeKind sh:IRI ;
-    ] ;
+    rdfs:label "Geometrie vorm"@nl ;
+    # TODO: Wat is hier het doel van?
+    sh:path dbpo:shape ;
+    sh:maxCount 1 ;
+    sh:order 2.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/817164bb-03bb-3b68-8327-416558a8455c> ) ;
+    sh:nodeKind sh:IRI ;
+  ] ;
 .
 
 object:basicDataGroup a sh:PropertyGroup ;
-    rdfs:label "Basis gegevens"@nl ;
-    sh:order 1.0
+  rdfs:label "Basis gegevens"@nl ;
+  sh:order 1.0
 .
 object:procedureDataGroup a sh:PropertyGroup ;
-    rdfs:label "Procedure gegevens"@nl ;
-    sh:order 2.0
+  rdfs:label "Procedure gegevens"@nl ;
+  sh:order 2.0
 .
 object:valueDataGroup a sh:PropertyGroup ;
-    rdfs:label "Waarde gegevens"@nl ;
-    sh:order 3.0
+  rdfs:label "Waarde gegevens"@nl ;
+  sh:order 3.0
 .
 object:locationGroup a sh:PropertyGroup ;
-    rdfs:label "Locatie"@nl ;
-    sh:order 4.0
+  rdfs:label "Locatie"@nl ;
+  sh:order 4.0
 .
