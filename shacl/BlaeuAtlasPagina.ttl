@@ -11,6 +11,7 @@
 @prefix html:             <http://www.w3.org/1999/xhtml/> .
 @prefix dash:             <http://datashapes.org/dash#> .
 @prefix dc:               <http://purl.org/dc/terms/> .
+@prefix schema:           <http://schema.org/> .
 
 recordtypes:BlaeuAtlasPagina
   a memorix:Recordtype, sh:NodeShape ;
@@ -69,7 +70,7 @@ recordtypes:BlaeuAtlasPagina
   ] ;
   sh:property [
     rdfs:label "Plaats"@nl ;
-    sh:path blaeuAtlasPagina:city ;
+    sh:path schema:addressLocality ;
     sh:order 6.0 ;
     sh:maxCount 100 ;
     sh:group blaeuAtlasPagina:identificationGroup ;

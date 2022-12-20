@@ -274,7 +274,7 @@ persoonsvermelding:Details
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     5.0 ;
-        sh:path      persoonsvermelding:locationCity
+        sh:path      schema:addressLocality
     ] ;
     sh:property           [
         rdfs:label   "Wijk"@nl ;

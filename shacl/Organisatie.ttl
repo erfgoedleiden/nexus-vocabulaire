@@ -10,6 +10,7 @@
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix schema:       <http://schema.org/> .
 
 recordtypes:Organisatie
   a memorix:Recordtype, sh:NodeShape ;
@@ -184,7 +185,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Plaats"@nl ;
-    sh:path organisatie:contactPlace ;
+    sh:path schema:addressLocality ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
     sh:group organisatie:contactInformationGroup  ;

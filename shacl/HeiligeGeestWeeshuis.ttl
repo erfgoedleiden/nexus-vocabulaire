@@ -10,6 +10,7 @@
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix schema:       <http://schema.org/> .
 
 recordtypes:HeiligeGeestWeeshuis
   a memorix:Recordtype, sh:NodeShape ;
@@ -74,7 +75,7 @@ recordtypes:HeiligeGeestWeeshuis
   ] ;
   sh:property [
     rdfs:label "Woonplaats"@nl ;
-    sh:path hgw:firstResidence ;
+    sh:path schema:addressLocality ;
     sh:order 8.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -124,7 +125,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Plaatsnaam"@nl ;
     memorix:inTitleAt  1.0 ;
-    sh:path hgw:city ;
+    sh:path schema:addressLocality ;
     sh:maxCount 100;
     sh:order 17.0 ;
     sh:group hgw:identificationGroup ;

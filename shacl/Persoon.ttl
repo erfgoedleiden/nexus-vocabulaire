@@ -230,7 +230,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Plaats"@nl ;
-    sh:path persoon:contactPlace ;
+    sh:path schema:addressLocality ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
     sh:group persoon:contactInformationGroup  ;

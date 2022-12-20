@@ -10,6 +10,7 @@
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix schema:      <http://schema.org/> .
 
 
 actorFamilie:identificationGroup a sh:PropertyGroup ;
@@ -88,7 +89,7 @@ recordtypes:ActorFamilie
     sh:property [
         rdfs:label "Plaats"@nl ;
         sh:maxCount 1 ;
-        sh:path actorFamilie:city ;
+        sh:path schema:addressLocality ;
         sh:datatype xsd:string;
         sh:group actorFamilie:contactGroup ;
         sh:order 8.0 ;

@@ -312,7 +312,7 @@ image:DepictedLocation
   sh:targetClass image:DepictedLocation ;
   sh:property [
     rdfs:label "Plaats"@nl ;
-    sh:path image:locationCity ;
+    sh:path schema:addressLocality ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
