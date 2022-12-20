@@ -1,3 +1,4 @@
+@prefix dbpo: <http://dbpedia.org/ontology/> .
 @prefix koorboekPagina: </resources/recordtypes/KoorboekPagina#> .
 @prefix vocabularies: </resources/vocabularies/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -44,7 +45,7 @@ recordtypes:KoorboekPagina
   ] ;
   sh:property [
     rdfs:label "Bestandsnaam"@nl ;
-    sh:path koorboekPagina:filename ;
+    sh:path dbpo:filename ;
     sh:order 2.0 ;
     sh:group koorboekPagina:identificationGroup ;
     sh:datatype xsd:string ;
