@@ -285,7 +285,7 @@ image:EventDate
   sh:targetClass image:EventDate ;
   sh:property [
     rdfs:label "Datum tekstveld"@nl ;
-    sh:path rico:descriptiveNOte ;
+    sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
     sh:datatype xsd:string ;
