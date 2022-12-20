@@ -11,6 +11,7 @@
 @prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
 @prefix vocabularies:       </resources/vocabularies/> .
 @prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema:             <http://schema.org/> .
 
 recordtypes:Persoonsvermelding
     rdf:type                 memorix:Recordtype , sh:NodeShape ;
@@ -253,7 +254,7 @@ persoonsvermelding:Details
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     2.0 ;
-        sh:path      persoonsvermelding:locationStreet
+        sh:path      schema:streetAddress
     ] ;
     sh:property           [
         rdfs:label   "Huisnummer"@nl ;
