@@ -290,7 +290,7 @@ image:EventDate
   sh:property [
     rdfs:label "Datum van"@nl ;
     sh:maxCount 1 ;
-    sh:path image:eventDateDateStart ;
+    sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
     sh:datatype xsd:integer ;
     dash:editor memorix:DateEditor ;
@@ -298,7 +298,7 @@ image:EventDate
   sh:property [
     rdfs:label "Datum tot"@nl ;
     sh:maxCount 1 ;
-    sh:path image:eventDateDateEnd ;
+    sh:path rico:hasEndDate ;
     sh:order 3.0 ;
     sh:datatype xsd:integer ;
     dash:editor memorix:DateEditor ;
