@@ -211,7 +211,7 @@ recordtypes:Av
 
   sh:property [
     rdfs:label "Standplaatsnummer"@nl ;
-    sh:path rico:hasOrHadIdentifier ;
+    sh:path rico:hasOrHadPhysicalLocation ;
     sh:maxCount 100 ;
     sh:order 40.0 ;
     sh:group av:managementGroup ;

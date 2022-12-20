@@ -236,7 +236,7 @@ recordtypes:Image
 
   sh:property [
     rdfs:label "Standplaatsnummer"@nl ;
-    sh:path image:identifierCode ;
+    sh:path rico:hasOrHadPhysicalLocation ;
     memorix:inSummaryAt 2.0 ;
     sh:maxCount 10 ;
     sh:order 40.0 ;
