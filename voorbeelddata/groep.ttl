@@ -1,6 +1,5 @@
 @prefix dash:         <http://datashapes.org/dash#> .
-@prefix dc:           <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix dc:           <http://purl.org/dc/terms/> .
 @prefix groep:        <https://lei-migrate.memorix.io/resources/recordtypes/Groep#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
