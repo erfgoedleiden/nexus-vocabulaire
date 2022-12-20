@@ -1,7 +1,6 @@
 @prefix actorOrganisatie: <https://lei-migrate.memorix.io/resources/recordtypes/ActorOrganisatie#> .
 @prefix dash:             <http://datashapes.org/dash#> .
-@prefix dc:               <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms:          <http://purl.org/dc/terms/> .
+@prefix dc:               <http://purl.org/dc/terms/> .
 @prefix html:             <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:          <http://memorix.io/ontology#> .
 @prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -24,7 +23,7 @@
 <https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f/context>
         rdf:type           rico:RecordSet, memorix:Context ;
         memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/ea9fc780-4f50-3130-aef2-4fa90d27866f> ;
-        dcterms:title      "Ferenc Schneiders" .
+        dc:title      "Ferenc Schneiders" .
 
 <https://lei-migrate.memorix.io/resources/records/087d1c6d-e859-3a38-afa0-c3d9c6d29d51>
         rdf:type                        memorix:Record , recordtypes:ActorOrganisatie ;
