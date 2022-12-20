@@ -1,6 +1,6 @@
 @prefix actorPersoon: <https://lei-migrate.memorix.io/resources/recordtypes/ActorPersoon#> .
 @prefix dash:         <http://datashapes.org/dash#> .
-@prefix dc:           <http://purl.org/dc/elements/1.1/> .
+@prefix dc:           <http://purl.org/dc/terms/> .
 @prefix dcterms:      <http://purl.org/dc/terms/> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .

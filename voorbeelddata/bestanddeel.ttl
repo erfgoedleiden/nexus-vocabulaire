@@ -1,7 +1,6 @@
 @prefix bestanddeel:  <https://lei-migrate.memorix.io/resources/recordtypes/Bestanddeel#> .
 @prefix dash:         <http://datashapes.org/dash#> .
-@prefix dc:           <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix dc:           <http://purl.org/dc/terms/> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -17,7 +16,7 @@
 <https://lei-migrate.memorix.io/resources/records/0001fdf9-9c21-3120-a461-3514206fab24/context>
         rdf:type           memorix:Context ;
         memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/0001fdf9-9c21-3120-a461-3514206fab24> ;
-        dcterms:title      "205, Brandweer. Stukken betreffende de aankoop van brandweeruitrusting, 1935-1937." .
+        dc:title      "205, Brandweer. Stukken betreffende de aankoop van brandweeruitrusting, 1935-1937." .
 
 <https://lei-migrate.memorix.io/resources/records/4275840f-09ec-360e-8c58-9c8623f77bad>
         rdf:type  recordtypes:Archiefblok .
@@ -35,12 +34,12 @@
 <https://lei-migrate.memorix.io/resources/records/4275840f-09ec-360e-8c58-9c8623f77bad/context>
         rdf:type           memorix:Context ;
         memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/4275840f-09ec-360e-8c58-9c8623f77bad> ;
-        dcterms:title      "1093, Coninckshof, Leiden" .
+        dc:title      "1093, Coninckshof, Leiden" .
 
 <https://lei-migrate.memorix.io/resources/records/042c7c87-1d5f-36ca-98aa-bd22c4244ab7/context>
         rdf:type           memorix:Context ;
         memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/042c7c87-1d5f-36ca-98aa-bd22c4244ab7> ;
-        dcterms:title      "2267, Nederlandse Hervormde Kerkenraad" .
+        dc:title      "2267, Nederlandse Hervormde Kerkenraad" .
 
 <https://lei-migrate.memorix.io/resources/vocabularies/concepts/c946779c-5364-4d52-942c-fada8310f049>
         rdf:type        skos:Concept ;

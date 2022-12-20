@@ -1,8 +1,7 @@
 @prefix archiefblok:  <https://lei-migrate.memorix.io/resources/recordtypes/Archiefblok#> .
 @prefix bestanddeel:  <https://example.memorix-test.nl/resources/recordtypes/Bestanddeel#> .
 @prefix dash:         <http://datashapes.org/dash#> .
-@prefix dc:           <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix dc:           <http://purl.org/dc/terms/> .
 @prefix groep:        <https://example.memorix-test.nl/resources/recordtypes/Groep#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
@@ -60,7 +59,7 @@
 <https://lei-migrate.memorix.io/resources/records/fb19368c-5390-54bb-ba66-5be07ffed5f7/context>
         rdf:type           memorix:Context ;
         memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/fb19368c-5390-54bb-ba66-5be07ffed5f7> ;
-        dcterms:title      "Gemeente Leiden" .
+        dc:title      "Gemeente Leiden" .
 
 <https://lei-migrate.memorix.io/resources/vocabularies/concepts/71820936-ce21-3e9c-aaee-d2618744d6eb>
         rdf:type        skos:Concept ;
@@ -73,7 +72,7 @@
 <https://lei-migrate.memorix.io/resources/records/0e6fc06e-be8a-34e1-b149-4fd5594d6ad3/context>
         rdf:type           memorix:Context ;
         memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/0e6fc06e-be8a-34e1-b149-4fd5594d6ad3> ;
-        dcterms:title      "1990, Familie Tydeman" .
+        dc:title      "1990, Familie Tydeman" .
 
 <https://lei-migrate.memorix.io/resources/records/0e6fc06e-be8a-34e1-b149-4fd5594d6ad3>
         rdf:type  recordtypes:ActorFamilie .
@@ -85,7 +84,7 @@
 <https://lei-migrate.memorix.io/resources/records/0e373402-fb24-4963-a668-5622855107c0/context>
         rdf:type           memorix:Context ;
         memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/0e373402-fb24-4963-a668-5622855107c0> ;
-        dcterms:title      "Inleiding archief Lisse.pdf" .
+        dc:title      "Inleiding archief Lisse.pdf" .
 
 <https://lei-migrate.memorix.io/resources/vocabularies/concepts/f56037ba-b484-3f28-bdeb-2303c6ce9711>
         rdf:type        skos:Concept ;

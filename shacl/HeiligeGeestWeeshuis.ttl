@@ -1,15 +1,16 @@
-@prefix hgw: </resources/recordtypes/HeiligeGeestWeeshuis#> .
+@prefix hgw:          </resources/recordtypes/HeiligeGeestWeeshuis#> .
 @prefix vocabularies: </resources/vocabularies/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix: <http://memorix.io/ontology#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes: </resources/recordtypes/> .
-@prefix html: <http://www.w3.org/1999/xhtml/> .
-@prefix dash: <http://datashapes.org/dash#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes:  </resources/recordtypes/> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix dc:           <http://purl.org/dc/terms/> .
+@prefix schema:       <http://schema.org/> .
 
 recordtypes:HeiligeGeestWeeshuis
   a memorix:Recordtype, sh:NodeShape ;
@@ -74,7 +75,7 @@ recordtypes:HeiligeGeestWeeshuis
   ] ;
   sh:property [
     rdfs:label "Woonplaats"@nl ;
-    sh:path hgw:firstResidence ;
+    sh:path schema:addressLocality ;
     sh:order 8.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -124,7 +125,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Plaatsnaam"@nl ;
     memorix:inTitleAt  1.0 ;
-    sh:path hgw:city ;
+    sh:path schema:addressLocality ;
     sh:maxCount 100;
     sh:order 17.0 ;
     sh:group hgw:identificationGroup ;

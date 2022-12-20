@@ -1,15 +1,15 @@
-@prefix persoon: </resources/recordtypes/Persoon#> .
-@prefix vocabularies: </resources/vocabularies/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix: <http://memorix.io/ontology#> .
-@prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes: </resources/recordtypes/> .
-@prefix html: <http://www.w3.org/1999/xhtml/> .
-@prefix dash: <http://datashapes.org/dash#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix persoon:        </resources/recordtypes/Persoon#> .
+@prefix vocabularies:   </resources/vocabularies/> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix memorix:        <http://memorix.io/ontology#> .
+@prefix sh:             <http://www.w3.org/ns/shacl#> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix recordtypes:    </resources/recordtypes/> .
+@prefix html:           <http://www.w3.org/1999/xhtml/> .
+@prefix dash:           <http://datashapes.org/dash#> .
+@prefix dc:             <http://purl.org/dc/terms/> .
 
 recordtypes:Persoon
   a memorix:Recordtype, sh:NodeShape ;
@@ -230,7 +230,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Plaats"@nl ;
-    sh:path persoon:contactPlace ;
+    sh:path schema:addressLocality ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
     sh:group persoon:contactInformationGroup  ;
