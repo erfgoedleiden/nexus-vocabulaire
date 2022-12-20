@@ -1,6 +1,19 @@
 # Erfgoed Leiden en Omstreken: Nexus-vocabulaire
 
-Deze repository bevat de vocabulaire-opzet voor de migratie van de ELO digitale collecties naar Memorix Nexus. 
+Deze repository bevat de vocabulaire-opzet voor de migratie van de ELO digitale collecties naar Memorix Nexus. Het gaat
+hier vooral om "property" vertalingen van een "dummy-vocabulaire" (een variant van een "example.com" namespace) naar
+bestaande en beschreven eigenschappen uit bekende vocabulaires. Bij de keuze voor een specifiek vocabulaire gelden de
+volgende voorkeurs-ontologieën, op volgorde van belang:
+
+- De [International Council on Archives Records in Contexts Ontology (ICA RiC-O) version 0.2](https://www.ica.org/standards/RiC/RiC-O_v0-2.html) (RiC-O, `rico:` prefix)
+- [Dublin Core Terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) (prefix: `dc:`)
+- [Schema.org](https://schema.org) (`schema:` prefix)
+- ["Friend of a friend"](http://xmlns.com/foaf/0.1/) (prefix: `foaf:`)
+- [DBPedia Ontology](http://dbpedia.org/ontology/) (prefix: `dbpo`)
+
+Hierbij wordt een "pragmatische aanpak" gekozen - waarbij "soepel" wordt omgegaan met de omschreven domein en bereik van
+een property. De belangrijkste keus hierin is of er een eigenschap met passende beschrijving kan worden gevonden, met
+een daarmee zo menselijk-bruikbaar vocabulaire.
 
 # Voorbeelddata en shape definities
 In de map [voorbeelddata](voorbeelddata) staan exports uit Nexus die moeten corresponderen met de 
