@@ -40,6 +40,7 @@ spec:
       - Deed
       - Groep
       - Image
+      - Object
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
       - Aanwinst
@@ -55,7 +56,6 @@ spec:
       - Koorboek
       - KoorboekPagina
       - LeFranqVanBerkhey
-      - Object  # Prio 1
       - Organisatie
       - Persoon
       - Persoonsvermelding  # Prio 1
