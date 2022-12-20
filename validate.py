@@ -132,7 +132,12 @@ def load_graph_from_uri(resolvable_part: str) -> rdflib.Graph:
     :return: an rdflib.Graph
     """
     resolved_uri_graph = rdflib.Graph()
-    resolved_uri_graph.parse(resolvable_part)
+
+    try:
+        resolved_uri_graph.parse(resolvable_part)
+    except rdflib.plugin.PluginException:
+        logging.error(f'Error loading {resolvable_part}')
+        raise
 
     return resolved_uri_graph
 
