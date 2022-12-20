@@ -1,7 +1,6 @@
 @prefix actorFamilie: <https://lei-migrate.memorix.io/resources/recordtypes/ActorFamilie#> .
 @prefix dash:         <http://datashapes.org/dash#> .
-@prefix dc:           <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms:      <http://purl.org/dc/terms/> .
+@prefix dc:           <http://purl.org/dc/terms/> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -23,7 +22,7 @@
 <https://lei-migrate.memorix.io/resources/records/0108b061-d666-1aed-c950-c8e7342e5a15/context>
         rdf:type           memorix:Context ;
         memorix:hasRecord  <https://lei-migrate.memorix.io/resources/records/0108b061-d666-1aed-c950-c8e7342e5a15> ;
-        dcterms:title      "Erik Hengsdijk (teamchef PHM)" .
+        dc:title      "Erik Hengsdijk (teamchef PHM)" .
 
 <https://lei-migrate.memorix.io/resources/records/0e6fc06e-be8a-34e1-b149-4fd5594d6ad3>
         rdf:type                    memorix:Record , recordtypes:ActorFamilie ;
