@@ -1,4 +1,5 @@
 @prefix dash:         <http://datashapes.org/dash#> .
+@prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/elements/1.1/> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix image:        </resources/recordtypes/Image#> .
@@ -36,7 +37,7 @@ recordtypes:Image
   ] ;
   sh:property [
     rdfs:label "Bestandsnaam"@nl ;
-    sh:path image:filename ;
+    sh:path dbpo:filename ;
     memorix:inSummaryAt 1.0 ;
     sh:maxCount 200 ;
     sh:order 2.0 ;
