@@ -27,7 +27,7 @@ recordtypes:Persoonsvermelding
         sh:order     0.2 ;
         sh:maxCount 10 ;
         memorix:inTitleAt  0.5 ;
-        sh:path      persoonsvermelding:role ;
+        sh:path      schema:roleName ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
         memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/7b9df6df-1c81-463f-85e1-d8ce7d002ab7> ) ;

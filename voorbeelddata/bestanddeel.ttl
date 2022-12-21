@@ -79,7 +79,7 @@
                                        ] ;
         bestanddeel:relatedActor       [ rdf:type                bestanddeel:RelatedActor ;
                                          bestanddeel:actorActor  <https://lei-migrate.memorix.io/resources/records/042c7c87-1d5f-36ca-98aa-bd22c4244ab7> ;
-                                         bestanddeel:actorRole   <https://lei-migrate.memorix.io/resources/vocabularies/concepts/c946779c-5364-4d52-942c-fada8310f049>
+                                         schema:roleName <https://lei-migrate.memorix.io/resources/vocabularies/concepts/c946779c-5364-4d52-942c-fada8310f049>
                                        ] ;
         bestanddeel:status             <https://lei-migrate.memorix.io/resources/vocabularies/concepts/155d5402-73ab-4e6d-b7d3-74ffda7b1b6a> ;
         rico:identifier                "91" ;

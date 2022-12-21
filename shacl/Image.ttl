@@ -371,7 +371,7 @@ image:Creator
   ] ;
   sh:property [
     rdfs:label "Rol"@nl ;
-    sh:path rico:creationWithRole ;
+    sh:path schema:roleName ;
     sh:maxCount 5 ;
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
