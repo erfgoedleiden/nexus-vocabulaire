@@ -1,3 +1,4 @@
+@prefix bag:          <https://bag.basisregistraties.overheid.nl/datamodel#> .
 @prefix bestanddeel:  </resources/recordtypes/Bestanddeel#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
@@ -342,7 +343,7 @@ bestanddeel:HistoricalAddress
         rdfs:label "Huisnummer van"@nl ;
         sh:maxCount 1 ;
         # Dit is een noodgreep. Hier bestaat geen goede property voor
-        sh:path schema:minValue ;
+        sh:path bag:huisnummer ;
         sh:order 3.0 ;
         sh:datatype xsd:string ;
     ] ;
@@ -350,7 +351,7 @@ bestanddeel:HistoricalAddress
         rdfs:label "Huisnummer tot"@nl ;
         sh:maxCount 1 ;
         # Dit is een noodgreep. Hier bestaat geen goede property voor
-        sh:path schema:maxValue ;
+        sh:path bag:huisnummer ;
         sh:order 3.0 ;
         sh:datatype xsd:string ;
     ] ;

@@ -1,3 +1,4 @@
+@prefix bag:                <https://bag.basisregistraties.overheid.nl/datamodel#> .
 @prefix dash:               <http://datashapes.org/dash#> .
 @prefix dc:                 <http://purl.org/dc/terms/> .
 @prefix foaf:               <http://xmlns.com/foaf/0.1/> .
@@ -262,7 +263,7 @@ persoonsvermelding:Details
         sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
         sh:order     3.0 ;
-        sh:path      persoonsvermelding:locationHousenumber
+        sh:path      bag:huisnummer
     ] ;
     sh:property           [
         rdfs:label   "Toevoeging"@nl ;

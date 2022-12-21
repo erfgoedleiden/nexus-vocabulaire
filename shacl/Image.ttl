@@ -1,3 +1,4 @@
+@prefix bag:          <https://bag.basisregistraties.overheid.nl/datamodel#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
@@ -337,7 +338,7 @@ image:DepictedLocation
   sh:property [
       rdfs:label "Huisnummer"@nl ;
       sh:maxCount 1 ;
-      sh:path schema:streetAddress ;
+      sh:path bag:huisnummer ;
       sh:order 3.0 ;
       sh:datatype xsd:string ;
   ] ;
