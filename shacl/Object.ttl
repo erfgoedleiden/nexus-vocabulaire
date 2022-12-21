@@ -182,8 +182,8 @@ recordtypes:Object
   sh:property [
       rdfs:label "Bestemmingsplan"@nl ;
       sh:maxCount 999 ;
-      # TODO
-      sh:path object:zoningPlan ;
+      # Lastige mapping
+      sh:path schema:AdministrativeArea ;
       sh:order 14.0 ;
       dash:viewer dash:DetailsEditor ;
       sh:nodeKind sh:BlankNode ;
