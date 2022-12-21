@@ -91,7 +91,7 @@ recordtypes:Persoonsvermelding
         sh:maxCount  1 ;
         sh:group     persoonsvermelding:personListingGroup ;
         sh:order     8.5 ;
-        sh:path      foaf:age
+        sh:path      dbpo:age
     ] ;
     sh:property              [
         rdfs:label   "Religie"@nl ;
@@ -146,7 +146,7 @@ recordtypes:Persoonsvermelding
         sh:maxCount  1 ;
         sh:group     persoonsvermelding:personListingGroup ;
         sh:order     8.0 ;
-        sh:path      foaf:age
+        sh:path      dbpo:age
     ] ;
     sh:property              [
         rdfs:label          "Geslacht"@nl ;
