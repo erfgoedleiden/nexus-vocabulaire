@@ -301,43 +301,43 @@ object:Dating
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:Dating ;
   sh:property [
-    rdfs:label "Datering (tekst)"@nl ;
-    sh:path rico:expressedDate ;
-    sh:maxCount 1 ;
-    sh:order 1.0 ;
-    sh:datatype xsd:string ;
-    dash:singleLine true ;
-  ] ;
+      rdfs:label "Datering (tekst)"@nl ;
+      sh:path rico:expressedDate ;
+      sh:maxCount 1 ;
+      sh:order 1.0 ;
+      sh:datatype xsd:string ;
+      dash:singleLine true ;
+    ] ;
   sh:property [
-    rdfs:label "Nauwkeurigheid"@nl ;
-    sh:path rico:certainty ;
-    sh:maxCount 1 ;
-    sh:order 1.5 ;
-    sh:datatype xsd:string ;
-    dash:singleLine true ;
-  ] ;
+      rdfs:label "Nauwkeurigheid"@nl ;
+      sh:path rico:certainty ;
+      sh:maxCount 1 ;
+      sh:order 1.5 ;
+      sh:datatype xsd:string ;
+      dash:singleLine true ;
+    ] ;
   sh:property [
-    rdfs:label "Startdatum"@nl ;
-    sh:path rico:hasBeginningDate ;
-    sh:order 2.0 ;
-    sh:datatype xsd:integer ;
-    dash:editor memorix:DateEditor ;
-  ] ;
+      rdfs:label "Startdatum"@nl ;
+      sh:path rico:hasBeginningDate ;
+      sh:order 2.0 ;
+      sh:datatype xsd:integer ;
+      dash:editor memorix:DateEditor ;
+    ] ;
   sh:property [
-    rdfs:label "Einddatum"@nl ;
-    sh:path rico:hasEndDate ;
-    sh:order 3.0 ;
-    sh:datatype xsd:integer ;
-    dash:editor memorix:DateEditor ;
-  ] ;
+      rdfs:label "Einddatum"@nl ;
+      sh:path rico:hasEndDate ;
+      sh:order 3.0 ;
+      sh:datatype xsd:integer ;
+      dash:editor memorix:DateEditor ;
+    ] ;
   sh:property [
-    rdfs:label "Datering betreft/opmerking"@nl ;
-    sh:path rico:descriptiveNote ;
-    sh:maxCount 1 ;
-    sh:order 0.5 ;
-    sh:datatype xsd:string ;
-    dash:editor  dash:TextAreaEditor ;
-  ] ;
+      rdfs:label "Datering betreft/opmerking"@nl ;
+      sh:path rico:descriptiveNote ;
+      sh:maxCount 1 ;
+      sh:order 0.5 ;
+      sh:datatype xsd:string ;
+      dash:editor  dash:TextAreaEditor ;
+    ] ;
 .
 
 object:ZoningPlan
