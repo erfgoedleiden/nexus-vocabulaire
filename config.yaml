@@ -5,6 +5,11 @@ spec:
     data_dir: ./voorbeelddata/
     shacl_dir: ./shacl/
 
+    non_negotiable_vocabs:
+      http://www:w3:org/ns/person:
+        resolvable_url: http://www.w3.org/ns/person.ttl
+        content_type: text/turtle
+
     ignore_uris_containing:
       # Voor nu: negeer URIs die ontbreken in de memorix.io ontologie
       - http://memorix.io/ontology#path
@@ -41,6 +46,7 @@ spec:
       - Groep
       - Image
       - Object
+      - Persoonsvermelding
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
       - Aanwinst
@@ -58,6 +64,5 @@ spec:
       - LeFranqVanBerkhey
       - Organisatie
       - Persoon
-      - Persoonsvermelding  # Prio 1
       - Restauratie
       - Woii
