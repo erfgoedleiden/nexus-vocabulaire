@@ -142,6 +142,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Advies Commissie"@nl ;
+      # Semantisch gecompliceerde eigenschap
       sh:path dbpo:result ;
       sh:maxCount 1 ;
       sh:order 10.0 ;
