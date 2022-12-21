@@ -4,6 +4,7 @@ import logging
 import os
 import re
 from argparse import ArgumentParser
+from tempfile import TemporaryDirectory
 
 import pyshacl
 import rdflib
@@ -120,7 +121,6 @@ def validate_triple(triple: tuple, config: Config) -> None:
                 raise ValueError(f'URI {triple_part} is not a member of \n{resolvable_part}')
 
 
-@retry(tries=3, delay=1, backoff=2)
 @functools.lru_cache
 def load_graph_from_uri(resolvable_part: str) -> rdflib.Graph:
     """
@@ -129,17 +129,24 @@ def load_graph_from_uri(resolvable_part: str) -> rdflib.Graph:
     :param resolvable_part: A URI part before the hash. Because this function is cached, should not contain parts
                             including and after the #
 
-    :return: an rdflib.Graph
+    :return: a rdflib Graph
     """
-    resolved_uri_graph = rdflib.Graph()
 
-    try:
-        resolved_uri_graph.parse(resolvable_part)
-    except rdflib.plugin.PluginException:
-        logging.error(f'Error loading {resolvable_part}')
-        raise
+    with TemporaryDirectory() as tempdir:
+        dereferenced = http_get(url=resolvable_part, content_type='application/rdf+xml')
+        resolved_uri_graph = rdflib.Graph()
 
-    return resolved_uri_graph
+        tempfile = os.path.join(tempdir, 'graph_file.xml')
+        with open(tempfile, 'wt') as f:
+            f.write(dereferenced)
+
+        try:
+            resolved_uri_graph.parse(tempfile)
+        except rdflib.plugin.PluginException:
+            logging.error(f'Error loading {resolvable_part}')
+            raise
+
+        return resolved_uri_graph
 
 
 @retry(tries=3, delay=1, backoff=2)
@@ -154,7 +161,9 @@ def http_get(url: str, content_type: str = 'text/html') -> str:
 
     :return: The response text
     """
-    response = requests.get(url=url, headers={'Accept': content_type})
+    headers = {'Accept': content_type} if content_type is not None else {}
+    response = requests.get(url=url, headers=headers)
+
     if response.status_code >= 400:
         raise RuntimeError(f'Invalid response {response.status_code} for {url}')
 
