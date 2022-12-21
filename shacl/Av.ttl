@@ -404,7 +404,7 @@ av:Creator
   sh:property [
     rdfs:label "Rol"@nl ;
     # "Connects a Creation Relation to the Role Type that the creator Agent(s) has in the creation process"
-    sh:path rico:creationWithRole ;
+    sh:path schema:schema:roleName  ;
     sh:maxCount 5 ;
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
