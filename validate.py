@@ -107,6 +107,13 @@ def validate_triple(triple: tuple, config: Config) -> None:
 
         # Avoid requesting the same uri for an ontology hiding behind a hash
         resolvable_part = triple_part.split('#')[0]
+
+        # Follow custom mappings for vocab URLs that do not support content negotiation
+        content_type = 'application/rdf+xml'
+        if resolvable_part in config['validation']['non_negotiable_vocabs'].keys():
+            content_type = config['validation']['non_negotiable_vocabs'][resolvable_part]['content_type']
+            resolvable_part = config['validation']['non_negotiable_vocabs'][resolvable_part]['resolvable_url']
+
         try:
             # Will throw an error on 400 or larger responses
             http_get(resolvable_part, 'text/turtle')
@@ -116,14 +123,14 @@ def validate_triple(triple: tuple, config: Config) -> None:
 
         if '#' in triple_part:
             # It's a hash uri!
-            resolved_uri_graph = load_graph_from_uri(resolvable_part)
+            resolved_uri_graph = load_graph_from_uri(resolvable_part, content_type)
 
             if triple_part not in resolved_uri_graph.subjects():
                 raise ValueError(f'URI {triple_part} is not a member of \n{resolvable_part}')
 
 
 @functools.lru_cache
-def load_graph_from_uri(resolvable_part: str) -> rdflib.Graph:
+def load_graph_from_uri(resolvable_part: str, content_type: str = 'application/rdf+xml') -> rdflib.Graph:
     """
     Try loading the contents of the URI directly
 
@@ -132,17 +139,16 @@ def load_graph_from_uri(resolvable_part: str) -> rdflib.Graph:
 
     :return: a rdflib Graph
     """
+    dereferenced = http_get(url=resolvable_part, content_type=content_type)
+    resolved_uri_graph = rdflib.Graph()
 
     with TemporaryDirectory() as tempdir:
-        dereferenced = http_get(url=resolvable_part, content_type='application/rdf+xml')
-        resolved_uri_graph = rdflib.Graph()
-
         tempfile = os.path.join(tempdir, 'graph_file.xml')
         with open(tempfile, 'wt') as f:
             f.write(dereferenced)
 
         try:
-            resolved_uri_graph.parse(tempfile)
+            resolved_uri_graph.parse(tempfile, format=content_type)
         except SAXParseException:
             with open(tempfile, 'rt') as f:
                 logging.error(f'Error loading {resolvable_part}: invalid XML \n {f.read()}')

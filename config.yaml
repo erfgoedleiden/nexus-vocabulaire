@@ -6,7 +6,7 @@ spec:
     shacl_dir: ./shacl/
 
     non_negotiable_vocabs:
-      http://www:w3:org/ns/person:
+      http://www.w3.org/ns/person:
         resolvable_url: http://www.w3.org/ns/person.ttl
         content_type: text/turtle
 
