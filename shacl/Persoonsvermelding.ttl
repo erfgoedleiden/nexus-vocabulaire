@@ -108,6 +108,7 @@ recordtypes:Persoonsvermelding
         sh:maxCount  20 ;
         sh:order     3.7 ;
         # Niet helemaal duidelijk wat voor "titel" hier wordt bedoeld.
+        # Is dit een koninklijke titel, een aanspreektitel of -vorm?
         sh:path      foaf:title
     ] ;
 
@@ -137,7 +138,7 @@ recordtypes:Persoonsvermelding
         sh:datatype        xsd:string ;
         sh:group           persoonsvermelding:personListingGroup ;
         sh:order           2.6 ;
-        sh:path            persoonsvermelding:surnamePrefix
+        sh:path            dbpo:prefix
     ] ;
     sh:property              [
         rdfs:label   "Leeftijd"@nl ;
@@ -293,18 +294,19 @@ persoonsvermelding:Details
         sh:path      brt:Wijk
     ] ;
     sh:property           [
+        # Typo??? Wijk huisnummer -> Wijknummer?
         rdfs:label   "Wijk huisnummer"@nl ;
         sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
         sh:order     7.0 ;
-        sh:path      persoonsvermelding:locationDistrictNumber
+        sh:path      dbpo:district
     ] ;
     sh:property           [
         rdfs:label   "Wijk toevoeging"@nl ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     8.0 ;
-        sh:path      persoonsvermelding:locationDistrictNumberAddition
+        sh:path      dbpo:district
     ] ;
     sh:property           [
         rdfs:label   "Gebuurte"@nl ;
