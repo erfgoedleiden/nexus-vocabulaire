@@ -1,4 +1,4 @@
-@prefix bag:                <https://bag.basisregistraties.overheid.nl/datamodel#> .
+@prefix bag:                <http://bag.basisregistraties.overheid.nl/def/bag#> .
 @prefix brt:                <http://brt.basisregistraties.overheid.nl/def/top10nl#> .
 @prefix dash:               <http://datashapes.org/dash#> .
 @prefix dbpo:               <http://dbpedia.org/ontology/> .

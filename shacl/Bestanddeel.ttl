@@ -1,4 +1,4 @@
-@prefix bag:          <https://bag.basisregistraties.overheid.nl/datamodel#> .
+@prefix bag:          <http://bag.basisregistraties.overheid.nl/def/bag#> .
 @prefix bestanddeel:  </resources/recordtypes/Bestanddeel#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .

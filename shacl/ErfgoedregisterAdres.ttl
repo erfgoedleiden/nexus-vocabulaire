@@ -1,4 +1,4 @@
-@prefix bag:                  <https://bag.basisregistraties.overheid.nl/datamodel#> .
+@prefix bag:                  <https://bag.basisregistraties.overheid.nl/def/bag#> .
 @prefix erfgoedregisterAdres: </resources/recordtypes/ErfgoedregisterAdres#> .
 @prefix vocabularies:         </resources/vocabularies/> .
 @prefix xsd:                  <http://www.w3.org/2001/XMLSchema#> .

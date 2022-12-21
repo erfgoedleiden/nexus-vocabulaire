@@ -1,5 +1,5 @@
 @prefix av:           </resources/recordtypes/Av#> .
-@prefix bag:          <https://bag.basisregistraties.overheid.nl/datamodel#> .
+@prefix bag:          <http://bag.basisregistraties.overheid.nl/def/bag#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
@@ -405,7 +405,7 @@ av:Creator
   sh:property [
     rdfs:label "Rol"@nl ;
     # "Connects a Creation Relation to the Role Type that the creator Agent(s) has in the creation process"
-    sh:path schema:schema:roleName  ;
+    sh:path schema:roleName  ;
     sh:maxCount 5 ;
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
