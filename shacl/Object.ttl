@@ -153,6 +153,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Datum besluit B en W"@nl ;
+      # Semantisch gecompliceerde eigenschap
       sh:path dc:issued ;
       sh:order 11.0 ;
       sh:group object:procedureDataGroup ;
@@ -161,6 +162,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Nummer besluit B en W"@nl ;
+      # Semantisch gecompliceerde eigenschap
       sh:path rico:hasProvenance ;
       sh:maxCount 1 ;
       sh:order 12.0 ;
