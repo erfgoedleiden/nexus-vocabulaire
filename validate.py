@@ -5,6 +5,7 @@ import os
 import re
 from argparse import ArgumentParser
 from tempfile import TemporaryDirectory
+from xml.sax import SAXParseException
 
 import pyshacl
 import rdflib
@@ -142,8 +143,9 @@ def load_graph_from_uri(resolvable_part: str) -> rdflib.Graph:
 
         try:
             resolved_uri_graph.parse(tempfile)
-        except rdflib.plugin.PluginException:
-            logging.error(f'Error loading {resolvable_part}')
+        except SAXParseException:
+            with open(tempfile, 'rt') as f:
+                logging.error(f'Error loading {resolvable_part}: invalid XML \n {f.read()}')
             raise
 
         return resolved_uri_graph
