@@ -1,15 +1,20 @@
+@prefix bag:          <http://bag.basisregistraties.overheid.nl/def/bag#> .
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix dbpo:         <http://dbpedia.org/ontology/> .
+@prefix dc:           <http://purl.org/dc/terms/> .
+@prefix geo:          <http://www.opengis.net/ont/geosparql#> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
 @prefix object:       </resources/recordtypes/Object#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  </resources/recordtypes/> .
+@prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 @prefix vocabularies: </resources/vocabularies/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:      <http://memorix.io/ontology#> .
-@prefix sh:           <http://www.w3.org/ns/shacl#> .
-@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:  </resources/recordtypes/> .
-@prefix html:         <http://www.w3.org/1999/xhtml/> .
-@prefix dash:         <http://datashapes.org/dash#> .
-@prefix dc:           <http://purl.org/dc/terms/> .
 
 recordtypes:Object
   a memorix:Recordtype, sh:NodeShape ;
@@ -23,17 +28,18 @@ recordtypes:Object
 
   sh:property [
       rdfs:label "Gemeente"@nl ;
-      sh:path object:municipality ;
+      sh:path dbpo:municipality ;
       sh:order 0.5 ;
       sh:group object:basicDataGroup ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
+      # Overweeg hier om een CBS-gemeente te nemen
       memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/a5538bf3-2d67-3f6f-acff-f95eaaa169c4> ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
       rdfs:label "Status"@nl ;
-      sh:path object:status ;
+      sh:path rico:hasRecordState ;
       sh:maxCount 1 ;
       sh:order 1.0 ;
       sh:group object:basicDataGroup ;
@@ -44,7 +50,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Registratienummer"@nl ;
-      sh:path object:registrationNumber ;
+      sh:path rico:identifier ;
       sh:maxCount 1 ;
       memorix:inTitleAt 1.0 ;
       sh:order 2.0 ;
@@ -54,7 +60,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Objectnaam"@nl ;
-      sh:path object:objectName ;
+      sh:path rico:title ;
       sh:maxCount 1 ;
       memorix:inTitleAt 2.0 ;
       sh:order 3.0 ;
@@ -64,7 +70,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Pand Id"@nl ;
-      sh:path object:propertyId ;
+      sh:path bag:identificatie ;
       sh:maxCount 100 ;
       sh:order 3.5 ;
       sh:group object:basicDataGroup ;
@@ -73,7 +79,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label  "Complex"@nl ;
-      sh:path object:complex ;
+      sh:path rico:isOrWasPartOf ;
       sh:order 4.0 ;
       sh:nodeKind sh:IRI ;
       sh:group object:basicDataGroup ;
@@ -84,7 +90,8 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Redengevende omschrijving"@nl ;
-      sh:path object:descriptionReasoning ;
+      # Zelfde sh:path als ↓ ??
+      sh:path rico:descriptiveNote ;
       sh:maxCount 1 ;
       sh:order 5.0 ;
       sh:group object:basicDataGroup ;
@@ -93,7 +100,9 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Toestand omschrijving"@nl ;
-      sh:path object:descriptionStatus ;
+      # Lastig te benoemen
+      # Zelfde sh:path als ↑ ??
+      sh:path rico:descriptiveNote ;
       sh:maxCount 1 ;
       sh:order 6.0 ;
       sh:group object:basicDataGroup ;
@@ -104,7 +113,8 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Opmerkingen"@nl ;
-      sh:path object:comments ;
+      # Zelfde sh:path als ↑ ??
+      sh:path rico:descriptiveNote ;
       sh:maxCount 1 ;
       sh:order 7.0 ;
       sh:group object:basicDataGroup ;
@@ -113,17 +123,18 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Opmerkingen beheer"@nl ;
-      sh:path object:commentsManagement ;
+      # Zelfde sh:path als ↑ ??
+      sh:path rico:descriptiveNote ;
       sh:maxCount 1 ;
       sh:order 8.0 ;
       sh:group object:basicDataGroup ;
       sh:datatype xsd:string ;
       dash:editor  dash:TextAreaEditor ;
     ] ;
-
   sh:property [
-      rdfs:label "Datum advies Commissie"@nl ;
-      sh:path object:dateAdvisoryCommittee ;
+      rdfs:label "Datum advies commissie"@nl ;
+      # Is dit de datum waarop het toelatingsadvies van de commissie is bekrachtigd?
+      sh:path dc:dateAccepted ;
       sh:order 9.0 ;
       sh:group object:procedureDataGroup ;
       sh:datatype xsd:integer ;
@@ -131,7 +142,8 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Advies Commissie"@nl ;
-      sh:path object:advisoryCommittee ;
+      # Semantisch gecompliceerde eigenschap
+      sh:path dbpo:result ;
       sh:maxCount 1 ;
       sh:order 10.0 ;
       sh:group object:procedureDataGroup ;
@@ -142,7 +154,8 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Datum besluit B en W"@nl ;
-      sh:path object:dateDecisionBAndW ;
+      # Semantisch gecompliceerde eigenschap
+      sh:path dc:issued ;
       sh:order 11.0 ;
       sh:group object:procedureDataGroup ;
       sh:datatype xsd:integer ;
@@ -150,7 +163,8 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Nummer besluit B en W"@nl ;
-      sh:path object:numberDecisionBAndW ;
+      # Semantisch gecompliceerde eigenschap
+      sh:path rico:hasProvenance ;
       sh:maxCount 1 ;
       sh:order 12.0 ;
       sh:group object:procedureDataGroup ;
@@ -158,7 +172,9 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Datum registratie RM"@nl ;
-      sh:path object:dateRegistrationRM ;
+      # RM == Rijksmonument?
+      # Geen goede mapping beschikbaar
+      sh:path rico:expressedDate ;
       sh:order 13.0 ;
       sh:group object:procedureDataGroup ;
       sh:datatype xsd:integer ;
@@ -167,7 +183,8 @@ recordtypes:Object
   sh:property [
       rdfs:label "Bestemmingsplan"@nl ;
       sh:maxCount 999 ;
-      sh:path object:zoningPlan ;
+      # Lastige mapping
+      sh:path schema:AdministrativeArea ;
       sh:order 14.0 ;
       dash:viewer dash:DetailsEditor ;
       sh:nodeKind sh:BlankNode ;
@@ -176,7 +193,8 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Type"@nl ;
-      sh:path object:type ;
+      # Zelfde sh:path als ↓ ??
+      sh:path rico:hasOrHadPlaceType ;
       sh:maxCount 1 ;
       sh:order 15.0 ;
       sh:group object:valueDataGroup ;
@@ -187,7 +205,8 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Oorspronkelijke functie"@nl ;
-      sh:path object:originalFunction ;
+      # Zelfde sh:path als ↑ ??
+      sh:path rico:hasOrHadPlaceType ;
       sh:maxCount 1 ;
       sh:order 16.0 ;
       sh:group object:valueDataGroup ;
@@ -198,7 +217,8 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Opdrachtgever"@nl ;
-      sh:path object:client ;
+      # We zoeken eigenlijk `some-prefix:client` maar dit lijkt niet te bestaan
+      sh:path schema:customer ;
       sh:maxCount 1 ;
       sh:order 17.0 ;
       sh:nodeKind sh:IRI ;
@@ -211,7 +231,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Architect/ontwerper"@nl ;
-      sh:path object:architect ;
+      sh:path dbpo:architect ;
       sh:maxCount 1 ;
       sh:order 18.0 ;
       sh:nodeKind sh:IRI ;
@@ -225,7 +245,8 @@ recordtypes:Object
   sh:property [
       rdfs:label "Datering"@nl ;
       sh:maxCount 10 ;
-      sh:path object:dating ;
+      # "Inverse of: Connects a Date to a Thing that came into existence on that Date."
+      sh:path  rico:hasBeginningDate ;
       sh:order 19.0 ;
       dash:viewer dash:DetailsEditor ;
       sh:nodeKind sh:BlankNode ;
@@ -235,7 +256,7 @@ recordtypes:Object
   sh:property [
       rdfs:label "Bouwstijlen"@nl ;
       sh:maxCount 10 ;
-      sh:path object:architecture ;
+      sh:path dbpo:architecturalStyle ;
       sh:order 20.0 ;
       dash:viewer dash:DetailsEditor ;
       sh:nodeKind sh:BlankNode ;
@@ -245,7 +266,7 @@ recordtypes:Object
   sh:property [
       rdfs:label "(BAG-)Adres gegevens"@nl ;
       sh:maxCount 999 ;
-      sh:path object:bagAddress ;
+      sh:path bag:identificatie ;
       sh:order 21.0 ;
       dash:viewer dash:DetailsEditor ;
       sh:nodeKind sh:BlankNode ;
@@ -255,7 +276,7 @@ recordtypes:Object
   sh:property [
       rdfs:label "(BGT-)Topgrafie gegevens"@nl ;
       sh:maxCount 10 ;
-      sh:path object:bgtTopography ;
+      sh:path rico:hasOrHadPhysicalLocation ;
       sh:order 22.0 ;
       dash:viewer dash:DetailsEditor ;
       sh:nodeKind sh:BlankNode ;
@@ -265,7 +286,7 @@ recordtypes:Object
   sh:property [
       rdfs:label "DICO gegevens"@nl ;
       sh:maxCount 10 ;
-      sh:path object:dicoData ;
+      sh:path rico:hasOrHadLocation ;
       sh:order 23.0 ;
       dash:viewer dash:DetailsEditor ;
       sh:nodeKind sh:BlankNode ;
@@ -273,6 +294,7 @@ recordtypes:Object
       sh:group object:locationGroup ;
     ] ;
 .
+
 object:Dating
   a sh:NodeShape ;
   sh:closed true ;
@@ -280,7 +302,7 @@ object:Dating
   sh:targetClass object:Dating ;
   sh:property [
       rdfs:label "Datering (tekst)"@nl ;
-      sh:path object:datingDateText ;
+      sh:path rico:expressedDate ;
       sh:maxCount 1 ;
       sh:order 1.0 ;
       sh:datatype xsd:string ;
@@ -288,7 +310,7 @@ object:Dating
     ] ;
   sh:property [
       rdfs:label "Nauwkeurigheid"@nl ;
-      sh:path object:datingAccuracy ;
+      sh:path rico:certainty ;
       sh:maxCount 1 ;
       sh:order 1.5 ;
       sh:datatype xsd:string ;
@@ -296,21 +318,21 @@ object:Dating
     ] ;
   sh:property [
       rdfs:label "Startdatum"@nl ;
-      sh:path object:datingDateStart ;
+      sh:path rico:hasBeginningDate ;
       sh:order 2.0 ;
       sh:datatype xsd:integer ;
       dash:editor memorix:DateEditor ;
     ] ;
   sh:property [
       rdfs:label "Einddatum"@nl ;
-      sh:path object:datingDateEnd ;
+      sh:path rico:hasEndDate ;
       sh:order 3.0 ;
       sh:datatype xsd:integer ;
       dash:editor memorix:DateEditor ;
     ] ;
   sh:property [
       rdfs:label "Datering betreft/opmerking"@nl ;
-      sh:path object:datingComments ;
+      sh:path rico:descriptiveNote ;
       sh:maxCount 1 ;
       sh:order 0.5 ;
       sh:datatype xsd:string ;
@@ -325,7 +347,7 @@ object:ZoningPlan
   sh:targetClass object:ZoningPlan ;
   sh:property [
       rdfs:label "Datum bestemmingsplan"@nl ;
-      sh:path object:zoningPlanDate ;
+      sh:path dc:date ;
       sh:order 2.0 ;
       sh:group object:procedureDataGroup ;
       sh:datatype xsd:integer ;
@@ -333,7 +355,7 @@ object:ZoningPlan
     ] ;
   sh:property [
       rdfs:label "Omgevingsplangebied"@nl ;
-      sh:path object:zoningPlanPlanningArea ;
+      sh:path rico:location ;
       sh:maxCount 1 ;
       sh:order 1.0 ;
       sh:datatype xsd:string ;
@@ -347,7 +369,7 @@ object:Architecture
   sh:targetClass object:Architecture ;
   sh:property [
       rdfs:label "Bouwstijl"@nl ;
-      sh:path object:architectureArchitecture ;
+      sh:path dbpo:architecturalStyle ;
       sh:maxCount 1 ;
       sh:order 1.0 ;
       dash:editor memorix:VocabularyEditor ;
@@ -357,7 +379,7 @@ object:Architecture
     ] ;
   sh:property [
       rdfs:label "Zuiverheid"@nl ;
-      sh:path object:architecturePurity ;
+      sh:path rico:certainty ;
       sh:maxCount 1 ;
       sh:order 1.5 ;
       sh:datatype xsd:string ;
@@ -365,7 +387,7 @@ object:Architecture
     ] ;
   sh:property [
       rdfs:label "Bouwstijl betreft/opmerking"@nl ;
-      sh:path object:architectureComments ;
+      sh:path rico:descriptiveNote ;
       sh:maxCount 1 ;
       sh:order 0.5 ;
       sh:datatype xsd:string ;
@@ -379,7 +401,7 @@ object:BagAddress
   sh:targetClass object:BagAddress ;
   sh:property [
       rdfs:label "Toestand"@nl ;
-      sh:path object:bagaddressStatus ;
+      sh:path bag:status ;
       sh:maxCount 1 ;
       sh:order 3.0 ;
       dash:editor memorix:VocabularyEditor ;
@@ -389,7 +411,7 @@ object:BagAddress
     ] ;
   sh:property [
       rdfs:label "Situering"@nl ;
-      sh:path object:bagaddressLocation ;
+      sh:path rico:location ;
       sh:maxCount 1 ;
       sh:order 2.0 ;
       memorix:inSummaryAt 2.0 ;
@@ -398,7 +420,7 @@ object:BagAddress
     ] ;
   sh:property [
       rdfs:label "BAG adres"@nl ;
-      sh:path object:bagaddressBagaddress ;
+      sh:path bag:identificatie ;
       sh:order 1.0 ;
       memorix:inSummaryAt 1.0 ;
       sh:nodeKind sh:IRI ;
@@ -408,6 +430,7 @@ object:BagAddress
       dash:editor memorix:LinkedRecordEditor ;
     ] ;
 .
+
 object:BgtTopography
   a sh:NodeShape ;
   sh:closed true ;
@@ -415,7 +438,7 @@ object:BgtTopography
   sh:targetClass object:BgtTopography ;
   sh:property [
       rdfs:label "Toestand"@nl ;
-      sh:path object:bgttopographyStatus ;
+      sh:path rico:hasRecordState ;
       sh:maxCount 1 ;
       sh:order 3.0 ;
       dash:editor memorix:VocabularyEditor ;
@@ -425,7 +448,8 @@ object:BgtTopography
     ] ;
   sh:property [
       rdfs:label "Situering"@nl ;
-      sh:path object:bgttopographyLocation ;
+      # Zelfde sh:path als ↓ ??
+      sh:path rico:location ;
       sh:maxCount 1 ;
       sh:order 2.0 ;
       sh:datatype xsd:string ;
@@ -433,7 +457,8 @@ object:BgtTopography
     ] ;
   sh:property [
       rdfs:label "BGT adres"@nl ;
-      sh:path object:bgttopographyBgtaddress ;
+      # Zelfde sh:path als ↑ ??
+      sh:path rico:location ;
       sh:order 1.0 ;
       sh:datatype xsd:string ;
       dash:editor dash:TextFieldEditor ;
@@ -448,15 +473,17 @@ object:DicoData
   sh:targetClass object:DicoData ;
   sh:property [
       rdfs:label "Geometrie data"@nl ;
-      sh:path object:dicodataGeometryData ;
+      sh:path geo:asWKT ;
       sh:maxCount 1 ;
       sh:order 1.0 ;
-      sh:datatype xsd:string ;
+      # TODO: geometriedata opnemen als Well-Known-Text data
+      sh:datatype geo:wktLiteral ;
       dash:editor  dash:TextAreaEditor ;
     ] ;
   sh:property [
       rdfs:label "Geometrie vorm"@nl ;
-      sh:path object:dicodataGeometryShape ;
+      # TODO: Wat is hier het doel van?
+      sh:path dbpo:shape ;
       sh:maxCount 1 ;
       sh:order 2.0 ;
       dash:editor memorix:VocabularyEditor ;
@@ -467,18 +494,18 @@ object:DicoData
 .
 
 object:basicDataGroup a sh:PropertyGroup ;
-    rdfs:label "Basis gegevens"@nl ;
-    sh:order 1.0
+  rdfs:label "Basis gegevens"@nl ;
+  sh:order 1.0
 .
 object:procedureDataGroup a sh:PropertyGroup ;
-    rdfs:label "Procedure gegevens"@nl ;
-    sh:order 2.0
+  rdfs:label "Procedure gegevens"@nl ;
+  sh:order 2.0
 .
 object:valueDataGroup a sh:PropertyGroup ;
-    rdfs:label "Waarde gegevens"@nl ;
-    sh:order 3.0
+  rdfs:label "Waarde gegevens"@nl ;
+  sh:order 3.0
 .
 object:locationGroup a sh:PropertyGroup ;
-    rdfs:label "Locatie"@nl ;
-    sh:order 4.0
+  rdfs:label "Locatie"@nl ;
+  sh:order 4.0
 .
