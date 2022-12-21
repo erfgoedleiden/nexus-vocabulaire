@@ -1,3 +1,4 @@
+@prefix bag:                  <https://bag.basisregistraties.overheid.nl/def/bag#> .
 @prefix erfgoedregisterAdres: </resources/recordtypes/ErfgoedregisterAdres#> .
 @prefix vocabularies:         </resources/vocabularies/> .
 @prefix xsd:                  <http://www.w3.org/2001/XMLSchema#> .
@@ -42,7 +43,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     rdfs:label "Huisnummer"@nl ;
-    sh:path erfgoedregisterAdres:houseNumber ;
+    sh:path bag:huisnummer ;
     memorix:inTitleAt 3.0 ;
     sh:maxCount 1 ;
     sh:order 3.0 ;

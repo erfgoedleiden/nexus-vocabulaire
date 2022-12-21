@@ -1,3 +1,4 @@
+@prefix bag:          <http://bag.basisregistraties.overheid.nl/def/bag#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
@@ -337,7 +338,7 @@ image:DepictedLocation
   sh:property [
       rdfs:label "Huisnummer"@nl ;
       sh:maxCount 1 ;
-      sh:path schema:streetAddress ;
+      sh:path bag:huisnummer ;
       sh:order 3.0 ;
       sh:datatype xsd:string ;
   ] ;
@@ -371,7 +372,7 @@ image:Creator
   ] ;
   sh:property [
     rdfs:label "Rol"@nl ;
-    sh:path rico:creationWithRole ;
+    sh:path schema:roleName ;
     sh:maxCount 5 ;
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
