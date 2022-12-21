@@ -418,7 +418,7 @@ object:BagAddress
   ] ;
   sh:property [
     rdfs:label "BAG adres"@nl ;
-    sh:path bag:identifier ;
+    sh:path bag:identificatie ;
     sh:order 1.0 ;
     memorix:inSummaryAt 1.0 ;
     sh:nodeKind sh:IRI ;
