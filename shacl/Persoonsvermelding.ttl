@@ -225,6 +225,16 @@ persoonsvermelding:Details
     rdf:type              sh:NodeShape ;
     sh:closed             true ;
     sh:ignoredProperties  ( rdf:type ) ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property           [ rdfs:label          "Bijzonderheid - Type"@nl ;
     sh:order            1.0 ;
     sh:path             rico:hasContentOfType ;
@@ -247,6 +257,16 @@ persoonsvermelding:Details
     rdf:type              sh:NodeShape ;
     sh:closed             true ;
     sh:ignoredProperties  ( rdf:type ) ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property           [
         rdfs:label          "Locatie - Type"@nl ;
         sh:maxCount         1 ;
@@ -359,8 +379,18 @@ persoonsvermelding:Profession
     rdf:type              sh:NodeShape ;
     sh:closed             true ;
     sh:ignoredProperties  ( rdf:type ) ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property              [
-        rdfs:label   "Beroep in bron"@nl ;
+        rdfs:label   "Beroep"@nl ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     1.0 ;
@@ -384,8 +414,19 @@ persoonsvermelding:Profession
 persoonsvermelding:Event  rdf:type          sh:NodeShape ;
     sh:closed             true ;
     sh:ignoredProperties  ( rdf:type ) ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property           [
         rdfs:label         "Gebeurtenis - Type"@nl ;
+        memorix:inSummaryAt  1.0 ;
         sh:maxCount  1 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
@@ -396,6 +437,7 @@ persoonsvermelding:Event  rdf:type          sh:NodeShape ;
     ] ;
     sh:property           [
         rdfs:label   "Datum gebeurtenis"@nl ;
+        memorix:inSummaryAt  2.0 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
         sh:maxCount  1 ;
