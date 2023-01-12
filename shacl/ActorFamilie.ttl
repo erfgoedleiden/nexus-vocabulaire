@@ -1,16 +1,18 @@
 @prefix actorFamilie: </resources/recordtypes/ActorFamilie#> .
-@prefix vocabularies: </resources/vocabularies/> .
-@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:      <http://memorix.io/ontology#> .
-@prefix sh:           <http://www.w3.org/ns/shacl#> .
-@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:  </resources/recordtypes/> .
-@prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
-@prefix schema:      <http://schema.org/> .
+@prefix foaf:         <http://xmlns.com/foaf/0.1/> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  </resources/recordtypes/> .
+@prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 
 actorFamilie:identificationGroup a sh:PropertyGroup ;
@@ -47,7 +49,7 @@ recordtypes:ActorFamilie
         sh:group actorFamilie:identificationGroup ;
         memorix:inTitleAt 1.0 ;
         sh:order    1.0 ;
-        sh:path actorFamilie:identifier ;
+        sh:path rico:identifier ;
     ] ;
     sh:property [
         rdfs:label "Naam"@nl ;
@@ -55,12 +57,12 @@ recordtypes:ActorFamilie
         sh:datatype xsd:string ;
         memorix:inTitleAt 3.0 ;
         sh:order    2.0 ;
-        sh:path actorFamilie:name ;
+        sh:path rico:hasOrHadName ;
         sh:group actorFamilie:identificationGroup ;
     ] ;
     sh:property [
         rdfs:label "Identiek aan (extern)"@nl ;
-        sh:path actorFamilie:sameAs ;
+        sh:path rico:isRelatedTo ;
         sh:maxCount 1 ;
         sh:order 3.0 ;
         sh:group actorFamilie:identificationGroup ;
@@ -72,7 +74,7 @@ recordtypes:ActorFamilie
     sh:property [
         rdfs:label "Adres"@nl ;
         sh:maxCount 1 ;
-        sh:path actorFamilie:address ;
+        sh:path schema:streetAddress ;
         sh:datatype xsd:string;
         sh:group actorFamilie:contactGroup ;
         sh:order 6.0 ;
@@ -81,7 +83,7 @@ recordtypes:ActorFamilie
     sh:property [
         rdfs:label "Postcode"@nl ;
         sh:maxCount 1 ;
-        sh:path actorFamilie:zipcode ;
+        sh:path schema:postalCode ;
         sh:datatype xsd:string;
         sh:group actorFamilie:contactGroup ;
         sh:order 7.0 ;
@@ -97,7 +99,7 @@ recordtypes:ActorFamilie
     sh:property [
         rdfs:label "Land"@nl ;
         sh:maxCount 1 ;
-        sh:path actorFamilie:country ;
+        sh:path schema:addressCountry ;
         sh:datatype xsd:string;
         sh:group actorFamilie:contactGroup ;
         sh:order 9.0 ;
@@ -105,14 +107,14 @@ recordtypes:ActorFamilie
     sh:property [
         rdfs:label "Telefoon"@nl ;
         sh:maxCount 5 ;
-        sh:path actorFamilie:phone ;
+        sh:path schema:telephone ;
         sh:datatype xsd:string;
         sh:group actorFamilie:contactGroup ;
         sh:order 10.0 ;
     ] ;
     sh:property [
         rdfs:label "Email"@nl ;
-        sh:path actorFamilie:email ;
+        sh:path schema:email ;
         sh:datatype xsd:string;
         sh:maxCount 5 ;
         sh:group actorFamilie:contactGroup ;
@@ -121,7 +123,7 @@ recordtypes:ActorFamilie
     sh:property [
         rdfs:label "Website"@nl ;
         sh:maxCount 1 ;
-        sh:path actorFamilie:website ;
+        sh:path foaf:homepage ;
         sh:datatype xsd:string;
         sh:group actorFamilie:contactGroup ;
         sh:order 12.0 ;
@@ -132,7 +134,7 @@ recordtypes:ActorFamilie
         sh:datatype xsd:string ;
         sh:order    14.0 ;
         dash:editor  dash:TextAreaEditor ;
-        sh:path actorFamilie:rulesAndConventions ;
+        sh:path rico:isAssociatedWithRule ;
         sh:group actorFamilie:managementGroup ;
     ] ;
     sh:property [
@@ -141,7 +143,7 @@ recordtypes:ActorFamilie
         sh:nodeKind sh:IRI ;
         sh:group actorFamilie:managementGroup ;
         sh:order 15.0 ;
-        sh:path actorFamilie:contactPerson ;
+        sh:path schema:contactPoint ;
         sh:or (
             [ sh:class recordtypes:ActorPersoon ]
         ) ;
@@ -153,8 +155,7 @@ recordtypes:ActorFamilie
         sh:datatype xsd:string ;
         sh:order    16.0 ;
         dash:editor  dash:TextAreaEditor ;
-        sh:path actorFamilie:notes ;
+        sh:path rico:descriptiveNote ;
         sh:group actorFamilie:notesGroup ;
     ] ;
 .
-
