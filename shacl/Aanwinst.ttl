@@ -1,16 +1,17 @@
 @prefix aanwinst:     </resources/recordtypes/Aanwinst#> .
-@prefix vocabularies: </resources/vocabularies/> .
-@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:      <http://memorix.io/ontology#> .
-@prefix sh:           <http://www.w3.org/ns/shacl#> .
-@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:  </resources/recordtypes/> .
-@prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  </resources/recordtypes/> .
 @prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 aanwinst:identificationGroup
     rdf:type   sh:PropertyGroup ;
@@ -52,7 +53,7 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label "Identificatiecode"@nl ;
         sh:group aanwinst:identificationGroup ;
-        sh:path aanwinst:identifier ;
+        sh:path rico:identifier ;
         memorix:inTitleAt 1.0 ;
         sh:order 1.0 ;
         sh:datatype xsd:string ;
@@ -60,7 +61,7 @@ recordtypes:Aanwinst
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Omschrijving"@nl ;
-        sh:path aanwinst:description ;
+        sh:path rico:descriptiveNote ;
         sh:order 2.0 ;
         sh:group aanwinst:identificationGroup ;
         sh:datatype xsd:string ;
@@ -70,15 +71,16 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label "Datum ontvangst"@nl ;
         sh:group aanwinst:descriptionGroup ;
-        sh:path aanwinst:aquisitionDate ;
+        sh:path schema:ownedFrom ;
         sh:order 3.0 ;
+        # TODO: datumveld zou geen integer moeten zijn
         sh:datatype xsd:integer ;
         dash:editor memorix:DateEditor ;
     ] ;
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Soort aanwinst"@nl ;
-        sh:path aanwinst:type ;
+        sh:path rico:hasContentOfType ;
         sh:order 4.0 ;
         memorix:inTitleAt 2.0 ;
         sh:group aanwinst:descriptionGroup ;
@@ -108,7 +110,7 @@ recordtypes:Aanwinst
     sh:property [
         rdfs:label "Contact"@nl ;
         sh:maxCount 1 ;
-        sh:path aanwinst:contact ;
+        sh:path schema:contactPoint ;
         sh:order 7.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -119,7 +121,9 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Datum eerste contact"@nl ;
         sh:order     8.0 ;
-        sh:path      aanwinst:firstContact ;
+        # Geen goed passende term
+        # Zelfde sh:path als ↓
+        sh:path      rico:isAssociatedWithDate ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -129,7 +133,9 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Overeenkomst gestuurd"@nl ;
         sh:order     9.0 ;
-        sh:path      aanwinst:agreementSent ;
+        # Geen goed passende term
+        # Zelfde sh:path als ↓
+        sh:path      rico:isAssociatedWithDate ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -139,7 +145,9 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Overeenkomst retour"@nl ;
         sh:order     10.0 ;
-        sh:path      aanwinst:agreementReturned ;
+        # Geen goed passende term
+        # Zelfde sh:path als ↓
+        sh:path      rico:isAssociatedWithDate ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -149,7 +157,9 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Akkoord Inspectie en Acquisitie"@nl ;
         sh:order     11.0 ;
-        sh:path      aanwinst:agreementInspectionAcquisition ;
+        # Geen goed passende term
+        # Zelfde sh:path als ↓
+        sh:path      rico:isAssociatedWithDate ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -159,7 +169,9 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Akkoord Restauratie"@nl ;
         sh:order     12.0 ;
-        sh:path      aanwinst:agreementRestoration ;
+        # Geen goed passende term
+        # Zelfde sh:path als ↓
+        sh:path      rico:isAssociatedWithDate ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -169,7 +181,9 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "(Her)verpakking"@nl ;
         sh:order     14.0 ;
-        sh:path      aanwinst:packing ;
+        # Geen goed passende term
+        # Zelfde sh:path als ↓
+        sh:path      rico:isAssociatedWithDate ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -179,7 +193,9 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Binnenkomst Depot"@nl ;
         sh:order     15.0 ;
-        sh:path      aanwinst:entryDepot ;
+        # Geen goed passende term
+        # Zelfde sh:path als ↓
+        sh:path      rico:isAssociatedWithDate ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -189,7 +205,9 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Akkoord schade inv."@nl ;
         sh:order     16.0 ;
-        sh:path      aanwinst:agreementDamage ;
+        # Geen goed passende term
+        # Zelfde sh:path als ↓
+        sh:path      rico:isAssociatedWithDate ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -199,16 +217,19 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Datum ontvangen toegang"@nl ;
         sh:order     17.0 ;
-        sh:path      aanwinst:dateReceivedAccess ;
+        # Geen goed passende term
+        # Zelfde sh:path als ↑
+        sh:path      rico:isAssociatedWithDate ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
         sh:maxLength 8 ;
     ] ;
     sh:property [
-        rdfs:label "Definitieve acquisitive"@nl ;
+        rdfs:label "Definitieve acquisitie"@nl ;
         sh:maxCount 1 ;
-        sh:path aanwinst:finalAcquisition ;
+        # Geen goed passende term
+        sh:path      dc:valid ;
         sh:order 18.0 ;
         sh:group aanwinst:acquisitionGroup ;
         sh:datatype xsd:boolean ;
@@ -216,7 +237,7 @@ recordtypes:Aanwinst
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Bijzonderheden inspectie"@nl ;
-        sh:path aanwinst:inspectionDetails ;
+        sh:path rico:descriptiveNote ;
         sh:order 19.0 ;
         sh:group aanwinst:acquisitionGroup ;
         sh:datatype xsd:string ;
@@ -225,7 +246,8 @@ recordtypes:Aanwinst
     sh:property [
         rdfs:label "Volledig openbaar"@nl ;
         sh:maxCount 1 ;
-        sh:path aanwinst:fullyPublic ;
+        # Redelijk passend: "A flag to signal that the Place is open to public visitors."
+        sh:path schema:publicAccess ;
         sh:order 20.0 ;
         sh:group aanwinst:managementGroup ;
         sh:datatype xsd:boolean ;
@@ -233,7 +255,8 @@ recordtypes:Aanwinst
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Niet openbare stukken - periode"@nl ;
-        sh:path aanwinst:nonPublicDocuments ;
+        # Geen goed passende term
+        sh:path rico:descriptiveNote ;
         sh:order 21.0 ;
         sh:group aanwinst:managementGroup ;
         sh:datatype xsd:string ;
@@ -242,15 +265,17 @@ recordtypes:Aanwinst
     sh:property [
         rdfs:label "Gedeelte voor vernietiging vatbaar"@nl ;
         sh:maxCount 1 ;
-        sh:path aanwinst:partSubjectDestruction ;
+        # Geen goed passende term
+        sh:path rico:descriptiveNote ;
         sh:order 22.0 ;
         sh:group aanwinst:managementGroup ;
         sh:datatype xsd:boolean ;
     ] ;
     sh:property [
-        rdfs:label "Beeldmateriaal"@nl ;
+        rdfs:label "Is beeldmateriaal"@nl ;
         sh:maxCount 1 ;
-        sh:path aanwinst:images ;
+        # Geen goed passende term
+        sh:path schema:image ;
         sh:order 23.0 ;
         sh:group aanwinst:managementGroup ;
         sh:datatype xsd:boolean ;
@@ -258,7 +283,7 @@ recordtypes:Aanwinst
     sh:property [
         rdfs:label "Opgegaan in"@nl ;
         sh:maxCount 1 ;
-        sh:path aanwinst:mergedInto ;
+        sh:path rico:isOrWasPartOf ;
         sh:order 24.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -268,7 +293,8 @@ recordtypes:Aanwinst
     sh:property [
         rdfs:label "Aanwinst verwerkt"@nl ;
         sh:maxCount 1 ;
-        sh:path aanwinst:assetsProcessed ;
+        # Geen goed passende term
+        sh:path dc:valid ;
         sh:order 25.0 ;
         sh:group aanwinst:managementGroup ;
         sh:datatype xsd:boolean ;
@@ -276,7 +302,7 @@ recordtypes:Aanwinst
     sh:property [
         rdfs:label "Interne opmerking"@nl ;
         sh:maxCount 1 ;
-        sh:path aanwinst:notes ;
+        sh:path rico:descriptiveNote ;
         sh:order 26.0 ;
         sh:group aanwinst:notesGroup ;
         sh:datatype xsd:string ;
@@ -334,7 +360,7 @@ aanwinst:Contact
         rdfs:label   "Eigenaar"@nl ;
         sh:order     2.0 ;
         sh:maxCount 1 ;
-        sh:path      aanwinst:contactOwner ;
+        sh:path      rico:agentIsSourceOfOwnershipRelation ;
         sh:nodeKind sh:IRI ;
         sh:or (
             [ sh:class recordtypes:ActorFamilie ]
@@ -347,7 +373,7 @@ aanwinst:Contact
         rdfs:label   "Contactpersoon"@nl ;
         sh:order     3.0 ;
         sh:maxCount 100 ;
-        sh:path      aanwinst:contactContact ;
+        sh:path      schema:contactPoint ;
         sh:nodeKind sh:IRI ;
         sh:or (
             [ sh:class recordtypes:ActorFamilie ]
@@ -365,14 +391,14 @@ aanwinst:MergedInto
     sh:property [
         rdfs:label "Voorlopige naam archief"@nl ;
         sh:maxCount 1 ;
-        sh:path aanwinst:temporaryName ;
+        sh:path rico:hasOrHadIdentifier ;
         sh:order 1.0 ;
         sh:datatype xsd:string ;
     ] ;
     sh:property [
         rdfs:label "Aanvulling op archief"@nl ;
         sh:maxCount 1 ;
-        sh:path aanwinst:archiveAddition ;
+        sh:path rico:accrual ;
         sh:order 2.0 ;
         sh:datatype xsd:boolean ;
     ] ;
@@ -380,7 +406,7 @@ aanwinst:MergedInto
         rdfs:label   "Archief"@nl ;
         sh:order     3.0 ;
         sh:maxCount 1 ;
-        sh:path      aanwinst:archive ;
+        sh:path      rico:isOrWasPartOf ;
         sh:nodeKind sh:IRI ;
         sh:or (
             [ sh:class recordtypes:Archiefblok ]
@@ -391,7 +417,7 @@ aanwinst:MergedInto
         rdfs:label   "Gerelateerde toegang"@nl ;
         sh:order     4.0 ;
         sh:maxCount 1 ;
-        sh:path      aanwinst:relatedSource ;
+        sh:path      rico:isRelatedTo ;
         sh:nodeKind sh:IRI ;
         sh:or (
             [ sh:class recordtypes:Archiefblok ]
