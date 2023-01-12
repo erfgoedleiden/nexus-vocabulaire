@@ -67,7 +67,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     rdfs:label "Toevoeging"@nl ;
-    sh:path bag:huisnummerToevoeging ;
+    sh:path bag:huisnummertoevoeging ;
     memorix:inTitleAt 5.0 ;
     sh:maxCount 1 ;
     sh:order 5.0 ;
