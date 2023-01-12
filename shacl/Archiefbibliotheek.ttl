@@ -99,20 +99,20 @@ recordtypes:Archiefbibliotheek
     ] ;
     sh:property [
         rdfs:label   "Omvang (meters)"@nl ;
-        sh:maxCount 1 ;
+        sh:maxCount  1 ;
         sh:datatype  xsd:decimal ;
         sh:order     8.0 ;
         sh:path      rico:recordResourceExtent ;
-        sh:group archiefbibliotheek:descriptionGroup ;
+        sh:group     archiefbibliotheek:descriptionGroup ;
     ] ;
     sh:property [
-        rdfs:label "Trefwoord"@nl ;
-        sh:path schema:keywords ;
+        rdfs:label  "Trefwoord"@nl ;
+        sh:path     schema:keywords ;
         sh:maxCount 10 ;
-        sh:order 10.0 ;
-        sh:group archiefbibliotheek:descriptionGroup ;
+        sh:order    10.0 ;
+        sh:group    archiefbibliotheek:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
-        sh:class skos:Concept ;
+        sh:class    skos:Concept ;
         memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/4190de09-7dca-44ce-a9bd-04716cfa70aa> ) ;
         sh:nodeKind sh:IRI ;
     ] ;
@@ -211,7 +211,7 @@ archiefbibliotheek:Notes
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order    3.0 ;
-          sh:path rico:descriptiveNote ;
-          dash:editor  dash:TextAreaEditor ;
+          sh:path     rico:descriptiveNote ;
+          dash:editor dash:TextAreaEditor ;
       ] ;
 .
