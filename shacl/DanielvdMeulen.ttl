@@ -1,15 +1,17 @@
 @prefix danielvdMeulen: </resources/recordtypes/DanielvdMeulen#> .
-@prefix vocabularies:   </resources/vocabularies/> .
-@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:        <http://memorix.io/ontology#> .
-@prefix sh:             <http://www.w3.org/ns/shacl#> .
-@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:    </resources/recordtypes/> .
-@prefix html:           <http://www.w3.org/1999/xhtml/> .
 @prefix dash:           <http://datashapes.org/dash#> .
 @prefix dc:             <http://purl.org/dc/terms/> .
+@prefix html:           <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:        <http://memorix.io/ontology#> .
+@prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:    </resources/recordtypes/> .
+@prefix rico:           <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:         <http://schema.org/> .
+@prefix sh:             <http://www.w3.org/ns/shacl#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies:   </resources/vocabularies/> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:DanielvdMeulen
   a memorix:Recordtype, sh:NodeShape ;
@@ -22,94 +24,94 @@ recordtypes:DanielvdMeulen
   sh:targetClass recordtypes:DanielvdMeulen ;
   dash:defaultViewForRole dash:all ;
   sh:property [
-    rdfs:label "Archiefnummer"@nl ;
-    sh:path danielvdMeulen:archive ;
+    rdfs:label  "Archiefnummer"@nl ;
+    sh:path     rico:identifier ;
     memorix:inSummaryAt 1.0 ;
-    sh:order 1.0 ;
-    sh:group danielvdMeulen:identificationGroup ;
+    sh:order    1.0 ;
+    sh:group    danielvdMeulen:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Inventarisnummer"@nl ;
-    sh:path danielvdMeulen:inventory ;
+    rdfs:label  "Inventarisnummer"@nl ;
+    sh:path     rico:identifier ;
     memorix:inSummaryAt 2.0 ;
-    sh:order 2.0 ;
-    sh:group danielvdMeulen:identificationGroup ;
+    sh:order    2.0 ;
+    sh:group    danielvdMeulen:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Volgnummer"@nl ;
-    sh:path danielvdMeulen:serialNumber ;
+    rdfs:label  "Volgnummer"@nl ;
+    sh:path     rico:identifier ;
     memorix:inSummaryAt 3.0 ;
-    sh:order 3.0 ;
-    sh:group danielvdMeulen:identificationGroup ;
+    sh:order    3.0 ;
+    sh:group    danielvdMeulen:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Datum"@nl ;
-    sh:path danielvdMeulen:date ;
-    sh:order 4.0 ;
-    sh:group danielvdMeulen:identificationGroup ;
+    rdfs:label  "Datum"@nl ;
+    sh:path     rico:isAssociatedWithDate ;
+    sh:order    4.0 ;
+    sh:group    danielvdMeulen:identificationGroup ;
     sh:datatype xsd:integer ;
     dash:editor memorix:DateEditor ;
   ] ;
   sh:property [
-    rdfs:label "Taal"@nl ;
-    sh:path danielvdMeulen:language ;
-    sh:order 5.0 ;
+    rdfs:label  "Taal"@nl ;
+    sh:path     rico:hasOrHadLanguage ;
+    sh:order    5.0 ;
     sh:maxCount 10 ;
-    sh:group danielvdMeulen:identificationGroup ;
+    sh:group    danielvdMeulen:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Adres"@nl ;
-    sh:path danielvdMeulen:address ;
-    sh:order 6.0 ;
+    rdfs:label  "Adres"@nl ;
+    sh:path     schema:address ;
+    sh:order    6.0 ;
     sh:maxCount 10 ;
-    sh:group danielvdMeulen:identificationGroup ;
+    sh:group    danielvdMeulen:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Geaddresseerde"@nl ;
-    sh:path danielvdMeulen:consignee ;
+    rdfs:label  "Geaddresseerde"@nl ;
+    sh:path     schema:recipient ;
     memorix:inTitleAt 4.0 ;
-    sh:order 7.0 ;
+    sh:order    7.0 ;
     sh:maxCount 10 ;
-    sh:group danielvdMeulen:identificationGroup ;
+    sh:group    danielvdMeulen:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Afzender"@nl ;
-    sh:path danielvdMeulen:sender ;
+    rdfs:label  "Afzender"@nl ;
+    sh:path     schema:sender ;
     memorix:inTitleAt 1.0 ;
-    sh:order 8.0 ;
+    sh:order    8.0 ;
     sh:maxCount 10 ;
-    sh:group danielvdMeulen:identificationGroup ;
+    sh:group    danielvdMeulen:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Plaats van verzending"@nl ;
-    sh:path danielvdMeulen:sendingPlace ;
-    sh:order 9.0 ;
+    rdfs:label  "Plaats van verzending"@nl ;
+    sh:path     schema:fromLocation ;
+    sh:order    9.0 ;
     sh:maxCount 10 ;
-    sh:group danielvdMeulen:identificationGroup ;
+    sh:group    danielvdMeulen:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Land (modern)"@nl ;
-    sh:path danielvdMeulen:country ;
-    sh:order 10.0 ;
+    rdfs:label  "Land (modern)"@nl ;
+    sh:path     schema:addressCountry ;
+    sh:order    10.0 ;
     sh:maxCount 10 ;
-    sh:group danielvdMeulen:identificationGroup ;
+    sh:group    danielvdMeulen:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Opmerkingen"@nl ;
+    rdfs:label  "Opmerkingen"@nl ;
     sh:datatype xsd:string ;
-    sh:group danielvdMeulen:identificationGroup ;
+    sh:group    danielvdMeulen:identificationGroup ;
     sh:order    11.0 ;
-    sh:path danielvdMeulen:notes ;
-    dash:editor  dash:TextAreaEditor ;
+    sh:path     rico:descriptiveNote ;
+    dash:editor dash:TextAreaEditor ;
   ] ;
 .
 
@@ -117,5 +119,3 @@ danielvdMeulen:identificationGroup a sh:PropertyGroup ;
   rdfs:label "Identificatie"@nl ;
   sh:order 1.0
 .
-
-
