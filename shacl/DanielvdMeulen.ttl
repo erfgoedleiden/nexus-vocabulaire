@@ -119,5 +119,3 @@ danielvdMeulen:identificationGroup a sh:PropertyGroup ;
   rdfs:label "Identificatie"@nl ;
   sh:order 1.0
 .
-
-
