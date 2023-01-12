@@ -8,6 +8,7 @@
 @prefix sh:             <http://www.w3.org/ns/shacl#> .
 @prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix recordtypes:    </resources/recordtypes/> .
+@prefix rico:           <https://www.ica.org/standards/RiC/ontology#> .
 @prefix html:           <http://www.w3.org/1999/xhtml/> .
 @prefix dash:           <http://datashapes.org/dash#> .
 @prefix dc:             <http://purl.org/dc/terms/> .
@@ -79,7 +80,7 @@ recordtypes:KoorboekPagina
   ] ;
   sh:property [
     rdfs:label "Volgnummer"@nl ;
-    sh:path koorboekPagina:serialNumber ;
+    sh:path rico:identifier ;
     memorix:inSummaryAt 2 ;
     sh:order 7.0 ;
     sh:group koorboekPagina:identificationGroup ;
