@@ -8,6 +8,7 @@
 @prefix sh:               <http://www.w3.org/ns/shacl#> .
 @prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix recordtypes:      </resources/recordtypes/> .
+@prefix rico:             <https://www.ica.org/standards/RiC/ontology#> .
 @prefix html:             <http://www.w3.org/1999/xhtml/> .
 @prefix dash:             <http://datashapes.org/dash#> .
 @prefix dc:               <http://purl.org/dc/terms/> .
@@ -37,7 +38,7 @@ recordtypes:BlaeuAtlasPagina
   ] ;
   sh:property [
     rdfs:label "Beschrijving"@nl ;
-    sh:path blaeuAtlasPagina:description ;
+    sh:path dc:description ;
     sh:order 2.0 ;
     memorix:inTitleAt 1.0 ;
     sh:group blaeuAtlasPagina:identificationGroup ;
@@ -46,7 +47,7 @@ recordtypes:BlaeuAtlasPagina
   ] ;
   sh:property [
     rdfs:label "Werelddeel"@nl ;
-    sh:path blaeuAtlasPagina:continent ;
+    sh:path schema:Continent ;
     sh:order 3.0 ;
     sh:maxCount 100 ;
     sh:group blaeuAtlasPagina:identificationGroup ;
@@ -54,7 +55,7 @@ recordtypes:BlaeuAtlasPagina
   ] ;
   sh:property [
     rdfs:label "Land"@nl ;
-    sh:path blaeuAtlasPagina:country ;
+    sh:path schema:addressCountry ;
     sh:order 4.0 ;
     sh:maxCount 100 ;
     sh:group blaeuAtlasPagina:identificationGroup ;
@@ -62,7 +63,7 @@ recordtypes:BlaeuAtlasPagina
   ] ;
   sh:property [
     rdfs:label "Landstreek"@nl ;
-    sh:path blaeuAtlasPagina:region ;
+    sh:path schema:addressRegion ;
     sh:order 5.0 ;
     sh:maxCount 100 ;
     sh:group blaeuAtlasPagina:identificationGroup ;
@@ -78,7 +79,7 @@ recordtypes:BlaeuAtlasPagina
   ] ;
   sh:property [
     rdfs:label "Type pagina"@nl ;
-    sh:path blaeuAtlasPagina:pageType ;
+    sh:path rico:hasContentOfType ;
     sh:order 7.0 ;
     sh:maxCount 100 ;
     sh:group blaeuAtlasPagina:identificationGroup ;
@@ -86,7 +87,7 @@ recordtypes:BlaeuAtlasPagina
   ] ;
   sh:property [
     rdfs:label "Volgnummer"@nl ;
-    sh:path blaeuAtlasPagina:serialNumber ;
+    sh:path rico:identifier ;
     sh:order 8.0 ;
     sh:group blaeuAtlasPagina:identificationGroup ;
     sh:datatype xsd:string ;

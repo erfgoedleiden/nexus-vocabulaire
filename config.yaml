@@ -47,6 +47,8 @@ spec:
       - Bestanddeel
       - Bibliotheek
       - Bijlage
+      - BlaeuAtlas
+      - BlaeuAtlasPagina
       - Deed
       - Groep
       - Image
@@ -54,8 +56,6 @@ spec:
       - Persoonsvermelding
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
-      - BlaeuAtlas
-      - BlaeuAtlasPagina
       - Complex
       - DanielvdMeulen
       - ErfgoedregisterAdres
