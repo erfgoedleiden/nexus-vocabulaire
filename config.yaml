@@ -38,6 +38,7 @@ spec:
     # De "done" items worden gecontroleerd met het validatiescript
     done:
       - Aanwinst
+      - ActorFamilie
       - ActorOrganisatie
       - Archiefblok
       - Av
@@ -51,7 +52,6 @@ spec:
       - Persoonsvermelding
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
-      - ActorFamilie
       - ActorPersoon
       - Archiefbibliotheek
       - BlaeuAtlas
