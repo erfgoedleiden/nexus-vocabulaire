@@ -70,7 +70,7 @@ recordtypes:ActorOrganisatie
         sh:group actorOrganisatie:identificationGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( <http://data.rkd.nl/rkdartists> <http://data.bibliotheken.nl/id/dataset/persons> ) ;
+        memorix:conceptSchemeIn ( <https://data.rkd.nl/rkdartists> <http://data.bibliotheken.nl/id/dataset/persons> ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [

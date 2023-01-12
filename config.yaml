@@ -27,7 +27,7 @@ spec:
       - http://memorix.io/ontology#searchWeight
       - http://memorix.io/ontology#File
       - http://memorix.io/ontology#hidden
-      - http://data.rkd.nl/rkdartists
+      - https://data.rkd.nl/rkdartists
       # Alle URIs met 'resources/vocabularies' zijn niet te dereferencen
       - /resources/vocabularies/
       # negeer 'xsd' prefix: die is niet op te vragen in linked data vorm
