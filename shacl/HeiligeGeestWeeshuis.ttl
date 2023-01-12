@@ -1,16 +1,20 @@
+@prefix brk:          <http://brk.basisregistraties.overheid.nl/def/brk#> .
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix dbpo:         <http://dbpedia.org/ontology/> .
+@prefix dc:           <http://purl.org/dc/terms/> .
 @prefix hgw:          </resources/recordtypes/HeiligeGeestWeeshuis#> .
-@prefix vocabularies: </resources/vocabularies/> .
-@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
-@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix person:       <http://www.w3.org/ns/person#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix recordtypes:  </resources/recordtypes/> .
-@prefix html:         <http://www.w3.org/1999/xhtml/> .
-@prefix dash:         <http://datashapes.org/dash#> .
-@prefix dc:           <http://purl.org/dc/terms/> .
+@prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
 @prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:HeiligeGeestWeeshuis
   a memorix:Recordtype, sh:NodeShape ;
@@ -24,7 +28,7 @@ recordtypes:HeiligeGeestWeeshuis
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Personen/instelling"@nl ;
-    sh:path hgw:person ;
+    sh:path rico:hasOrHadAgentName ;
     sh:maxCount 100;
     sh:order 1.0 ;
     sh:group hgw:identificationGroup ;
@@ -32,7 +36,8 @@ recordtypes:HeiligeGeestWeeshuis
   ] ;
   sh:property [
     rdfs:label "Voorinfo"@nl ;
-    sh:path hgw:preInfo ;
+    # Onduidelijk wat deze eigenschap aanduidt
+    sh:path dc:subject ;
     sh:maxCount 100;
     sh:order 2.0 ;
     sh:group hgw:identificationGroup ;
@@ -40,35 +45,35 @@ recordtypes:HeiligeGeestWeeshuis
   ] ;
   sh:property [
     rdfs:label "Voornaam1"@nl ;
-    sh:path hgw:firstFirstName ;
+    sh:path schema:givenName ;
     sh:order 3.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Patroniem1"@nl ;
-    sh:path hgw:firstPatronymic ;
+    sh:path person:patronymicName ;
     sh:order 4.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Tussenvoegsel1"@nl ;
-    sh:path hgw:firstPrefix ;
+    sh:path dbpo:prefix ;
     sh:order 5.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Naam1"@nl ;
-    sh:path hgw:firstLastName ;
+    sh:path schema:familyName ;
     sh:order 6.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Beroep"@nl ;
-    sh:path hgw:firstProfession ;
+    sh:path rico:hasOrHadOccupationOfType ;
     sh:order 7.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -82,42 +87,42 @@ recordtypes:HeiligeGeestWeeshuis
   ] ;
   sh:property [
     rdfs:label "Voornaam2"@nl ;
-    sh:path hgw:secondFirstName ;
+    sh:path schema:givenName ;
     sh:order 9.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Patroniem2"@nl ;
-    sh:path hgw:secondPatronymic ;
+    sh:path person:patronymicName ;
     sh:order 10.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Tussenvoegsel2"@nl ;
-    sh:path hgw:secondPrefix ;
+    sh:path dbpo:prefix ;
     sh:order 11.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Naam2"@nl ;
-    sh:path hgw:secondLastName ;
+    sh:path schema:familyName ;
     sh:order 12.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Functie"@nl ;
-    sh:path hgw:function ;
+    sh:path schema:roleName ;
     sh:order 15.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Overige persoon"@nl ;
-    sh:path hgw:otherPerson ;
+    sh:path rico:isRelatedTo ;
     sh:order 16.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -134,7 +139,8 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Perceelnaam"@nl ;
     sh:maxCount 100;
-    sh:path hgw:plotName ;
+    # Lastige property. Dit komt in de buurt.
+    sh:path <https://w3id.org/arco/ontology/location/hasToponymInTime> ;
     memorix:inTitleAt  2.0 ;
     sh:order 18.0 ;
     sh:group hgw:identificationGroup ;
@@ -143,7 +149,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Noordgrens"@nl ;
     sh:maxCount 100;
-    sh:path hgw:boundryNorth ;
+    sh:path <http://purl.org/ontology/places#Boundary> ;
     sh:order 19.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -151,7 +157,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Noordoostgrens"@nl ;
     sh:maxCount 100;
-    sh:path hgw:boundryNorthEast ;
+    sh:path <http://purl.org/ontology/places#Boundary> ;
     sh:order 20.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -159,7 +165,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Oostgrens"@nl ;
     sh:maxCount 100;
-    sh:path hgw:boundryEast ;
+    sh:path <http://purl.org/ontology/places#Boundary> ;
     sh:order 21.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -167,7 +173,7 @@ recordtypes:HeiligeGeestWeeshuis
     sh:property [
     rdfs:label "Zuidoostgrens"@nl ;
     sh:maxCount 100;
-    sh:path hgw:boundrySouthEast ;
+    sh:path <http://purl.org/ontology/places#Boundary> ;
     sh:order 22.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -175,14 +181,14 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Zuidgrens"@nl ;
     sh:maxCount 100;
-    sh:path hgw:boundrySouth ;
+    sh:path <http://purl.org/ontology/places#Boundary> ;
     sh:order 23.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Zuidwestgrens"@nl ;
-    sh:path hgw:boundrySouthWest ;
+    sh:path <http://purl.org/ontology/places#Boundary> ;
     sh:order 24.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -190,7 +196,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Westgrens"@nl ;
     sh:maxCount 100;
-    sh:path hgw:boundryWest ;
+    sh:path <http://purl.org/ontology/places#Boundary> ;
     sh:order 25.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -198,28 +204,28 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Noordwestgrens"@nl ;
     sh:maxCount 100;
-    sh:path hgw:boundryNorthWest ;
+    sh:path <http://purl.org/ontology/places#Boundary> ;
     sh:order 26.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Oppervlakte"@nl ;
-    sh:path hgw:acreage ;
+    sh:path dbpo:surfaceArea ;
     sh:order 27.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Functie van het perceel"@nl ;
-    sh:path hgw:plotFunction ;
+    sh:path schema:roleName ;
     sh:order 29.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Inventarisnummer"@nl ;
-    sh:path hgw:firstInventory ;
+    sh:path rico:identifier ;
     sh:order 30.0 ;
     memorix:inSummaryAt  2.0 ;
     sh:group hgw:identificationGroup ;
@@ -227,7 +233,7 @@ recordtypes:HeiligeGeestWeeshuis
   ] ;
   sh:property [
     rdfs:label "Folionummer"@nl ;
-    sh:path hgw:firstFolio ;
+    sh:path rico:identifier ;
     sh:order 31.0 ;
     memorix:inSummaryAt  3.0 ;
     sh:group hgw:identificationGroup ;
@@ -235,7 +241,7 @@ recordtypes:HeiligeGeestWeeshuis
   ] ;
   sh:property [
     rdfs:label "Toevoeging"@nl ;
-    sh:path hgw:firstAddition ;
+    sh:path rico:identifier ;
     sh:order 32.0 ;
     memorix:inSummaryAt  4.0 ;
     sh:group hgw:identificationGroup ;
@@ -243,49 +249,49 @@ recordtypes:HeiligeGeestWeeshuis
   ] ;
   sh:property [
     rdfs:label "Inv2"@nl ;
-    sh:path hgw:secondInventory ;
+    sh:path rico:identifier ;
     sh:order 33.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Folio2"@nl ;
-    sh:path hgw:secondFolio ;
+    sh:path rico:identifier ;
     sh:order 34.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Toev2"@nl ;
-    sh:path hgw:secondAddition ;
+    sh:path rico:identifier ;
     sh:order 35.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Inv3"@nl ;
-    sh:path hgw:thirdInventory ;
+    sh:path rico:identifier ;
     sh:order 36.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Folio3"@nl ;
-    sh:path hgw:thirdFolio ;
+    sh:path rico:identifier ;
     sh:order 37.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Toev3"@nl ;
-    sh:path hgw:thirdAddition ;
+    sh:path rico:identifier ;
     sh:order 38.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Bijzonderheden"@nl ;
-    sh:path hgw:notes ;
+    sh:path rico:descriptiveNote ;
     sh:maxCount 100;
     sh:order 39.0 ;
     sh:group hgw:identificationGroup ;
@@ -294,7 +300,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Perceelnummer"@nl ;
     sh:maxCount 100;
-    sh:path hgw:plotNumber ;
+    sh:path brk:perceelnummer ;
     sh:order 40.0 ;
     memorix:inSummaryAt  1.0 ;
     sh:group hgw:identificationGroup ;
@@ -306,4 +312,3 @@ hgw:identificationGroup a sh:PropertyGroup ;
   rdfs:label "Identificatie"@nl ;
   sh:order 1.0
 .
-
