@@ -52,13 +52,13 @@ spec:
       - Complex
       - DanielvdMeulen
       - Deed
+      - ErfgoedregisterAdres
       - Groep
       - Image
       - Object
       - Persoonsvermelding
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
-      - ErfgoedregisterAdres
       - HeiligeGeestWeeshuis
       - Koorboek
       - KoorboekPagina

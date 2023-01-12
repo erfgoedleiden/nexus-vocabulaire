@@ -1,16 +1,20 @@
-@prefix bag:                  <https://bag.basisregistraties.overheid.nl/def/bag#> .
+@prefix bag:                  <http://bag.basisregistraties.overheid.nl/def/bag#> .
+@prefix brt:                  <http://brt.basisregistraties.overheid.nl/def/top10nl#> .
+@prefix dash:                 <http://datashapes.org/dash#> .
+@prefix dbpo:                 <http://dbpedia.org/ontology/> .
+@prefix dc:                   <http://purl.org/dc/terms/> .
 @prefix erfgoedregisterAdres: </resources/recordtypes/ErfgoedregisterAdres#> .
+@prefix html:                 <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:              <http://memorix.io/ontology#> .
+@prefix rdf:                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:                 <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:          </resources/recordtypes/> .
+@prefix rico:                 <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:               <http://schema.org/> .
+@prefix sh:                   <http://www.w3.org/ns/shacl#> .
+@prefix skos:                 <http://www.w3.org/2004/02/skos/core#> .
 @prefix vocabularies:         </resources/vocabularies/> .
 @prefix xsd:                  <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:                 <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:                 <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:              <http://memorix.io/ontology#> .
-@prefix sh:                   <http://www.w3.org/ns/shacl#> .
-@prefix rdf:                  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:          </resources/recordtypes/> .
-@prefix html:                 <http://www.w3.org/1999/xhtml/> .
-@prefix dash:                 <http://datashapes.org/dash#> .
-@prefix dc:                   <http://purl.org/dc/terms/> .
 
 recordtypes:ErfgoedregisterAdres
   a memorix:Recordtype, sh:NodeShape ;
@@ -23,7 +27,7 @@ recordtypes:ErfgoedregisterAdres
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Adres ID"@nl ;
-    sh:path erfgoedregisterAdres:addressId ;
+    sh:path rico:identifier ;
     memorix:inTitleAt 9.0 ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -34,7 +38,7 @@ recordtypes:ErfgoedregisterAdres
   sh:property [
     rdfs:label "Straat"@nl ;
     memorix:inTitleAt 2.0 ;
-    sh:path erfgoedregisterAdres:street ;
+    sh:path schema:streetAddress ;
     sh:maxCount 1 ;
     sh:order 2.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
@@ -53,7 +57,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     rdfs:label "Huisletter"@nl ;
-    sh:path erfgoedregisterAdres:houseLetter ;
+    sh:path bag:huisletter ;
     memorix:inTitleAt 4.0 ;
     sh:maxCount 1 ;
     sh:order 4.0 ;
@@ -63,7 +67,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     rdfs:label "Toevoeging"@nl ;
-    sh:path erfgoedregisterAdres:houseAddition ;
+    sh:path bag:huisnummertoevoeging ;
     memorix:inTitleAt 5.0 ;
     sh:maxCount 1 ;
     sh:order 5.0 ;
@@ -73,7 +77,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     rdfs:label "Postcode"@nl ;
-    sh:path erfgoedregisterAdres:zipcode ;
+    sh:path schema:postalCode ;
     sh:maxCount 1 ;
     sh:order 6.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
@@ -82,7 +86,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     rdfs:label "Gemeente"@nl ;
-    sh:path erfgoedregisterAdres:municipality ;
+    sh:path dbpo:municipality ;
     sh:maxCount 1 ;
     sh:order 7.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
@@ -91,7 +95,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     rdfs:label "Stadsdeel"@nl ;
-    sh:path erfgoedregisterAdres:district ;
+    sh:path schema:addressRegion ;
     sh:maxCount 1 ;
     sh:order 8.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
@@ -102,7 +106,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     rdfs:label "Buurt"@nl ;
-    sh:path erfgoedregisterAdres:neighbourhood ;
+    sh:path brt:Buurt ;
     sh:maxCount 1 ;
     sh:order 9.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
@@ -112,26 +116,28 @@ recordtypes:ErfgoedregisterAdres
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
+    # TODO: samenvoegen met "Y" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
     rdfs:label "X"@nl ;
-    sh:path erfgoedregisterAdres:xCoordinate ;
+    sh:path <http://data.ign.fr/def/geometrie#coordX> ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
     sh:maxCount 1 ;
     sh:order 10.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
-    sh:datatype xsd:string ;
+    sh:datatype xsd:string ;  # -> <http://www.opengis.net/ont/geosparql#wktLiteral>
     dash:singleLine true ;
   ] ;
   sh:property [
+    # TODO: samenvoegen met "X" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
     rdfs:label "Y"@nl ;
-    sh:path erfgoedregisterAdres:yCoordinate ;
+    sh:path <http://data.ign.fr/def/geometrie#coordY> ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
     sh:maxCount 1 ;
     sh:order 11.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
-    sh:datatype xsd:string ;
+    sh:datatype xsd:string ;  # -> <http://www.opengis.net/ont/geosparql#wktLiteral>
     dash:singleLine true ;
   ] ;
   sh:property [
     rdfs:label "Datum ingang"@nl ;
-    sh:path erfgoedregisterAdres:dateStart ;
+    sh:path rico:hasBeginningDate ;
     sh:order 12.0 ;
     memorix:inSummaryAt 1.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
@@ -140,7 +146,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     rdfs:label "Datum einde"@nl ;
-    sh:path erfgoedregisterAdres:dateEnd ;
+    sh:path rico:hasEndDate ;
     memorix:inSummaryAt 2.0 ;
     sh:order 14.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
