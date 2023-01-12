@@ -360,7 +360,7 @@ aanwinst:Contact
         rdfs:label   "Eigenaar"@nl ;
         sh:order     2.0 ;
         sh:maxCount 1 ;
-        sh:path      rico:agentIsSourceOfOwnershipRelation ;
+        sh:path      rico:hasOrHadOwner ;
         sh:nodeKind sh:IRI ;
         sh:or (
             [ sh:class recordtypes:ActorFamilie ]
