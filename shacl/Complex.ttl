@@ -1,15 +1,17 @@
 @prefix complex:      </resources/recordtypes/Complex#> .
-@prefix vocabularies: </resources/vocabularies/> .
-@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:      <http://memorix.io/ontology#> .
-@prefix sh:           <http://www.w3.org/ns/shacl#> .
-@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:  </resources/recordtypes/> .
-@prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix geo:          <http://www.opengis.net/ont/geosparql#> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  </resources/recordtypes/> .
+@prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:Complex
   a memorix:Recordtype, sh:NodeShape ;
@@ -21,41 +23,41 @@ recordtypes:Complex
   sh:targetClass recordtypes:Complex ;
   dash:defaultViewForRole dash:all ;
   sh:property [
-    rdfs:label "Registratienummer"@nl ;
-    sh:path complex:registrationNumber ;
+    rdfs:label        "Registratienummer"@nl ;
+    sh:path           rico:identifier ;
     memorix:inTitleAt 1.0 ;
-    sh:maxCount 1 ;
-    sh:order 1.0 ;
-    sh:group complex:complexGroup ;
-    sh:datatype xsd:string ;
-    dash:singleLine true ;
+    sh:maxCount       1 ;
+    sh:order          1.0 ;
+    sh:group          complex:complexGroup ;
+    sh:datatype       xsd:string ;
+    dash:singleLine   true ;
   ] ;
   sh:property [
-    rdfs:label "Complexnaam"@nl ;
+    rdfs:label        "Complexnaam"@nl ;
     memorix:inTitleAt 2.0 ;
-    sh:path complex:complexName ;
-    sh:maxCount 1 ;
-    sh:order 2.0 ;
-    sh:group complex:complexGroup ;
-    sh:datatype xsd:string ;
-    dash:singleLine true ;
+    sh:path           rico:title ;
+    sh:maxCount       1 ;
+    sh:order          2.0 ;
+    sh:group          complex:complexGroup ;
+    sh:datatype       xsd:string ;
+    dash:singleLine   true ;
   ] ;
   sh:property [
-    rdfs:label "Omschrijving"@nl ;
-    sh:path complex:description ;
+    rdfs:label  "Omschrijving"@nl ;
+    sh:path     dc:description ;
     sh:maxCount 1 ;
-    sh:order 3.0 ;
-    sh:group complex:complexGroup ;
+    sh:order    3.0 ;
+    sh:group    complex:complexGroup ;
     sh:datatype xsd:string ;
-    dash:editor  dash:TextAreaEditor ;
+    dash:editor dash:TextAreaEditor ;
   ] ;
   sh:property [
-    rdfs:label "Geometrie"@nl ;
-    sh:path complex:geometry ;
-    sh:maxCount 1 ;
-    sh:order 4.0 ;
-    sh:group complex:complexGroup ;
-    sh:datatype xsd:string ;
+    rdfs:label      "Geometrie"@nl ;
+    sh:path         geo:asWKT ;
+    sh:maxCount     1 ;
+    sh:order        4.0 ;
+    sh:group        complex:complexGroup ;
+    sh:datatype     geo:wktLiteral ;
     dash:singleLine true ;
   ] ;
 .
