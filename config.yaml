@@ -40,6 +40,7 @@ spec:
       - Aanwinst
       - ActorFamilie
       - ActorOrganisatie
+      - ActorPersoon
       - Archiefblok
       - Av
       - Bestanddeel
@@ -52,7 +53,6 @@ spec:
       - Persoonsvermelding
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
-      - ActorPersoon
       - Archiefbibliotheek
       - BlaeuAtlas
       - BlaeuAtlasPagina

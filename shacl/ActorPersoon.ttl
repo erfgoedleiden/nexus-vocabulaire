@@ -1,17 +1,19 @@
 @prefix actorPersoon: </resources/recordtypes/ActorPersoon#> .
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix dbpo:         <http://dbpedia.org/ontology/> .
+@prefix dc:           <http://purl.org/dc/terms/> .
+@prefix foaf:         <http://xmlns.com/foaf/0.1/> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  </resources/recordtypes/> .
+@prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
 @prefix vocabularies: </resources/vocabularies/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:      <http://memorix.io/ontology#> .
-@prefix sh:           <http://www.w3.org/ns/shacl#> .
-@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:  </resources/recordtypes/> .
-@prefix html:         <http://www.w3.org/1999/xhtml/> .
-@prefix dash:         <http://datashapes.org/dash#> .
-@prefix dc:           <http://purl.org/dc/terms/> .
-@prefix schema:       <http://schema.org/> .
-
 
 actorPersoon:identificationGroup a sh:PropertyGroup ;
     rdfs:label "Identificatie"@nl ;
@@ -47,12 +49,12 @@ recordtypes:ActorPersoon
         sh:group actorPersoon:identificationGroup ;
         memorix:inTitleAt 1.0 ;
         sh:order    1.0 ;
-        sh:path actorPersoon:identifier ;
+        sh:path rico:identifier ;
     ] ;
     sh:property [
         rdfs:label "Naam"@nl ;
         sh:maxCount 1 ;
-        sh:path actorPersoon:name ;
+        sh:path rico:hasOrHadName ;
         sh:order 2.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -61,7 +63,7 @@ recordtypes:ActorPersoon
     ] ;
     sh:property [
         rdfs:label "Identiek aan (extern)"@nl ;
-        sh:path actorPersoon:sameAs ;
+        sh:path rico:isRelatedTo ;
         sh:maxCount 1 ;
         sh:order 3.0 ;
         sh:group actorPersoon:identificationGroup ;
@@ -73,7 +75,7 @@ recordtypes:ActorPersoon
     sh:property [
         rdfs:label "Datering van persoon"@nl ;
         sh:maxCount 1 ;
-        sh:path actorPersoon:date ;
+        sh:path rico:isAssociatedWithDate ;
         sh:order 4.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -86,13 +88,13 @@ recordtypes:ActorPersoon
         sh:datatype xsd:string ;
         sh:order    5.0 ;
         dash:editor  dash:TextAreaEditor ;
-        sh:path actorPersoon:functions ;
+        sh:path schema:roleName ;
         sh:group actorPersoon:identificationGroup ;
     ] ;
     sh:property [
         rdfs:label "Adres"@nl ;
         sh:maxCount 1 ;
-        sh:path actorPersoon:address ;
+        sh:path schema:PostalAddress ;
         sh:datatype xsd:string;
         sh:group actorPersoon:contactGroup ;
         sh:order 6.0 ;
@@ -100,7 +102,7 @@ recordtypes:ActorPersoon
     sh:property [
         rdfs:label "Postcode"@nl ;
         sh:maxCount 1 ;
-        sh:path actorPersoon:zipcode ;
+        sh:path schema:postalCode ;
         sh:datatype xsd:string;
         sh:group actorPersoon:contactGroup ;
         sh:order 7.0 ;
@@ -116,7 +118,7 @@ recordtypes:ActorPersoon
     sh:property [
         rdfs:label "Land"@nl ;
         sh:maxCount 1 ;
-        sh:path actorPersoon:country ;
+        sh:path schema:addressCountry ;
         sh:datatype xsd:string;
         sh:group actorPersoon:contactGroup ;
         sh:order 9.0 ;
@@ -124,14 +126,14 @@ recordtypes:ActorPersoon
     sh:property [
         rdfs:label "Telefoon"@nl ;
         sh:maxCount 5 ;
-        sh:path actorPersoon:phone ;
+        sh:path schema:telephone ;
         sh:datatype xsd:string;
         sh:group actorPersoon:contactGroup ;
         sh:order 10.0 ;
     ] ;
     sh:property [
         rdfs:label "Email"@nl ;
-        sh:path actorPersoon:email ;
+        sh:path schema:email ;
         sh:datatype xsd:string;
         sh:maxCount 5 ;
         sh:group actorPersoon:contactGroup ;
@@ -140,7 +142,7 @@ recordtypes:ActorPersoon
     sh:property [
         rdfs:label "Website"@nl ;
         sh:maxCount 1 ;
-        sh:path actorPersoon:website ;
+        sh:path foaf:homepage ;
         sh:datatype xsd:string;
         sh:group actorPersoon:contactGroup ;
         sh:order 12.0 ;
@@ -151,7 +153,7 @@ recordtypes:ActorPersoon
         sh:datatype xsd:string ;
         sh:order    14.0 ;
         dash:editor  dash:TextAreaEditor ;
-        sh:path actorPersoon:rulesAndConventions ;
+        sh:path rico:isAssociatedWithRule ;
         sh:group actorPersoon:managementGroup ;
     ] ;
     sh:property [
@@ -160,7 +162,7 @@ recordtypes:ActorPersoon
         sh:nodeKind sh:IRI ;
         sh:group actorPersoon:managementGroup ;
         sh:order 15.0 ;
-        sh:path actorPersoon:contactPerson ;
+        sh:path schema:contactPoint ;
         sh:or (
             [ sh:class recordtypes:ActorPersoon ]
         ) ;
@@ -172,7 +174,7 @@ recordtypes:ActorPersoon
         sh:datatype xsd:string ;
         sh:order    16.0 ;
         dash:editor  dash:TextAreaEditor ;
-        sh:path actorPersoon:notes ;
+        sh:path rico:descriptiveNote ;
         sh:group actorPersoon:notesGroup ;
     ] ;
 .
@@ -188,11 +190,11 @@ actorPersoon:Name
         sh:datatype xsd:string ;
         memorix:inTitleAt 3.0 ;
         sh:order    1.0 ;
-        sh:path actorPersoon:authorizedName ;
+        sh:path rico:hasOrHadAppellation ;
     ] ;
     sh:property [
         rdfs:label "Voornaam"@nl ;
-        sh:path actorPersoon:firstName ;
+        sh:path schema:givenName ;
         sh:maxCount 1 ;
         sh:order 2.0 ;
         memorix:inTitleAt 2.0 ;
@@ -201,7 +203,7 @@ actorPersoon:Name
     ] ;
         sh:property [
         rdfs:label "Tussenvoegsel"@nl ;
-        sh:path actorPersoon:surnamePrefix ;
+        sh:path dbpo:prefix ;
         sh:maxCount 1 ;
         sh:order 3.0 ;
         memorix:inTitleAt 3.0 ;
@@ -209,7 +211,7 @@ actorPersoon:Name
     ] ;
         sh:property [
         rdfs:label "Achternaam"@nl ;
-        sh:path actorPersoon:lastName ;
+        sh:path schema:familyName ;
         sh:maxCount 1 ;
         sh:order 4.0 ;
         memorix:inTitleAt 1.0 ;
@@ -226,13 +228,13 @@ actorPersoon:Date
         rdfs:label "Leefperiode"@nl ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
-        sh:path actorPersoon:period ;
+        sh:path rico:expressedDate ;
         sh:order 1.0 ;
     ] ;
     sh:property [
         rdfs:label "Geboortedatum"@nl ;
         sh:maxCount 1 ;
-        sh:path actorPersoon:birthDate  ;
+        sh:path rico:hasBirthDate  ;
         sh:order 2.0 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -240,7 +242,7 @@ actorPersoon:Date
     sh:property [
         rdfs:label "Overlijdensdatum"@nl ;
         sh:maxCount 1 ;
-        sh:path actorPersoon:deathDate  ;
+        sh:path rico:hasDeathDate  ;
         sh:order 3.0 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
