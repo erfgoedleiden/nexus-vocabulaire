@@ -193,7 +193,7 @@ groep:Notes
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    2.0 ;
-        sh:path dc:creator ;
+        sh:path rico:hasOrHadAgentName ;
     ] ;
     sh:property [
         rdfs:label "Opmerkingen intern"@nl ;

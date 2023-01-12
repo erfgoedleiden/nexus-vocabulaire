@@ -359,7 +359,7 @@ archiefblok:Notes
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order    2.0 ;
-          sh:path archiefblok:notesUser ;
+          sh:path rico:hasOrHadAgentName ;
       ] ;
     sh:property [
           rdfs:label "Opmerkingen intern"@nl ;
