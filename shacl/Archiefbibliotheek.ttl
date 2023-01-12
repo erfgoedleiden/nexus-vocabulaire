@@ -1,17 +1,18 @@
 @prefix archiefbibliotheek: </resources/recordtypes/Archiefbibliotheek#> .
-@prefix vocabularies:       </resources/vocabularies/conceptschemes/> .
-@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:            <http://memorix.io/ontology#> .
-@prefix sh:                 <http://www.w3.org/ns/shacl#> .
-@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:        </resources/recordtypes/> .
-@prefix html:               <http://www.w3.org/1999/xhtml/> .
+@prefix bibliotheek:        </resources/recordtypes/Bibliotheek#> .
 @prefix dash:               <http://datashapes.org/dash#> .
 @prefix dc:                 <http://purl.org/dc/terms/> .
-@prefix bibliotheek:        <https://example.memorix-test.nl/resources/recordtypes/Bibliotheek#> .
+@prefix html:               <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:            <http://memorix.io/ontology#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:        </resources/recordtypes/> .
 @prefix rico:               <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:             <http://schema.org/> .
+@prefix sh:                 <http://www.w3.org/ns/shacl#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies:       </resources/vocabularies/conceptschemes/> .
+@prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
 
 archiefbibliotheek:identificationGroup
     rdf:type   sh:PropertyGroup ;
@@ -75,16 +76,16 @@ recordtypes:Archiefbibliotheek
         sh:datatype       xsd:string ;
         sh:group          archiefbibliotheek:identificationGroup ;
         sh:order          3.0 ;
-        sh:path           archiefbibliotheek:shortTitle
+        sh:path           dc:title
     ] ;
     sh:property          [
         rdfs:label        "Samenvatting van de inhoud"@nl ;
-        sh:maxCount 1 ;
+        sh:maxCount       1 ;
         sh:datatype       xsd:string ;
         sh:group          archiefbibliotheek:descriptionGroup ;
         sh:order          4.0 ;
-        sh:path           archiefbibliotheek:contentDescription ;
-        dash:editor dash:TextAreaEditor ;
+        sh:path           rico:scopeAndContent ;
+        dash:editor       dash:TextAreaEditor ;
     ] ;
     sh:property [
         rdfs:label "Datering van de bibliotheek"@nl ;
@@ -98,20 +99,20 @@ recordtypes:Archiefbibliotheek
     ] ;
     sh:property [
         rdfs:label   "Omvang (meters)"@nl ;
-        sh:maxCount 1 ;
+        sh:maxCount  1 ;
         sh:datatype  xsd:decimal ;
         sh:order     8.0 ;
         sh:path      rico:recordResourceExtent ;
-        sh:group archiefbibliotheek:descriptionGroup ;
+        sh:group     archiefbibliotheek:descriptionGroup ;
     ] ;
     sh:property [
-        rdfs:label "Trefwoord"@nl ;
-        sh:path archiefbibliotheek:keyword ;
+        rdfs:label  "Trefwoord"@nl ;
+        sh:path     schema:keywords ;
         sh:maxCount 10 ;
-        sh:order 10.0 ;
-        sh:group archiefbibliotheek:descriptionGroup ;
+        sh:order    10.0 ;
+        sh:group    archiefbibliotheek:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
-        sh:class skos:Concept ;
+        sh:class    skos:Concept ;
         memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/4190de09-7dca-44ce-a9bd-04716cfa70aa> ) ;
         sh:nodeKind sh:IRI ;
     ] ;
@@ -121,36 +122,36 @@ recordtypes:Archiefbibliotheek
         sh:datatype       xsd:string ;
         sh:group          archiefbibliotheek:contextGroup ;
         sh:order          16.0 ;
-        sh:path           archiefbibliotheek:archiveHistory ;
+        sh:path           rico:history ;
         dash:editor dash:TextAreaEditor
     ] ;
     sh:property [
-        rdfs:label "Publicaties"@nl ;
-        sh:maxCount  1 ;
-        sh:datatype xsd:string ;
-        sh:group archiefbibliotheek:contextGroup ;
-        sh:order    17.0 ;
-        sh:path archiefbibliotheek:publication ;
-        dash:editor  dash:TextAreaEditor ;
-    ] ;
-    sh:property [
-        rdfs:label "Opmerkingen openbaar"@nl ;
+        rdfs:label  "Publicaties"@nl ;
         sh:maxCount 1 ;
-        sh:path archiefbibliotheek:notesPublic ;
-        sh:order 26.0 ;
         sh:datatype xsd:string ;
-        dash:editor  dash:TextAreaEditor ;
-        sh:group archiefbibliotheek:notesGroup ;
+        sh:group    archiefbibliotheek:contextGroup ;
+        sh:order    17.0 ;
+        sh:path     schema:publication ;
+        dash:editor dash:TextAreaEditor ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen intern"@nl ;
+        rdfs:label  "Opmerkingen openbaar"@nl ;
+        sh:maxCount 1 ;
+        sh:path     rico:descriptiveNote ;
+        sh:order    26.0 ;
+        sh:datatype xsd:string ;
+        dash:editor dash:TextAreaEditor ;
+        sh:group    archiefbibliotheek:notesGroup ;
+    ] ;
+    sh:property [
+        rdfs:label  "Opmerkingen intern"@nl ;
         sh:maxCount 100 ;
-        sh:path archiefbibliotheek:notes ;
-        sh:order 27.0 ;
+        sh:path     rico:descriptiveNote ;
+        sh:order    27.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
-        sh:class archiefbibliotheek:Notes ;
-        sh:group archiefbibliotheek:notesGroup ;
+        sh:class    archiefbibliotheek:Notes ;
+        sh:group    archiefbibliotheek:notesGroup ;
     ] ;
 .
 
@@ -159,29 +160,29 @@ rico:DateRange
     sh:closed            true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [
-        rdfs:label   "Periode"@nl ;
+        rdfs:label  "Periode"@nl ;
         sh:maxCount 1 ;
-        sh:datatype  xsd:string ;
-        sh:order     1.0 ;
-        sh:path      rico:expressedDate ;
+        sh:datatype xsd:string ;
+        sh:order    1.0 ;
+        sh:path     rico:expressedDate ;
     ] ;
     sh:property [
-        rdfs:label   "Periode (van)"@nl ;
+        rdfs:label  "Periode (van)"@nl ;
         sh:maxCount 1 ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:gYear ;
-        sh:order     2.0 ;
-        sh:path      rico:hasBeginningDate ;
+        dash:editor memorix:DateEditor ;
+        sh:datatype xsd:gYear ;
+        sh:order    2.0 ;
+        sh:path     rico:hasBeginningDate ;
     ] ;
     sh:property [
-        rdfs:label   "Periode (tot)"@nl ;
+        rdfs:label  "Periode (tot)"@nl ;
         sh:maxCount 1 ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:gYear ;
-        sh:order     3.0 ;
-        sh:path      rico:hasEndDate ;
+        dash:editor memorix:DateEditor ;
+        sh:datatype xsd:gYear ;
+        sh:order    3.0 ;
+        sh:path     rico:hasEndDate ;
     ] ;
-    sh:targetClass       rico:DateRange ;
+    sh:targetClass rico:DateRange ;
 .
 
 archiefbibliotheek:Notes
@@ -190,26 +191,27 @@ archiefbibliotheek:Notes
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass archiefbibliotheek:Notes ;
     sh:property [
-          rdfs:label   "Datering"@nl ;
-          sh:maxCount 1 ;
-          dash:editor  memorix:DateEditor ;
-          sh:datatype  xsd:integer ;
-          sh:order     1.0 ;
-          sh:path      archiefbibliotheek:notesDate ;
+          rdfs:label    "Datering"@nl ;
+          sh:maxCount   1 ;
+          dash:editor   memorix:DateEditor ;
+          # TODO: Als dit een veld "Datering" betreft, dan is het onwaarschijnlijk dat het een exacte datum betreft
+          sh:datatype   xsd:integer ;
+          sh:order      1.0 ;
+          sh:path       rico:expressedDate ;
       ] ;
     sh:property [
-          rdfs:label "Gebruiker"@nl ;
-          sh:maxCount 1 ;
-          sh:datatype xsd:string ;
-          sh:order    2.0 ;
-          sh:path archiefbibliotheek:notesUser ;
+          rdfs:label    "Gebruiker"@nl ;
+          sh:maxCount   1 ;
+          sh:datatype   xsd:string ;
+          sh:order      2.0 ;
+          sh:path       rico:hasOrHadAgentName ;
       ] ;
     sh:property [
-          rdfs:label "Opmerkingen intern"@nl ;
+          rdfs:label  "Opmerkingen intern"@nl ;
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order    3.0 ;
-          sh:path archiefbibliotheek:notesInternal ;
-          dash:editor  dash:TextAreaEditor ;
+          sh:path     rico:descriptiveNote ;
+          dash:editor dash:TextAreaEditor ;
       ] ;
 .
