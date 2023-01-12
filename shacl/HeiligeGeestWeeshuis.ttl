@@ -149,7 +149,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Noordgrens"@nl ;
     sh:maxCount 100;
-    sh:path <http://purl.org/ontology/places#Boundary> ;
+    sh:path <http://data.ign.fr/def/geometrie#boundary> ;
     sh:order 19.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -157,7 +157,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Noordoostgrens"@nl ;
     sh:maxCount 100;
-    sh:path <http://purl.org/ontology/places#Boundary> ;
+    sh:path <http://data.ign.fr/def/geometrie#boundary> ;
     sh:order 20.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -165,7 +165,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Oostgrens"@nl ;
     sh:maxCount 100;
-    sh:path <http://purl.org/ontology/places#Boundary> ;
+    sh:path <http://data.ign.fr/def/geometrie#boundary> ;
     sh:order 21.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -173,7 +173,7 @@ recordtypes:HeiligeGeestWeeshuis
     sh:property [
     rdfs:label "Zuidoostgrens"@nl ;
     sh:maxCount 100;
-    sh:path <http://purl.org/ontology/places#Boundary> ;
+    sh:path <http://data.ign.fr/def/geometrie#boundary> ;
     sh:order 22.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -181,14 +181,14 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Zuidgrens"@nl ;
     sh:maxCount 100;
-    sh:path <http://purl.org/ontology/places#Boundary> ;
+    sh:path <http://data.ign.fr/def/geometrie#boundary> ;
     sh:order 23.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Zuidwestgrens"@nl ;
-    sh:path <http://purl.org/ontology/places#Boundary> ;
+    sh:path <http://data.ign.fr/def/geometrie#boundary> ;
     sh:order 24.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -196,7 +196,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Westgrens"@nl ;
     sh:maxCount 100;
-    sh:path <http://purl.org/ontology/places#Boundary> ;
+    sh:path <http://data.ign.fr/def/geometrie#boundary> ;
     sh:order 25.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -204,7 +204,7 @@ recordtypes:HeiligeGeestWeeshuis
   sh:property [
     rdfs:label "Noordwestgrens"@nl ;
     sh:maxCount 100;
-    sh:path <http://purl.org/ontology/places#Boundary> ;
+    sh:path <http://data.ign.fr/def/geometrie#boundary> ;
     sh:order 26.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
