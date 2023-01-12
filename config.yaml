@@ -54,12 +54,12 @@ spec:
       - Deed
       - ErfgoedregisterAdres
       - Groep
+      - HeiligeGeestWeeshuis
       - Image
       - Object
       - Persoonsvermelding
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
-      - HeiligeGeestWeeshuis
       - Koorboek
       - KoorboekPagina
       - LeFranqVanBerkhey
