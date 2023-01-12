@@ -126,32 +126,32 @@ recordtypes:Archiefbibliotheek
         dash:editor dash:TextAreaEditor
     ] ;
     sh:property [
-        rdfs:label "Publicaties"@nl ;
-        sh:maxCount  1 ;
-        sh:datatype xsd:string ;
-        sh:group archiefbibliotheek:contextGroup ;
-        sh:order    17.0 ;
-        sh:path schema:publication ;
-        dash:editor  dash:TextAreaEditor ;
-    ] ;
-    sh:property [
-        rdfs:label "Opmerkingen openbaar"@nl ;
+        rdfs:label  "Publicaties"@nl ;
         sh:maxCount 1 ;
-        sh:path rico:descriptiveNote ;
-        sh:order 26.0 ;
         sh:datatype xsd:string ;
-        dash:editor  dash:TextAreaEditor ;
-        sh:group archiefbibliotheek:notesGroup ;
+        sh:group    archiefbibliotheek:contextGroup ;
+        sh:order    17.0 ;
+        sh:path     schema:publication ;
+        dash:editor dash:TextAreaEditor ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen intern"@nl ;
+        rdfs:label  "Opmerkingen openbaar"@nl ;
+        sh:maxCount 1 ;
+        sh:path     rico:descriptiveNote ;
+        sh:order    26.0 ;
+        sh:datatype xsd:string ;
+        dash:editor dash:TextAreaEditor ;
+        sh:group    archiefbibliotheek:notesGroup ;
+    ] ;
+    sh:property [
+        rdfs:label  "Opmerkingen intern"@nl ;
         sh:maxCount 100 ;
-        sh:path rico:descriptiveNote ;
-        sh:order 27.0 ;
+        sh:path     rico:descriptiveNote ;
+        sh:order    27.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
-        sh:class archiefbibliotheek:Notes ;
-        sh:group archiefbibliotheek:notesGroup ;
+        sh:class    archiefbibliotheek:Notes ;
+        sh:group    archiefbibliotheek:notesGroup ;
     ] ;
 .
 
@@ -160,29 +160,29 @@ rico:DateRange
     sh:closed            true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [
-        rdfs:label   "Periode"@nl ;
+        rdfs:label  "Periode"@nl ;
         sh:maxCount 1 ;
-        sh:datatype  xsd:string ;
-        sh:order     1.0 ;
-        sh:path      rico:expressedDate ;
+        sh:datatype xsd:string ;
+        sh:order    1.0 ;
+        sh:path     rico:expressedDate ;
     ] ;
     sh:property [
-        rdfs:label   "Periode (van)"@nl ;
+        rdfs:label  "Periode (van)"@nl ;
         sh:maxCount 1 ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:gYear ;
-        sh:order     2.0 ;
-        sh:path      rico:hasBeginningDate ;
+        dash:editor memorix:DateEditor ;
+        sh:datatype xsd:gYear ;
+        sh:order    2.0 ;
+        sh:path     rico:hasBeginningDate ;
     ] ;
     sh:property [
-        rdfs:label   "Periode (tot)"@nl ;
+        rdfs:label  "Periode (tot)"@nl ;
         sh:maxCount 1 ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:gYear ;
-        sh:order     3.0 ;
-        sh:path      rico:hasEndDate ;
+        dash:editor memorix:DateEditor ;
+        sh:datatype xsd:gYear ;
+        sh:order    3.0 ;
+        sh:path     rico:hasEndDate ;
     ] ;
-    sh:targetClass       rico:DateRange ;
+    sh:targetClass rico:DateRange ;
 .
 
 archiefbibliotheek:Notes
@@ -191,23 +191,23 @@ archiefbibliotheek:Notes
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass archiefbibliotheek:Notes ;
     sh:property [
-          rdfs:label   "Datering"@nl ;
-          sh:maxCount 1 ;
-          dash:editor  memorix:DateEditor ;
+          rdfs:label    "Datering"@nl ;
+          sh:maxCount   1 ;
+          dash:editor   memorix:DateEditor ;
           # TODO: Als dit een veld "Datering" betreft, dan is het onwaarschijnlijk dat het een exacte datum betreft
-          sh:datatype  xsd:integer ;
-          sh:order     1.0 ;
-          sh:path      rico:expressedDate ;
+          sh:datatype   xsd:integer ;
+          sh:order      1.0 ;
+          sh:path       rico:expressedDate ;
       ] ;
     sh:property [
-          rdfs:label  "Gebruiker"@nl ;
-          sh:maxCount 1 ;
-          sh:datatype xsd:string ;
-          sh:order    2.0 ;
-          sh:path     rico:hasOrHadAgentName ;
+          rdfs:label    "Gebruiker"@nl ;
+          sh:maxCount   1 ;
+          sh:datatype   xsd:string ;
+          sh:order      2.0 ;
+          sh:path       rico:hasOrHadAgentName ;
       ] ;
     sh:property [
-          rdfs:label "Opmerkingen intern"@nl ;
+          rdfs:label  "Opmerkingen intern"@nl ;
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order    3.0 ;
