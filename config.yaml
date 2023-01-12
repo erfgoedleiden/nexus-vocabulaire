@@ -49,6 +49,7 @@ spec:
       - Bijlage
       - BlaeuAtlas
       - BlaeuAtlasPagina
+      - Complex
       - Deed
       - Groep
       - Image
@@ -56,7 +57,6 @@ spec:
       - Persoonsvermelding
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
-      - Complex
       - DanielvdMeulen
       - ErfgoedregisterAdres
       - HeiligeGeestWeeshuis
