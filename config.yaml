@@ -65,10 +65,10 @@ spec:
       - LeFranqVanBerkhey
       - Object
       - Organisatie
+      - Persoon
       - Persoonsvermelding
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
-      - Persoon
       - Restauratie
       - Woii
       - Bezoekersregistratie
