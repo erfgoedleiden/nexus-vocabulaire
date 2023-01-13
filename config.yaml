@@ -30,6 +30,7 @@ spec:
       - http://memorix.io/ontology#searchWeight
       - http://memorix.io/ontology#File
       - http://memorix.io/ontology#hidden
+      - http://memorix.io/ontology#copyrightHolderSource
       - https://data.rkd.nl/rkdartists
       # Alle URIs met 'resources/vocabularies' zijn niet te dereferencen
       - /resources/vocabularies/
@@ -63,10 +64,10 @@ spec:
       - KoorboekPagina
       - LeFranqVanBerkhey
       - Object
+      - Organisatie
       - Persoonsvermelding
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
-      - Organisatie
       - Persoon
       - Restauratie
       - Woii

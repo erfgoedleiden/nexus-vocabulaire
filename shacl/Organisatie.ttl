@@ -1,16 +1,20 @@
-@prefix organisatie:  </resources/recordtypes/Organisatie#> .
-@prefix vocabularies: </resources/vocabularies/> .
-@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:      <http://memorix.io/ontology#> .
-@prefix sh:           <http://www.w3.org/ns/shacl#> .
-@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:  </resources/recordtypes/> .
-@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix bag:          <http://bag.basisregistraties.overheid.nl/def/bag#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix foaf:         <http://xmlns.com/foaf/0.1/> .
+@prefix gn:           <http://www.geonames.org/ontology#> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix organisatie:  </resources/recordtypes/Organisatie#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  </resources/recordtypes/> .
+@prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
 @prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:Organisatie
   a memorix:Recordtype, sh:NodeShape ;
@@ -24,7 +28,7 @@ recordtypes:Organisatie
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Naam"@nl ;
-    sh:path organisatie:name ;
+    sh:path rico:name ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
     sh:group organisatie:identityGroup ;
@@ -34,7 +38,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Alternatieve namen"@nl ;
-    sh:path organisatie:otherFormsOfName ;
+    sh:path dc:alternative ;
     sh:maxCount 100 ;
     sh:order 4.0 ;
     sh:group organisatie:identityGroup ;
@@ -43,7 +47,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Identificatiekenmerk"@nl ;
-    sh:path organisatie:identifier ;
+    sh:path rico:identifier ;
     sh:maxCount 1 ;
     sh:order 5.0 ;
     sh:group organisatie:identityGroup ;
@@ -52,7 +56,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Identiek aan"@nl ;
-    sh:path organisatie:sameAs ;
+    sh:path rico:isRelatedTo ;
     sh:maxCount 1 ;
     sh:order 6.0 ;
     sh:group organisatie:identityGroup ;
@@ -64,7 +68,7 @@ recordtypes:Organisatie
   ] ;
     sh:property [
     rdfs:label "Type Organisatie"@nl ;
-    sh:path organisatie:type ;
+    sh:path rico:hasContentOfType ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
     sh:group organisatie:descriptiveInformationGroup ;
@@ -76,7 +80,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Geschiedenis"@nl ;
-    sh:path organisatie:history ;
+    sh:path rico:history ;
     sh:maxCount 1 ;
     sh:order 3.0 ;
     memorix:searchWeight 1.0 ;
@@ -87,7 +91,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Bibliografie"@nl ;
-    sh:path organisatie:bibliography ;
+    sh:path schema:citation ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
     sh:maxCount 1 ;
@@ -97,7 +101,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Opmerkingen beschrijving"@nl ;
-    sh:path organisatie:description ;
+    sh:path rico:descriptiveNote ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
     sh:maxCount 1 ;
@@ -108,7 +112,7 @@ recordtypes:Organisatie
   sh:property [
     rdfs:label "Oprichting"@nl ;
     sh:maxCount 1 ;
-    sh:path organisatie:formationEvent ;
+    sh:path rico:isAssociatedWithEvent ;
     sh:order 1.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -118,7 +122,7 @@ recordtypes:Organisatie
   sh:property [
     rdfs:label "Ontbinding"@nl ;
     sh:maxCount 1 ;
-    sh:path organisatie:dissolutionEvent ;
+    sh:path rico:isAssociatedWithEvent ;
     sh:order 2.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -127,7 +131,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Werkzame periode start"@nl ;
-    sh:path organisatie:period_of_activity_start ;
+    sh:path rico:hasBeginningDate ;
     dash:editor  memorix:DateEditor ;
     sh:datatype  xsd:integer ;
     sh:maxCount 1 ;
@@ -137,7 +141,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Werkzame periode eind"@nl ;
-    sh:path organisatie:period_of_activity_end ;
+    sh:path rico:hasEndDate ;
     dash:editor  memorix:DateEditor ;
     sh:datatype  xsd:integer ;
     sh:maxCount 1 ;
@@ -149,7 +153,7 @@ recordtypes:Organisatie
     rdfs:label "Plaats van werkzaamheid"@nl ;
     rdfs:comment "Plaatsen van werkzaamheid"@nl ;
     sh:maxCount 10 ;
-    sh:path organisatie:placeOfActivity ;
+    sh:path schema:addressLocality ;
     sh:order 4.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -158,28 +162,29 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Contactpersoon"@nl ;
-    sh:path organisatie:contactPerson ;
+    sh:path schema:contactPoint ;
+    # Is in andere entiteiten vaak een URI, hier niet?
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 0.5 ;
     memorix:searchWeight 1.0 ;
   ] ;
   sh:property [
     rdfs:label "Adres"@nl ;
-    sh:path organisatie:contactAddress ;
+    sh:path schema:streetAddress ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 1.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
   sh:property [
     rdfs:label "Postcode"@nl ;
-    sh:path organisatie:contactZipCode ;
+    sh:path schema:postalCode ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 2.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
@@ -188,60 +193,60 @@ recordtypes:Organisatie
     sh:path schema:addressLocality ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 2.5 ;
     memorix:searchWeight 1.0 ;
   ] ;
   sh:property [
     rdfs:label "Land"@nl ;
-    sh:path organisatie:contactCountry ;
+    sh:path schema:addressCountry ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 3.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
   sh:property [
     rdfs:label "E-mail"@nl ;
-    sh:path organisatie:contactEmail ;
+    sh:path schema:email ;
     sh:datatype xsd:string;
     sh:maxCount 5 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 4.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
   sh:property [
     rdfs:label "Website"@nl ;
-    sh:path organisatie:contactWebsite ;
+    sh:path foaf:homepage ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 5.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
   sh:property [
     rdfs:label "Telefoonnummer"@nl ;
-    sh:path organisatie:contactPhone ;
+    sh:path schema:telephone ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 6.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
   sh:property [
     rdfs:label "Contactnummer"@nl ;
-    sh:path organisatie:contactNumber ;
+    sh:path rico:identifier ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 7.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
   sh:property [
     rdfs:label "Opmerkingen bij contactinformatie"@nl ;
-    sh:path organisatie:contactRemark ;
+    sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 8.0 ;
     sh:datatype xsd:string ;
     dash:editor  dash:TextAreaEditor ;
@@ -250,7 +255,7 @@ recordtypes:Organisatie
   sh:property [
     rdfs:label "Rechten-afspraken"@nl ;
     sh:maxCount 100 ;
-    sh:path organisatie:rightsAgreement ;
+    sh:path rico:isAssociatedWithRule ;
     sh:order 1.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -259,9 +264,9 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Opmerkingen beheer"@nl ;
-    sh:path organisatie:managementRemark ;
+    sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
-    sh:group organisatie:managementGroup  ;
+    sh:group organisatie:managementGroup ;
     sh:order 9.0 ;
     sh:datatype xsd:string ;
     dash:editor  dash:TextAreaEditor ;
@@ -274,7 +279,7 @@ organisatie:FormationEvent
   sh:targetClass organisatie:FormationEvent ;
   sh:property [
     rdfs:label "Datum van oprichting"@nl ;
-    sh:path rico:hasBeginningDate  ;
+    sh:path rico:hasBeginningDate ;
     sh:order 1.0 ;
     memorix:inSummaryAt 3.0;
     dash:editor  memorix:DateEditor ;
@@ -283,7 +288,7 @@ organisatie:FormationEvent
   ] ;
   sh:property [
     rdfs:label "Plaats van oprichting"@nl ;
-    sh:path organisatie:formationPlace  ;
+    sh:path schema:addressLocality ;
     sh:order 2.0 ;
     memorix:inSummaryAt 4.0;
     sh:datatype xsd:string ;
@@ -299,7 +304,7 @@ organisatie:DissolutionEvent
   sh:targetClass organisatie:DissolutionEvent ;
   sh:property [
     rdfs:label "Datum van ontbinding"@nl ;
-    sh:path rico:hasEndDate  ;
+    sh:path rico:hasEndDate ;
     sh:order 1.0 ;
     memorix:inSummaryAt 5.0;
     dash:editor  memorix:DateEditor ;
@@ -308,7 +313,7 @@ organisatie:DissolutionEvent
   ] ;
   sh:property [
     rdfs:label "Plaats van ontbinding"@nl ;
-    sh:path organisatie:dissolutionPlace  ;
+    sh:path schema:addressLocality ;
     sh:order 2.0 ;
     memorix:inSummaryAt 6.0;
     sh:datatype xsd:string ;
@@ -324,7 +329,7 @@ organisatie:PlaceOfActivity
   sh:targetClass organisatie:PlaceOfActivity ;
   sh:property [
       rdfs:label "Locatie coördinaten"@nl ;
-      sh:path organisatie:activityLocationCoordinates  ;
+      sh:path schema:geo ;
       sh:order 0.9 ;
       sh:datatype xsd:string ;
       memorix:searchWeight 1.0 ;
@@ -332,7 +337,8 @@ organisatie:PlaceOfActivity
   ] ;
   sh:property [
     rdfs:label "Locatie geoNames"@nl ;
-    sh:path organisatie:activityLocation  ;
+    # In GeoNames: "A feature code."
+    sh:path gn:Code ;
     sh:order 1.0 ;
     sh:datatype xsd:string ;
     memorix:searchWeight 1.0 ;
@@ -340,7 +346,7 @@ organisatie:PlaceOfActivity
   ] ;
   sh:property [
     rdfs:label "Locatie address (BAG)"@nl ;
-    sh:path organisatie:activityLocationBAG  ;
+    sh:path bag:identificatie ;
     sh:order 1.1 ;
     sh:datatype xsd:string ;
     memorix:searchWeight 1.0 ;
@@ -348,7 +354,7 @@ organisatie:PlaceOfActivity
   ] ;
   sh:property [
     rdfs:label "Begindatum"@nl ;
-    sh:path organisatie:activityStartDate  ;
+    sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
     dash:editor  memorix:DateEditor ;
     sh:datatype  xsd:integer ;
@@ -356,7 +362,7 @@ organisatie:PlaceOfActivity
   ] ;
   sh:property [
     rdfs:label "Einddatum"@nl ;
-    sh:path organisatie:activityEndDate  ;
+    sh:path rico:hasEndDate ;
     sh:order 3.0 ;
     dash:editor  memorix:DateEditor ;
     sh:datatype  xsd:integer ;
@@ -364,7 +370,7 @@ organisatie:PlaceOfActivity
   ] ;
   sh:property [
     rdfs:label "Opmerking bij plaats werkzaamheid"@nl ;
-    sh:path organisatie:activityRemark  ;
+    sh:path rico:descriptiveNote ;
     sh:order 4.0 ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
@@ -379,7 +385,7 @@ organisatie:RightsAgreement
   sh:targetClass organisatie:RightsAgreement ;
   sh:property [
     rdfs:label "Auteursrechtverklaring"@nl ;
-    sh:path organisatie:rightsAgreement_copyright ;
+    sh:path rico:conditionsOfUse ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
@@ -389,7 +395,7 @@ organisatie:RightsAgreement
   ] ;
   sh:property [
     rdfs:label "Opmerking"@nl ;
-    sh:path organisatie:rightsAgreement_remark  ;
+    sh:path rico:descriptiveNote ;
     sh:order 2.0 ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
