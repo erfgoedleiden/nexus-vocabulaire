@@ -107,12 +107,18 @@ def validate_triple(triple: tuple, config: Config) -> None:
 
         # Avoid requesting the same uri for an ontology hiding behind a hash
         resolvable_part = triple_part.split('#')[0]
+        # Request rdf/xml by default
+        content_type = 'application/rdf+xml'
 
         # Follow custom mappings for vocab URLs that do not support content negotiation
-        content_type = 'application/rdf+xml'
-        if resolvable_part in config['validation']['non_negotiable_vocabs'].keys():
-            content_type = config['validation']['non_negotiable_vocabs'][resolvable_part]['content_type']
-            resolvable_part = config['validation']['non_negotiable_vocabs'][resolvable_part]['resolvable_url']
+        non_negotiable_vocabs = config['validation']['non_negotiable_vocabs'].keys()
+
+        for namespace in non_negotiable_vocabs:
+            # Matches both hash-uri namespace schemes and non-has URI vocab prefix namespaces
+            if namespace not in resolvable_part:
+                resolvable = config['validation']['non_negotiable_vocabs'][namespace]
+                content_type = resolvable['content_type']
+                resolvable_part = resolvable['resolvable_url']
 
         try:
             # Will throw an error on 400 or larger responses
