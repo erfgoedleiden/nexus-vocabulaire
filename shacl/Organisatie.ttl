@@ -304,7 +304,7 @@ organisatie:DissolutionEvent
   sh:targetClass organisatie:DissolutionEvent ;
   sh:property [
     rdfs:label "Datum van ontbinding"@nl ;
-    sh:path rico:hasEndDate  ;
+    sh:path rico:hasEndDate ;
     sh:order 1.0 ;
     memorix:inSummaryAt 5.0;
     dash:editor  memorix:DateEditor ;
@@ -313,7 +313,7 @@ organisatie:DissolutionEvent
   ] ;
   sh:property [
     rdfs:label "Plaats van ontbinding"@nl ;
-    sh:path schema:addressLocality  ;
+    sh:path schema:addressLocality ;
     sh:order 2.0 ;
     memorix:inSummaryAt 6.0;
     sh:datatype xsd:string ;
