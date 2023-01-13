@@ -56,12 +56,12 @@ spec:
       - Groep
       - HeiligeGeestWeeshuis
       - Image
+      - Koorboek
+      - KoorboekPagina
       - Object
       - Persoonsvermelding
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
-      - Koorboek
-      - KoorboekPagina
       - LeFranqVanBerkhey
       - Organisatie
       - Persoon
