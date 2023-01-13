@@ -255,7 +255,7 @@ recordtypes:Organisatie
   sh:property [
     rdfs:label "Rechten-afspraken"@nl ;
     sh:maxCount 100 ;
-    sh:path rico:rules ;
+    sh:path rico:isAssociatedWithRule ;
     sh:order 1.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
