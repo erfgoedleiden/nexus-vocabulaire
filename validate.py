@@ -115,7 +115,7 @@ def validate_triple(triple: tuple, config: Config) -> None:
 
         for namespace in non_negotiable_vocabs:
             # Matches both hash-uri namespace schemes and non-has URI vocab prefix namespaces
-            if namespace not in resolvable_part:
+            if namespace in resolvable_part:
                 resolvable = config['validation']['non_negotiable_vocabs'][namespace]
                 content_type = resolvable['content_type']
                 resolvable_part = resolvable['resolvable_url']
