@@ -1,17 +1,18 @@
+@prefix dash:           <http://datashapes.org/dash#> .
 @prefix dbpo:           <http://dbpedia.org/ontology/> .
+@prefix dc:             <http://purl.org/dc/terms/> .
+@prefix html:           <http://www.w3.org/1999/xhtml/> .
 @prefix koorboekPagina: </resources/recordtypes/KoorboekPagina#> .
-@prefix vocabularies:   </resources/vocabularies/> .
-@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix memorix:        <http://memorix.io/ontology#> .
-@prefix sh:             <http://www.w3.org/ns/shacl#> .
 @prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:           <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix recordtypes:    </resources/recordtypes/> .
 @prefix rico:           <https://www.ica.org/standards/RiC/ontology#> .
-@prefix html:           <http://www.w3.org/1999/xhtml/> .
-@prefix dash:           <http://datashapes.org/dash#> .
-@prefix dc:             <http://purl.org/dc/terms/> .
+@prefix schema:         <http://schema.org/> .
+@prefix sh:             <http://www.w3.org/ns/shacl#> .
+@prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies:   </resources/vocabularies/> .
+@prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:KoorboekPagina
   a memorix:Recordtype, sh:NodeShape ;
@@ -25,7 +26,7 @@ recordtypes:KoorboekPagina
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Koorboek"@nl ;
-    sh:path koorboekPagina:book ;
+    sh:path rico:identifier ;
     sh:order 0.5 ;
     memorix:inTitleAt 1 ;
     sh:nodeKind sh:IRI ;
@@ -37,7 +38,7 @@ recordtypes:KoorboekPagina
   ] ;
   sh:property [
     rdfs:label "Titel"@nl ;
-    sh:path koorboekPagina:title ;
+    sh:path rico:title ;
     memorix:inTitleAt 2 ;
     sh:maxCount 100 ;
     sh:order 1.0 ;
@@ -53,7 +54,7 @@ recordtypes:KoorboekPagina
   ] ;
   sh:property [
     rdfs:label "Folio"@nl ;
-    sh:path koorboekPagina:folio ;
+    sh:path rico:identifier ;
     memorix:inSummaryAt 1 ;
     sh:order 4.0 ;
     sh:group koorboekPagina:identificationGroup ;
@@ -61,7 +62,7 @@ recordtypes:KoorboekPagina
   ] ;
   sh:property [
     rdfs:label "Componist"@nl ;
-    sh:path koorboekPagina:composer;
+    sh:path schema:composer;
     memorix:inTitleAt 3 ;
     sh:order 5.0 ;
     sh:group koorboekPagina:identificationGroup ;
@@ -72,7 +73,7 @@ recordtypes:KoorboekPagina
   ] ;
   sh:property [
     rdfs:label "Bijzonderheden"@nl ;
-    sh:path koorboekPagina:notes ;
+    sh:path rico:descriptiveNote ;
     sh:order 6.0 ;
     sh:group koorboekPagina:identificationGroup ;
     sh:datatype xsd:string ;
