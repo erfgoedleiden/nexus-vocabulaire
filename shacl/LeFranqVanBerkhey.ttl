@@ -1,15 +1,19 @@
+@prefix dash:               <http://datashapes.org/dash#> .
+@prefix dbpo:               <http://dbpedia.org/ontology/> .
+@prefix dc:                 <http://purl.org/dc/terms/> .
+@prefix html:               <http://www.w3.org/1999/xhtml/> .
+@prefix isbd:               <http://iflastandards.info/ns/isbd/elements/> .
 @prefix leFranqVanBerkhey:  </resources/recordtypes/LeFranqVanBerkhey#> .
+@prefix memorix:            <http://memorix.io/ontology#> .
+@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:        </resources/recordtypes/> .
+@prefix rico:               <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:             <http://schema.org/> .
+@prefix sh:                 <http://www.w3.org/ns/shacl#> .
+@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
 @prefix vocabularies:       </resources/vocabularies/> .
 @prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:               <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:            <http://memorix.io/ontology#> .
-@prefix sh:                 <http://www.w3.org/ns/shacl#> .
-@prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:        </resources/recordtypes/> .
-@prefix html:               <http://www.w3.org/1999/xhtml/> .
-@prefix dash:               <http://datashapes.org/dash#> .
-@prefix dc:                 <http://purl.org/dc/terms/> .
 
 recordtypes:LeFranqVanBerkhey
   a memorix:Recordtype, sh:NodeShape ;
@@ -22,7 +26,7 @@ recordtypes:LeFranqVanBerkhey
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Signatuur"@nl ;
-    sh:path leFranqVanBerkhey:objectnumber ;
+    sh:path rico:identifier ;
     sh:order 1.0 ;
     memorix:inSummaryAt 1.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
@@ -30,7 +34,7 @@ recordtypes:LeFranqVanBerkhey
   ] ;
   sh:property [
     rdfs:label "Auteurs"@nl ;
-    sh:path leFranqVanBerkhey:author ;
+    sh:path schema:author ;
     sh:order 2.0 ;
     sh:maxCount 100;
     memorix:inSummaryAt 2.0 ;
@@ -41,15 +45,16 @@ recordtypes:LeFranqVanBerkhey
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
+    # Gaat het hier echt om een "Corporatieve" auteur, of is hier een Coöperatieve auteur bedoeld?
     rdfs:label "Corporatieve Auteur"@nl ;
-    sh:path leFranqVanBerkhey:corporateAuthor ;
+    sh:path schema:contributor ;
     sh:order 3.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Titel"@nl ;
-    sh:path leFranqVanBerkhey:title ;
+    sh:path rico:title ;
     memorix:inTitleAt 1.0 ;
     sh:order 4.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
@@ -58,7 +63,8 @@ recordtypes:LeFranqVanBerkhey
   ] ;
   sh:property [
     rdfs:label "ISBD Titel"@nl ;
-    sh:path leFranqVanBerkhey:isbdTitle ;
+    # "has date of publication, production, distribution"
+    sh:path isbd:P1012 ;
     sh:order 5.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
@@ -66,63 +72,64 @@ recordtypes:LeFranqVanBerkhey
   ] ;
   sh:property [
     rdfs:label "Plaats van uitgave"@nl ;
-    sh:path leFranqVanBerkhey:publicationPlace ;
+    sh:path schema:locationCreated ;
     sh:order 6.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Uitgever"@nl ;
-    sh:path leFranqVanBerkhey:publisher ;
+    sh:path schema:publishedBy ;
     sh:order 7.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Pagina"@nl ;
-    sh:path leFranqVanBerkhey:page ;
+    sh:path schema:numberOfPages ;
     sh:order 8.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Editie"@nl ;
-    sh:path leFranqVanBerkhey:edition ;
+    sh:path schema:bookEdition ;
     sh:order 9.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "ISBD jaar"@nl ;
-    sh:path leFranqVanBerkhey:isbdYear ;
+    sh:path isbd:P1018 ;
     sh:order 10.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Jaar"@nl ;
-    sh:path leFranqVanBerkhey:year ;
+    sh:path schema:datePublished ;
     sh:order 11.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Formaat"@nl ;
-    sh:path leFranqVanBerkhey:format ;
+    sh:path rico:measure ;
     sh:order 12.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Illustratie"@nl ;
-    sh:path leFranqVanBerkhey:illustration ;
+    # "has presence of illustrations"
+    sh:path isbd:P1057 ;
     sh:order 13.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Annotatie"@nl ;
-    sh:path leFranqVanBerkhey:annotation ;
+    sh:path dbpo:hasAnnotation ;
     sh:order 14.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
@@ -130,21 +137,22 @@ recordtypes:LeFranqVanBerkhey
   ] ;
   sh:property [
     rdfs:label "Bron"@nl ;
-    sh:path leFranqVanBerkhey:source ;
+    sh:path dc:source ;
     sh:order 16.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Holding"@nl ;
-    sh:path leFranqVanBerkhey:holding ;
+    sh:path rico:hasOrHadHolder ;
     sh:order 17.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Personen"@nl ;
-    sh:path leFranqVanBerkhey:persons ;
+    # Het label "Personen" is nogal ambigu, wat is de semantiek hiervan?
+    sh:path rico:isRelatedTo ;
     sh:order 18.0 ;
     sh:maxCount 100;
     sh:group leFranqVanBerkhey:identificationGroup ;
@@ -155,14 +163,15 @@ recordtypes:LeFranqVanBerkhey
   ] ;
   sh:property [
     rdfs:label "Opmerkingen"@nl ;
-    sh:path leFranqVanBerkhey:notes ;
+    sh:path rico:descriptiveNote ;
     sh:order 19.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "P.P.N."@nl ;
-    sh:path leFranqVanBerkhey:ppn ;
+    # Waar is dit een afkorting van?
+    sh:path rico:identifier ;
     sh:order 21.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;

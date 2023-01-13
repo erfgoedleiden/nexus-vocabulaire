@@ -9,6 +9,9 @@ spec:
       http://www.w3.org/ns/person:
         resolvable_url: http://www.w3.org/ns/person.ttl
         content_type: text/turtle
+      http://iflastandards.info/ns/isbd/elements/:
+        resolvable_url: http://iflastandards.info/ns/isbd/elements.xml
+        content_type: application/rdf+xml
 
     ignore_uris_containing:
       # Voor nu: negeer URIs die ontbreken in de memorix.io ontologie
@@ -58,11 +61,11 @@ spec:
       - Image
       - Koorboek
       - KoorboekPagina
+      - LeFranqVanBerkhey
       - Object
       - Persoonsvermelding
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
-      - LeFranqVanBerkhey
       - Organisatie
       - Persoon
       - Restauratie
