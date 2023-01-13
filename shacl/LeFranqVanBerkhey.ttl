@@ -63,6 +63,7 @@ recordtypes:LeFranqVanBerkhey
   ] ;
   sh:property [
     rdfs:label "ISBD Titel"@nl ;
+    # "has date of publication, production, distribution"
     sh:path isbd:P1012 ;
     sh:order 5.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
