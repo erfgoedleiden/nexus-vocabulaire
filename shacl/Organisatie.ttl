@@ -166,7 +166,7 @@ recordtypes:Organisatie
     # Is in andere entiteiten vaak een URI, hier niet?
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 0.5 ;
     memorix:searchWeight 1.0 ;
   ] ;
@@ -175,7 +175,7 @@ recordtypes:Organisatie
     sh:path schema:streetAddress ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 1.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
@@ -184,7 +184,7 @@ recordtypes:Organisatie
     sh:path schema:postalCode ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 2.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
@@ -193,7 +193,7 @@ recordtypes:Organisatie
     sh:path schema:addressLocality ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 2.5 ;
     memorix:searchWeight 1.0 ;
   ] ;
@@ -202,7 +202,7 @@ recordtypes:Organisatie
     sh:path schema:addressCountry ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 3.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
@@ -211,7 +211,7 @@ recordtypes:Organisatie
     sh:path schema:email ;
     sh:datatype xsd:string;
     sh:maxCount 5 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 4.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
@@ -220,7 +220,7 @@ recordtypes:Organisatie
     sh:path foaf:homepage ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 5.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
@@ -229,7 +229,7 @@ recordtypes:Organisatie
     sh:path schema:telephone ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 6.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
@@ -238,7 +238,7 @@ recordtypes:Organisatie
     sh:path rico:identifier ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 7.0 ;
     memorix:searchWeight 1.0 ;
   ] ;
@@ -246,7 +246,7 @@ recordtypes:Organisatie
     rdfs:label "Opmerkingen bij contactinformatie"@nl ;
     sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup  ;
+    sh:group organisatie:contactInformationGroup ;
     sh:order 8.0 ;
     sh:datatype xsd:string ;
     dash:editor  dash:TextAreaEditor ;
@@ -266,7 +266,7 @@ recordtypes:Organisatie
     rdfs:label "Opmerkingen beheer"@nl ;
     sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
-    sh:group organisatie:managementGroup  ;
+    sh:group organisatie:managementGroup ;
     sh:order 9.0 ;
     sh:datatype xsd:string ;
     dash:editor  dash:TextAreaEditor ;
@@ -279,7 +279,7 @@ organisatie:FormationEvent
   sh:targetClass organisatie:FormationEvent ;
   sh:property [
     rdfs:label "Datum van oprichting"@nl ;
-    sh:path rico:hasBeginningDate  ;
+    sh:path rico:hasBeginningDate ;
     sh:order 1.0 ;
     memorix:inSummaryAt 3.0;
     dash:editor  memorix:DateEditor ;
@@ -288,7 +288,7 @@ organisatie:FormationEvent
   ] ;
   sh:property [
     rdfs:label "Plaats van oprichting"@nl ;
-    sh:path schema:addressLocality  ;
+    sh:path schema:addressLocality ;
     sh:order 2.0 ;
     memorix:inSummaryAt 4.0;
     sh:datatype xsd:string ;
@@ -338,7 +338,7 @@ organisatie:PlaceOfActivity
   sh:property [
     rdfs:label "Locatie geoNames"@nl ;
     # In GeoNames: "A feature code."
-    sh:path gn:Code  ;
+    sh:path gn:Code ;
     sh:order 1.0 ;
     sh:datatype xsd:string ;
     memorix:searchWeight 1.0 ;
@@ -346,7 +346,7 @@ organisatie:PlaceOfActivity
   ] ;
   sh:property [
     rdfs:label "Locatie address (BAG)"@nl ;
-    sh:path bag:identificatie  ;
+    sh:path bag:identificatie ;
     sh:order 1.1 ;
     sh:datatype xsd:string ;
     memorix:searchWeight 1.0 ;
@@ -354,7 +354,7 @@ organisatie:PlaceOfActivity
   ] ;
   sh:property [
     rdfs:label "Begindatum"@nl ;
-    sh:path rico:hasBeginningDate  ;
+    sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
     dash:editor  memorix:DateEditor ;
     sh:datatype  xsd:integer ;
@@ -362,7 +362,7 @@ organisatie:PlaceOfActivity
   ] ;
   sh:property [
     rdfs:label "Einddatum"@nl ;
-    sh:path rico:hasEndDate  ;
+    sh:path rico:hasEndDate ;
     sh:order 3.0 ;
     dash:editor  memorix:DateEditor ;
     sh:datatype  xsd:integer ;
@@ -370,7 +370,7 @@ organisatie:PlaceOfActivity
   ] ;
   sh:property [
     rdfs:label "Opmerking bij plaats werkzaamheid"@nl ;
-    sh:path rico:descriptiveNote  ;
+    sh:path rico:descriptiveNote ;
     sh:order 4.0 ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
@@ -395,7 +395,7 @@ organisatie:RightsAgreement
   ] ;
   sh:property [
     rdfs:label "Opmerking"@nl ;
-    sh:path rico:descriptiveNote  ;
+    sh:path rico:descriptiveNote ;
     sh:order 2.0 ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
