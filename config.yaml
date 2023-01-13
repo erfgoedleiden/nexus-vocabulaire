@@ -10,8 +10,8 @@ spec:
         resolvable_url: http://www.w3.org/ns/person.ttl
         content_type: text/turtle
       http://iflastandards.info/ns/isbd/elements/:
-        resolvable_url: http://iflastandards.info/ns/isbd/elements.nt
-        content_type: text/rdf+nt
+        resolvable_url: http://iflastandards.info/ns/isbd/elements.xml
+        content_type: application/rdf+xml
 
     ignore_uris_containing:
       # Voor nu: negeer URIs die ontbreken in de memorix.io ontologie
