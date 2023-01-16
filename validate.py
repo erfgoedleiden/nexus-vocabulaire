@@ -4,6 +4,7 @@ import logging
 import os
 import re
 from argparse import ArgumentParser
+from collections import Counter
 from tempfile import TemporaryDirectory
 from xml.sax import SAXParseException
 
@@ -74,6 +75,19 @@ def shacl_validate(data_filepath: str, shacl_filepath: str) -> None:
     assert conforms, f'{data_filepath} incorrect: {results_text}'
 
 
+def validate_single_use_shape_paths(graph: rdflib.Graph) -> None:
+    counter = Counter()
+
+    # Query all triples with shacle path relation
+    objs_query = 'select ?obj where {?bnode <http://www.w3.org/ns/shacl#path> ?obj}'
+    path_objects = [o for o in graph.query(objs_query)]
+    counter.update(path_objects)
+
+    for uri, count in counter.items():
+        if count > 1:
+            raise ValueError(f'Duplicate ({count} sh:path uri {uri}')
+
+
 def check_uris(data_filepath: str, config: Config) -> None:
     """
     This function will check _every_ URI in the sample graphs for being able to resolve. This will catch errors on
@@ -85,6 +99,8 @@ def check_uris(data_filepath: str, config: Config) -> None:
     """
     graph = rdflib.Graph()
     graph.parse(data_filepath)
+
+    validate_single_use_shape_paths(graph)
 
     for triple in tqdm(graph):
         validate_triple(triple, config)
@@ -156,6 +172,10 @@ def load_graph_from_uri(resolvable_part: str, content_type: str = 'application/r
         try:
             resolved_uri_graph.parse(tempfile, format=content_type)
         except SAXParseException:
+            with open(tempfile, 'rt') as f:
+                logging.error(f'Error loading {resolvable_part}: invalid XML \n {f.read()}')
+            raise
+        except TypeError:
             with open(tempfile, 'rt') as f:
                 logging.error(f'Error loading {resolvable_part}: invalid XML \n {f.read()}')
             raise

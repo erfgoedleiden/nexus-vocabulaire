@@ -1,0 +1,46 @@
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix object:       </resources/recordtypes/Object#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  </resources/recordtypes/> .
+@prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+
+
+recordtypes:Object
+  a memorix:Recordtype, sh:NodeShape ;
+  rdfs:label "Object"@nl ;
+  rdfs:comment "Erfgoedregister - Objecten van Erfgoed Leiden"@nl ;
+  rico:identifier "Object" ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass recordtypes:Object ;
+  dash:defaultViewForRole dash:all ;
+
+  sh:property [
+                rdfs:label "Redengevende omschrijving"@nl ;
+                # Zelfde sh:path als ↓ ??
+                sh:path rico:descriptiveNote ;
+                sh:maxCount 1 ;
+                sh:order 5.0 ;
+                sh:group object:basicDataGroup ;
+                sh:datatype xsd:string ;
+                dash:editor  dash:TextAreaEditor ;
+              ] ;
+  sh:property [
+                rdfs:label "Toestand omschrijving"@nl ;
+                # Lastig te benoemen
+                # Zelfde sh:path als ↑ ??
+                sh:path rico:descriptiveNote ;
+                sh:maxCount 1 ;
+                sh:order 6.0 ;
+                sh:group object:basicDataGroup ;
+                dash:editor memorix:VocabularyEditor ;
+                sh:class skos:Concept ;
+                memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/6d84729b-566e-479b-96da-7cb6d119bad6> ) ;
+                sh:nodeKind sh:IRI ;
+              ] ;
+.
