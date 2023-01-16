@@ -26,6 +26,8 @@ spec:
       - http://memorix.io/ontology#HasRecordsComponent  # Bedoeld: http://memorix.io/ontology#hasInformationComponent ???
       - http://memorix.io/ontology#TreeComponent        # Bedoeld: http://memorix.io/ontology#TreePathComponent ???
       - http://memorix.io/ontology#ConditionalLinkFieldEditor
+      - http://memorix.io/ontology#conditionalLinkField
+      - http://memorix.io/ontology#linkField
       - http://memorix.io/ontology#hasNode
       - http://memorix.io/ontology#inlineField
       - http://memorix.io/ontology#searchWeight
