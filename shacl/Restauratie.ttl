@@ -176,7 +176,7 @@ restauratie:Treatments
     sh:property [
         sh:maxCount 99 ;
         rdfs:label "Materiaal/middel"@nl ;
-        sh:path rico:hasCarrierOfType ;
+        sh:path rico:hasCarrierType ;
         sh:order 3.0 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
