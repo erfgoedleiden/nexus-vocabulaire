@@ -31,6 +31,9 @@ spec:
       - http://memorix.io/ontology#File
       - http://memorix.io/ontology#hidden
       - http://memorix.io/ontology#copyrightHolderSource
+      # Wikidata in custom graph, niet op te vragen via internet
+      - https://www.wikidata.org
+      # "RKDartists" worden niet (meer) gepubliceerd onder dit URI schema
       - https://data.rkd.nl/rkdartists
       # Alle URIs met 'resources/vocabularies' zijn niet te dereferencen
       - /resources/vocabularies/
