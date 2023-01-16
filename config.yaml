@@ -70,8 +70,8 @@ spec:
       - Organisatie
       - Persoon
       - Persoonsvermelding
+      - Restauratie
     # De "todo" items worden overgeslagen door het validatiescript
     todo:
-      - Restauratie
       - Woii
       - Bezoekersregistratie
