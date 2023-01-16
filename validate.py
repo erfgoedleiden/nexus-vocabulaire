@@ -80,12 +80,12 @@ def validate_single_use_shape_paths(graph: rdflib.Graph) -> None:
 
     # Query all triples with shacle path relation
     objs_query = 'select ?obj where {?bnode <http://www.w3.org/ns/shacl#path> ?obj}'
-    path_objects = [o for o in graph.query(objs_query)]
+    path_objects = [str(obj[0]) for obj in graph.query(objs_query)]
     counter.update(path_objects)
 
     for uri, count in counter.items():
         if count > 1:
-            raise ValueError(f'Duplicate ({count} sh:path uri {uri}')
+            raise ValueError(f'Duplicate ({count} times) sh:path uri <{uri}>')
 
 
 def check_uris(data_filepath: str, config: Config) -> None:
