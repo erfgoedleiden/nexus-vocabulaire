@@ -76,7 +76,7 @@ recordtypes:Woii
   sh:property [
     rdfs:label "Soort document"@nl ;
     memorix:inTitleAt 1.0 ;
-    sh:path rico:hasContentType ;
+    sh:path rico:hasContentOfType ;
     sh:maxCount 100 ;
     sh:order 6.0 ;
     sh:group woII:identificationGroup ;
