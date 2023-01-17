@@ -107,7 +107,7 @@ recordtypes:Bezoekersregistratie
     sh:property [
         rdfs:label "Soort identiteitsbewijs"@nl ;
         sh:maxCount 1 ;
-        sh:path rico:identifierType ;
+        sh:path rico:hasIdentifierType ;
         sh:order 8.0 ;
         memorix:inTitleAt 2.0 ;
         sh:group bezoekersregistratie:identificationGroup ;
