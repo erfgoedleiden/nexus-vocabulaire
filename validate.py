@@ -41,7 +41,7 @@ def main(config: Config) -> int:
         shacl_filepath = os.path.join(config['validation']['shacl_dir'], shacl_filename)
 
         if not os.path.isfile(data_filepath):
-            logging.warning(f'Skipping SHACL validation for {record_type}: no data file found.')
+            logging.warning(f'Skipping SHACL validation for {record_type}: no sample data file found.')
         else:
             shacl_validate(data_filepath, shacl_filepath)
             logging.info(f'Validating URI resolvability for {data_filepath}')

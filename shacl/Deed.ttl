@@ -65,17 +65,36 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path      dbpo:heritageRegister
     ] ;
     sh:property [
+        rdfs:label  "Archief"@nl ;
+        sh:path     deed:archive ;
+        sh:order    7.5 ;
+        memorix:inTitleAt  3.5 ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount  1 ;
+        sh:group    deed:deedGroup ;
+        sh:or (
+            [ sh:class recordtypes:Archiefblok ]
+        ) ;
+        dash:editor memorix:LinkedRecordEditor ;
+    ] ;
+    sh:property [
         rdfs:label  "Archief bestanddeel"@nl ;
         # Dit is anders dan bibliotheek:"Ingebonden in": dat is een stringwaarde, dit is een verwijzing naar een record
+        memorix:conditionalLinkField deed:archive ;
+        memorix:linkField [
+            memorix:hasRecordType recordtypes:Bestanddeel ;
+            memorix:path rico:isOrWasIncludedIn ;
+        ];
         sh:path     rico:isOrWasIncludedIn ;
         sh:order    8.0 ;
+        sh:maxCount  1 ;
         memorix:inTitleAt  4.0 ;
         sh:nodeKind sh:IRI ;
         sh:group    deed:deedGroup ;
         sh:or (
             [ sh:class recordtypes:Bestanddeel ]
         ) ;
-        dash:editor memorix:LinkedRecordEditor ;
+        dash:editor  memorix:ConditionalLinkFieldEditor ;
     ] ;
     sh:property              [
         rdfs:label   "Opmerkingen openbaar"@nl ;

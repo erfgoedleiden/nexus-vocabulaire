@@ -41,7 +41,7 @@ recordtypes:Restauratie
         sh:maxCount 99 ;
         rdfs:label "Betreft"@nl ;
         sh:group restauratie:identificationGroup ;
-        sh:path restauratie:regards ;
+        sh:path dc:subject ;
         sh:order 1.0 ;
         sh:nodeKind sh:IRI ;
         sh:or (
@@ -55,7 +55,7 @@ recordtypes:Restauratie
         sh:maxCount 1 ;
         rdfs:label "Restauratienummer"@nl ;
         sh:group restauratie:identificationGroup ;
-        sh:path restauratie:identifier ;
+        sh:path rico:identifier ;
         memorix:inTitleAt 1.0 ;
         sh:order 2.0 ;
         sh:datatype xsd:string ;
@@ -82,14 +82,14 @@ recordtypes:Restauratie
         sh:maxCount 1 ;
         rdfs:label "Formaat"@nl ;
         sh:group restauratie:descriptionGroup ;
-        sh:path restauratie:format ;
+        sh:path rico:measure ;
         sh:order 5.0 ;
         sh:datatype xsd:string ;
     ] ;
     sh:property [
         sh:maxCount 99 ;
         rdfs:label "Soort object"@nl ;
-        sh:path restauratie:objectType ;
+        sh:path rico:hasContentOfType ;
         sh:order 6.0 ;
         sh:group restauratie:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
@@ -100,7 +100,7 @@ recordtypes:Restauratie
     sh:property [
         sh:maxCount 99 ;
         rdfs:label "Materiaal"@nl ;
-        sh:path restauratie:material ;
+        sh:path rico:hasCarrierType ;
         sh:order 7.0 ;
         sh:group restauratie:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
@@ -112,7 +112,7 @@ recordtypes:Restauratie
         sh:maxCount 1 ;
         rdfs:label "Opmerking beschrijving"@nl ;
         sh:group restauratie:descriptionGroup ;
-        sh:path restauratie:notesDescription ;
+        sh:path rico:descriptiveNote ;
         sh:order 8.0 ;
         sh:datatype xsd:string ;
         dash:editor  dash:TextAreaEditor ;
@@ -120,7 +120,7 @@ recordtypes:Restauratie
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Reden restauratie"@nl ;
-        sh:group restauratie:treatmentGroup ;
+        sh:group rico:ruleFollowed ;
         sh:path restauratie:reason ;
         sh:order 9.0 ;
         sh:datatype xsd:string ;
@@ -130,7 +130,7 @@ recordtypes:Restauratie
         sh:maxCount 1 ;
         rdfs:label "Restaurator"@nl ;
         sh:group restauratie:treatmentGroup ;
-        sh:path restauratie:restorer ;
+        sh:path rico:isOrWasPerformedBy ;
         sh:order 10.0 ;
         sh:datatype xsd:string ;
     ] ;
@@ -139,7 +139,7 @@ recordtypes:Restauratie
         rdfs:label "Behandelingen"@nl ;
         sh:maxCount 10 ;
         sh:group restauratie:treatmentGroup ;
-        sh:path restauratie:treatments ;
+        sh:path rico:hasActivityType ;
         sh:order 11.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -155,7 +155,7 @@ restauratie:Treatments
     sh:property [
         sh:maxCount 99 ;
         rdfs:label "Schade"@nl ;
-        sh:path restauratie:damage ;
+        sh:path rico:qualityOfRepresentation ;
         sh:order 1.0 ;
         sh:group restauratie:treatmentGroup ;
         dash:editor memorix:VocabularyEditor ;
@@ -166,7 +166,7 @@ restauratie:Treatments
     sh:property [
         sh:maxCount 99 ;
         rdfs:label "Behandeling"@nl ;
-        sh:path restauratie:treatment ;
+        sh:path dc:description ;
         sh:order 2.0 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
@@ -176,7 +176,7 @@ restauratie:Treatments
     sh:property [
         sh:maxCount 99 ;
         rdfs:label "Materiaal/middel"@nl ;
-        sh:path restauratie:remedy ;
+        sh:path rico:hasCarrierType ;
         sh:order 3.0 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
@@ -186,7 +186,7 @@ restauratie:Treatments
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Opmerkingen behandeling"@nl ;
-        sh:path restauratie:notesTreatment ;
+        sh:path rico:descriptiveNote ;
         sh:order 4.0 ;
         sh:datatype xsd:string ;
         dash:editor  dash:TextAreaEditor ;
