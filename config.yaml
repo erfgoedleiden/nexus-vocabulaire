@@ -52,6 +52,7 @@ spec:
       - Archiefblok
       - Av
       - Bestanddeel
+      - Bezoekersregistratie
       - Bibliotheek
       - Bijlage
       - BlaeuAtlas
@@ -73,5 +74,5 @@ spec:
       - Restauratie
       - Woii
     # De "todo" items worden overgeslagen door het validatiescript
-    todo:
-      - Bezoekersregistratie
+    todo: []
+
