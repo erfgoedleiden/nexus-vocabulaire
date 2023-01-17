@@ -90,10 +90,11 @@ def validate_single_use_shape_paths(graph: rdflib.Graph, config: Config) -> None
 
 def check_uris(data_filepath: str, config: Config) -> None:
     """
-    This function will check _every_ URI in the sample graphs for being able to resolve. This will catch errors on
-    vocab typos, or small happy accidents on hash/slash-URI mishaps and the likes.
+    This function will check _every_ URI in the graphs for being able to resolve. This will catch errors on vocab typos,
+    or small happy accidents on hash/slash-URI mishaps and the likes.
 
     :param data_filepath: path to the data graph to validate URIs
+    :param config: a config object returned from load_config()
 
     :return: None
     """
