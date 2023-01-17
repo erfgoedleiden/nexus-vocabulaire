@@ -31,6 +31,7 @@ spec:
       - http://memorix.io/ontology#File
       - http://memorix.io/ontology#hidden
       - http://memorix.io/ontology#copyrightHolderSource
+      - http://memorix.io/ontology#LocationGeonamesEditor
       # Wikidata in custom graph, niet op te vragen via internet
       - https://www.wikidata.org
       # "RKDartists" worden niet (meer) gepubliceerd onder dit URI schema
@@ -52,6 +53,7 @@ spec:
       - Archiefblok
       - Av
       - Bestanddeel
+      - Bezoekersregistratie
       - Bibliotheek
       - Bijlage
       - BlaeuAtlas
@@ -73,5 +75,5 @@ spec:
       - Restauratie
       - Woii
     # De "todo" items worden overgeslagen door het validatiescript
-    todo:
-      - Bezoekersregistratie
+    todo: []
+
