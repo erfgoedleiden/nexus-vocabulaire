@@ -75,11 +75,11 @@ def shacl_validate(data_filepath: str, shacl_filepath: str) -> None:
     assert conforms, f'{data_filepath} incorrect: {results_text}'
 
 
-def validate_single_use_shape_paths(graph: rdflib.Graph) -> None:
+def validate_single_use_shape_paths(graph: rdflib.Graph, config: Config) -> None:
     counter = Counter()
 
     # Query all triples with shacle path relation
-    objs_query = 'select ?obj where {?bnode <http://www.w3.org/ns/shacl#path> ?obj}'
+    objs_query = config['validation']['duplicate_detection_query']
     path_objects = [str(obj[0]) for obj in graph.query(objs_query)]
     counter.update(path_objects)
 
@@ -100,7 +100,7 @@ def check_uris(data_filepath: str, config: Config) -> None:
     graph = rdflib.Graph()
     graph.parse(data_filepath)
 
-    validate_single_use_shape_paths(graph)
+    validate_single_use_shape_paths(graph, config)
 
     for triple in tqdm(graph):
         validate_triple(triple, config)

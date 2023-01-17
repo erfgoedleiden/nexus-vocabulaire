@@ -13,6 +13,14 @@ spec:
         resolvable_url: http://iflastandards.info/ns/isbd/elements.xml
         content_type: application/rdf+xml
 
+    duplicate_detection_query: |
+      prefix sh: <http://www.w3.org/ns/shacl#>
+
+      select ?obj
+      where { 
+        ?bnode sh:path ?obj . 
+      }
+
     ignore_uris_containing:
       # Voor nu: negeer URIs die ontbreken in de memorix.io ontologie
       - http://memorix.io/ontology#path
