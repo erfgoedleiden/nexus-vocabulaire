@@ -183,7 +183,7 @@ recordtypes:Archiefblok
         sh:datatype       xsd:string ;
         sh:group          archiefblok:contextGroup ;
         sh:order          14.0 ;
-        sh:path           archiefblok:institution ;
+        sh:path           rico:hasOrHadAgentName ;
     ] ;
     sh:property [
         rdfs:label   "Zorgdrager"@nl ;
