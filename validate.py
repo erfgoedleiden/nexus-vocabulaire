@@ -6,11 +6,13 @@ import re
 from argparse import ArgumentParser
 from collections import Counter
 from tempfile import TemporaryDirectory
+from typing import Dict
 from xml.sax import SAXParseException
 
 import pyshacl
 import rdflib
 import requests
+from rdflib.plugins.sparql.processor import SPARQLResult
 from tqdm import tqdm
 from retry import retry
 
@@ -76,16 +78,16 @@ def shacl_validate(data_filepath: str, shacl_filepath: str) -> None:
 
 
 def validate_single_use_shape_paths(graph: rdflib.Graph, config: Config) -> None:
-    counter = Counter()
+    counter: Dict[SPARQLResult, int] = Counter()
 
     # Query all triples with shacle path relation
     objs_query = config['validation']['duplicate_detection_query']
-    path_objects = [str(obj[0]) for obj in graph.query(objs_query)]
+    path_objects = graph.query(objs_query)
     counter.update(path_objects)
 
-    for uri, count in counter.items():
+    for result, count in counter.items():
         if count > 1:
-            raise ValueError(f'Duplicate ({count} times) sh:path <{uri}>')
+            raise ValueError(f'Duplicate ({count} times) sh:path: {result}')
 
 
 def check_uris(data_filepath: str, config: Config) -> None:

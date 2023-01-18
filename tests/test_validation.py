@@ -17,6 +17,11 @@ def test_shacl_validation() -> None:
 def test_duplicate() -> None:
     config = load_config()
 
+    # Should not raise
+    graph_file_with_duplicates = os.path.join('tests', 'data', 'graph_without_duplicates.ttl')
+    check_uris(graph_file_with_duplicates, config)
+
+    # Should raise
     graph_file_with_duplicates = os.path.join('tests', 'data', 'graph_with_duplicates.ttl')
     with pytest.raises(ValueError):
         check_uris(graph_file_with_duplicates, config)

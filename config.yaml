@@ -16,9 +16,9 @@ spec:
     duplicate_detection_query: |
       prefix sh: <http://www.w3.org/ns/shacl#>
 
-      select ?obj
+      select ?any ?obj
       where { 
-        ?bnode sh:path ?obj . 
+        ?any sh:property [ sh:path ?obj ] . 
       }
 
     ignore_uris_containing:
