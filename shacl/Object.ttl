@@ -2,6 +2,7 @@
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix geo:          <http://www.opengis.net/ont/geosparql#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
@@ -91,7 +92,7 @@ recordtypes:Object
   sh:property [
       rdfs:label "Redengevende omschrijving"@nl ;
       # Zelfde sh:path als ↓ ??
-      sh:path rico:descriptiveNote ;
+      sh:path elo:redengevendeOmschrijving ;
       sh:maxCount 1 ;
       sh:order 5.0 ;
       sh:group object:basicDataGroup ;
@@ -101,8 +102,7 @@ recordtypes:Object
   sh:property [
       rdfs:label "Toestand omschrijving"@nl ;
       # Lastig te benoemen
-      # Zelfde sh:path als ↑ ??
-      sh:path rico:descriptiveNote ;
+      sh:path dbpo:status ;
       sh:maxCount 1 ;
       sh:order 6.0 ;
       sh:group object:basicDataGroup ;
@@ -113,7 +113,6 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Opmerkingen"@nl ;
-      # Zelfde sh:path als ↑ ??
       sh:path rico:descriptiveNote ;
       sh:maxCount 1 ;
       sh:order 7.0 ;
@@ -123,8 +122,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Opmerkingen beheer"@nl ;
-      # Zelfde sh:path als ↑ ??
-      sh:path rico:descriptiveNote ;
+      sh:path dbpo:administrativeStatus ;
       sh:maxCount 1 ;
       sh:order 8.0 ;
       sh:group object:basicDataGroup ;
@@ -332,7 +330,7 @@ object:Dating
     ] ;
   sh:property [
       rdfs:label "Datering betreft/opmerking"@nl ;
-      sh:path rico:descriptiveNote ;
+      sh:path dc:date ;
       sh:maxCount 1 ;
       sh:order 0.5 ;
       sh:datatype xsd:string ;

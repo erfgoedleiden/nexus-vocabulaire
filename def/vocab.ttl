@@ -1,0 +1,8 @@
+@prefix elo:  <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+
+elo:redengevendeOmschrijving a rdfs:property;
+  rdfs:subPropertyOf rico:isAssociatedWithRule ;
+  rdfs:label "Redengevende Omschrijving voor toekenning monumentstatus" ;
+.
