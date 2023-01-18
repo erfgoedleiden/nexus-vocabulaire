@@ -266,7 +266,7 @@ recordtypes:Object
   sh:property [
       rdfs:label "(BAG-)Adres gegevens"@nl ;
       sh:maxCount 999 ;
-      sh:path bag:identificatie ;
+      sh:path bag:heeftAlsHoofdadres ;
       sh:order 21.0 ;
       dash:viewer dash:DetailsEditor ;
       sh:nodeKind sh:BlankNode ;
