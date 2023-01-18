@@ -1,7 +1,8 @@
-@prefix elo:  <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
-@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix elo:    <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rico:   <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema: <http://schema.org/> .
 
 elo:redengevendeOmschrijving a rdf:Property ;
   rdfs:subPropertyOf rico:isAssociatedWithRule ;
@@ -16,4 +17,34 @@ elo:opmerkingBeheerder a rdfs:Property ;
 elo:retro a rdfs:Property ;
   rdfs:subPropertyOf rico:descriptiveNote ;
   rdfs:label "Opmerkingen uit eerdere documentatiemethode" ;
+.
+
+elo:naamKolom1 a rdfs:Property ;
+   rdfs:subPropertyOf rico:name ;
+   rdfs:label "Naam uit eerste kolom" ;
+.
+
+elo:naamKolom2 a rdfs:Property ;
+   rdfs:subPropertyOf rico:name ;
+   rdfs:label "Naam uit tweede kolom" ;
+.
+
+elo:itemKolom1 a rdfs:Property ;
+   rdfs:subPropertyOf schema:itemListElement ;
+   rdfs:label "Naam uit eerste kolom" ;
+.
+
+elo:itemKolom2 a rdfs:Property ;
+   rdfs:subPropertyOf schema:itemListElement ;
+   rdfs:label "Naam uit eerste kolom" ;
+.
+
+elo:extraInformatie a rdfs:Property ;
+   rdfs:subPropertyOf rico:descriptiveNote ;
+   rdfs:label "Extra beschrijvende overige informatie" ;
+.
+
+elo:opmerking a rdfs:Property ;
+   rdfs:subPropertyOf rico:descriptiveNote ;
+   rdfs:label "Extra opmerkingen" ;
 .
