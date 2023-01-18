@@ -54,6 +54,7 @@ spec:
       # Negeer record URIs
       - /resources/records/
       - /resources/recordtypes/
+      # Negeer
     # De "done" items worden gecontroleerd met het validatiescript
     done:
       - Aanwinst

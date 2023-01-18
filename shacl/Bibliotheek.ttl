@@ -2,6 +2,7 @@
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix gn:           <http://www.geonames.org/ontology#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
@@ -38,7 +39,7 @@ recordtypes:Bibliotheek
     sh:or           ( [ sh:class  recordtypes:Archiefbibliotheek ] ) ;
     sh:order        0.3 ;
     # "Indicates a page or other link involved in archival of a CreativeWork"
-    sh:path         schema:archivedAt
+    sh:path         rico:isRelatedTo
   ] ;
   sh:property [
     rdfs:label "Signatuur"@nl ;
@@ -237,7 +238,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Opmerking inhoudelijk"@nl ;
-    sh:path schema:comment ;
+    sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
     sh:order 19.0 ;
     sh:group bibliotheek:contentDescriptionGroup ;
@@ -348,7 +349,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Opmerking beheerder"@nl ;
-    sh:path rico:descriptiveNote ;
+    sh:path elo:opmerkingBeheerder ;
     sh:maxCount 1 ;
     sh:order 29.0 ;
     sh:group bibliotheek:managementGroup ;
@@ -358,7 +359,7 @@ recordtypes:Bibliotheek
   sh:property [
     rdfs:label "Retro"@nl ;
     # Bestaat wegens vroegere documentatiemethode
-    sh:path rico:descriptiveNote ;
+    sh:path elo:retro ;
     sh:maxCount 1 ;
     sh:order 30.0 ;
     sh:group bibliotheek:managementGroup ;
@@ -652,22 +653,27 @@ bibliotheek:identityGroup a sh:PropertyGroup ;
   rdfs:label "Vindplaats"@nl ;
   sh:order 1.0
 .
+
 bibliotheek:physicalDescriptionGroup a sh:PropertyGroup ;
   rdfs:label "Fysieke beschrijving"@nl ;
   sh:order 2.0
 .
+
 bibliotheek:contentDescriptionGroup a sh:PropertyGroup ;
   rdfs:label "Inhoudelijke beschrijving"@nl ;
   sh:order 3.0
 .
+
 bibliotheek:partOfGroup a sh:PropertyGroup ;
   rdfs:label "Onderdeel van / deel"@nl ;
   sh:order 4.0
 .
+
 bibliotheek:detailsGroup a sh:PropertyGroup ;
   rdfs:label "Bijzonderheden"@nl ;
   sh:order 4.5
 .
+
 bibliotheek:managementGroup a sh:PropertyGroup ;
   rdfs:label "Beheer"@nl ;
   sh:order 5.0

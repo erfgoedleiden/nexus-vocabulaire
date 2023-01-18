@@ -1,8 +1,19 @@
-@prefix elo:  <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab> .
+@prefix elo:  <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
 
-elo:redengevendeOmschrijving a rdfs:property;
+elo:redengevendeOmschrijving a rdf:Property ;
   rdfs:subPropertyOf rico:isAssociatedWithRule ;
   rdfs:label "Redengevende Omschrijving voor toekenning monumentstatus" ;
+.
+
+elo:opmerkingBeheerder a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Opmerking van beheerder" ;
+.
+
+elo:retro a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Opmerkingen uit eerdere documentatiemethode" ;
 .
