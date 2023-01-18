@@ -6,7 +6,7 @@ import re
 from argparse import ArgumentParser
 from collections import Counter
 from tempfile import TemporaryDirectory
-from typing import Dict
+from typing import Dict, List, Tuple
 from xml.sax import SAXParseException
 
 import pyshacl
@@ -80,6 +80,8 @@ def shacl_validate(data_filepath: str, shacl_filepath: str) -> None:
 def validate_single_use_shape_paths(graph: rdflib.Graph, config: Config) -> None:
     counter: Dict[SPARQLResult, int] = Counter()
 
+    duplicates: List[Tuple[str, int]] = []
+
     # Query all triples with shacle path relation
     objs_query = config['validation']['duplicate_detection_query']
     path_objects = graph.query(objs_query)
@@ -87,7 +89,10 @@ def validate_single_use_shape_paths(graph: rdflib.Graph, config: Config) -> None
 
     for result, count in counter.items():
         if count > 1:
-            raise ValueError(f'Duplicate ({count} times) sh:path: {result}')
+            duplicates.append((str(result), count))
+
+    if len(duplicates) > 0:
+        raise ValueError(f'Duplicate sh:path usage: \n {duplicates}')
 
 
 def check_uris(data_filepath: str, config: Config) -> None:
