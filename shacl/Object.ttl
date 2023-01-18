@@ -394,6 +394,7 @@ object:Architecture
       dash:editor  dash:TextAreaEditor ;
     ] ;
 .
+
 object:BagAddress
   a sh:NodeShape ;
   sh:closed true ;
