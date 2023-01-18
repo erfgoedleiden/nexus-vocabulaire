@@ -54,7 +54,8 @@ spec:
       # Negeer record URIs
       - /resources/records/
       - /resources/recordtypes/
-      # Negeer
+      # Negeer custom vocabulaire voor nu
+      - http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab
     # De "done" items worden gecontroleerd met het validatiescript
     done:
       - Aanwinst
