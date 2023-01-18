@@ -3,6 +3,7 @@
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix foaf:         <http://xmlns.com/foaf/0.1/> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
@@ -73,7 +74,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Beschrijving"@nl ;
     sh:maxCount 1 ;
-    sh:path dc:description ;
+    sh:path rico:descriptiveNote ;
     sh:order 11.0 ;
     sh:group av:contentDescriptionGroup ;
     sh:datatype xsd:string ;
@@ -82,7 +83,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Extra informatie"@nl ;
     sh:maxCount 1 ;
-    sh:path rico:descriptiveNote ;
+    sh:path elo:extraInformatie ;
     sh:order 12.0 ;
     sh:group av:contentDescriptionGroup ;
     sh:datatype xsd:string ;
@@ -203,7 +204,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Opmerking"@nl ;
     sh:maxCount 1 ;
-    sh:path rico:descriptiveNote ;
+    sh:path elo:opmerking ;
     sh:order 33.0 ;
     sh:group av:aquisitionGroup ;
     sh:datatype xsd:string ;
@@ -242,7 +243,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Opmerkingen beheer"@nl ;
     sh:maxCount 1 ;
-    sh:path rico:descriptiveNote ;
+    sh:path elo:opmerkingBeheerder ;
     sh:order 43.0 ;
     sh:group av:managementGroup ;
     sh:datatype xsd:string ;
