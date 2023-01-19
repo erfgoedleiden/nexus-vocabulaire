@@ -37,7 +37,7 @@ recordtypes:Restauratie
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Restauratie"@nl ;
     rdfs:comment "Restauratie - Erfgoed Leiden"@nl ;
-    dc:identifier "Restauratie" ;
+    dce:identifier "Restauratie" ;
     memorix:hasInformationComponent [ rdf:type  memorix:DigitalAssetComponent ] ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
