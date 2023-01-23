@@ -104,7 +104,6 @@ bijlage:List
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order     1.0 ;
-          # Zelfde sh:path als ↓ ??
           sh:path      elo:itemKolom1 ;
       ] ;
     sh:property [
@@ -112,7 +111,6 @@ bijlage:List
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order    2.0 ;
-          # Zelfde sh:path als ↑ ??
           sh:path     elo:itemKolom2 ;
       ] ;
 .
