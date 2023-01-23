@@ -288,7 +288,7 @@ recordtypes:Archiefblok
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
         sh:order    25.0 ;
-        sh:path rico:descriptiveNote ;
+        sh:path elo:verantwoording ;
         dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [

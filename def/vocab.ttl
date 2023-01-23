@@ -41,6 +41,11 @@ elo:aangemerktVoorVernietiging a rdfs:Property ;
   rdfs:label "Gedeelte voor vernietiging vatbaar" ;
 .
 
+elo:verantwoording a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Verantwoording" ;
+.
+
 ####################################
 # RiC-O identifier specializations #
 ####################################
