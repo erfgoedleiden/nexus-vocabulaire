@@ -1,6 +1,7 @@
 @prefix danielvdMeulen: </resources/recordtypes/DanielvdMeulen#> .
 @prefix dash:           <http://datashapes.org/dash#> .
 @prefix dc:             <http://purl.org/dc/terms/> .
+@prefix elo:            <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:           <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:        <http://memorix.io/ontology#> .
 @prefix rdf:            <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -33,7 +34,7 @@ recordtypes:DanielvdMeulen
   ] ;
   sh:property [
     rdfs:label  "Inventarisnummer"@nl ;
-    sh:path     rico:identifier ;
+    sh:path     elo:inventarisnummer ;
     memorix:inSummaryAt 2.0 ;
     sh:order    2.0 ;
     sh:group    danielvdMeulen:identificationGroup ;
@@ -41,7 +42,7 @@ recordtypes:DanielvdMeulen
   ] ;
   sh:property [
     rdfs:label  "Volgnummer"@nl ;
-    sh:path     rico:identifier ;
+    sh:path     elo:volgnummer ;
     memorix:inSummaryAt 3.0 ;
     sh:order    3.0 ;
     sh:group    danielvdMeulen:identificationGroup ;
