@@ -1,3 +1,4 @@
+@prefix bag:    <http://bag.basisregistraties.overheid.nl/def/bag#> .
 @prefix dc:     <http://purl.org/dc/terms/> .
 @prefix elo:    <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -184,4 +185,14 @@ elo:isVerwerkt a rdfs:Property ;
 elo:definitieveAcquisitie a rdfs:Property ;
   rdfs:subPropertyOf rico:hasRecordState ;
   rdfs:label "Definitieve acquisitie" ;
+.
+
+elo:huisnummerVan a rdfs:Property ;
+  rdfs:subPropertyOf bag:huisnummer ;
+  rdfs:label "Laagste huisnummer in een reeks aaneengesloten huisnummers" ;
+.
+
+elo:huisnummerTot a rdfs:Property ;
+  rdfs:subPropertyOf bag:huisnummer ;
+  rdfs:label "Hoogste huisnummer in een reeks aaneengesloten huisnummers" ;
 .

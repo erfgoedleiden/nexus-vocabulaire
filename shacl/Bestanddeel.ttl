@@ -344,7 +344,7 @@ bestanddeel:HistoricalAddress
         rdfs:label "Huisnummer van"@nl ;
         sh:maxCount 1 ;
         # Dit is een noodgreep. Hier bestaat geen goede property voor
-        sh:path bag:huisnummer ;
+        sh:path elo:huisnummerVan ;
         sh:order 3.0 ;
         sh:datatype xsd:string ;
     ] ;
@@ -352,7 +352,7 @@ bestanddeel:HistoricalAddress
         rdfs:label "Huisnummer tot"@nl ;
         sh:maxCount 1 ;
         # Dit is een noodgreep. Hier bestaat geen goede property voor
-        sh:path bag:huisnummer ;
+        sh:path elo:huisnummerTot ;
         sh:order 3.0 ;
         sh:datatype xsd:string ;
     ] ;
