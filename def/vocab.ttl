@@ -1,4 +1,5 @@
 @prefix bag:    <http://bag.basisregistraties.overheid.nl/def/bag#> .
+@prefix dbpo:   <http://dbpedia.org/ontology/> .
 @prefix dc:     <http://purl.org/dc/terms/> .
 @prefix elo:    <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -195,4 +196,29 @@ elo:huisnummerVan a rdfs:Property ;
 elo:huisnummerTot a rdfs:Property ;
   rdfs:subPropertyOf bag:huisnummer ;
   rdfs:label "Hoogste huisnummer in een reeks aaneengesloten huisnummers" ;
+.
+
+elo:tussenvoegsel a rdfs:Property ;
+  rdfs:subPropertyOf dbpo:prefix ;
+  rdfs:label "Tussenvoegsel" ;
+.
+
+elo:voorvoegsel a rdfs:Property ;
+  rdfs:subPropertyOf dbpo:prefix ;
+  rdfs:label "Voorvoegsel" ;
+.
+
+elo:gestandaardiseerdBeroep a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasOrHadOccupationOfType ;
+  rdfs:label "Gestandaardiseerd beroep" ;
+.
+
+elo:wijkNummer a rdfs:Property ;
+  rdfs:subPropertyOf schema:addressRegion ;
+  rdfs:label 'Wijknummer of Wijk huisnummer' ;
+.
+
+elo:wijkToevoeging a rdfs:Property ;
+  rdfs:subPropertyOf schema:addressRegion ;
+  rdfs:label 'Wijk toevoeging' ;
 .
