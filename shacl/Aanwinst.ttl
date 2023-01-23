@@ -282,7 +282,7 @@ recordtypes:Aanwinst
     sh:property [
         rdfs:label "Interne opmerking"@nl ;
         sh:maxCount 1 ;
-        sh:path rico:descriptiveNote ;
+        sh:path elo:opmerkingIntern ;
         sh:order 26.0 ;
         sh:group aanwinst:notesGroup ;
         sh:datatype xsd:string ;
