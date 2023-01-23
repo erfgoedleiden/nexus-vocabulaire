@@ -10,12 +10,18 @@
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
 
 restauratie:identificationGroup
     rdf:type   sh:PropertyGroup ;
     rdfs:label "Identificatie"@nl;
     sh:order   1.0 .
+
+restauratie:regardsGroup
+    rdf:type   sh:PropertyGroup ;
+    rdfs:label "Betreft"@nl;
+    sh:order   1.5 .
 
 restauratie:descriptionGroup
     rdf:type   sh:PropertyGroup ;
@@ -31,26 +37,12 @@ recordtypes:Restauratie
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Restauratie"@nl ;
     rdfs:comment "Restauratie - Erfgoed Leiden"@nl ;
-    dc:identifier "Restauratie" ;
+    dce:identifier "Restauratie" ;
     memorix:hasInformationComponent [ rdf:type  memorix:DigitalAssetComponent ] ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass recordtypes:Restauratie ;
     dash:defaultViewForRole dash:all ;
-    sh:property [
-        sh:maxCount 99 ;
-        rdfs:label "Betreft"@nl ;
-        sh:group restauratie:identificationGroup ;
-        sh:path dc:subject ;
-        sh:order 1.0 ;
-        sh:nodeKind sh:IRI ;
-        sh:or (
-              [ sh:class recordtypes:Image ]
-              [ sh:class recordtypes:Bestanddeel ]
-              [ sh:class recordtypes:Bibliotheek ]
-        ) ;
-        dash:editor memorix:LinkedRecordEditor ;
-    ] ;
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Restauratienummer"@nl ;
@@ -77,6 +69,37 @@ recordtypes:Restauratie
         sh:datatype  xsd:integer ;
         sh:order     4.0 ;
         sh:path      rico:hasEndDate ;
+    ] ;
+    sh:property [
+        rdfs:label "Bestanddeel"@nl ;
+        sh:group restauratie:regardsGroup ;
+        sh:path restauratie:archive ;
+        sh:order 1.0 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class restauratie:Archive ;
+    ] ;
+    sh:property [
+        rdfs:label "Bibliotheek"@nl ;
+        sh:group restauratie:regardsGroup ;
+        sh:path restauratie:library ;
+        sh:order 2.0 ;
+        sh:nodeKind sh:IRI ;
+        sh:or (
+            [ sh:class recordtypes:Bibliotheek ]
+        ) ;
+        dash:editor memorix:LinkedRecordEditor ;
+    ] ;
+    sh:property [
+        rdfs:label "Beeldcollectie"@nl ;
+        sh:group restauratie:regardsGroup ;
+        sh:path restauratie:image ;
+        sh:order 3.0 ;
+        sh:nodeKind sh:IRI ;
+        sh:or (
+            [ sh:class recordtypes:Image ]
+        ) ;
+        dash:editor memorix:LinkedRecordEditor ;
     ] ;
     sh:property [
         sh:maxCount 1 ;
@@ -120,8 +143,8 @@ recordtypes:Restauratie
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Reden restauratie"@nl ;
-        sh:group rico:ruleFollowed ;
-        sh:path restauratie:reason ;
+        sh:group restauratie:treatmentGroup ;
+        sh:path rico:ruleFollowed ;
         sh:order 9.0 ;
         sh:datatype xsd:string ;
         dash:editor  dash:TextAreaEditor ;
@@ -192,3 +215,37 @@ restauratie:Treatments
         dash:editor  dash:TextAreaEditor ;
     ] ;
 .
+restauratie:Archive
+    rdf:type             sh:NodeShape ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass       restauratie:Archive ;
+
+    sh:property [
+        rdfs:label  "Archief"@nl ;
+        sh:path     restauratie:archiveArchive ;
+        sh:order    1 ;
+        sh:nodeKind sh:IRI ;
+        sh:maxCount  1 ;
+        sh:or (
+            [ sh:class recordtypes:Archiefblok ]
+        ) ;
+        dash:editor memorix:LinkedRecordEditor ;
+    ] ;
+    sh:property [
+        rdfs:label  "Bestanddeel"@nl ;
+        # Dit is anders dan bibliotheek:"Ingebonden in": dat is een stringwaarde, dit is een verwijzing naar een record
+        memorix:conditionalLinkField restauratie:archiveArchive ;
+        memorix:linkField [
+            memorix:hasRecordType recordtypes:Bestanddeel ;
+            memorix:path rico:isOrWasIncludedIn ;
+        ];
+        sh:path     restauratie:archiveFile ;
+        sh:order    2.0 ;
+        sh:nodeKind sh:IRI ;
+        sh:or (
+            [ sh:class recordtypes:Bestanddeel ]
+        ) ;
+        dash:editor  memorix:ConditionalLinkFieldEditor ;
+    ] ;
+    .
