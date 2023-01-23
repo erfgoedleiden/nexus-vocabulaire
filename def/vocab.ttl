@@ -74,3 +74,13 @@ elo:contactnummer a rdfs:Property ;
   rdfs:subPropertyOf rico:identifier ;
   rdfs:label "Contactnummer" ;
 .
+
+elo:werkzaamBeginDatum a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Werkzame periode start";
+.
+
+elo:werkzaamEindDatum a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasEndDate ;
+  rdfs:label "Werkzame periode einde";
+.

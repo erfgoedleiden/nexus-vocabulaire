@@ -132,7 +132,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Werkzame periode start"@nl ;
-    sh:path rico:hasBeginningDate ;
+    sh:path elo:werkzaamBeginDatum ;
     dash:editor  memorix:DateEditor ;
     sh:datatype  xsd:integer ;
     sh:maxCount 1 ;
@@ -142,7 +142,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Werkzame periode eind"@nl ;
-    sh:path rico:hasEndDate ;
+    sh:path elo:werkzaamEindDatum ;
     dash:editor  memorix:DateEditor ;
     sh:datatype  xsd:integer ;
     sh:maxCount 1 ;
