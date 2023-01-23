@@ -2,6 +2,7 @@
 @prefix bibliotheek:        </resources/recordtypes/Bibliotheek#> .
 @prefix dash:               <http://datashapes.org/dash#> .
 @prefix dc:                 <http://purl.org/dc/terms/> .
+@prefix elo:                <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:               <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:            <http://memorix.io/ontology#> .
 @prefix rdf:                <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -146,7 +147,7 @@ recordtypes:Archiefbibliotheek
     sh:property [
         rdfs:label  "Opmerkingen intern"@nl ;
         sh:maxCount 100 ;
-        sh:path     rico:descriptiveNote ;
+        sh:path     elo:opmerkingIntern ;
         sh:order    27.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -211,7 +212,7 @@ archiefbibliotheek:Notes
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order    3.0 ;
-          sh:path     rico:descriptiveNote ;
+          sh:path     elo:opmerkingIntern ;
           dash:editor dash:TextAreaEditor ;
       ] ;
 .

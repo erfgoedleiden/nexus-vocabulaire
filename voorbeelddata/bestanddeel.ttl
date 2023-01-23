@@ -1,6 +1,7 @@
 @prefix bestanddeel:  <https://lei-migrate.memorix.io/resources/recordtypes/Bestanddeel#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -68,7 +69,7 @@
                                        ] ;
         bestanddeel:notes              [ rdf:type                   bestanddeel:Notes ;
                                          bestanddeel:notesDate      20220112 ;
-                                         bestanddeel:notesInternal  "test" ;
+                                         elo:opmerkingIntern        "test" ;
                                          bestanddeel:notesUser      "Ellen"
                                        ] ;
         bestanddeel:notesPublic        "test" ;

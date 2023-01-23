@@ -104,7 +104,6 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:group     deed:remarksGroup ;
         sh:maxCount  1 ;
         sh:order     10.0 ;
-        # Zelfde sh:path als ↓ ??
         sh:path      rico:descriptiveNote
     ] ;
     sh:property              [
@@ -114,8 +113,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:group     deed:remarksGroup ;
         sh:maxCount  1 ;
         sh:order     10.5 ;
-        # Zelfde sh:path als ↑ ??
-        sh:path      elo:interneOpmerking
+        sh:path      elo:opmerkingIntern ;
     ] ;
     sh:property              [
         rdfs:label   "Gebeurtenis" ;

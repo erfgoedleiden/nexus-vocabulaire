@@ -1,19 +1,20 @@
-@prefix schema:       <http://schema.org/> .
 @prefix archiefblok:  </resources/recordtypes/Archiefblok#> .
-@prefix vocabularies: </resources/vocabularies/> .
-@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:      <http://memorix.io/ontology#> .
-@prefix sh:           <http://www.w3.org/ns/shacl#> .
-@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:  </resources/recordtypes/> .
-@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix bestanddeel:  </resources/recordtypes/Bestanddeel#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
-@prefix bestanddeel:  </resources/recordtypes/Bestanddeel#> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix groep:        </resources/recordtypes/Groep#> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  </resources/recordtypes/> .
 @prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix schema:       <http://schema.org/> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 archiefblok:identificationGroup
     rdf:type   sh:PropertyGroup ;
@@ -302,7 +303,7 @@ recordtypes:Archiefblok
     sh:property [
         rdfs:label "Opmerkingen intern"@nl ;
         sh:maxCount 100 ;
-        sh:path rico:descriptiveNote ;
+        sh:path elo:opmerkingIntern ;
         sh:order 27.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -366,7 +367,7 @@ archiefblok:Notes
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order    3.0 ;
-          sh:path archiefblok:notesInternal ;
+          sh:path elo:opmerkingIntern ;
           dash:editor  dash:TextAreaEditor ;
       ] ;
 .

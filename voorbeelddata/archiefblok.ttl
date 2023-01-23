@@ -2,6 +2,7 @@
 @prefix bestanddeel:  <https://example.memorix-test.nl/resources/recordtypes/Bestanddeel#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix groep:        <https://example.memorix-test.nl/resources/recordtypes/Groep#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
@@ -31,7 +32,7 @@
         archiefblok:keyword             <https://lei-migrate.memorix.io/resources/vocabularies/concepts/71820936-ce21-3e9c-aaee-d2618744d6eb> ;
         archiefblok:notes               [ rdf:type                   archiefblok:Notes ;
                                           archiefblok:notesDate      20210215 ;
-                                          archiefblok:notesInternal  "Omvang OK" ;
+                                          elo:opmerkingIntern        "Omvang OK" ;
                                           archiefblok:notesUser      "test"
                                         ] ;
         archiefblok:notesPublic         "test" ;
