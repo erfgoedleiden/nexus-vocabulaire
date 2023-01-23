@@ -1,6 +1,7 @@
 @prefix aanwinst:     </resources/recordtypes/Aanwinst#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -121,9 +122,7 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Datum eerste contact"@nl ;
         sh:order     8.0 ;
-        # Geen goed passende term
-        # Zelfde sh:path als ↓
-        sh:path      rico:isAssociatedWithDate ;
+        sh:path      elo:datumEersteContact ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -131,11 +130,9 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Overeenkomst gestuurd"@nl ;
+        rdfs:label   "Datum overeenkomst gestuurd"@nl ;
         sh:order     9.0 ;
-        # Geen goed passende term
-        # Zelfde sh:path als ↓
-        sh:path      rico:isAssociatedWithDate ;
+        sh:path      elo:datumOvereenkomstGestuurd ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -143,11 +140,9 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Overeenkomst retour"@nl ;
+        rdfs:label   "Datum overeenkomst retour"@nl ;
         sh:order     10.0 ;
-        # Geen goed passende term
-        # Zelfde sh:path als ↓
-        sh:path      rico:isAssociatedWithDate ;
+        sh:path      elo:datumOvereenkomstRetour ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -155,11 +150,9 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Akkoord Inspectie en Acquisitie"@nl ;
+        rdfs:label   "Datum akkoord Inspectie en Acquisitie"@nl ;
         sh:order     11.0 ;
-        # Geen goed passende term
-        # Zelfde sh:path als ↓
-        sh:path      rico:isAssociatedWithDate ;
+        sh:path      elo:datumAkkoordInspectieEnAcquisitie ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -167,11 +160,9 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Akkoord Restauratie"@nl ;
+        rdfs:label   "Datum akkoord Restauratie"@nl ;
         sh:order     12.0 ;
-        # Geen goed passende term
-        # Zelfde sh:path als ↓
-        sh:path      rico:isAssociatedWithDate ;
+        sh:path      elo:datumAkkoordRestauratie ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -181,9 +172,7 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "(Her)verpakking"@nl ;
         sh:order     14.0 ;
-        # Geen goed passende term
-        # Zelfde sh:path als ↓
-        sh:path      rico:isAssociatedWithDate ;
+        sh:path      elo:datumVerpakkingOfHerverpakking ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -193,9 +182,7 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Binnenkomst Depot"@nl ;
         sh:order     15.0 ;
-        # Geen goed passende term
-        # Zelfde sh:path als ↓
-        sh:path      rico:isAssociatedWithDate ;
+        sh:path      elo:datumBinnenkomstDepot ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -205,9 +192,7 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Akkoord schade inv."@nl ;
         sh:order     16.0 ;
-        # Geen goed passende term
-        # Zelfde sh:path als ↓
-        sh:path      rico:isAssociatedWithDate ;
+        sh:path      elo:datumAkkoordSchadeInventarisatie ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -217,9 +202,7 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label   "Datum ontvangen toegang"@nl ;
         sh:order     17.0 ;
-        # Geen goed passende term
-        # Zelfde sh:path als ↑
-        sh:path      rico:isAssociatedWithDate ;
+        sh:path      elo:datumOntvangenToegang ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -228,8 +211,7 @@ recordtypes:Aanwinst
     sh:property [
         rdfs:label "Definitieve acquisitie"@nl ;
         sh:maxCount 1 ;
-        # Geen goed passende term
-        sh:path      dc:valid ;
+        sh:path      elo:definitieveAcquisitie ;
         sh:order 18.0 ;
         sh:group aanwinst:acquisitionGroup ;
         sh:datatype xsd:boolean ;
@@ -237,7 +219,7 @@ recordtypes:Aanwinst
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Bijzonderheden inspectie"@nl ;
-        sh:path rico:descriptiveNote ;
+        sh:path elo:opmerkingBeheerder ;
         sh:order 19.0 ;
         sh:group aanwinst:acquisitionGroup ;
         sh:datatype xsd:string ;
@@ -256,7 +238,7 @@ recordtypes:Aanwinst
         sh:maxCount 1 ;
         rdfs:label "Niet openbare stukken - periode"@nl ;
         # Geen goed passende term
-        sh:path rico:descriptiveNote ;
+        sh:path elo:nietOpenbaarBereik ;
         sh:order 21.0 ;
         sh:group aanwinst:managementGroup ;
         sh:datatype xsd:string ;
@@ -265,8 +247,7 @@ recordtypes:Aanwinst
     sh:property [
         rdfs:label "Gedeelte voor vernietiging vatbaar"@nl ;
         sh:maxCount 1 ;
-        # Geen goed passende term
-        sh:path rico:descriptiveNote ;
+        sh:path elo:aangemerktVoorVernietiging ;
         sh:order 22.0 ;
         sh:group aanwinst:managementGroup ;
         sh:datatype xsd:boolean ;
@@ -293,8 +274,7 @@ recordtypes:Aanwinst
     sh:property [
         rdfs:label "Aanwinst verwerkt"@nl ;
         sh:maxCount 1 ;
-        # Geen goed passende term
-        sh:path dc:valid ;
+        sh:path elo:isVerwerkt  ;
         sh:order 25.0 ;
         sh:group aanwinst:managementGroup ;
         sh:datatype xsd:boolean ;

@@ -1,3 +1,4 @@
+@prefix dc:     <http://purl.org/dc/terms/> .
 @prefix elo:    <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
@@ -28,6 +29,16 @@ elo:retro a rdfs:Property ;
   rdfs:label "Opmerkingen uit eerdere documentatiemethode" ;
 .
 
+elo:nietOpenbaarBereik a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Niet openbare stukken - periode" ;
+.
+
+elo:aangemerktVoorVernietiging a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Gedeelte voor vernietiging vatbaar" ;
+.
+
 ####################################
 # RiC-O identifier specializations #
 ####################################
@@ -50,6 +61,55 @@ elo:nummerIdentiteitsbewijs a rdfs:Property ;
 elo:signatuur a rdfs:Property ;
   rdfs:subPropertyOf rico:identifier ;
   rdfs:label "Signatuur" ;
+.
+
+##############################
+# RiC-O date specializations #
+##############################
+
+elo:datumEersteContact a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum eerste contact" ;
+.
+
+elo:datumOvereenkomstGestuurd a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum overeenkomst gestuurd" ;
+.
+
+elo:datumOvereenkomstRetour a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasEndDate ;
+  rdfs:label "Datum overeenkomst retour" ;
+.
+
+elo:datumAkkoordInspectieEnAcquisitie a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum akkoord Inspectie en Acquisitie" ;
+.
+
+elo:datumAkkoordRestauratie a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum akkoord Restauratie" ;
+.
+
+elo:datumVerpakkingOfHerverpakking a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum (her)verpakking" ;
+.
+
+elo:datumBinnenkomstDepot a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum binnenkomst depot" ;
+.
+
+elo:datumAkkoordSchadeInventarisatie a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum akkoord schade-inventarisatie" ;
+.
+
+elo:datumOntvangenToegang a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum ontvangen toegang" ;
 .
 
 ###############################
@@ -114,4 +174,14 @@ elo:hoogteWaarde a rdfs:Property ;
 elo:breedteWaarde a rdfs:Property ;
   rdfs:subPropertyOf rico:hasUnitOfMeasurement ;
   rdfs:label "Breedte waarde" ;
+.
+
+elo:isVerwerkt a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasRecordState ;
+  rdfs:label "Geeft aan of het object of record verwerkt is" ;
+.
+
+elo:definitieveAcquisitie a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasRecordState ;
+  rdfs:label "Definitieve acquisitie" ;
 .
