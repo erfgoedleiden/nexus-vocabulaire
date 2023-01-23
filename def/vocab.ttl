@@ -2,6 +2,7 @@
 @prefix dbpo:   <http://dbpedia.org/ontology/> .
 @prefix dc:     <http://purl.org/dc/terms/> .
 @prefix elo:    <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
+@prefix person: <http://www.w3.org/ns/person#> .
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rico:   <https://www.ica.org/standards/RiC/ontology#> .
@@ -55,6 +56,16 @@ elo:inventarisnummer a rdfs:Property ;
   rdfs:label "Inventarisnummer" ;
 .
 
+elo:inventarisnummer2 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Inventarisnummer 2" ;
+.
+
+elo:inventarisnummer3 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Inventarisnummer 3" ;
+.
+
 elo:contactnummer a rdfs:Property ;
   rdfs:subPropertyOf rico:identifier ;
   rdfs:label "Contactnummer" ;
@@ -75,9 +86,29 @@ elo:folio a rdfs:Property ;
   rdfs:label "Folio" ;
 .
 
+elo:folio2 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Folio 2" ;
+.
+
+elo:folio3 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Folio 3" ;
+.
+
 elo:volgnummer a rdfs:Property ;
   rdfs:subPropertyOf rico:identifier ;
   rdfs:label "Volgnummer" ;
+.
+
+elo:volgnummer2 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Volgnummer 2" ;
+.
+
+elo:volgnummer3 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Volgnummer 3" ;
 .
 
 ##############################
@@ -127,6 +158,50 @@ elo:datumAkkoordSchadeInventarisatie a rdfs:Property ;
 elo:datumOntvangenToegang a rdfs:Property ;
   rdfs:subPropertyOf rico:hasBeginningDate ;
   rdfs:label "Datum ontvangen toegang" ;
+.
+
+##################################
+# RiC-O boundary specializations #
+##################################
+
+elo:noordgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Noordgrens" ;
+.
+
+elo:noordoostgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Noordoostgrens" ;
+.
+
+elo:oostgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Oostgrens" ;
+.
+
+elo:zuidoostgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Zuidoostgrens" ;
+.
+
+elo:zuidgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Zuidgrens" ;
+.
+
+elo:zuidwestgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Zuidwestgrens" ;
+.
+
+elo:westgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Westgrens" ;
+.
+
+elo:noordwestgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Noordwestgrens" ;
 .
 
 ###############################
@@ -218,6 +293,11 @@ elo:tussenvoegsel a rdfs:Property ;
   rdfs:label "Tussenvoegsel" ;
 .
 
+elo:tussenvoegsel2 a rdfs:Property ;
+  rdfs:subPropertyOf dbpo:prefix ;
+  rdfs:label "Tussenvoegsel 2" ;
+.
+
 elo:voorvoegsel a rdfs:Property ;
   rdfs:subPropertyOf dbpo:prefix ;
   rdfs:label "Voorvoegsel" ;
@@ -246,4 +326,34 @@ elo:leeftijd a rdfs:Property ;
 elo:verkorteTitel a rdfs:Property ;
   rdfs:subPropertyOf rico:hasOrHadTitle ;
   rdfs:label "Verkorte titel" ;
+.
+
+elo:voornaam a rdfs:Property ;
+  rdfs:subPropertyOf schema:givenName ;
+  rdfs:label "Voornaam" ;
+.
+
+elo:voornaam2 a rdfs:Property ;
+  rdfs:subPropertyOf schema:givenName ;
+  rdfs:label "Voornaam 2" ;
+.
+
+elo:achternaam a rdfs:Property ;
+                rdfs:subPropertyOf schema:familyName ;
+                rdfs:label "Achternaam" ;
+.
+
+elo:achternaam2 a rdfs:Property ;
+                rdfs:subPropertyOf schema:familyName ;
+                rdfs:label "Achternaam 2" ;
+.
+
+elo:patroniem a rdfs:Property ;
+  rdfs:subPropertyOf person:patronymicName ;
+  rdfs:label "Patroniem" ;
+.
+
+elo:patroniem2 a rdfs:Property ;
+  rdfs:subPropertyOf person:patronymicName ;
+  rdfs:label "Patroniem 2" ;
 .
