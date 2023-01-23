@@ -105,12 +105,12 @@ recordtypes:Archiefblok
     ] ;
     sh:property          [
         rdfs:label        "Samenvatting van de inhoud"@nl ;
-        sh:maxCount 1 ;
+        sh:maxCount       1 ;
         sh:datatype       xsd:string ;
         sh:group          archiefblok:descriptionGroup ;
         sh:order          4.0 ;
         sh:path           rico:scopeAndContent ;
-        dash:editor dash:TextAreaEditor ;
+        dash:editor       dash:TextAreaEditor ;
     ] ;
     sh:property [
         rdfs:label "Datering van archief"@nl ;
@@ -196,9 +196,9 @@ recordtypes:Archiefblok
             [ sh:class recordtypes:ActorOrganisatie ]
             [ sh:class recordtypes:ActorPersoon ]
         ) ;
-        sh:order     15.0 ;
-        sh:path      archiefblok:caregiver ;
-        sh:group archiefblok:contextGroup ;
+        sh:order    15.0 ;
+        sh:path     rico:hasOrHadController  ;
+        sh:group    archiefblok:contextGroup ;
     ] ;
     sh:property          [
         rdfs:label        "Geschiedenis van het archief"@nl ;
@@ -353,7 +353,7 @@ archiefblok:Notes
           dash:editor  memorix:DateEditor ;
           sh:datatype  xsd:integer ;
           sh:order     1.0 ;
-          sh:path      archiefblok:notesDate ;
+          sh:path      dc:date ;
       ] ;
     sh:property [
           rdfs:label "Gebruiker"@nl ;
@@ -363,11 +363,11 @@ archiefblok:Notes
           sh:path rico:hasOrHadAgentName ;
       ] ;
     sh:property [
-          rdfs:label "Opmerkingen intern"@nl ;
-          sh:maxCount 1 ;
-          sh:datatype xsd:string ;
-          sh:order    3.0 ;
-          sh:path elo:opmerkingIntern ;
-          dash:editor  dash:TextAreaEditor ;
+          rdfs:label    "Opmerkingen intern"@nl ;
+          sh:maxCount   1 ;
+          sh:datatype   xsd:string ;
+          sh:order      3.0 ;
+          sh:path       elo:opmerkingIntern ;
+          dash:editor   dash:TextAreaEditor ;
       ] ;
 .
