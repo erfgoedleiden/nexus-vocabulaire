@@ -201,7 +201,7 @@ recordtypes:Persoon
     rdfs:label "Relatie"@nl ;
     rdfs:comment "Relatie tussen personen"@nl ;
     sh:maxCount 10 ;
-    sh:path rico:isRelatedTo ;
+    sh:path rico:isAgentAssociatedWithAgent ;
     sh:order 1.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -282,7 +282,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Contactnummer"@nl ;
-    sh:path rico:identifier ;
+    sh:path elo:contactnummer ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
     sh:group persoon:contactInformationGroup ;
@@ -291,7 +291,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Opmerkingen bij contactinformatie"@nl ;
-    sh:path rico:descriptiveNote ;
+    sh:path elo:opmerkingContact ;
     sh:maxCount 1 ;
     sh:group persoon:contactInformationGroup ;
     sh:order 8.0 ;
@@ -423,6 +423,7 @@ persoon:PlaceOfActivity
     memorix:searchWeight 1.0 ;
   ]
 .
+
 persoon:Relation
   a sh:NodeShape ;
   sh:closed true ;
