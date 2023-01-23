@@ -27,6 +27,11 @@ elo:opmerkingIntern a rdfs:Property ;
   rdfs:label "Interne (niet-publieke) opmerking(en)" ;
 .
 
+elo:opmerking a rdfs:Property ;
+              rdfs:subPropertyOf rico:descriptiveNote ;
+              rdfs:label "Extra opmerkingen" ;
+.
+
 elo:retro a rdfs:Property ;
   rdfs:subPropertyOf rico:descriptiveNote ;
   rdfs:label "Opmerkingen uit eerdere documentatiemethode" ;
@@ -216,11 +221,6 @@ elo:naamKolom1 a rdfs:Property ;
 elo:extraInformatie a rdfs:Property ;
   rdfs:subPropertyOf rico:descriptiveNote ;
   rdfs:label "Extra beschrijvende overige informatie" ;
-.
-
-elo:opmerking a rdfs:Property ;
-  rdfs:subPropertyOf rico:descriptiveNote ;
-  rdfs:label "Extra opmerkingen" ;
 .
 
 elo:redengevendeOmschrijving a rdf:Property ;
