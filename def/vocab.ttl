@@ -4,6 +4,9 @@
 @prefix rico:   <https://www.ica.org/standards/RiC/ontology#> .
 @prefix schema: <http://schema.org/> .
 
+#########################################
+# RiC-O descriptiveNote specializations #
+#########################################
 
 elo:opmerkingBeheerder a rdfs:Property ;
   rdfs:subPropertyOf rico:descriptiveNote ;
@@ -25,24 +28,47 @@ elo:retro a rdfs:Property ;
   rdfs:label "Opmerkingen uit eerdere documentatiemethode" ;
 .
 
+####################################
+# RiC-O identifier specializations #
+####################################
+
+elo:inventarisnummer a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Inventarisnummer" ;
+.
+
+elo:contactnummer a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Contactnummer" ;
+.
+
+elo:nummerIdentiteitsbewijs a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Nummer identiteitsbewijs" ;
+.
+
+###############################
+# RiC-O misc. specializations #
+###############################
+
 elo:naamKolom1 a rdfs:Property ;
    rdfs:subPropertyOf rico:name ;
    rdfs:label "Naam uit eerste kolom" ;
 .
 
 elo:extraInformatie a rdfs:Property ;
-                    rdfs:subPropertyOf rico:descriptiveNote ;
-                    rdfs:label "Extra beschrijvende overige informatie" ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Extra beschrijvende overige informatie" ;
 .
 
 elo:opmerking a rdfs:Property ;
-              rdfs:subPropertyOf rico:descriptiveNote ;
-              rdfs:label "Extra opmerkingen" ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Extra opmerkingen" ;
 .
 
 elo:redengevendeOmschrijving a rdf:Property ;
-                             rdfs:subPropertyOf rico:isAssociatedWithRule ;
-                             rdfs:label "Redengevende Omschrijving voor toekenning monumentstatus" ;
+  rdfs:subPropertyOf rico:isAssociatedWithRule ;
+  rdfs:label "Redengevende Omschrijving voor toekenning monumentstatus" ;
 .
 
 elo:naamKolom2 a rdfs:Property ;
@@ -63,16 +89,6 @@ elo:itemKolom2 a rdfs:Property ;
 elo:bgtAdres a rdfs:Property ;
   rdfs:subPropertyOf rico:location ;
   rdfs:label "Adres in de Basisregistratie Grootschalige Topografie (BGT)" ;
-.
-
-elo:inventarisnummer a rdfs:Property ;
-  rdfs:subPropertyOf rico:identifier ;
-  rdfs:label "Inventarisnummer" ;
-.
-
-elo:contactnummer a rdfs:Property ;
-  rdfs:subPropertyOf rico:identifier ;
-  rdfs:label "Contactnummer" ;
 .
 
 elo:werkzaamBeginDatum a rdfs:Property ;

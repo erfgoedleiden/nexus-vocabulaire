@@ -1,6 +1,7 @@
 @prefix bezoekersregistratie:   </resources/recordtypes/Bezoekersregistratie#> .
 @prefix dash:                   <http://datashapes.org/dash#> .
 @prefix dc:                     <http://purl.org/dc/elements/1.1/> .
+@prefix elo:                    <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:                   <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:                <http://memorix.io/ontology#> .
 @prefix rdf:                    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -119,7 +120,7 @@ recordtypes:Bezoekersregistratie
     sh:property [
         rdfs:label "Nummer identiteitsbewijs"@nl ;
         sh:maxCount 1 ;
-        sh:path rico:identifier ;
+        sh:path elo:nummerIdentiteitsbewijs ;
         sh:order 9.0 ;
         sh:datatype xsd:string ;
         sh:group bezoekersregistratie:identificationGroup ;
