@@ -1,4 +1,5 @@
 @prefix blaeuAtlasPagina: </resources/recordtypes/BlaeuAtlasPagina#> .
+@prefix dce:              <http://purl.org/dc/elements/1.1/> .
 @prefix dbpo:             <http://dbpedia.org/ontology/> .
 @prefix vocabularies:     </resources/vocabularies/> .
 @prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
@@ -18,7 +19,7 @@ recordtypes:BlaeuAtlasPagina
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Blaeu Atlas pagina's"@nl ;
   rdfs:comment "Blaeu Atlas pagina's van Erfgoed Leiden"@nl ;
-  dc:identifier "BlaeuAtlasPagina" ;
+  dce:identifier "BlaeuAtlasPagina" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:BlaeuAtlasPagina ;

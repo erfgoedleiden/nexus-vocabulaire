@@ -2,6 +2,7 @@
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix geo:          <http://www.opengis.net/ont/geosparql#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
@@ -21,7 +22,7 @@ recordtypes:Object
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Object"@nl ;
   rdfs:comment "Erfgoedregister - Objecten van Erfgoed Leiden"@nl ;
-  dc:identifier "Object" ;
+  dce:identifier "Object" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:Object ;

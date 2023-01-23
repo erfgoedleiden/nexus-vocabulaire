@@ -1,6 +1,7 @@
 @prefix complex:      </resources/recordtypes/Complex#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix geo:          <http://www.opengis.net/ont/geosparql#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
@@ -17,7 +18,7 @@ recordtypes:Complex
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Complex"@nl ;
   rdfs:comment "Erfgoedregister - Complexen van Erfgoed Leiden"@nl ;
-  dc:identifier "Complex" ;
+  dce:identifier "Complex" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:Complex ;

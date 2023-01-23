@@ -1,6 +1,7 @@
 @prefix actorFamilie: </resources/recordtypes/ActorFamilie#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix foaf:         <http://xmlns.com/foaf/0.1/> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
@@ -37,7 +38,7 @@ recordtypes:ActorFamilie
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Familie"@nl ;
     rdfs:comment "Actoren - Familie - Erfgoed Leiden"@nl ;
-    dc:identifier "ActorFamilie" ;
+    dce:identifier "ActorFamilie" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass recordtypes:ActorFamilie ;

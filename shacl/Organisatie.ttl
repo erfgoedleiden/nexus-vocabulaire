@@ -1,6 +1,7 @@
 @prefix bag:          <http://bag.basisregistraties.overheid.nl/def/bag#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix foaf:         <http://xmlns.com/foaf/0.1/> .
 @prefix gn:           <http://www.geonames.org/ontology#> .
@@ -21,7 +22,7 @@ recordtypes:Organisatie
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Organisatie"@nl ;
   rdfs:comment "Organisaties voor Erfgoed Leiden"@nl ;
-  dc:identifier "Organisatie" ;
+  dce:identifier "Organisatie" ;
   sh:closed true ;
   memorix:copyrightHolderSource  true ;
   sh:ignoredProperties ( rdf:type ) ;

@@ -1,6 +1,7 @@
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix deed:         </resources/recordtypes/Deed#> .
 @prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
@@ -42,7 +43,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
     rdfs:comment                "Standaard Recordtype voor Aktes"@nl ;
     rdfs:label                  "Akte"@nl ;
     dash:defaultViewForRole     dash:all ;
-    dc:identifier               "Deed" ;
+    dce:identifier               "Deed" ;
     owl:equivalentClass         rico:Record ;
     memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
     sh:closed                   true ;

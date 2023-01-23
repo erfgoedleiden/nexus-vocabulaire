@@ -1,6 +1,7 @@
 @prefix blaeuAtlas:   </resources/recordtypes/BlaeuAtlas#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -16,7 +17,7 @@ recordtypes:BlaeuAtlas
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Blaeu Atlas"@nl ;
   rdfs:comment "Blaeu Atlas van Erfgoed Leiden"@nl ;
-  dc:identifier "BlaeuAtlas" ;
+  dce:identifier "BlaeuAtlas" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;

@@ -1,6 +1,7 @@
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
@@ -19,7 +20,7 @@ recordtypes:Woii
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "WOII"@nl ;
   rdfs:comment "WOII collectie van Erfgoed Leiden"@nl ;
-  dc:identifier "Woii" ;
+  dce:identifier "Woii" ;
   sh:closed true ;
   memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
   sh:ignoredProperties ( rdf:type ) ;

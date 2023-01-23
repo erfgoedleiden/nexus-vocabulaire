@@ -3,6 +3,7 @@
 @prefix dash:                 <http://datashapes.org/dash#> .
 @prefix dbpo:                 <http://dbpedia.org/ontology/> .
 @prefix dc:                   <http://purl.org/dc/terms/> .
+@prefix dce:                  <http://purl.org/dc/elements/1.1/> .
 @prefix erfgoedregisterAdres: </resources/recordtypes/ErfgoedregisterAdres#> .
 @prefix html:                 <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:              <http://memorix.io/ontology#> .
@@ -20,7 +21,7 @@ recordtypes:ErfgoedregisterAdres
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Adres"@nl ;
   rdfs:comment "Erfgoedregister - Adressen van Erfgoed Leiden"@nl ;
-  dc:identifier "ErfgoedregisterAdres" ;
+  dce:identifier "ErfgoedregisterAdres" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:ErfgoedregisterAdres ;

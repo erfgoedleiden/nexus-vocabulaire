@@ -2,6 +2,7 @@
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix gn:           <http://www.geonames.org/ontology#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
@@ -20,7 +21,7 @@ recordtypes:Bibliotheek
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Bibliotheek"@nl ;
   rdfs:comment "Bibliotheek collectie voor Erfgoed Leiden"@nl ;
-  dc:identifier "Bibliotheek" ;
+  dce:identifier "Bibliotheek" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:Bibliotheek ;

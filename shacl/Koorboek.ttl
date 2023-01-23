@@ -1,5 +1,6 @@
 @prefix dash:           <http://datashapes.org/dash#> .
 @prefix dc:             <http://purl.org/dc/terms/> .
+@prefix dce:            <http://purl.org/dc/elements/1.1/> .
 @prefix elo:            <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:           <http://www.w3.org/1999/xhtml/> .
 @prefix koorboekPagina: </resources/recordtypes/KoorboekPagina#> .
@@ -18,7 +19,7 @@ recordtypes:Koorboek
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Koorboeken"@nl ;
   rdfs:comment "Koorboeken van Erfgoed Leiden"@nl ;
-  dc:identifier "Koorboek" ;
+  dce:identifier "Koorboek" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:Koorboek ;
