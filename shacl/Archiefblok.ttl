@@ -101,7 +101,7 @@ recordtypes:Archiefblok
         sh:datatype       xsd:string ;
         sh:group          archiefblok:identificationGroup ;
         sh:order          3.0 ;
-        sh:path           rico:title
+        sh:path           elo:verkorteTitel ;
     ] ;
     sh:property          [
         rdfs:label        "Samenvatting van de inhoud"@nl ;
@@ -232,7 +232,7 @@ recordtypes:Archiefblok
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
         sh:order    19.0 ;
-        sh:path rico:hasOrHadTitle ;
+        sh:path dc:alternative ;
         dash:editor dash:TextAreaEditor ;
     ] ;
     sh:property [
@@ -249,7 +249,7 @@ recordtypes:Archiefblok
     sh:property [
         rdfs:label "Soort"@nl ;
         sh:maxCount  1 ;
-        sh:path rico:hasOrHadCategory ;
+        sh:path rico:hasContentOfType ;
         sh:order 21.0 ;
         sh:group archiefblok:accessGroup ;
         dash:editor             dash:EnumSelectEditor ;

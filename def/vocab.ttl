@@ -237,3 +237,8 @@ elo:leeftijd a rdfs:Property ;
   rdfs:subPropertyOf dbpo:age ;
   rdfs:label "Leeftijd, omschreven" ;
 .
+
+elo:verkorteTitel a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasOrHadTitle ;
+  rdfs:label "Verkorte titel" ;
+.
