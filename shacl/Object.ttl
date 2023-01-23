@@ -122,7 +122,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Opmerkingen beheer"@nl ;
-      sh:path dbpo:administrativeStatus ;
+      sh:path elo:opmerkingBeheerder ;
       sh:maxCount 1 ;
       sh:order 8.0 ;
       sh:group object:basicDataGroup ;
