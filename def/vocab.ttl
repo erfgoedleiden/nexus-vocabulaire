@@ -48,3 +48,8 @@ elo:opmerking a rdfs:Property ;
    rdfs:subPropertyOf rico:descriptiveNote ;
    rdfs:label "Extra opmerkingen" ;
 .
+
+elo:bgtAdres a rdfs:Property ;
+  rdfs:subPropertyOf rico:location ;
+  rdfs:label "Adres in de Basisregistratie Grootschalige Topografie (BGT)" ;
+.

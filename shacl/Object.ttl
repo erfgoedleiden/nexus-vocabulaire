@@ -204,7 +204,7 @@ recordtypes:Object
   sh:property [
       rdfs:label "Oorspronkelijke functie"@nl ;
       # Zelfde sh:path als ↑ ??
-      sh:path rico:hasOrHadPlaceType ;
+      sh:path schema:roleName ;
       sh:maxCount 1 ;
       sh:order 16.0 ;
       sh:group object:valueDataGroup ;
@@ -447,7 +447,6 @@ object:BgtTopography
     ] ;
   sh:property [
       rdfs:label "Situering"@nl ;
-      # Zelfde sh:path als ↓ ??
       sh:path rico:location ;
       sh:maxCount 1 ;
       sh:order 2.0 ;
@@ -456,8 +455,7 @@ object:BgtTopography
     ] ;
   sh:property [
       rdfs:label "BGT adres"@nl ;
-      # Zelfde sh:path als ↑ ??
-      sh:path rico:location ;
+      sh:path elo:bgtAdres ;
       sh:order 1.0 ;
       sh:datatype xsd:string ;
       dash:editor dash:TextFieldEditor ;
