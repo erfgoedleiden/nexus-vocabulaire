@@ -222,3 +222,8 @@ elo:wijkToevoeging a rdfs:Property ;
   rdfs:subPropertyOf schema:addressRegion ;
   rdfs:label 'Wijk toevoeging' ;
 .
+
+elo:leeftijd a rdfs:Property ;
+  rdfs:subPropertyOf dbpo:age ;
+  rdfs:label "Leeftijd, omschreven" ;
+.

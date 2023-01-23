@@ -147,7 +147,7 @@ recordtypes:Persoonsvermelding
         sh:maxCount  1 ;
         sh:group     persoonsvermelding:personListingGroup ;
         sh:order     8.0 ;
-        sh:path      foaf:age
+        sh:path      elo:leeftijd ;
     ] ;
     sh:property              [
         rdfs:label          "Geslacht"@nl ;
