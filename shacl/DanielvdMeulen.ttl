@@ -1,6 +1,7 @@
 @prefix danielvdMeulen: </resources/recordtypes/DanielvdMeulen#> .
 @prefix dash:           <http://datashapes.org/dash#> .
 @prefix dc:             <http://purl.org/dc/terms/> .
+@prefix dce:            <http://purl.org/dc/elements/1.1/> .
 @prefix elo:            <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:           <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:        <http://memorix.io/ontology#> .
@@ -18,7 +19,7 @@ recordtypes:DanielvdMeulen
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Daniel vd Meulen"@nl ;
   rdfs:comment "Daniel vd Meulen van Erfgoed Leiden"@nl ;
-  dc:identifier "DanielvdMeulen" ;
+  dce:identifier "DanielvdMeulen" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;

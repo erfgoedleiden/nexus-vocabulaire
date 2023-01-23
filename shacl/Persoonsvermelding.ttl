@@ -3,6 +3,7 @@
 @prefix dash:               <http://datashapes.org/dash#> .
 @prefix dbpo:               <http://dbpedia.org/ontology/> .
 @prefix dc:                 <http://purl.org/dc/terms/> .
+@prefix dce:                <http://purl.org/dc/elements/1.1/> .
 @prefix elo:                <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix foaf:               <http://xmlns.com/foaf/0.1/> .
 @prefix html:               <http://www.w3.org/1999/xhtml/> .
@@ -24,7 +25,7 @@ recordtypes:Persoonsvermelding
     rdfs:comment             "Standaard Recordtype voor Persoonsvermeldingen in Indexen"@nl ;
     rdfs:label               "Persoonsvermelding"@nl ;
     dash:defaultViewForRole  dash:all ;
-    dc:identifier            "Persoonsvermelding" ;
+    dce:identifier            "Persoonsvermelding" ;
     sh:closed                true ;
     sh:ignoredProperties     ( rdf:type ) ;
     sh:property              [

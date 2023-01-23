@@ -1,6 +1,7 @@
 @prefix bijlage:      </resources/recordtypes/Bijlage#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
@@ -28,7 +29,7 @@ recordtypes:Bijlage
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Bijlage"@nl ;
     rdfs:comment "Archief bijlagen - Erfgoed Leiden"@nl ;
-    dc:identifier "Bijlage" ;
+    dce:identifier "Bijlage" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass recordtypes:Bijlage ;

@@ -3,6 +3,7 @@
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix hgw:          </resources/recordtypes/HeiligeGeestWeeshuis#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
@@ -22,7 +23,7 @@ recordtypes:HeiligeGeestWeeshuis
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Heilige Geest Weeshuis"@nl ;
   rdfs:comment "Heilige Geest Weeshuis van Erfgoed Leiden"@nl ;
-  dc:identifier "HeiligeGeestWeeshuis" ;
+  dce:identifier "HeiligeGeestWeeshuis" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:HeiligeGeestWeeshuis ;

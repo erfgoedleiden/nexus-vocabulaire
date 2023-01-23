@@ -2,6 +2,7 @@
 @prefix bibliotheek:        </resources/recordtypes/Bibliotheek#> .
 @prefix dash:               <http://datashapes.org/dash#> .
 @prefix dc:                 <http://purl.org/dc/terms/> .
+@prefix dce:                <http://purl.org/dc/elements/1.1/> .
 @prefix elo:                <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:               <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:            <http://memorix.io/ontology#> .
@@ -44,7 +45,7 @@ recordtypes:Archiefbibliotheek
         dc:title               "Signaturen"
     ] ;
     memorix:typeOf        memorix:Fonds ;
-    dc:identifier        "Archiefbibliotheek" ;
+    dce:identifier        "Archiefbibliotheek" ;
     sh:targetClass       recordtypes:Archiefbibliotheek ;
     rdfs:subClassOf                 rico:RecordSet ;
     sh:closed            true ;

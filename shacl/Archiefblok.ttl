@@ -2,6 +2,7 @@
 @prefix bestanddeel:  </resources/recordtypes/Bestanddeel#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
 @prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix groep:        </resources/recordtypes/Groep#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
@@ -68,7 +69,7 @@ recordtypes:Archiefblok
         dc:title         "Groep"
     ] ;
     memorix:typeOf       memorix:Fonds ;
-    dc:identifier        "Archiefblok" ;
+    dce:identifier        "Archiefblok" ;
     sh:targetClass       recordtypes:Archiefblok ;
     rdfs:subClassOf      rico:RecordSet ;
     sh:closed            true ;

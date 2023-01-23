@@ -1,7 +1,8 @@
 @prefix actorOrganisatie: </resources/recordtypes/ActorOrganisatie#> .
 @prefix dash:             <http://datashapes.org/dash#> .
 @prefix dc:               <http://purl.org/dc/terms/> .
-@prefix elo:    <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
+@prefix dce:              <http://purl.org/dc/elements/1.1/> .
+@prefix elo:              <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix foaf:             <http://xmlns.com/foaf/0.1/> .
 @prefix html:             <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:          <http://memorix.io/ontology#> .
@@ -37,7 +38,7 @@ recordtypes:ActorOrganisatie
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Organisatie"@nl ;
     rdfs:comment "Actoren - Organisatie - Erfgoed Leiden"@nl ;
-    dc:identifier "ActorOrganisatie" ;
+    dce:identifier "ActorOrganisatie" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass recordtypes:ActorOrganisatie ;
