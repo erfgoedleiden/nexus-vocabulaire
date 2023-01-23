@@ -148,7 +148,7 @@ recordtypes:Persoon
     rdfs:label "Geboorte"@nl ;
     rdfs:comment "Geboorte Event"@nl ;
     sh:maxCount 1 ;
-    sh:path rico:isAssociatedWithEvent ;
+    sh:path rico:hasBirthDate ;
     sh:order 1.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -159,7 +159,7 @@ recordtypes:Persoon
     rdfs:label "Overlijden"@nl ;
     rdfs:comment "Overlijden Event"@nl ;
     sh:maxCount 1 ;
-    sh:path rico:isAssociatedWithEvent ;
+    sh:path rico:hasDeathDate ;
     sh:order 2.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
