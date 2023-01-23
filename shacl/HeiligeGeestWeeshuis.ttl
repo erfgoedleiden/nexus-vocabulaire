@@ -82,7 +82,7 @@ recordtypes:HeiligeGeestWeeshuis
   ] ;
   sh:property [
     rdfs:label "Woonplaats"@nl ;
-    sh:path bag:naamWoonplaats ;
+    sh:path bag:naam ;
     sh:order 8.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
