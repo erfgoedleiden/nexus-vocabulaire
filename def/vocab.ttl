@@ -31,6 +31,12 @@ elo:extraInformatie a rdfs:Property ;
                     rdfs:subPropertyOf rico:descriptiveNote ;
                     rdfs:label "Extra beschrijvende overige informatie" ;
 .
+
+elo:extraInformatie2 a rdfs:Property ;
+                    rdfs:subPropertyOf rico:descriptiveNote ;
+                    rdfs:label "Extra extra beschrijvende overige informatie" ;
+.
+
 elo:retro a rdfs:Property ;
   rdfs:subPropertyOf rico:descriptiveNote ;
   rdfs:label "Opmerkingen uit eerdere documentatiemethode" ;

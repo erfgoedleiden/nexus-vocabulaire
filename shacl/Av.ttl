@@ -204,7 +204,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Opmerking"@nl ;
     sh:maxCount 1 ;
-    sh:path elo:extraInformatie ;
+    sh:path elo:extraInformatie2 ;
     sh:order 33.0 ;
     sh:group av:aquisitionGroup ;
     sh:datatype xsd:string ;
