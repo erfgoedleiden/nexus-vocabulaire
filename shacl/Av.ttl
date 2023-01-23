@@ -194,9 +194,9 @@ recordtypes:Av
   sh:property [
     rdfs:label "Datum"@nl ;
     sh:maxCount 1 ;
+    sh:group av:aquisitionGroup ;
     # "The date and time of obtaining the product."
-    sh:group schema:ownedFrom ;
-    sh:path av:aquisitionDate ;
+    sh:path schema:ownedFrom ;
     sh:order 32.0 ;
     sh:datatype xsd:integer ;
     dash:editor memorix:DateEditor ;
