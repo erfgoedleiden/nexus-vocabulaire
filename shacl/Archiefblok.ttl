@@ -67,10 +67,10 @@ recordtypes:Archiefblok
         ] ;
         dc:title         "Groep"
     ] ;
-    memorix:typeOf        memorix:Fonds ;
+    memorix:typeOf       memorix:Fonds ;
     dc:identifier        "Archiefblok" ;
     sh:targetClass       recordtypes:Archiefblok ;
-    rdfs:subClassOf                 rico:RecordSet ;
+    rdfs:subClassOf      rico:RecordSet ;
     sh:closed            true ;
     sh:ignoredProperties ( rdf:type ) ;
     memorix:hasInformationComponent [ rdf:type  memorix:DepotLocationComponent ] ;
