@@ -1,6 +1,7 @@
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -67,7 +68,7 @@ recordtypes:Woii
   ] ;
   sh:property [
     rdfs:label "Signatuur"@nl ;
-    sh:path rico:identifier ;
+    sh:path elo:signatuur ;
     memorix:inTitleAt 2.0 ;
     sh:order 5.0 ;
     sh:group woII:identificationGroup ;
@@ -84,7 +85,7 @@ recordtypes:Woii
   ] ;
   sh:property [
     rdfs:label "Beschrijving"@nl ;
-    sh:path rico:descriptiveNote ;
+    sh:path dc:description ;
     sh:maxCount 100 ;
     sh:order 7.0 ;
     memorix:inSummaryAt 1.0 ;

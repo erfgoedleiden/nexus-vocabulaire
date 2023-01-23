@@ -47,6 +47,11 @@ elo:nummerIdentiteitsbewijs a rdfs:Property ;
   rdfs:label "Nummer identiteitsbewijs" ;
 .
 
+elo:signatuur a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Signatuur" ;
+.
+
 ###############################
 # RiC-O misc. specializations #
 ###############################
