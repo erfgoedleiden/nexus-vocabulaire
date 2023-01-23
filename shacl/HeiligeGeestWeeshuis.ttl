@@ -117,7 +117,7 @@ recordtypes:HeiligeGeestWeeshuis
   ] ;
   sh:property [
     rdfs:label "Functie"@nl ;
-    sh:path rico:hasOrHadOccupation ;
+    sh:path schema:roleName ;
     sh:order 15.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;
@@ -220,7 +220,7 @@ recordtypes:HeiligeGeestWeeshuis
   ] ;
   sh:property [
     rdfs:label "Functie van het perceel"@nl ;
-    sh:path schema:roleName ;
+    sh:path elo:perceelfunctie ;
     sh:order 29.0 ;
     sh:group hgw:identificationGroup ;
     sh:datatype xsd:string ;

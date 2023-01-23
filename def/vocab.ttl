@@ -357,3 +357,8 @@ elo:patroniem2 a rdfs:Property ;
   rdfs:subPropertyOf person:patronymicName ;
   rdfs:label "Patroniem 2" ;
 .
+
+elo:perceelfunctie a rdfs:Property ;
+  rdfs:subPropertyOf schema:roleName ;
+  rdfs:label "Functie van het perceel" ;
+.
