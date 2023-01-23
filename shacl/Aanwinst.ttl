@@ -130,7 +130,7 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Datum overeenkomst gestuurd"@nl ;
+        rdfs:label   "Overeenkomst gestuurd"@nl ;
         sh:order     9.0 ;
         sh:path      elo:datumOvereenkomstGestuurd ;
         sh:group     aanwinst:acquisitionGroup ;
@@ -140,7 +140,7 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Datum overeenkomst retour"@nl ;
+        rdfs:label   "Overeenkomst retour"@nl ;
         sh:order     10.0 ;
         sh:path      elo:datumOvereenkomstRetour ;
         sh:group     aanwinst:acquisitionGroup ;
@@ -150,7 +150,7 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Datum akkoord Inspectie en Acquisitie"@nl ;
+        rdfs:label   "Akkoord Inspectie en Acquisitie"@nl ;
         sh:order     11.0 ;
         sh:path      elo:datumAkkoordInspectieEnAcquisitie ;
         sh:group     aanwinst:acquisitionGroup ;
@@ -160,7 +160,7 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Datum akkoord Restauratie"@nl ;
+        rdfs:label   "Akkoord Restauratie"@nl ;
         sh:order     12.0 ;
         sh:path      elo:datumAkkoordRestauratie ;
         sh:group     aanwinst:acquisitionGroup ;
