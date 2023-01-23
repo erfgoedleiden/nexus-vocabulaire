@@ -58,3 +58,8 @@ elo:bgtAdres a rdfs:Property ;
   rdfs:subPropertyOf rico:location ;
   rdfs:label "Adres in de Basisregistratie Grootschalige Topografie (BGT)" ;
 .
+
+elo:inventarisnummer a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Inventarisnummer" ;
+.
