@@ -2,6 +2,7 @@
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix foaf:         <http://xmlns.com/foaf/0.1/> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix image:        </resources/recordtypes/Image#> .
@@ -91,7 +92,7 @@ recordtypes:Image
   sh:property [
     rdfs:label "Extra informatie"@nl ;
     sh:maxCount 1 ;
-    sh:path rico:descriptiveNote ;
+    sh:path elo:extraInformatie ;
     sh:order 12.0 ;
     sh:group image:contentDescriptionGroup ;
     sh:datatype xsd:string ;
@@ -125,7 +126,7 @@ recordtypes:Image
   sh:property [
     rdfs:label "Datering gebeurtenis"@nl ;
     sh:maxCount 1 ;
-    sh:path dc:date ;
+    sh:path rico:isAssociatedWithEvent ;
     sh:order 15.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -271,7 +272,7 @@ recordtypes:Image
   sh:property [
     rdfs:label "Opmerkingen beheer"@nl ;
     sh:maxCount 1 ;
-    sh:path rico:descriptiveNote ;
+    sh:path elo:opmerkingBeheerder ;
     sh:order 43.0 ;
     sh:group image:managementGroup ;
     sh:datatype xsd:string ;
@@ -427,7 +428,7 @@ image:Dimension
   ] ;
   sh:property [
     rdfs:label "Hoogte waarde"@nl ;
-    sh:path rico:hasUnitOfMeasurement ;
+    sh:path elo:hoogteWaarde ;
     sh:maxCount 1 ;
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
@@ -444,7 +445,7 @@ image:Dimension
   ] ;
   sh:property [
     rdfs:label "Breedte waarde"@nl ;
-    sh:path rico:hasUnitOfMeasurement ;
+    sh:path elo:breedteWaarde ;
     sh:maxCount 1 ;
     sh:order 4.0 ;
     dash:editor memorix:VocabularyEditor ;

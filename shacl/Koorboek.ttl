@@ -1,5 +1,6 @@
 @prefix dash:           <http://datashapes.org/dash#> .
 @prefix dc:             <http://purl.org/dc/terms/> .
+@prefix elo:            <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:           <http://www.w3.org/1999/xhtml/> .
 @prefix koorboekPagina: </resources/recordtypes/KoorboekPagina#> .
 @prefix koorboek:       </resources/recordtypes/Koorboek#> .
@@ -41,7 +42,7 @@ recordtypes:Koorboek
   ] ;
   sh:property [
     rdfs:label "Inventarisnummer"@nl ;
-    sh:path rico:identifier ;
+    sh:path elo:inventarisnummer ;
     memorix:inSummaryAt 2 ;
     sh:order 3.0 ;
     sh:group koorboek:identificationGroup ;

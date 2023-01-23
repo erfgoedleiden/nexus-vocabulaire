@@ -1,5 +1,6 @@
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix groep:        <https://lei-migrate.memorix.io/resources/recordtypes/Groep#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
@@ -17,7 +18,7 @@
         rdf:type                      recordtypes:Groep , memorix:Record ;
         groep:notes                   [ rdf:type             groep:Notes ;
                                         groep:notesDate      20220112 ;
-                                        groep:notesInternal  "Hoi Rein" ;
+                                        elo:opmerkingIntern  "Hoi Rein" ;
                                         groep:notesUser      "Rein van 't Veer"
                                       ] ;
         groep:notesPublic             "test" ;

@@ -1,6 +1,7 @@
 @prefix dash:               <http://datashapes.org/dash#> .
 @prefix dbpo:               <http://dbpedia.org/ontology/> .
 @prefix dc:                 <http://purl.org/dc/terms/> .
+@prefix elo:                <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:               <http://www.w3.org/1999/xhtml/> .
 @prefix isbd:               <http://iflastandards.info/ns/isbd/elements/> .
 @prefix leFranqVanBerkhey:  </resources/recordtypes/LeFranqVanBerkhey#> .
@@ -26,7 +27,7 @@ recordtypes:LeFranqVanBerkhey
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Signatuur"@nl ;
-    sh:path rico:identifier ;
+    sh:path elo:signatuur ;
     sh:order 1.0 ;
     memorix:inSummaryAt 1.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;

@@ -1,6 +1,7 @@
 @prefix actorOrganisatie: </resources/recordtypes/ActorOrganisatie#> .
 @prefix dash:             <http://datashapes.org/dash#> .
 @prefix dc:               <http://purl.org/dc/terms/> .
+@prefix elo:    <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix foaf:             <http://xmlns.com/foaf/0.1/> .
 @prefix html:             <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:          <http://memorix.io/ontology#> .
@@ -177,7 +178,7 @@ recordtypes:ActorOrganisatie
         sh:datatype xsd:string ;
         sh:order    16.0 ;
         dash:editor  dash:TextAreaEditor ;
-        sh:path rico:descriptiveNote ;
+        sh:path elo:opmerkingIntern ;
         sh:group actorOrganisatie:notesGroup ;
     ] ;
 .

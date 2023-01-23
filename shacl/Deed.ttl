@@ -2,6 +2,7 @@
 @prefix dbpo:         <http://dbpedia.org/ontology/> .
 @prefix dc:           <http://purl.org/dc/terms/> .
 @prefix deed:         </resources/recordtypes/Deed#> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
 @prefix owl:          <http://www.w3.org/2002/07/owl#> .
@@ -103,7 +104,6 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:group     deed:remarksGroup ;
         sh:maxCount  1 ;
         sh:order     10.0 ;
-        # Zelfde sh:path als ↓ ??
         sh:path      rico:descriptiveNote
     ] ;
     sh:property              [
@@ -113,8 +113,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:group     deed:remarksGroup ;
         sh:maxCount  1 ;
         sh:order     10.5 ;
-        # Zelfde sh:path als ↑ ??
-        sh:path      rico:descriptiveNote
+        sh:path      elo:opmerkingIntern ;
     ] ;
     sh:property              [
         rdfs:label   "Gebeurtenis" ;

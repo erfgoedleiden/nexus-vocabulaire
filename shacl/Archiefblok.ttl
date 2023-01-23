@@ -1,19 +1,20 @@
-@prefix schema:       <http://schema.org/> .
 @prefix archiefblok:  </resources/recordtypes/Archiefblok#> .
-@prefix vocabularies: </resources/vocabularies/> .
-@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
-@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix memorix:      <http://memorix.io/ontology#> .
-@prefix sh:           <http://www.w3.org/ns/shacl#> .
-@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix recordtypes:  </resources/recordtypes/> .
-@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix bestanddeel:  </resources/recordtypes/Bestanddeel#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
-@prefix bestanddeel:  </resources/recordtypes/Bestanddeel#> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix groep:        </resources/recordtypes/Groep#> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  </resources/recordtypes/> .
 @prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix schema:       <http://schema.org/> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: </resources/vocabularies/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 archiefblok:identificationGroup
     rdf:type   sh:PropertyGroup ;
@@ -66,10 +67,10 @@ recordtypes:Archiefblok
         ] ;
         dc:title         "Groep"
     ] ;
-    memorix:typeOf        memorix:Fonds ;
+    memorix:typeOf       memorix:Fonds ;
     dc:identifier        "Archiefblok" ;
     sh:targetClass       recordtypes:Archiefblok ;
-    rdfs:subClassOf                 rico:RecordSet ;
+    rdfs:subClassOf      rico:RecordSet ;
     sh:closed            true ;
     sh:ignoredProperties ( rdf:type ) ;
     memorix:hasInformationComponent [ rdf:type  memorix:DepotLocationComponent ] ;
@@ -100,16 +101,16 @@ recordtypes:Archiefblok
         sh:datatype       xsd:string ;
         sh:group          archiefblok:identificationGroup ;
         sh:order          3.0 ;
-        sh:path           rico:title
+        sh:path           elo:verkorteTitel ;
     ] ;
     sh:property          [
         rdfs:label        "Samenvatting van de inhoud"@nl ;
-        sh:maxCount 1 ;
+        sh:maxCount       1 ;
         sh:datatype       xsd:string ;
         sh:group          archiefblok:descriptionGroup ;
         sh:order          4.0 ;
         sh:path           rico:scopeAndContent ;
-        dash:editor dash:TextAreaEditor ;
+        dash:editor       dash:TextAreaEditor ;
     ] ;
     sh:property [
         rdfs:label "Datering van archief"@nl ;
@@ -195,9 +196,9 @@ recordtypes:Archiefblok
             [ sh:class recordtypes:ActorOrganisatie ]
             [ sh:class recordtypes:ActorPersoon ]
         ) ;
-        sh:order     15.0 ;
-        sh:path      archiefblok:caregiver ;
-        sh:group archiefblok:contextGroup ;
+        sh:order    15.0 ;
+        sh:path     rico:hasOrHadController  ;
+        sh:group    archiefblok:contextGroup ;
     ] ;
     sh:property          [
         rdfs:label        "Geschiedenis van het archief"@nl ;
@@ -231,7 +232,7 @@ recordtypes:Archiefblok
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
         sh:order    19.0 ;
-        sh:path rico:hasOrHadTitle ;
+        sh:path dc:alternative ;
         dash:editor dash:TextAreaEditor ;
     ] ;
     sh:property [
@@ -248,7 +249,7 @@ recordtypes:Archiefblok
     sh:property [
         rdfs:label "Soort"@nl ;
         sh:maxCount  1 ;
-        sh:path rico:hasOrHadCategory ;
+        sh:path rico:hasContentOfType ;
         sh:order 21.0 ;
         sh:group archiefblok:accessGroup ;
         dash:editor             dash:EnumSelectEditor ;
@@ -287,7 +288,7 @@ recordtypes:Archiefblok
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
         sh:order    25.0 ;
-        sh:path rico:descriptiveNote ;
+        sh:path elo:verantwoording ;
         dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [
@@ -302,7 +303,7 @@ recordtypes:Archiefblok
     sh:property [
         rdfs:label "Opmerkingen intern"@nl ;
         sh:maxCount 100 ;
-        sh:path rico:descriptiveNote ;
+        sh:path elo:opmerkingIntern ;
         sh:order 27.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
@@ -352,7 +353,7 @@ archiefblok:Notes
           dash:editor  memorix:DateEditor ;
           sh:datatype  xsd:integer ;
           sh:order     1.0 ;
-          sh:path      archiefblok:notesDate ;
+          sh:path      dc:date ;
       ] ;
     sh:property [
           rdfs:label "Gebruiker"@nl ;
@@ -362,11 +363,11 @@ archiefblok:Notes
           sh:path rico:hasOrHadAgentName ;
       ] ;
     sh:property [
-          rdfs:label "Opmerkingen intern"@nl ;
-          sh:maxCount 1 ;
-          sh:datatype xsd:string ;
-          sh:order    3.0 ;
-          sh:path archiefblok:notesInternal ;
-          dash:editor  dash:TextAreaEditor ;
+          rdfs:label    "Opmerkingen intern"@nl ;
+          sh:maxCount   1 ;
+          sh:datatype   xsd:string ;
+          sh:order      3.0 ;
+          sh:path       elo:opmerkingIntern ;
+          dash:editor   dash:TextAreaEditor ;
       ] ;
 .

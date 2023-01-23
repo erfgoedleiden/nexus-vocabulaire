@@ -1,6 +1,7 @@
 @prefix bijlage:      </resources/recordtypes/Bijlage#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -58,7 +59,7 @@ recordtypes:Bijlage
         sh:group bijlage:attacementGroup;
         sh:path rico:hasContentOfType ;
         sh:order 3.0 ;
-        dash:editor             dash:EnumSelectEditor ;
+        dash:editor dash:EnumSelectEditor ;
         sh:class skos:Concept ;
         memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/0e288be9-8887-3872-b082-906a55c0a755> ) ;
         sh:nodeKind sh:IRI ;
@@ -68,7 +69,7 @@ recordtypes:Bijlage
         sh:maxCount 1;
         sh:group bijlage:listGroup;
         # Zelfde sh:path als ↓ ??
-        sh:path rico:name ;
+        sh:path elo:naamKolom1 ;
         sh:datatype xsd:string ;
         sh:order    4.0 ;
     ] ;
@@ -77,7 +78,7 @@ recordtypes:Bijlage
         sh:maxCount 1;
         sh:group bijlage:listGroup;
         # Zelfde sh:path als ↑ ??
-        sh:path rico:name ;
+        sh:path elo:naamKolom2 ;
         sh:datatype xsd:string ;
         sh:order    5.0 ;
     ] ;
@@ -103,16 +104,13 @@ bijlage:List
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order     1.0 ;
-          # Zelfde sh:path als ↓ ??
-          sh:path      schema:itemListElement ;
+          sh:path      elo:itemKolom1 ;
       ] ;
     sh:property [
           rdfs:label "Tweede kolom"@nl ;
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order    2.0 ;
-          # Zelfde sh:path als ↑ ??
-          sh:path     schema:itemListElement ;
+          sh:path     elo:itemKolom2 ;
       ] ;
 .
-

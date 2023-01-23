@@ -3,6 +3,7 @@
 @prefix dash:               <http://datashapes.org/dash#> .
 @prefix dbpo:               <http://dbpedia.org/ontology/> .
 @prefix dc:                 <http://purl.org/dc/terms/> .
+@prefix elo:                <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix foaf:               <http://xmlns.com/foaf/0.1/> .
 @prefix html:               <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:            <http://memorix.io/ontology#> .
@@ -74,7 +75,7 @@ recordtypes:Persoonsvermelding
         sh:maxCount   10 ;
         sh:nodeKind   sh:BlankNode ;
         sh:order      1.0 ;
-        sh:path       rico:descriptiveNote
+        sh:path       dc:description ;
     ] ;
     sh:property              [
         rdfs:label         "Achtervoegsel"@nl ;
@@ -129,7 +130,7 @@ recordtypes:Persoonsvermelding
         sh:group     persoonsvermelding:remarksGroup ;
         sh:maxCount  1 ;
         sh:order     2.0 ;
-        sh:path      rico:descriptiveNote
+        sh:path      elo:opmerkingIntern
     ] ;
     sh:property              [
         rdfs:label         "Tussenvoegsel"@nl ;
@@ -138,7 +139,7 @@ recordtypes:Persoonsvermelding
         sh:datatype        xsd:string ;
         sh:group           persoonsvermelding:personListingGroup ;
         sh:order           2.6 ;
-        sh:path            dbpo:prefix
+        sh:path            elo:tussenvoegsel ;
     ] ;
     sh:property              [
         rdfs:label   "Leeftijd"@nl ;
@@ -146,7 +147,7 @@ recordtypes:Persoonsvermelding
         sh:maxCount  1 ;
         sh:group     persoonsvermelding:personListingGroup ;
         sh:order     8.0 ;
-        sh:path      dbpo:age
+        sh:path      elo:leeftijd ;
     ] ;
     sh:property              [
         rdfs:label          "Geslacht"@nl ;
@@ -165,7 +166,7 @@ recordtypes:Persoonsvermelding
         sh:datatype        xsd:string ;
         sh:group           persoonsvermelding:personListingGroup ;
         sh:order           0.5 ;
-        sh:path            dbpo:prefix
+        sh:path            elo:voorvoegsel ;
     ] ;
     sh:property              [
         rdfs:comment  "Locaties die voorkomen op de akte"@nl ;
@@ -235,7 +236,8 @@ persoonsvermelding:Details
         sh:minCount 1 ;
         sh:maxCount 1 ;
     ] ;
-    sh:property           [ rdfs:label          "Bijzonderheid - Type"@nl ;
+    sh:property           [
+    rdfs:label          "Bijzonderheid - Type"@nl ;
     sh:order            1.0 ;
     sh:path             rico:hasContentOfType ;
     sh:maxCount  1 ;
@@ -319,14 +321,14 @@ persoonsvermelding:Details
         sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
         sh:order     7.0 ;
-        sh:path      dbpo:district
+        sh:path      elo:wijkNummer ;
     ] ;
     sh:property           [
         rdfs:label   "Wijk toevoeging"@nl ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     8.0 ;
-        sh:path      dbpo:district
+        sh:path      elo:wijkToevoeging ;
     ] ;
     sh:property           [
         rdfs:label   "Gebuurte"@nl ;
@@ -400,16 +402,13 @@ persoonsvermelding:Profession
         rdfs:label          "Gestandaardiseerd beroep"@nl ;
         sh:maxCount  1 ;
         sh:order            2.0 ;
-        sh:path             rico:hasOrHadOccupationOfType ;
+        sh:path             elo:gestandaardiseerdBeroep ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
         memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/44f97a78-f417-4a89-a368-9882a5bf7c84> ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:targetClass        persoonsvermelding:Profession .
-
-
-
 
 persoonsvermelding:Event  rdf:type          sh:NodeShape ;
     sh:closed             true ;

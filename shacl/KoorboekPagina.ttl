@@ -1,6 +1,7 @@
 @prefix dash:           <http://datashapes.org/dash#> .
 @prefix dbpo:           <http://dbpedia.org/ontology/> .
 @prefix dc:             <http://purl.org/dc/terms/> .
+@prefix elo:            <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:           <http://www.w3.org/1999/xhtml/> .
 @prefix koorboekPagina: </resources/recordtypes/KoorboekPagina#> .
 @prefix memorix:        <http://memorix.io/ontology#> .
@@ -26,7 +27,7 @@ recordtypes:KoorboekPagina
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Koorboek"@nl ;
-    sh:path rico:identifier ;
+    sh:path rico:isOrWasPartOf ;
     sh:order 0.5 ;
     memorix:inTitleAt 1 ;
     sh:nodeKind sh:IRI ;
@@ -54,7 +55,7 @@ recordtypes:KoorboekPagina
   ] ;
   sh:property [
     rdfs:label "Folio"@nl ;
-    sh:path rico:identifier ;
+    sh:path elo:folio ;
     memorix:inSummaryAt 1 ;
     sh:order 4.0 ;
     sh:group koorboekPagina:identificationGroup ;
@@ -81,7 +82,7 @@ recordtypes:KoorboekPagina
   ] ;
   sh:property [
     rdfs:label "Volgnummer"@nl ;
-    sh:path rico:identifier ;
+    sh:path elo:volgnummer ;
     memorix:inSummaryAt 2 ;
     sh:order 7.0 ;
     sh:group koorboekPagina:identificationGroup ;

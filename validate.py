@@ -4,12 +4,15 @@ import logging
 import os
 import re
 from argparse import ArgumentParser
+from collections import Counter
 from tempfile import TemporaryDirectory
+from typing import Dict, List, Tuple
 from xml.sax import SAXParseException
 
 import pyshacl
 import rdflib
 import requests
+from rdflib.plugins.sparql.processor import SPARQLResult
 from tqdm import tqdm
 from retry import retry
 
@@ -74,17 +77,38 @@ def shacl_validate(data_filepath: str, shacl_filepath: str) -> None:
     assert conforms, f'{data_filepath} incorrect: {results_text}'
 
 
+def validate_single_use_shape_paths(graph: rdflib.Graph, config: Config) -> None:
+    counter: Dict[SPARQLResult, int] = Counter()
+
+    duplicates: List[Tuple[str, int]] = []
+
+    # Query all triples with shacle path relation
+    objs_query = config['validation']['duplicate_detection_query']
+    path_objects = graph.query(objs_query)
+    counter.update(path_objects)
+
+    for result, count in counter.items():
+        if count > 1:
+            duplicates.append((str(result), count))
+
+    if len(duplicates) > 0:
+        raise ValueError(f'Duplicate sh:path usage: \n {duplicates}')
+
+
 def check_uris(data_filepath: str, config: Config) -> None:
     """
-    This function will check _every_ URI in the sample graphs for being able to resolve. This will catch errors on
-    vocab typos, or small happy accidents on hash/slash-URI mishaps and the likes.
+    This function will check _every_ URI in the graphs for being able to resolve. This will catch errors on vocab typos,
+    or small happy accidents on hash/slash-URI mishaps and the likes.
 
     :param data_filepath: path to the data graph to validate URIs
+    :param config: a config object returned from load_config()
 
     :return: None
     """
     graph = rdflib.Graph()
     graph.parse(data_filepath)
+
+    validate_single_use_shape_paths(graph, config)
 
     for triple in tqdm(graph):
         validate_triple(triple, config)
@@ -156,6 +180,10 @@ def load_graph_from_uri(resolvable_part: str, content_type: str = 'application/r
         try:
             resolved_uri_graph.parse(tempfile, format=content_type)
         except SAXParseException:
+            with open(tempfile, 'rt') as f:
+                logging.error(f'Error loading {resolvable_part}: invalid XML \n {f.read()}')
+            raise
+        except TypeError:
             with open(tempfile, 'rt') as f:
                 logging.error(f'Error loading {resolvable_part}: invalid XML \n {f.read()}')
             raise

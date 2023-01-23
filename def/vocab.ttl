@@ -1,0 +1,364 @@
+@prefix bag:    <http://bag.basisregistraties.overheid.nl/def/bag#> .
+@prefix dbpo:   <http://dbpedia.org/ontology/> .
+@prefix dc:     <http://purl.org/dc/terms/> .
+@prefix elo:    <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
+@prefix person: <http://www.w3.org/ns/person#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rico:   <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema: <http://schema.org/> .
+
+#########################################
+# RiC-O descriptiveNote specializations #
+#########################################
+
+elo:opmerkingBeheerder a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Opmerking van beheerder" ;
+.
+
+elo:opmerkingContact a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Opmerking betreffende contact" ;
+.
+
+elo:opmerkingIntern a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Interne (niet-publieke) opmerking(en)" ;
+.
+
+elo:extraInformatie a rdfs:Property ;
+                    rdfs:subPropertyOf rico:descriptiveNote ;
+                    rdfs:label "Extra beschrijvende overige informatie" ;
+.
+
+elo:extraInformatie2 a rdfs:Property ;
+                    rdfs:subPropertyOf rico:descriptiveNote ;
+                    rdfs:label "Extra extra beschrijvende overige informatie" ;
+.
+
+elo:retro a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Opmerkingen uit eerdere documentatiemethode" ;
+.
+
+elo:nietOpenbaarBereik a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Niet openbare stukken - periode" ;
+.
+
+elo:aangemerktVoorVernietiging a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Gedeelte voor vernietiging vatbaar" ;
+.
+
+elo:verantwoording a rdfs:Property ;
+  rdfs:subPropertyOf rico:descriptiveNote ;
+  rdfs:label "Verantwoording" ;
+.
+
+####################################
+# RiC-O identifier specializations #
+####################################
+
+elo:inventarisnummer a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Inventarisnummer" ;
+.
+
+elo:inventarisnummer2 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Inventarisnummer 2" ;
+.
+
+elo:inventarisnummer3 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Inventarisnummer 3" ;
+.
+
+elo:contactnummer a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Contactnummer" ;
+.
+
+elo:nummerIdentiteitsbewijs a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Nummer identiteitsbewijs" ;
+.
+
+elo:signatuur a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Signatuur" ;
+.
+
+elo:folio a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Folio" ;
+.
+
+elo:folio2 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Folio 2" ;
+.
+
+elo:folio3 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Folio 3" ;
+.
+
+elo:volgnummer a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Volgnummer" ;
+.
+
+elo:volgnummer2 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Volgnummer 2" ;
+.
+
+elo:volgnummer3 a rdfs:Property ;
+  rdfs:subPropertyOf rico:identifier ;
+  rdfs:label "Volgnummer 3" ;
+.
+
+##############################
+# RiC-O date specializations #
+##############################
+
+elo:datumEersteContact a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum eerste contact" ;
+.
+
+elo:datumOvereenkomstGestuurd a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum overeenkomst gestuurd" ;
+.
+
+elo:datumOvereenkomstRetour a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasEndDate ;
+  rdfs:label "Datum overeenkomst retour" ;
+.
+
+elo:datumAkkoordInspectieEnAcquisitie a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum akkoord Inspectie en Acquisitie" ;
+.
+
+elo:datumAkkoordRestauratie a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum akkoord Restauratie" ;
+.
+
+elo:datumVerpakkingOfHerverpakking a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum (her)verpakking" ;
+.
+
+elo:datumBinnenkomstDepot a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum binnenkomst depot" ;
+.
+
+elo:datumAkkoordSchadeInventarisatie a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum akkoord schade-inventarisatie" ;
+.
+
+elo:datumOntvangenToegang a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum ontvangen toegang" ;
+.
+
+##################################
+# RiC-O boundary specializations #
+##################################
+
+elo:noordgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Noordgrens" ;
+.
+
+elo:noordoostgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Noordoostgrens" ;
+.
+
+elo:oostgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Oostgrens" ;
+.
+
+elo:zuidoostgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Zuidoostgrens" ;
+.
+
+elo:zuidgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Zuidgrens" ;
+.
+
+elo:zuidwestgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Zuidwestgrens" ;
+.
+
+elo:westgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Westgrens" ;
+.
+
+elo:noordwestgrens a rdfs:Property ;
+               rdfs:subPropertyOf schema:geo ;
+               rdfs:label "Noordwestgrens" ;
+.
+
+###############################
+# RiC-O misc. specializations #
+###############################
+
+elo:naamKolom1 a rdfs:Property ;
+   rdfs:subPropertyOf rico:name ;
+   rdfs:label "Naam uit eerste kolom" ;
+.
+
+elo:redengevendeOmschrijving a rdf:Property ;
+  rdfs:subPropertyOf rico:isAssociatedWithRule ;
+  rdfs:label "Redengevende Omschrijving voor toekenning monumentstatus" ;
+.
+
+elo:naamKolom2 a rdfs:Property ;
+   rdfs:subPropertyOf rico:name ;
+   rdfs:label "Naam uit tweede kolom" ;
+.
+
+elo:itemKolom1 a rdfs:Property ;
+   rdfs:subPropertyOf schema:itemListElement ;
+   rdfs:label "Naam uit eerste kolom" ;
+.
+
+elo:itemKolom2 a rdfs:Property ;
+   rdfs:subPropertyOf schema:itemListElement ;
+   rdfs:label "Naam uit eerste kolom" ;
+.
+
+elo:bgtAdres a rdfs:Property ;
+  rdfs:subPropertyOf rico:location ;
+  rdfs:label "Adres in de Basisregistratie Grootschalige Topografie (BGT)" ;
+.
+
+elo:werkzaamBeginDatum a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Werkzame periode start";
+.
+
+elo:werkzaamEindDatum a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasEndDate ;
+  rdfs:label "Werkzame periode einde";
+.
+
+elo:hoogteWaarde a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasUnitOfMeasurement ;
+  rdfs:label "Hoogte waarde" ;
+.
+
+elo:breedteWaarde a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasUnitOfMeasurement ;
+  rdfs:label "Breedte waarde" ;
+.
+
+elo:isVerwerkt a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasRecordState ;
+  rdfs:label "Geeft aan of het object of record verwerkt is" ;
+.
+
+elo:definitieveAcquisitie a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasRecordState ;
+  rdfs:label "Definitieve acquisitie" ;
+.
+
+elo:huisnummerVan a rdfs:Property ;
+  rdfs:subPropertyOf bag:huisnummer ;
+  rdfs:label "Laagste huisnummer in een reeks aaneengesloten huisnummers" ;
+.
+
+elo:huisnummerTot a rdfs:Property ;
+  rdfs:subPropertyOf bag:huisnummer ;
+  rdfs:label "Hoogste huisnummer in een reeks aaneengesloten huisnummers" ;
+.
+
+elo:tussenvoegsel a rdfs:Property ;
+  rdfs:subPropertyOf dbpo:prefix ;
+  rdfs:label "Tussenvoegsel" ;
+.
+
+elo:tussenvoegsel2 a rdfs:Property ;
+  rdfs:subPropertyOf dbpo:prefix ;
+  rdfs:label "Tussenvoegsel 2" ;
+.
+
+elo:voorvoegsel a rdfs:Property ;
+  rdfs:subPropertyOf dbpo:prefix ;
+  rdfs:label "Voorvoegsel" ;
+.
+
+elo:gestandaardiseerdBeroep a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasOrHadOccupationOfType ;
+  rdfs:label "Gestandaardiseerd beroep" ;
+.
+
+elo:wijkNummer a rdfs:Property ;
+  rdfs:subPropertyOf schema:addressRegion ;
+  rdfs:label 'Wijknummer of Wijk huisnummer' ;
+.
+
+elo:wijkToevoeging a rdfs:Property ;
+  rdfs:subPropertyOf schema:addressRegion ;
+  rdfs:label 'Wijk toevoeging' ;
+.
+
+elo:leeftijd a rdfs:Property ;
+  rdfs:subPropertyOf dbpo:age ;
+  rdfs:label "Leeftijd, omschreven" ;
+.
+
+elo:verkorteTitel a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasOrHadTitle ;
+  rdfs:label "Verkorte titel" ;
+.
+
+elo:voornaam a rdfs:Property ;
+  rdfs:subPropertyOf schema:givenName ;
+  rdfs:label "Voornaam" ;
+.
+
+elo:voornaam2 a rdfs:Property ;
+  rdfs:subPropertyOf schema:givenName ;
+  rdfs:label "Voornaam 2" ;
+.
+
+elo:achternaam a rdfs:Property ;
+                rdfs:subPropertyOf schema:familyName ;
+                rdfs:label "Achternaam" ;
+.
+
+elo:achternaam2 a rdfs:Property ;
+                rdfs:subPropertyOf schema:familyName ;
+                rdfs:label "Achternaam 2" ;
+.
+
+elo:patroniem a rdfs:Property ;
+  rdfs:subPropertyOf person:patronymicName ;
+  rdfs:label "Patroniem" ;
+.
+
+elo:patroniem2 a rdfs:Property ;
+  rdfs:subPropertyOf person:patronymicName ;
+  rdfs:label "Patroniem 2" ;
+.
+
+elo:perceelfunctie a rdfs:Property ;
+  rdfs:subPropertyOf schema:roleName ;
+  rdfs:label "Functie van het perceel" ;
+.
