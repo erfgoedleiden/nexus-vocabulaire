@@ -27,11 +27,10 @@ elo:opmerkingIntern a rdfs:Property ;
   rdfs:label "Interne (niet-publieke) opmerking(en)" ;
 .
 
-elo:opmerking a rdfs:Property ;
-              rdfs:subPropertyOf rico:descriptiveNote ;
-              rdfs:label "Extra opmerkingen" ;
+elo:extraInformatie a rdfs:Property ;
+                    rdfs:subPropertyOf rico:descriptiveNote ;
+                    rdfs:label "Extra beschrijvende overige informatie" ;
 .
-
 elo:retro a rdfs:Property ;
   rdfs:subPropertyOf rico:descriptiveNote ;
   rdfs:label "Opmerkingen uit eerdere documentatiemethode" ;
@@ -216,11 +215,6 @@ elo:noordwestgrens a rdfs:Property ;
 elo:naamKolom1 a rdfs:Property ;
    rdfs:subPropertyOf rico:name ;
    rdfs:label "Naam uit eerste kolom" ;
-.
-
-elo:extraInformatie a rdfs:Property ;
-  rdfs:subPropertyOf rico:descriptiveNote ;
-  rdfs:label "Extra beschrijvende overige informatie" ;
 .
 
 elo:redengevendeOmschrijving a rdf:Property ;
