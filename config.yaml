@@ -56,6 +56,8 @@ spec:
       - /resources/recordtypes/
       # Negeer custom vocabulaire voor nu
       - http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab
+      # Tijdelijke 500 error
+      - http://data.bibliotheken.nl/id/dataset/persons
     # De "done" items worden gecontroleerd met het validatiescript
     done:
       - Aanwinst
