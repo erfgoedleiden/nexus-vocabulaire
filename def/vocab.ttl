@@ -105,3 +105,13 @@ elo:werkzaamEindDatum a rdfs:Property ;
   rdfs:subPropertyOf rico:hasEndDate ;
   rdfs:label "Werkzame periode einde";
 .
+
+elo:hoogteWaarde a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasUnitOfMeasurement ;
+  rdfs:label "Hoogte waarde" ;
+.
+
+elo:breedteWaarde a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasUnitOfMeasurement ;
+  rdfs:label "Breedte waarde" ;
+.
