@@ -1,6 +1,7 @@
 @prefix bag:          <http://bag.basisregistraties.overheid.nl/def/bag#> .
 @prefix dash:         <http://datashapes.org/dash#> .
 @prefix dc:           <http://purl.org/dc/terms/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix foaf:         <http://xmlns.com/foaf/0.1/> .
 @prefix gn:           <http://www.geonames.org/ontology#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
@@ -112,7 +113,7 @@ recordtypes:Organisatie
   sh:property [
     rdfs:label "Oprichting"@nl ;
     sh:maxCount 1 ;
-    sh:path rico:isAssociatedWithEvent ;
+    sh:path rico:hasBeginningDate ;
     sh:order 1.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -122,7 +123,7 @@ recordtypes:Organisatie
   sh:property [
     rdfs:label "Ontbinding"@nl ;
     sh:maxCount 1 ;
-    sh:path rico:isAssociatedWithEvent ;
+    sh:path rico:hasEndDate ;
     sh:order 2.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -153,7 +154,7 @@ recordtypes:Organisatie
     rdfs:label "Plaats van werkzaamheid"@nl ;
     rdfs:comment "Plaatsen van werkzaamheid"@nl ;
     sh:maxCount 10 ;
-    sh:path schema:addressLocality ;
+    sh:path schema:workLocation ;
     sh:order 4.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -235,7 +236,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Contactnummer"@nl ;
-    sh:path rico:identifier ;
+    sh:path elo:contactnummer ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
     sh:group organisatie:contactInformationGroup ;
@@ -244,7 +245,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Opmerkingen bij contactinformatie"@nl ;
-    sh:path rico:descriptiveNote ;
+    sh:path elo:opmerkingContact ;
     sh:maxCount 1 ;
     sh:group organisatie:contactInformationGroup ;
     sh:order 8.0 ;
@@ -264,7 +265,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Opmerkingen beheer"@nl ;
-    sh:path rico:descriptiveNote ;
+    sh:path elo:opmerkingBeheerder ;
     sh:maxCount 1 ;
     sh:group organisatie:managementGroup ;
     sh:order 9.0 ;
@@ -272,6 +273,7 @@ recordtypes:Organisatie
     dash:editor  dash:TextAreaEditor ;
   ] ;
 .
+
 organisatie:FormationEvent
   a sh:NodeShape ;
   sh:closed true ;

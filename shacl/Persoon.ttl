@@ -189,7 +189,7 @@ recordtypes:Persoon
     rdfs:label "Plaats van werkzaamheid"@nl ;
     rdfs:comment "Plaatsen van werkzaamheid"@nl ;
     sh:maxCount 10 ;
-    sh:path schema:addressLocality ;
+    sh:path schema:workLocation ;
     sh:order 4.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
