@@ -80,7 +80,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         dash:editor memorix:LinkedRecordEditor ;
     ] ;
     sh:property [
-        rdfs:label  "Archief bestanddeel"@nl ;
+        rdfs:label  "Bestanddeel"@nl ;
         # Dit is anders dan bibliotheek:"Ingebonden in": dat is een stringwaarde, dit is een verwijzing naar een record
         memorix:conditionalLinkField deed:archive ;
         memorix:linkField [
