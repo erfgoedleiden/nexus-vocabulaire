@@ -79,7 +79,7 @@ recordtypes:ActorFamilie
         rdfs:label "Adres"@nl, "Address"@en ;
         sh:maxCount 1 ;
         sh:path schema:streetAddress ;
-        sh:datatype xsd:string;
+        sh:datatype xsd:string ;
         sh:group actorFamilie:contactGroup ;
         sh:order 6.0 ;
     ] ;
@@ -88,7 +88,7 @@ recordtypes:ActorFamilie
         rdfs:label "Postcode"@nl, "Zip code"@en ;
         sh:maxCount 1 ;
         sh:path schema:postalCode ;
-        sh:datatype xsd:string;
+        sh:datatype xsd:string ;
         sh:group actorFamilie:contactGroup ;
         sh:order 7.0 ;
     ] ;
@@ -96,7 +96,7 @@ recordtypes:ActorFamilie
         rdfs:label "Plaats"@nl, "City"@en ;
         sh:maxCount 1 ;
         sh:path schema:addressLocality ;
-        sh:datatype xsd:string;
+        sh:datatype xsd:string ;
         sh:group actorFamilie:contactGroup ;
         sh:order 8.0 ;
     ] ;
@@ -104,7 +104,7 @@ recordtypes:ActorFamilie
         rdfs:label "Land"@nl, "Country"@en ;
         sh:maxCount 1 ;
         sh:path schema:addressCountry ;
-        sh:datatype xsd:string;
+        sh:datatype xsd:string ;
         sh:group actorFamilie:contactGroup ;
         sh:order 9.0 ;
     ] ;
@@ -112,14 +112,14 @@ recordtypes:ActorFamilie
         rdfs:label "Telefoon"@nl, "Phone number"@en ;
         sh:maxCount 5 ;
         sh:path schema:telephone ;
-        sh:datatype xsd:string;
+        sh:datatype xsd:string ;
         sh:group actorFamilie:contactGroup ;
         sh:order 10.0 ;
     ] ;
     sh:property [
         rdfs:label "Email"@nl, "E-mail"@en ;
         sh:path schema:email ;
-        sh:datatype xsd:string;
+        sh:datatype xsd:string ;
         sh:maxCount 5 ;
         sh:group actorFamilie:contactGroup ;
         sh:order 11.0 ;
@@ -128,12 +128,12 @@ recordtypes:ActorFamilie
         rdfs:label "Website"@nl, "Website"@en ;
         sh:maxCount 1 ;
         sh:path foaf:homepage ;
-        sh:datatype xsd:string;
+        sh:datatype xsd:string ;
         sh:group actorFamilie:contactGroup ;
         sh:order 12.0 ;
     ] ;
     sh:property [
-        rdfs:label "Regels en/of afspraken"@nl, "Agreements"@en   ;
+        rdfs:label "Regels en/of afspraken"@nl, "Agreements"@en ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    14.0 ;
