@@ -32,7 +32,7 @@ aanwinst:acquisitionGroup
 
 aanwinst:managementGroup
     rdf:type   sh:PropertyGroup ;
-    rdfs:label "Beheer"@nl, "Manage"@en ;
+    rdfs:label "Beheer"@nl, "Management"@en ;
     sh:order 4.0 .
 
 aanwinst:notesGroup
