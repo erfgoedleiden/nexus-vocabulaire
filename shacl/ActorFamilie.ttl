@@ -18,26 +18,26 @@
 
 
 actorFamilie:identificationGroup a sh:PropertyGroup ;
-    rdfs:label "Identificatie"@nl ;
+    rdfs:label "Identificatie"@nl, "Identification"@en ;
     sh:order 1.0
 .
 actorFamilie:contactGroup a sh:PropertyGroup ;
-    rdfs:label "Contactgegevens"@nl ;
+    rdfs:label "Contactgegevens"@nl, "Contact"@en ;
     sh:order 2.0
 .
 actorFamilie:managementGroup a sh:PropertyGroup ;
-    rdfs:label "Beheer"@nl ;
+    rdfs:label "Beheer"@nl, "Manage"@en ;
     sh:order 3.0
 .
 actorFamilie:notesGroup a sh:PropertyGroup ;
-    rdfs:label "Opmerkingen"@nl ;
+    rdfs:label "Opmerkingen"@nl, "Remarks"@en ;
     sh:order 4.0
 .
 
 recordtypes:ActorFamilie
     a memorix:Recordtype, sh:NodeShape ;
-    rdfs:label "Familie"@nl ;
-    rdfs:comment "Actoren - Familie - Erfgoed Leiden"@nl ;
+    rdfs:label "Familie"@nl, "Family"@en ;
+    rdfs:comment "Actoren - Familie - Erfgoed Leiden"@nl, "Record type for Family - Erfgoed Leiden"@en ;
     dce:identifier "ActorFamilie" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -45,7 +45,7 @@ recordtypes:ActorFamilie
     dash:defaultViewForRole dash:all ;
 
     sh:property [
-        rdfs:label "Identificatiecode"@nl ;
+        rdfs:label "Identificatiecode"@nl, "Identification"@en ;
         sh:datatype xsd:string ;
         sh:maxCount 1 ;
         sh:group actorFamilie:identificationGroup ;
@@ -54,7 +54,8 @@ recordtypes:ActorFamilie
         sh:path rico:identifier ;
     ] ;
     sh:property [
-        rdfs:label "Naam"@nl ;
+        rdfs:label "Naam"@nl, "Name"@en ;
+        rdfs:comment "Naam van de gehele familie"@nl, "Name of a family"@en ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         memorix:inTitleAt 3.0 ;
@@ -63,7 +64,8 @@ recordtypes:ActorFamilie
         sh:group actorFamilie:identificationGroup ;
     ] ;
     sh:property [
-        rdfs:label "Identiek aan (extern)"@nl ;
+        rdfs:label "Identiek aan (extern)"@nl, "Is same as (external)"@en ;
+        rdfs:comment "Is identiek aan familie in andere terminologiebron"@nl, "Is same as family in external vocabulary"@en ;
         sh:path rico:isRelatedTo ;
         sh:maxCount 1 ;
         sh:order 3.0 ;
@@ -74,7 +76,7 @@ recordtypes:ActorFamilie
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Adres"@nl ;
+        rdfs:label "Adres"@nl, "Address"@en ;
         sh:maxCount 1 ;
         sh:path schema:streetAddress ;
         sh:datatype xsd:string;
@@ -83,7 +85,7 @@ recordtypes:ActorFamilie
     ] ;
 
     sh:property [
-        rdfs:label "Postcode"@nl ;
+        rdfs:label "Postcode"@nl, "Zip code"@en ;
         sh:maxCount 1 ;
         sh:path schema:postalCode ;
         sh:datatype xsd:string;
@@ -91,7 +93,7 @@ recordtypes:ActorFamilie
         sh:order 7.0 ;
     ] ;
     sh:property [
-        rdfs:label "Plaats"@nl ;
+        rdfs:label "Plaats"@nl, "City"@en ;
         sh:maxCount 1 ;
         sh:path schema:addressLocality ;
         sh:datatype xsd:string;
@@ -99,7 +101,7 @@ recordtypes:ActorFamilie
         sh:order 8.0 ;
     ] ;
     sh:property [
-        rdfs:label "Land"@nl ;
+        rdfs:label "Land"@nl, "Country"@en ;
         sh:maxCount 1 ;
         sh:path schema:addressCountry ;
         sh:datatype xsd:string;
@@ -107,7 +109,7 @@ recordtypes:ActorFamilie
         sh:order 9.0 ;
     ] ;
     sh:property [
-        rdfs:label "Telefoon"@nl ;
+        rdfs:label "Telefoon"@nl, "Phone number"@en ;
         sh:maxCount 5 ;
         sh:path schema:telephone ;
         sh:datatype xsd:string;
@@ -115,7 +117,7 @@ recordtypes:ActorFamilie
         sh:order 10.0 ;
     ] ;
     sh:property [
-        rdfs:label "Email"@nl ;
+        rdfs:label "Email"@nl, "E-mail"@en ;
         sh:path schema:email ;
         sh:datatype xsd:string;
         sh:maxCount 5 ;
@@ -123,7 +125,7 @@ recordtypes:ActorFamilie
         sh:order 11.0 ;
     ] ;
     sh:property [
-        rdfs:label "Website"@nl ;
+        rdfs:label "Website"@nl, "Website"@en ;
         sh:maxCount 1 ;
         sh:path foaf:homepage ;
         sh:datatype xsd:string;
@@ -131,7 +133,7 @@ recordtypes:ActorFamilie
         sh:order 12.0 ;
     ] ;
     sh:property [
-        rdfs:label "Regels en/of afspraken"@nl ;
+        rdfs:label "Regels en/of afspraken"@nl, "Agreements"@en   ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    14.0 ;
@@ -140,7 +142,7 @@ recordtypes:ActorFamilie
         sh:group actorFamilie:managementGroup ;
     ] ;
     sh:property [
-        rdfs:label "Contactpersoon"@nl ;
+        rdfs:label "Contactpersoon"@nl, "Contact"@en ;
         sh:maxCount 1 ;
         sh:nodeKind sh:IRI ;
         sh:group actorFamilie:managementGroup ;
@@ -152,7 +154,7 @@ recordtypes:ActorFamilie
         dash:editor memorix:LinkedRecordEditor ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen intern"@nl ;
+        rdfs:label "Opmerkingen intern"@nl, "Internal remarks"@en ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    16.0 ;
