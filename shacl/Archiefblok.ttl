@@ -76,14 +76,14 @@ recordtypes:Archiefblok
     sh:ignoredProperties ( rdf:type ) ;
     memorix:hasInformationComponent [ rdf:type  memorix:DepotLocationComponent ] ;
     sh:property          [
-        rdfs:label        "Nummer toegang"@nl ;
+        rdfs:label        "Identificatiecode"@nl ;
         sh:group          archiefblok:identificationGroup ;
         memorix:inTitleAt 1.0 ;
         sh:order          1.0 ;
         memorix:typeOf     memorix:Identifier ;
         sh:maxCount  1 ;
         sh:minCount 1 ;
-        sh:message        "Nummer toegang mag niet leeg zijn"@nl ;
+        sh:message        "Identificatiecode mag niet leeg zijn"@nl ;
         sh:path           rico:identifier ;
         sh:datatype       xsd:string
     ] ;
@@ -220,7 +220,7 @@ recordtypes:Archiefblok
         dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [
-        rdfs:label "Identificatiecode"@nl ;
+        rdfs:label "Nummer toegang"@nl ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
