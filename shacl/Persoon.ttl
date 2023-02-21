@@ -27,6 +27,8 @@ recordtypes:Persoon
   memorix:copyrightHolderSource  true ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
+  memorix:hasInformationComponent
+          [ rdf:type  memorix:DigitalAssetComponent ] ;
   sh:targetClass recordtypes:Persoon ;
   dash:defaultViewForRole dash:all ;
   sh:property [

@@ -25,6 +25,8 @@ recordtypes:Organisatie
   dce:identifier "Organisatie" ;
   sh:closed true ;
   memorix:copyrightHolderSource  true ;
+  memorix:hasInformationComponent
+          [ rdf:type  memorix:DigitalAssetComponent ] ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:Organisatie ;
   dash:defaultViewForRole dash:all ;
