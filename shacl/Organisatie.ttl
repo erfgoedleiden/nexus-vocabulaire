@@ -121,7 +121,7 @@ recordtypes:Organisatie
     sh:order 1.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
-    sh:class organisatie:FormationEvent ;
+    sh:class organisatie:BeginningEvent ;
     sh:group organisatie:lifeEventsGroup ;
   ] ;
   sh:property [
@@ -131,7 +131,7 @@ recordtypes:Organisatie
     sh:order 2.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
-    sh:class organisatie:DissolutionEvent ;
+    sh:class organisatie:EndEvent ;
     sh:group organisatie:lifeEventsGroup ;
   ] ;
   sh:property [
@@ -278,11 +278,11 @@ recordtypes:Organisatie
   ] ;
 .
 
-organisatie:FormationEvent
+organisatie:BeginningEvent
   a sh:NodeShape ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
-  sh:targetClass organisatie:FormationEvent ;
+  sh:targetClass organisatie:BeginningEvent ;
   sh:property [
     rdfs:label "Datum van oprichting"@nl, "Date of establishment"@en ;
     sh:path rico:hasBeginningDate ;
@@ -303,11 +303,11 @@ organisatie:FormationEvent
     # TODO dit moet een link naar Geonames worden
   ]
 .
-organisatie:DissolutionEvent
+organisatie:EndEvent
   a sh:NodeShape ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
-  sh:targetClass organisatie:DissolutionEvent ;
+  sh:targetClass organisatie:EndEvent ;
   sh:property [
     rdfs:label "Datum van ontbinding"@nl, "Date of dissolution"@en ;
     sh:path rico:hasEndDate ;
