@@ -20,23 +20,23 @@
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 deed:detailsGroup  rdf:type  sh:PropertyGroup ;
-    rdfs:label  "Bijzonderheden"@nl ;
+    rdfs:label  "Bijzonderheden"@nl, "Details"@en ;
     sh:order    5.0 .
 
 deed:personsGroup  rdf:type  sh:PropertyGroup ;
-    rdfs:label  "Personen"@nl ;
+    rdfs:label  "Personen"@nl, "People"@en ;
     sh:order    3.0 .
 
 deed:remarksGroup  rdf:type  sh:PropertyGroup ;
-    rdfs:label  "Opmerkingen"@nl ;
+    rdfs:label  "Opmerkingen"@nl, "Remarks"@en ;
     sh:order    6.0 .
 
 deed:locationsGroup  rdf:type  sh:PropertyGroup ;
-    rdfs:label  "Locaties"@nl ;
+    rdfs:label  "Locaties"@nl, "Locations"@en ;
     sh:order    2.0 .
 
 deed:deedGroup  rdf:type  sh:PropertyGroup ;
-    rdfs:label  "Akte"@nl ;
+    rdfs:label  "Akte"@nl, "Deed"@en ;
     sh:order    1.0 .
 
 recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
@@ -50,7 +50,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
     sh:ignoredProperties        ( rdf:type ) ;
     sh:targetClass              recordtypes:Deed ;
     sh:property              [
-        rdfs:label   "Titel"@nl ;
+        rdfs:label   "Titel"@nl, "Title"@en ;
         sh:datatype  xsd:string ;
         sh:maxCount  1 ;
         sh:group     deed:deedGroup ;
@@ -58,7 +58,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path      rico:title
     ] ;
     sh:property              [
-        rdfs:label   "Registernaam"@nl ;
+        rdfs:label   "Registernaam"@nl, "Name of the index"@en ;
         sh:datatype  xsd:string ;
         sh:maxCount  1 ;
         sh:group     deed:deedGroup ;
@@ -67,7 +67,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path      dbpo:heritageRegister
     ] ;
     sh:property [
-        rdfs:label  "Archief"@nl ;
+        rdfs:label  "Archief"@nl, "Fonds"@en ;
         sh:path     deed:archive ;
         sh:order    7.5 ;
         memorix:inTitleAt  3.5 ;
@@ -80,8 +80,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         dash:editor memorix:LinkedRecordEditor ;
     ] ;
     sh:property [
-        rdfs:label  "Bestanddeel"@nl ;
-        # Dit is anders dan bibliotheek:"Ingebonden in": dat is een stringwaarde, dit is een verwijzing naar een record
+        rdfs:label  "Bestanddeel"@nl, "Linked file"@en  ;
         memorix:conditionalLinkField deed:archive ;
         memorix:linkField [
             memorix:hasRecordType recordtypes:Bestanddeel ;
@@ -99,7 +98,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         dash:editor  memorix:ConditionalLinkFieldEditor ;
     ] ;
     sh:property              [
-        rdfs:label   "Opmerkingen openbaar"@nl ;
+        rdfs:label   "Opmerkingen openbaar"@nl, "Remarks"@en ;
         dash:editor  dash:TextAreaEditor ;
         sh:datatype  xsd:string ;
         sh:group     deed:remarksGroup ;
@@ -108,7 +107,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path      rico:descriptiveNote
     ] ;
     sh:property              [
-        rdfs:label   "Opmerkingen intern"@nl ;
+        rdfs:label   "Opmerkingen intern"@nl, "Internal remarks"@en ;
         dash:editor  dash:TextAreaEditor ;
         sh:datatype  xsd:string ;
         sh:group     deed:remarksGroup ;
@@ -117,7 +116,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path      elo:opmerkingIntern ;
     ] ;
     sh:property              [
-        rdfs:label   "Gebeurtenis" ;
+        rdfs:label   "Gebeurtenis"@nl, "Event"@en ;
         dash:viewer  dash:DetailsEditor ;
         sh:class     deed:Event ;
         sh:group     deed:deedGroup ;
@@ -128,19 +127,18 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
     ] ;
     sh:property              [
         rdfs:comment  "Locaties die voorkomen op de akte"@nl ;
-        rdfs:label    "Locatie"@nl ;
+        rdfs:label    "Locatie"@nl, "Location"@en ;
         dash:viewer   dash:DetailsEditor ;
         sh:class      deed:Location ;
         sh:group      deed:locationsGroup ;
         sh:maxCount   999 ;
         sh:nodeKind   sh:BlankNode ;
         sh:order      6.0 ;
-        # "The location depicted or described in the content. For example, the location in a photograph or painting."
         sh:path       schema:contentLocation
     ] ;
     sh:property              [
         rdfs:comment  "Persoon die voorkomt op de akte en zijn rol"@nl ;
-        rdfs:label    "Persoon"@nl ;
+        rdfs:label    "Person observation"@en, "Persoonsvermelding"@nl ;
         dash:viewer   dash:DetailsEditor ;
         sh:class      deed:Person ;
         sh:group      deed:personsGroup ;
@@ -150,7 +148,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path       rico:hasOrHadSubject
     ] ;
     sh:property              [
-        rdfs:label           "Akte - Type"@nl ;
+        rdfs:label           "Akte - Type"@nl, "Deed type"@en ;
         memorix:inTitleAt    1.0 ;
 
         dash:editor          memorix:VocabularyEditor ;
@@ -163,7 +161,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path              rico:hasDocumentaryFormType
     ] ;
     sh:property              [
-        rdfs:label           "Datum registratie"@nl ;
+        rdfs:label           "Datum registratie"@nl, "Date of the record"@en ;
         dash:editor          memorix:DateEditor ;
         sh:maxCount          1 ;
         sh:datatype          xsd:integer ;
@@ -172,7 +170,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path              rico:creationDate
     ] ;
     sh:property              [
-        rdfs:label           "Aktenummer"@nl ;
+        rdfs:label           "Aktenummer"@nl, "Number of the deed"@en ;
         sh:maxCount  1 ;
         sh:datatype          xsd:string ;
         sh:group             deed:deedGroup ;
@@ -180,7 +178,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path              rico:identifier
     ] ;
     sh:property              [
-        rdfs:label           "Pagina"@nl ;
+        rdfs:label           "Pagina"@nl, "Page"@en ;
         sh:maxCount  1 ;
         sh:datatype          xsd:string ;
         sh:group             deed:deedGroup ;
@@ -191,14 +189,13 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
     ] ;
     sh:property              [
         rdfs:comment  "Bijzonderheid bij deze akte"@nl ;
-        rdfs:label    "Bijzonderheid"@nl ;
+        rdfs:label    "Bijzonderheid"@nl, "Details"@en ;
         dash:viewer   dash:DetailsEditor ;
         sh:class      deed:Details ;
         sh:group      deed:detailsGroup ;
         sh:maxCount   10 ;
         sh:nodeKind   sh:BlankNode ;
         sh:order      8.0 ;
-        # "Summary of the development of an entity, since its origin until present time."
         sh:path       rico:history
     ] ;
     sh:targetClass           recordtypes:Deed .
@@ -217,7 +214,7 @@ deed:Location  rdf:type       sh:NodeShape ;
         sh:maxCount 1 ;
     ] ;
     sh:property           [
-        rdfs:label   "Locatie - Type"@nl ;
+        rdfs:label   "Locatie - Type"@nl, "Location type"@en ;
         sh:order     1.0 ;
         sh:path      rico:hasOrHadPlaceType ;
         sh:maxCount  1 ;
@@ -227,9 +224,8 @@ deed:Location  rdf:type       sh:NodeShape ;
         sh:nodeKind  sh:IRI ;
     ] ;
     sh:property           [
-        rdfs:label   "Plaats"@nl ;
+        rdfs:label   "Plaats"@nl, "Place"@en ;
         sh:order     2.0 ;
-        # "The locality in which the street address is"
         sh:path      schema:addressLocality ;
         sh:maxCount  1 ;
         dash:editor  memorix:VocabularyEditor ;
@@ -238,7 +234,7 @@ deed:Location  rdf:type       sh:NodeShape ;
         sh:nodeKind  sh:IRI ;
     ] ;
     sh:property           [
-        rdfs:label   "Opmerking bij locatie"@nl ;
+        rdfs:label   "Opmerking bij locatie"@nl, "Remarks about Place"@en ;
         sh:maxCount  1 ;
         dash:editor  dash:TextAreaEditor ;
         sh:datatype  xsd:string ;
@@ -261,7 +257,7 @@ deed:Person  rdf:type         sh:NodeShape ;
         sh:maxCount 1 ;
     ] ;
     sh:property           [
-        rdfs:label   "Persoonsvermelding"@nl ;
+        rdfs:label   "Persoonsvermelding"@nl, "Person observation"@en ;
         sh:maxCount  1 ;
         dash:editor  memorix:LinkedRecordEditor ;
         memorix:inSummaryAt  1.0 ;
@@ -286,7 +282,7 @@ deed:Details  rdf:type        sh:NodeShape ;
         sh:maxCount 1 ;
     ] ;
     sh:property           [
-        rdfs:label   "Bijzonderheid - Type"@nl ;
+        rdfs:label   "Bijzonderheid - Type"@nl, "Detail type"@en ;
         sh:maxCount  1 ;
         sh:order     1.0 ;
         sh:path      rico:hasContentOfType ;
@@ -296,7 +292,7 @@ deed:Details  rdf:type        sh:NodeShape ;
         sh:nodeKind  sh:IRI ;
     ] ;
     sh:property           [
-        rdfs:label   "Bijzonderheid"@nl ;
+        rdfs:label   "Bijzonderheid"@nl, "Detail"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     2.0 ;
@@ -321,7 +317,7 @@ deed:Event  rdf:type          sh:NodeShape ;
         sh:maxCount 1 ;
     ] ;
     sh:property           [
-        rdfs:label         "Gebeurtenis - Type"@nl ;
+        rdfs:label         "Gebeurtenis - Type"@nl, "Event type"@en ;
         sh:maxCount  1 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
@@ -332,7 +328,7 @@ deed:Event  rdf:type          sh:NodeShape ;
         sh:path            rico:hasEventType
     ] ;
     sh:property           [
-        rdfs:label   "Datum gebeurtenis"@nl ;
+        rdfs:label   "Datum gebeurtenis"@nl, "Date of the event"@en ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
         sh:group     deed:deedGroup ;
