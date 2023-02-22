@@ -103,7 +103,7 @@ recordtypes:Bestanddeel
 
     sh:property [
         rdfs:label "Bereik en inhoud"@nl ;
-        rdfs:comment "Gebruiken als er een uitgebreide inhoudsbeschrijving nodig is, bijvoorbeeld per bladzijde"@nl ;
+        rdfs:comment "Uitgebreide inhoudsbeschrijving, bijvoorbeeld per bladzijde"@nl ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group bestanddeel:descriptionGroup ;
@@ -162,8 +162,6 @@ recordtypes:Bestanddeel
         # Dit is waarschijnlijk incorrect, dit moet vermoedelijk een link zijn
         sh:class    memorix:GeoCoordinates ;
         sh:order    10.0 ;
-        # Het is lastig om uit bovenstaande gegevens af te leiden waar het hier om gaat.
-        # memorix:GeoCoordinates -> Coordinaten? "BAG" -> Een pand identifier? Een adres identifier?
         sh:path     <http://bag.basisregistraties.overheid.nl/def/bag#identificatieVanPand> ;
     ] ;
         sh:property             [
@@ -178,9 +176,6 @@ recordtypes:Bestanddeel
     sh:property [
         rdfs:label "Digitaal geboren"@nl ;
         sh:maxCount 1 ;
-        # Dit is een lastige. De enige werkbare representatie van deze eigenschap staat in WikiData, maar de properties
-        # in WikiData zijn _genummerd_ in plaats van dat ze een menselijk leesbare naam hebben. De beste keus toch.
-        # "materials that originate in a digital form"
         sh:path wikidata:Q14083178 ;
         sh:order 12.0 ;
         sh:group bestanddeel:managementGroup ;
@@ -286,7 +281,6 @@ bestanddeel:PhysicalOrLogicalExtent
     sh:property [
         rdfs:label "Fysieke eenheid"@nl ;
         sh:maxCount 1 ;
-        # rico:CarrierType "Categorization of physical material in or on which information is represented"
         sh:path rico:hasCarrierType ;
         sh:order 2.0 ;
         dash:editor memorix:VocabularyEditor ;
@@ -302,7 +296,7 @@ bestanddeel:Reference
     sh:targetClass bestanddeel:Reference ;
     sh:property [
         rdfs:label   "Zie ook"@nl ;
-        rdfs:comment   "verwijzing naar een ander bestanddeel"@nl ;
+        rdfs:comment   "Verwijzing naar een ander bestanddeel"@nl ;
         sh:maxCount 1 ;
         sh:order     1.0 ;
         sh:path      rico:recordResourceRelationConnects ;
