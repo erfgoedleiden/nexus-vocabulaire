@@ -71,6 +71,7 @@ recordtypes:Bestanddeel
     ] ;
     sh:property          [
          rdfs:label        "Nummer bestanddeel"@nl ;
+         rdfs:comment "Inventarisnummer, eventueel met lettertoevoeging erachter. Bij een cijfertoevoeging moet er een + of - teken tussen . De + is het meest gebruikt"@nl ; 
          sh:group          bestanddeel:identificationGroup ;
          memorix:inTitleAt 1.0 ;
          sh:order          1.0 ;
@@ -83,6 +84,7 @@ recordtypes:Bestanddeel
      ] ;
     sh:property [
         rdfs:label   "Sorteervolgorde"@nl ;
+        rdfs:comment "Bepaalt de volgorde waarin Bestanddelen worden weergegeven"@nl ; 
         sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
         sh:group     bestanddeel:identificationGroup ;
@@ -101,6 +103,7 @@ recordtypes:Bestanddeel
 
     sh:property [
         rdfs:label "Bereik en inhoud"@nl ;
+        rdfs:comment "Gebruiken als er een uitgebreide inhoudsbeschrijving nodig is, bijvoorbeeld per bladzijde"@nl ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group bestanddeel:descriptionGroup ;
@@ -214,6 +217,7 @@ recordtypes:Bestanddeel
     ] ;
     sh:property [
         rdfs:label "Opmerkingen openbaar"@nl ;
+        rdfs:comment "Hier kan je aantekeningen noteren. Begin nb's met 'N.B.:'"@nl ;
         sh:maxCount 1 ;
         sh:path rico:descriptiveNote ;
         sh:order 26.0 ;
@@ -246,6 +250,7 @@ rico:DateRange
     ] ;
     sh:property [
         rdfs:label   "Periode (van)"@nl ;
+        rdfs:comment "Beginjaar van de periode. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:gYear ;
@@ -254,6 +259,7 @@ rico:DateRange
     ] ;
     sh:property [
         rdfs:label   "Periode (tot)"@nl ;
+        rdfs:comment "Eindjaar van de periode. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:gYear ;
