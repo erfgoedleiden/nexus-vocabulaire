@@ -23,13 +23,13 @@
 recordtypes:Persoonsvermelding
     rdf:type                 memorix:Recordtype , sh:NodeShape ;
     rdfs:comment             "Standaard Recordtype voor Persoonsvermeldingen in Indexen"@nl ;
-    rdfs:label               "Persoonsvermelding"@nl ;
+    rdfs:label               "Persoonsvermelding"@nl, "Person observation"@en ;
     dash:defaultViewForRole  dash:all ;
     dce:identifier            "Persoonsvermelding" ;
     sh:closed                true ;
     sh:ignoredProperties     ( rdf:type ) ;
     sh:property              [
-        rdfs:label   "Rol"@nl ;
+        rdfs:label   "Rol"@nl, "Role"@en ;
         sh:group     persoonsvermelding:personListingGroup ;
         sh:order     0.2 ;
         sh:maxCount 10 ;
@@ -41,7 +41,7 @@ recordtypes:Persoonsvermelding
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property              [
-        rdfs:label         "Voornaam"@nl ;
+        rdfs:label         "Voornaam"@nl,"First name"@en ;
         memorix:inTitleAt  1.0 ;
         sh:maxCount  1 ;
         sh:datatype        xsd:string ;
@@ -50,7 +50,7 @@ recordtypes:Persoonsvermelding
         sh:path            schema:givenName
     ] ;
     sh:property              [
-        rdfs:label         "Achternaam"@nl ;
+        rdfs:label         "Achternaam"@nl, "Surname"@en ;
         memorix:inTitleAt  3.0 ;
         sh:maxCount  1 ;
         sh:datatype        xsd:string ;
@@ -59,7 +59,7 @@ recordtypes:Persoonsvermelding
         sh:path            schema:familyName
     ] ;
     sh:property              [
-        rdfs:label   "Opmerkingen openbaar"@nl ;
+        rdfs:label   "Opmerkingen openbaar"@nl, "Remarks"@en ;
         dash:editor  dash:TextAreaEditor ;
         sh:datatype  xsd:string ;
         sh:group     persoonsvermelding:remarksGroup ;
@@ -69,7 +69,7 @@ recordtypes:Persoonsvermelding
     ] ;
     sh:property              [
         rdfs:comment  "Bijzonderheid bij deze akte"@nl ;
-        rdfs:label    "Bijzonderheid"@nl ;
+        rdfs:label    "Bijzonderheid"@nl, "Details"@en ;
         dash:viewer   dash:DetailsEditor ;
         sh:class      persoonsvermelding:Details ;
         sh:group      persoonsvermelding:detailsGroup ;
@@ -87,8 +87,7 @@ recordtypes:Persoonsvermelding
         sh:path            schema:honorificSuffix
     ] ;
     sh:property              [
-        # Wat is het verschil met sh:property [ rdfs:label "Leeftijd"@nl ... ] ???
-        rdfs:label   "Leeftijd (jaar)"@nl ;
+        rdfs:label   "Leeftijd (jaar)"@nl, "Age (year)"@en ;
         sh:datatype  xsd:integer ;
         sh:maxCount  1 ;
         sh:group     persoonsvermelding:personListingGroup ;
@@ -96,7 +95,7 @@ recordtypes:Persoonsvermelding
         sh:path      dbpo:age
     ] ;
     sh:property              [
-        rdfs:label   "Religie"@nl ;
+        rdfs:label   "Religie"@nl, "Religion"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:group     persoonsvermelding:personListingGroup ;
@@ -104,18 +103,16 @@ recordtypes:Persoonsvermelding
         sh:path      dbpo:religion
     ] ;
     sh:property              [
-        rdfs:label   "Titel"@nl ;
+        rdfs:label   "Titel"@nl, "Title"@en ;
         sh:datatype  xsd:string ;
         sh:group     persoonsvermelding:personListingGroup ;
         sh:maxCount  20 ;
         sh:order     3.7 ;
-        # Niet helemaal duidelijk wat voor "titel" hier wordt bedoeld.
-        # Is dit een koninklijke titel, een aanspreektitel of -vorm?
         sh:path      foaf:title
     ] ;
 
     sh:property              [
-        rdfs:label   "Gebeurtenis" ;
+        rdfs:label   "Gebeurtenis"@nl, "Event"@en ;
         dash:viewer  dash:DetailsEditor ;
         sh:class     persoonsvermelding:Event ;
         sh:group     persoonsvermelding:personListingGroup ;
@@ -125,7 +122,7 @@ recordtypes:Persoonsvermelding
         sh:path      rico:isAssociatedWithEvent
     ] ;
     sh:property              [
-        rdfs:label   "Opmerkingen intern"@nl ;
+        rdfs:label   "Opmerkingen intern"@nl, "Internal remarks"@en ;
         dash:editor  dash:TextAreaEditor ;
         sh:datatype  xsd:string ;
         sh:group     persoonsvermelding:remarksGroup ;
@@ -134,7 +131,7 @@ recordtypes:Persoonsvermelding
         sh:path      elo:opmerkingIntern
     ] ;
     sh:property              [
-        rdfs:label         "Tussenvoegsel"@nl ;
+        rdfs:label         "Tussenvoegsel"@nl, "Surname prefix"@en ;
         memorix:inTitleAt  2.5 ;
         sh:maxCount  1 ;
         sh:datatype        xsd:string ;
@@ -143,7 +140,7 @@ recordtypes:Persoonsvermelding
         sh:path            elo:tussenvoegsel ;
     ] ;
     sh:property              [
-        rdfs:label   "Leeftijd"@nl ;
+        rdfs:label   "Leeftijd"@nl, "Age"@en ;
         sh:datatype  xsd:string ;
         sh:maxCount  1 ;
         sh:group     persoonsvermelding:personListingGroup ;
@@ -151,7 +148,7 @@ recordtypes:Persoonsvermelding
         sh:path      elo:leeftijd ;
     ] ;
     sh:property              [
-        rdfs:label          "Geslacht"@nl ;
+        rdfs:label          "Geslacht"@nl, "Gender"@en ;
         sh:maxCount         1 ;
         sh:group            persoonsvermelding:personListingGroup ;
         sh:order            3.6 ;
@@ -171,7 +168,7 @@ recordtypes:Persoonsvermelding
     ] ;
     sh:property              [
         rdfs:comment  "Locaties die voorkomen op de akte"@nl ;
-        rdfs:label    "Locatie"@nl ;
+        rdfs:label    "Locatie"@nl, "Place"@en ;
         dash:viewer   dash:DetailsEditor ;
         sh:class      persoonsvermelding:Location ;
         sh:group      persoonsvermelding:locationsGroup ;
@@ -181,8 +178,8 @@ recordtypes:Persoonsvermelding
         sh:path       schema:contentLocation
     ] ;
     sh:property              [
-        rdfs:comment  "Beroepen die voorkomen op de akte"@nl ;
-        rdfs:label    "Beroep"@nl ;
+        rdfs:comment  "Beroepen die genoemd worden op de akte"@nl ;
+        rdfs:label    "Beroep"@nl, "Profession"@en ;
         dash:viewer   dash:DetailsEditor ;
         sh:class      persoonsvermelding:Profession ;
         sh:group      persoonsvermelding:personListingGroup ;
@@ -192,7 +189,7 @@ recordtypes:Persoonsvermelding
         sh:path       rico:hasOrHadOccupationOfType
     ] ;
     sh:property              [
-        rdfs:label         "Patroniem"@nl ;
+        rdfs:label         "Patroniem"@nl, "Patronymic"@en ;
         memorix:inTitleAt  2.0 ;
         sh:maxCount  1 ;
         sh:datatype        xsd:string ;
@@ -204,22 +201,22 @@ recordtypes:Persoonsvermelding
 
 persoonsvermelding:locationsGroup
     rdf:type    sh:PropertyGroup ;
-    rdfs:label  "Locaties"@nl ;
+    rdfs:label  "Locaties"@nl, "Places"@en ;
     sh:order    3.0 .
 
 persoonsvermelding:personListingGroup
     rdf:type    sh:PropertyGroup ;
-    rdfs:label  "Persoonsvermelding"@nl ;
+    rdfs:label  "Persoonsvermelding"@nl, "Person observation"@en  ;
     sh:order    1.0 .
 
 persoonsvermelding:detailsGroup
     rdf:type    sh:PropertyGroup ;
-    rdfs:label  "Bijzonderheden"@nl ;
+    rdfs:label  "Bijzonderheden"@nl, "Details"@en ;
     sh:order    4.0 .
 
 persoonsvermelding:remarksGroup
     rdf:type    sh:PropertyGroup ;
-    rdfs:label  "Opmerkingen"@nl ;
+    rdfs:label  "Opmerkingen"@nl, "Remarks"@en ;
     sh:order    5.0 .
 
 
@@ -238,7 +235,7 @@ persoonsvermelding:Details
         sh:maxCount 1 ;
     ] ;
     sh:property           [
-    rdfs:label          "Bijzonderheid - Type"@nl ;
+    rdfs:label          "Bijzonderheid - Type"@nl, "Detail type"@en ;
     sh:order            1.0 ;
     sh:path             rico:hasContentOfType ;
     sh:maxCount  1 ;
@@ -248,7 +245,7 @@ persoonsvermelding:Details
     sh:nodeKind sh:IRI ;
     ] ;
     sh:property           [
-    rdfs:label   "Bijzonderheid"@nl ;
+    rdfs:label   "Bijzonderheid"@nl, "Detail"@en ;
     sh:datatype  xsd:string ;
     sh:maxCount  1 ;
     sh:order     2.0 ;
@@ -271,7 +268,7 @@ persoonsvermelding:Details
         sh:maxCount 1 ;
     ] ;
     sh:property           [
-        rdfs:label          "Locatie - Type"@nl ;
+        rdfs:label          "Locatie - Type"@nl, "Location type"@en ;
         sh:maxCount         1 ;
         sh:order            1.0 ;
         sh:path             rico:hasOrHadPlaceType ;
@@ -281,35 +278,35 @@ persoonsvermelding:Details
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property           [
-        rdfs:label   "Straat"@nl ;
+        rdfs:label   "Straat"@nl, "Street"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     2.0 ;
         sh:path      schema:streetAddress
     ] ;
     sh:property           [
-        rdfs:label   "Huisnummer"@nl ;
+        rdfs:label   "Huisnummer"@nl, "House number"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
         sh:order     3.0 ;
         sh:path      bag:huisnummer
     ] ;
     sh:property           [
-        rdfs:label   "Toevoeging"@nl ;
+        rdfs:label   "Toevoeging"@nl, "Suffix"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     4.0 ;
         sh:path      bag:huisnummertoevoeging
     ] ;
     sh:property           [
-        rdfs:label   "Plaats"@nl ;
+        rdfs:label   "Plaats"@nl, "Place"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     5.0 ;
         sh:path      schema:addressLocality
     ] ;
     sh:property           [
-        rdfs:label   "Wijk"@nl ;
+        rdfs:label   "Wijk"@nl, "Neighbourhood"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     6.0 ;
@@ -318,14 +315,14 @@ persoonsvermelding:Details
     ] ;
     sh:property           [
         # Typo??? Wijk huisnummer -> Wijknummer?
-        rdfs:label   "Wijk huisnummer"@nl ;
+        rdfs:label   "Wijk huisnummer"@nl, "Neighbourhood house number"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
         sh:order     7.0 ;
         sh:path      elo:wijkNummer ;
     ] ;
     sh:property           [
-        rdfs:label   "Wijk toevoeging"@nl ;
+        rdfs:label   "Wijk toevoeging"@nl, "Neighbourhood suffix"@en;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     8.0 ;
@@ -340,15 +337,14 @@ persoonsvermelding:Details
         sh:path      brt:Buurtschap
     ] ;
     sh:property           [
-        # Typo??? "Bon" ??? -> "Bron"
-        rdfs:label   "Bron"@nl ;
+        rdfs:label   "Bon"@nl ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     10.0 ;
         sh:path      dc:source
     ] ;
     sh:property           [
-        rdfs:label   "Huisnaam"@nl ;
+        rdfs:label   "Huisnaam"@nl, "House name"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     11.0 ;
@@ -362,14 +358,14 @@ persoonsvermelding:Details
         sh:path      schema:workLocation
     ] ;
     sh:property           [
-        rdfs:label   "Locatie - Uri"@nl ;
+        rdfs:label   "Locatie - Uri"@nl, "Location URI"@en ;
         sh:datatype  xsd:string ;
         sh:maxCount  10 ;
         sh:order     14.0 ;
         sh:path      rico:hasOrHadLocation
     ] ;
     sh:property           [
-        rdfs:label   "Opmerking"@nl ;
+        rdfs:label   "Opmerking"@nl, "Remarks"@en ;
         sh:maxCount  1 ;
         dash:editor  dash:TextAreaEditor ;
         sh:datatype  xsd:string ;
@@ -393,14 +389,14 @@ persoonsvermelding:Profession
         sh:maxCount 1 ;
     ] ;
     sh:property              [
-        rdfs:label   "Beroep"@nl ;
+        rdfs:label   "Beroep"@nl, "Profession"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     1.0 ;
         sh:path      rico:hasOrHadOccupationOfType
     ] ;
     sh:property              [
-        rdfs:label          "Gestandaardiseerd beroep"@nl ;
+        rdfs:label          "Gestandaardiseerd beroep"@nl, "Standardized profession"@en ;
         sh:maxCount  1 ;
         sh:order            2.0 ;
         sh:path             elo:gestandaardiseerdBeroep ;
@@ -425,7 +421,7 @@ persoonsvermelding:Event  rdf:type          sh:NodeShape ;
         sh:maxCount 1 ;
     ] ;
     sh:property           [
-        rdfs:label         "Gebeurtenis - Type"@nl ;
+        rdfs:label         "Gebeurtenis - Type"@nl, "Event type"@en ;
         memorix:inSummaryAt  1.0 ;
         sh:maxCount  1 ;
         dash:editor memorix:VocabularyEditor ;
@@ -436,7 +432,7 @@ persoonsvermelding:Event  rdf:type          sh:NodeShape ;
         sh:path            rico:hasEventType
     ] ;
     sh:property           [
-        rdfs:label   "Datum gebeurtenis"@nl ;
+        rdfs:label   "Datum gebeurtenis"@nl, "Date of the event"@en ;
         memorix:inSummaryAt  2.0 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
