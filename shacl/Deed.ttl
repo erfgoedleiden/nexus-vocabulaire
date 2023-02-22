@@ -41,7 +41,7 @@ deed:deedGroup  rdf:type  sh:PropertyGroup ;
 
 recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
     rdfs:comment                "Standaard Recordtype voor Aktes"@nl ;
-    rdfs:label                  "Akte"@nl ;
+    rdfs:label                  "Akte"@nl, "Deed"@en ;
     dash:defaultViewForRole     dash:all ;
     dce:identifier               "Deed" ;
     owl:equivalentClass         rico:Record ;
