@@ -233,7 +233,7 @@ recordtypes:Archiefblok
         sh:path rico:hasOrHadIdentifier ;
     ] ;
     sh:property [
-        rdfs:label "Titel"@nl ;
+        rdfs:label "Titel toegang"@nl ;
         rdfs:comment "Voorbeeld: Plaatsingslijst van het archief van X, jjjj-jjjj."@nl ;   
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
