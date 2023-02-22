@@ -89,6 +89,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property          [
         rdfs:label        "Titel"@nl ;
+        rdfs:comment "Noteer hier alleen de naam van de familie of instelling, zonder het woord 'inventaris' en zonder periode"@nl ;                    
         sh:maxCount 1 ;
         sh:datatype       xsd:string ;
         sh:group          archiefblok:identificationGroup ;
@@ -134,7 +135,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Categorie"@nl ;
-        rdfs:comment "Alleen voor Leiden in detail invullen. Andere gemeenten alleen 'Overheid' of 'Particulier'"@nl ;
+        rdfs:comment "Alleen voor Leiden in detail invullen. Kies voor andere gemeenten alleen 'Overheid' en 'Particulier'"@nl ;
         sh:path rico:hasOrHadCategory ;
         sh:maxCount 1 ;
         sh:order 9.0 ;
@@ -191,7 +192,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label   "Zorgdrager"@nl ;
-        rdfs:comment "Wie betaalt er voor het beheer? Voorbeeld: Gemeente Leiden bij schenking, de regiogemeente bij overbrenging"@nl ;            
+        rdfs:comment "Noteer wie er betaalt er voor het beheer. Voorbeeld: Gemeente Leiden bij schenking, de regiogemeente bij overbrenging"@nl ;            
         dash:editor memorix:LinkedRecordEditor ;
         sh:maxCount  1 ;
         sh:nodeKind sh:IRI ;
@@ -233,7 +234,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Titel"@nl ;
-        rdfs:comment "Alleen de naam van de familie of instelling. Zonder het woord 'inventaris' en zonder periode"@nl ;   
+        rdfs:comment "Voorbeeld: Plaatsingslijst van het archief van X, jjjj-jjjj."@nl ;   
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
@@ -290,6 +291,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Verantwoording"@nl ;
+        rdfs:comment "Bijvoorbeeld een voorwoord uit een archiefinventaris van een stagiair"@nl ;             
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
