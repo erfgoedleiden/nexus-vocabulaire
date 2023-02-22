@@ -145,7 +145,7 @@ recordtypes:Bestanddeel
         sh:group bestanddeel:descriptionGroup ;
     ] ;
     sh:property [
-        rdfs:label "Historisch adres"@nl ;
+        rdfs:label "Adres"@nl ;
         sh:maxCount 100 ;
         sh:path schema:PostalAddress ;
         sh:order 9.0 ;
