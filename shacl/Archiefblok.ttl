@@ -98,6 +98,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property          [
         rdfs:label        "Verkorte titel"@nl ;
+        rdfs:comment "Uitsluitend gebruikt voor vaste afkortingen, zoals 'SA II'"@nl ;                    
         sh:maxCount 1 ;
         sh:datatype       xsd:string ;
         sh:group          archiefblok:identificationGroup ;
@@ -133,6 +134,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Categorie"@nl ;
+        rdfs:comment "Alleen voor Leiden in detail invullen. Andere gemeenten alleen 'Overheid' of 'Particulier'"@nl ;
         sh:path rico:hasOrHadCategory ;
         sh:maxCount 1 ;
         sh:order 9.0 ;
@@ -189,6 +191,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label   "Zorgdrager"@nl ;
+        rdfs:comment "Wie betaalt er voor het beheer? Voorbeeld: Gemeente Leiden bij schenking, de regiogemeente bij overbrenging"@nl ;            
         dash:editor memorix:LinkedRecordEditor ;
         sh:maxCount  1 ;
         sh:nodeKind sh:IRI ;
@@ -221,6 +224,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Nummer toegang"@nl ;
+        rdfs:comment "4 cijfers, evt. met toevoeging van 1 of meer letters, of passend binnen serie xxx.y.zz van Nieuwkoop/KaagEnBraassem"@nl ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
@@ -229,6 +233,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Titel"@nl ;
+        rdfs:comment "Alleen de naam van de familie of instelling. Zonder het woord 'inventaris' en zonder periode"@nl ;   
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
@@ -319,6 +324,7 @@ rico:DateRange
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [
         rdfs:label   "Periode"@nl ;
+        rdfs:comment "Periode van archief in tekstvorm"@nl ;
         sh:maxCount 1 ;
         sh:datatype  xsd:string ;
         sh:order     1.0 ;
@@ -326,6 +332,7 @@ rico:DateRange
     ] ;
     sh:property [
         rdfs:label   "Periode (van)"@nl ;
+        rdfs:comment "Beginjaar van de periode. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:gYear ;
@@ -334,6 +341,7 @@ rico:DateRange
     ] ;
     sh:property [
         rdfs:label   "Periode (tot)"@nl ;
+        rdfs:comment "Eindjaar van de periode. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:gYear ;
