@@ -22,27 +22,27 @@ archiefblok:identificationGroup
     rdfs:label "Identificatie"@nl , "Identification"@en ;
     sh:order   1.0 .
 archiefblok:descriptionGroup a sh:PropertyGroup ;
-    rdfs:label "Beschrijving"@nl ;
+    rdfs:label "Beschrijving"@nl, "Description"@en ;
     sh:order 2.0
 .
 archiefblok:contextGroup a sh:PropertyGroup ;
-    rdfs:label "Context"@nl ;
+    rdfs:label "Context"@nl, "Context"@en ;
     sh:order 3.0
 .
 archiefblok:accessGroup a sh:PropertyGroup ;
-    rdfs:label "Toegang"@nl ;
+    rdfs:label "Toegang"@nl, "Fonds"@en ;
     sh:order 4.0
 .
 archiefblok:notesGroup a sh:PropertyGroup ;
-    rdfs:label "Opmerkingen"@nl ;
+    rdfs:label "Opmerkingen"@nl, "Remarks"@en ;
     sh:order 5.0
 .
 
 recordtypes:Archiefblok
     rdf:type             sh:NodeShape,
                          memorix:Recordtype ;
-    rdfs:label           "Archiefblok"@nl ;
-    rdfs:comment "Archiefblok - Erfgoed Leiden"@nl ;
+    rdfs:label           "Archiefblok"@nl, "Fonds"@en  ;
+    rdfs:comment "Archiefblok - Erfgoed Leiden"@nl, "Fonds - Erfgoed Leiden"@en  ;
     memorix:hasInformationComponent
     [ rdf:type               memorix:HasRecordsComponent ;
         memorix:hasRecordType  recordtypes:Bestanddeel ;
@@ -76,19 +76,19 @@ recordtypes:Archiefblok
     sh:ignoredProperties ( rdf:type ) ;
     memorix:hasInformationComponent [ rdf:type  memorix:DepotLocationComponent ] ;
     sh:property          [
-        rdfs:label        "Identificatiecode"@nl ;
+        rdfs:label        "Identificatiecode"@nl, "Identification code"@en ;
         sh:group          archiefblok:identificationGroup ;
         memorix:inTitleAt 1.0 ;
         sh:order          1.0 ;
         memorix:typeOf     memorix:Identifier ;
         sh:maxCount  1 ;
         sh:minCount 1 ;
-        sh:message        "Identificatiecode mag niet leeg zijn"@nl ;
+        sh:message        "Identificatiecode mag niet leeg zijn"@nl, "This field can not be empty"@en ;
         sh:path           rico:identifier ;
         sh:datatype       xsd:string
     ] ;
     sh:property          [
-        rdfs:label        "Titel"@nl ;
+        rdfs:label        "Titel"@nl, "Title"@en ;
         rdfs:comment "Noteer hier alleen de naam van de familie of instelling, zonder het woord 'inventaris' en zonder periode"@nl ;                    
         sh:maxCount 1 ;
         sh:datatype       xsd:string ;
@@ -98,7 +98,7 @@ recordtypes:Archiefblok
         sh:path           rico:hasOrHadTitle
     ] ;
     sh:property          [
-        rdfs:label        "Verkorte titel"@nl ;
+        rdfs:label        "Verkorte titel"@nl, "Abbreviated title"@en ;
         rdfs:comment "Uitsluitend gebruikt voor vaste afkortingen, zoals 'SA II'"@nl ;                    
         sh:maxCount 1 ;
         sh:datatype       xsd:string ;
@@ -107,7 +107,7 @@ recordtypes:Archiefblok
         sh:path           elo:verkorteTitel ;
     ] ;
     sh:property          [
-        rdfs:label        "Samenvatting van de inhoud"@nl ;
+        rdfs:label        "Samenvatting van de inhoud"@nl, "Summary of the content"@en ;
         sh:maxCount       1 ;
         sh:datatype       xsd:string ;
         sh:group          archiefblok:descriptionGroup ;
@@ -116,7 +116,7 @@ recordtypes:Archiefblok
         dash:editor       dash:TextAreaEditor ;
     ] ;
     sh:property [
-        rdfs:label "Datering van archief"@nl ;
+        rdfs:label "Datering van archief"@nl, "Dates of accumulation"@en ;
         sh:maxCount 1 ;
         sh:path rico:isAssociatedWithDate ;
         sh:order 7.0 ;
@@ -126,7 +126,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:descriptionGroup ;
     ] ;
     sh:property [
-        rdfs:label   "Omvang (meters)"@nl ;
+        rdfs:label   "Omvang (meters)"@nl, "Extent (m)"@en ;
         sh:maxCount 1 ;
         sh:datatype  xsd:decimal ;
         sh:order     8.0 ;
@@ -134,7 +134,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:descriptionGroup ;
     ] ;
     sh:property [
-        rdfs:label "Categorie"@nl ;
+        rdfs:label "Categorie"@nl, "Category"@en ;
         rdfs:comment "Alleen voor Leiden in detail invullen. Kies voor andere gemeenten alleen 'Overheid' en 'Particulier'"@nl ;
         sh:path rico:hasOrHadCategory ;
         sh:maxCount 1 ;
@@ -146,7 +146,7 @@ recordtypes:Archiefblok
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Trefwoord"@nl ;
+        rdfs:label "Trefwoord"@nl, "Subject"@en ;
         sh:path schema:keywords ;
         sh:maxCount 10 ;
         sh:order 10.0 ;
@@ -157,7 +157,7 @@ recordtypes:Archiefblok
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label   "Bijlage"@nl ;
+        rdfs:label   "Bijlage"@nl, "Appendix"@en ;
         sh:order     11.0 ;
         sh:maxCount 100 ;
         sh:group archiefblok:descriptionGroup ;
@@ -169,7 +169,7 @@ recordtypes:Archiefblok
         dash:editor memorix:LinkedRecordEditor ;
     ] ;
     sh:property [
-        rdfs:label   "Archiefvormer"@nl ;
+        rdfs:label   "Archiefvormer"@nl, "Accumulator"@en ;
         sh:order     12.0 ;
         sh:maxCount 100 ;
         sh:path      rico:hasAccumulator ;
@@ -183,7 +183,7 @@ recordtypes:Archiefblok
         dash:editor memorix:LinkedRecordEditor ;
     ] ;
     sh:property          [
-        rdfs:label        "Instelling"@nl ;
+        rdfs:label        "Instelling"@nl, "Institution"@en ;
         sh:maxCount  1 ;
         sh:datatype       xsd:string ;
         sh:group          archiefblok:contextGroup ;
@@ -206,7 +206,7 @@ recordtypes:Archiefblok
         sh:group    archiefblok:contextGroup ;
     ] ;
     sh:property          [
-        rdfs:label        "Geschiedenis van het archief"@nl ;
+        rdfs:label        "Geschiedenis van het archief"@nl, "History of the fonds"@en ;
         sh:maxCount  1 ;
         sh:datatype       xsd:string ;
         sh:group          archiefblok:contextGroup ;
@@ -215,7 +215,7 @@ recordtypes:Archiefblok
         dash:editor dash:TextAreaEditor
     ] ;
     sh:property [
-        rdfs:label "Publicaties"@nl ;
+        rdfs:label "Publicaties"@nl, "Publications"@en ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group archiefblok:contextGroup ;
@@ -224,7 +224,7 @@ recordtypes:Archiefblok
         dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [
-        rdfs:label "Nummer toegang"@nl ;
+        rdfs:label "Nummer toegang"@nl, "Fonds number"@en  ;
         rdfs:comment "4 cijfers, evt. met toevoeging van 1 of meer letters, of passend binnen serie xxx.y.zz van Nieuwkoop/KaagEnBraassem"@nl ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
@@ -233,7 +233,7 @@ recordtypes:Archiefblok
         sh:path rico:hasOrHadIdentifier ;
     ] ;
     sh:property [
-        rdfs:label "Titel toegang"@nl ;
+        rdfs:label "Titel toegang"@nl, "Fonds title"@en  ;
         rdfs:comment "Voorbeeld: Plaatsingslijst van het archief van X, jjjj-jjjj."@nl ;   
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
@@ -243,7 +243,7 @@ recordtypes:Archiefblok
         dash:editor dash:TextAreaEditor ;
     ] ;
     sh:property [
-        rdfs:label "Status"@nl ;
+        rdfs:label "Status"@nl, "Status"@en ;
         sh:maxCount  1 ;
         sh:path rico:hasRecordState ;
         sh:order 20.0 ;
@@ -254,7 +254,7 @@ recordtypes:Archiefblok
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Soort"@nl ;
+        rdfs:label "Soort"@nl, "Type"@en ;
         sh:maxCount  1 ;
         sh:path rico:hasContentOfType ;
         sh:order 21.0 ;
@@ -265,7 +265,7 @@ recordtypes:Archiefblok
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Auteur"@nl ;
+        rdfs:label "Auteur"@nl, "Author"@en ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
@@ -273,7 +273,7 @@ recordtypes:Archiefblok
         sh:path rico:hasAuthor ;
     ] ;
     sh:property [
-        rdfs:label "Uitgever"@nl ;
+        rdfs:label "Uitgever"@nl, "Publisher"@en ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
@@ -281,7 +281,7 @@ recordtypes:Archiefblok
         sh:path rico:hasPublisher ;
     ] ;
     sh:property [
-        rdfs:label   "Datum van vervaardiging"@nl ;
+        rdfs:label   "Datum van vervaardiging"@nl, "Date of creation"@en ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -290,7 +290,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:accessGroup ;
     ] ;
     sh:property [
-        rdfs:label "Verantwoording"@nl ;
+        rdfs:label "Verantwoording"@nl, "Accountability"@en ;
         rdfs:comment "Bijvoorbeeld een voorwoord uit een archiefinventaris van een stagiair"@nl ;             
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
@@ -300,7 +300,7 @@ recordtypes:Archiefblok
         dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen openbaar"@nl ;
+        rdfs:label "Opmerkingen openbaar"@nl, "Remarks"@en ;
         sh:maxCount 1 ;
         sh:path rico:descriptiveNote ;
         sh:order 26.0 ;
@@ -309,7 +309,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:notesGroup ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen intern"@nl ;
+        rdfs:label "Opmerkingen intern"@nl, "Internal remarks"@en ;
         sh:maxCount 100 ;
         sh:path elo:opmerkingIntern ;
         sh:order 27.0 ;
@@ -325,7 +325,7 @@ rico:DateRange
     sh:closed            true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [
-        rdfs:label   "Periode"@nl ;
+        rdfs:label   "Periode"@nl, "Dates of accumulation"@en ;
         rdfs:comment "Periode van archief in tekstvorm"@nl ;
         sh:maxCount 1 ;
         sh:datatype  xsd:string ;
@@ -333,7 +333,7 @@ rico:DateRange
         sh:path      rico:expressedDate ;
     ] ;
     sh:property [
-        rdfs:label   "Periode (van)"@nl ;
+        rdfs:label   "Periode (van)"@nl, "Dates of accumulation (begin)"@en ;
         rdfs:comment "Beginjaar van de periode. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
@@ -342,7 +342,7 @@ rico:DateRange
         sh:path      rico:hasBeginningDate ;
     ] ;
     sh:property [
-        rdfs:label   "Periode (tot)"@nl ;
+        rdfs:label   "Periode (tot)"@nl, "Dates of accumulation (end)"@en ;
         rdfs:comment "Eindjaar van de periode. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
@@ -359,7 +359,7 @@ archiefblok:Notes
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass archiefblok:Notes ;
     sh:property [
-          rdfs:label   "Datering"@nl ;
+          rdfs:label   "Datering"@nl, "Date"@en ;
           sh:maxCount 1 ;
           dash:editor  memorix:DateEditor ;
           sh:datatype  xsd:integer ;
@@ -367,14 +367,14 @@ archiefblok:Notes
           sh:path      dc:date ;
       ] ;
     sh:property [
-          rdfs:label "Gebruiker"@nl ;
+          rdfs:label "Gebruiker"@nl, "User"@en ;
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order    2.0 ;
           sh:path rico:hasOrHadAgentName ;
       ] ;
     sh:property [
-          rdfs:label    "Opmerkingen intern"@nl ;
+          rdfs:label    "Opmerkingen intern"@nl, "Internal remarks"@en ;
           sh:maxCount   1 ;
           sh:datatype   xsd:string ;
           sh:order      3.0 ;
