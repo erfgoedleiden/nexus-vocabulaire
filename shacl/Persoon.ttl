@@ -463,7 +463,7 @@ persoon:RightsAgreement
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass persoon:RightsAgreement ;
   sh:property [
-    rdfs:label "Auteursrechtverklaring"@nl, "Copyright statement"@en ;
+    rdfs:label "Voorwaarde"@nl, "Copyright statement"@en ;
     sh:path rico:conditionsOfUse ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
