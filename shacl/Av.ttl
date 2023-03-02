@@ -252,7 +252,7 @@ av:EventDate
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Datum van"@nl, "Date from"@en ;
+    rdfs:label "Datum van"@nl, "Begin date"@en ;
     sh:maxCount 1 ;
     sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
@@ -260,7 +260,7 @@ av:EventDate
     dash:editor memorix:DateEditor ;
   ] ;
   sh:property [
-    rdfs:label "Datum tot"@nl, "Date until"@en ;
+    rdfs:label "Datum tot"@nl, "End date"@en ;
     sh:maxCount 1 ;
     sh:path rico:hasEndDate ;
     sh:order 3.0 ;
