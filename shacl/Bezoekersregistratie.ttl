@@ -17,23 +17,23 @@
 
 bezoekersregistratie:identificationGroup
     rdf:type   sh:PropertyGroup ;
-    rdfs:label "Identificatie"@nl;
+    rdfs:label "Identificatie"@nl, "Identification"@en;
     sh:order   1.0 .
 
 bezoekersregistratie:addressGroup
     rdf:type   sh:PropertyGroup ;
-    rdfs:label "Adres"@nl;
+    rdfs:label "Adres"@nl, "Address"@en;
     sh:order   2.0 .
 
 bezoekersregistratie:notesGroup
     rdf:type   sh:PropertyGroup ;
-    rdfs:label "Opmerkingen"@nl ;
+    rdfs:label "Opmerkingen"@nl, "Remarks"@en ;
     sh:order 3.0 .
 
 recordtypes:Bezoekersregistratie
     a memorix:Recordtype, sh:NodeShape ;
-    rdfs:label "Bezoekersregistratie"@nl ;
-    rdfs:comment "Bezoekersregistratie - Erfgoed Leiden"@nl ;
+    rdfs:label "Bezoekersregistratie"@nl, "Visitor registration"@en ;
+    rdfs:comment "Bezoekersregistratie - Erfgoed Leiden"@nl, "Visitor registration - Erfgoed Leiden"@en ;
     dce:identifier "Bezoekersregistratie" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -42,8 +42,7 @@ recordtypes:Bezoekersregistratie
     rdfs:subClassOf rico:RecordSet ;
 
     sh:property [
-        rdfs:label "Bezoek"@nl ;
-        # Gaat ervan uit dat "Bezoek" een of andere identificatiecode is
+        rdfs:label "Bezoek"@nl, "Visits"@en ;
         sh:path rico:identifier ;
         sh:order 1.0 ;
         dash:viewer dash:DetailsEditor ;
@@ -52,7 +51,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
     ] ;
     sh:property [
-        rdfs:label   "Registratiedatum"@nl ;
+        rdfs:label   "Registratiedatum"@nl, "Registration date"@en ;
         sh:maxCount 1;
         sh:datatype  xsd:date ;
         sh:order     2.0 ;
@@ -60,7 +59,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
     ] ;
     sh:property [
-        rdfs:label "Categorie"@nl ;
+        rdfs:label "Categorie"@nl, "Category"@en ;
         sh:maxCount 1 ;
         sh:path dc:subject ;
         sh:order 3.0 ;
@@ -72,7 +71,7 @@ recordtypes:Bezoekersregistratie
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Organisatie"@nl ;
+        rdfs:label "Organisatie"@nl, "Organization"@en ;
         sh:maxCount 1 ;
         sh:path schema:sourceOrganization ;
         sh:order 4.0 ;
@@ -80,7 +79,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
     ] ;
     sh:property [
-        rdfs:label "Achternaam"@nl ;
+        rdfs:label "Achternaam"@nl, "Surname"@en  ;
         sh:maxCount 1 ;
         sh:path schema:familyName ;
         sh:order 5.0 ;
@@ -88,7 +87,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
     ] ;
     sh:property [
-        rdfs:label   "Geboortedatum"@nl ;
+        rdfs:label   "Geboortedatum"@nl, "Date of birth"@en ;
         sh:maxCount 1;
         sh:datatype  xsd:date ;
         sh:order     6.0 ;
@@ -96,7 +95,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
     ] ;
     sh:property [
-        rdfs:label "Geslacht"@nl ;
+        rdfs:label "Geslacht"@nl, "Gender"@en ;
         sh:path schema:gender ;
         sh:maxCount 1 ;
         sh:order 7.0 ;
@@ -107,7 +106,7 @@ recordtypes:Bezoekersregistratie
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Soort identiteitsbewijs"@nl ;
+        rdfs:label "Soort identiteitsbewijs"@nl, "Type of ID"@en ;
         sh:maxCount 1 ;
         sh:path rico:hasIdentifierType ;
         sh:order 8.0 ;
@@ -119,7 +118,7 @@ recordtypes:Bezoekersregistratie
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Nummer identiteitsbewijs"@nl ;
+        rdfs:label "Nummer identiteitsbewijs"@nl, "Number of ID"@en ;
         sh:maxCount 1 ;
         sh:path elo:nummerIdentiteitsbewijs ;
         sh:order 9.0 ;
@@ -127,7 +126,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
     ] ;
     sh:property [
-        rdfs:label   "Verloopdatum van document"@nl ;
+        rdfs:label   "Verloopdatum van document"@nl, "ID expiration date"@en ;
         sh:maxCount 1;
         sh:datatype  xsd:date ;
         sh:order     10.0 ;
@@ -135,7 +134,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
     ] ;
     sh:property [
-        rdfs:label "Land van uitgifte"@nl ;
+        rdfs:label "Land van uitgifte"@nl, "Issuing country"@en ;
         sh:path schema:countryOfOrigin ;
         sh:maxCount 1 ;
         sh:order 11.0 ;
@@ -146,7 +145,7 @@ recordtypes:Bezoekersregistratie
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Land"@nl ;
+        rdfs:label "Land"@nl, "Country"@en ;
         sh:path schema:addressCountry ;
         sh:maxCount 1 ;
         sh:order 12.0 ;
@@ -155,7 +154,7 @@ recordtypes:Bezoekersregistratie
         sh:class    memorix:GeoCoordinates ;
     ] ;
     sh:property [
-        rdfs:label "Postcode"@nl ;
+        rdfs:label "Postcode"@nl, "Postal Code"@en ;
         sh:maxCount 1 ;
         sh:path schema:postalCode ;
         sh:order 14.0 ;
@@ -163,7 +162,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:addressGroup ;
     ] ;
     sh:property [
-        rdfs:label "Regio/Provincie"@nl ;
+        rdfs:label "Regio/Provincie"@nl, "Region/Province"@en ;
         sh:path schema:addressRegion ;
         sh:maxCount 1 ;
         sh:order 15.0 ;
@@ -172,7 +171,7 @@ recordtypes:Bezoekersregistratie
         sh:class    memorix:GeoCoordinates ;
     ] ;
     sh:property [
-        rdfs:label "Plaats"@nl ;
+        rdfs:label "Plaats"@nl, "City"@en ;
         sh:path schema:addressLocality ;
         sh:maxCount 1 ;
         sh:order 16.0 ;
@@ -181,7 +180,7 @@ recordtypes:Bezoekersregistratie
         sh:class    memorix:GeoCoordinates ;
     ] ;
     sh:property [
-        rdfs:label "Adres"@nl ;
+        rdfs:label "Adres"@nl, "Address"@en ;
         sh:maxCount 1 ;
         sh:path schema:streetAddress ;
         sh:order 17.0 ;
@@ -189,14 +188,14 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:addressGroup ;
     ] ;
     sh:property [
-        rdfs:label "Telefoon"@nl ;
+        rdfs:label "Telefoonnummer"@nl, "Phone number"@en ;
         sh:path schema:telephone ;
         sh:order 18.0 ;
         sh:datatype xsd:string ;
         sh:group bezoekersregistratie:addressGroup ;
     ] ;
     sh:property [
-        rdfs:label "Email"@nl ;
+        rdfs:label "Email"@nl, "E-mail"@en ;
         sh:path schema:email ;
         sh:order 19.0 ;
         sh:datatype xsd:string ;
@@ -204,7 +203,7 @@ recordtypes:Bezoekersregistratie
     ] ;
 
     sh:property [
-        rdfs:label "Opmerkingen"@nl ;
+        rdfs:label "Opmerkingen"@nl, "Remarks"@en ;
         sh:maxCount 1 ;
         sh:path rico:descriptiveNote ;
         sh:order 20.0 ;
@@ -230,14 +229,14 @@ bezoekersregistratie:Visit
          sh:maxCount 1 ;
      ] ;
     sh:property [
-        rdfs:label   "Datum bezoek"@nl ;
+        rdfs:label   "Datum bezoek"@nl, "Date of visit"@en ;
         sh:maxCount 1 ;
         sh:datatype  xsd:date ;
         sh:order     1.0 ;
         sh:path      dc:date ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen bezoek"@nl ;
+        rdfs:label "Opmerkingen bezoek"@nl, "Visit remarks"@en ;
         sh:maxCount 1 ;
         sh:path rico:descriptiveNote ;
         sh:order 2.0 ;
