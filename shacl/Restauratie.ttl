@@ -46,6 +46,7 @@ recordtypes:Restauratie
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Restauratienummer"@nl ;
+        rdfs:comment "Jaartal van restauratie gevolgd door een volgnummer. Bijvoorbeeld: 2023.01"@nl ;
         sh:group restauratie:identificationGroup ;
         sh:path rico:identifier ;
         memorix:inTitleAt 1.0 ;
@@ -54,6 +55,7 @@ recordtypes:Restauratie
     ] ;
     sh:property [
         rdfs:label   "Begindatum"@nl ;
+        rdfs:comment "Datum van de start van de restauratie"@nl ;
         sh:group restauratie:identificationGroup ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
@@ -63,6 +65,7 @@ recordtypes:Restauratie
     ] ;
     sh:property [
         rdfs:label   "Einddatum"@nl ;
+        rdfs:comment "Datum van de beeindiging van de restauratie"@nl ;
         sh:group restauratie:identificationGroup ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
@@ -104,6 +107,7 @@ recordtypes:Restauratie
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Formaat"@nl ;
+        rdfs:comment "Vermeld hier hoogte, breedte en eventueel dikte/diepte van het object. Vermeld daarbij de eenheid waarin dit is opgemeten (CM of MM)"@nl ;
         sh:group restauratie:descriptionGroup ;
         sh:path rico:measure ;
         sh:order 5.0 ;
@@ -134,6 +138,7 @@ recordtypes:Restauratie
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Opmerking beschrijving"@nl ;
+        rdfs:comment "Vermeld hier specifieke kenmerken die je niet in de andere velden kwijt kan."@nl ;
         sh:group restauratie:descriptionGroup ;
         sh:path rico:descriptiveNote ;
         sh:order 8.0 ;
@@ -209,6 +214,7 @@ restauratie:Treatments
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Opmerkingen behandeling"@nl ;
+        rdfs:comment "Vermeld hier hoe de behandelingen verliepen, indien het anders was dan verwacht."@nl ;
         sh:path rico:descriptiveNote ;
         sh:order 4.0 ;
         sh:datatype xsd:string ;
@@ -234,7 +240,6 @@ restauratie:Archive
     ] ;
     sh:property [
         rdfs:label  "Bestanddeel"@nl ;
-        # Dit is anders dan bibliotheek:"Ingebonden in": dat is een stringwaarde, dit is een verwijzing naar een record
         memorix:conditionalLinkField restauratie:archiveArchive ;
         memorix:linkField [
             memorix:hasRecordType recordtypes:Bestanddeel ;
