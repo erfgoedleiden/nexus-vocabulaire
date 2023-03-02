@@ -18,30 +18,30 @@
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 bestanddeel:identificationGroup a sh:PropertyGroup ;
-    rdfs:label "Identificatie"@nl ;
+    rdfs:label "Identificatie"@nl, "Identification"@en ;
     sh:order 1.0
 .
 bestanddeel:descriptionGroup a sh:PropertyGroup ;
-    rdfs:label "Beschrijving"@nl ;
+    rdfs:label "Beschrijving"@nl, "Description"@en ;
     sh:order 2.0
 .
 bestanddeel:locationGroup a sh:PropertyGroup ;
-    rdfs:label "Locaties"@nl ;
+    rdfs:label "Locaties"@nl, "Locations"@en;
     sh:order 3.0
 .
 bestanddeel:managementGroup a sh:PropertyGroup ;
-    rdfs:label "Beheer"@nl ;
+    rdfs:label "Beheer"@nl, "Management"@en ;
     sh:order 4.0
 .
 bestanddeel:notesGroup a sh:PropertyGroup ;
-    rdfs:label "Opmerkingen"@nl ;
+    rdfs:label "Opmerkingen"@nl, "Remarks"@en ;
     sh:order 5.0
 .
 
 recordtypes:Bestanddeel
     a memorix:Recordtype, sh:NodeShape ;
-    rdfs:label "Bestanddeel"@nl ;
-    rdfs:comment "Bestanddeel - Erfgoed Leiden"@nl ;
+    rdfs:label "Bestanddeel"@nl, "File"@en ;
+    rdfs:comment "Bestanddeel - Erfgoed Leiden"@nl, "File - Erfgoed Leiden"@en ;
     dce:identifier "Bestanddeel" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -57,7 +57,7 @@ recordtypes:Bestanddeel
     ] ;
     memorix:typeOf        memorix:File ;
 
-    sh:property           [ rdfs:label      "Archiefblok" ;
+    sh:property           [ rdfs:label      "Archiefblok", "Fonds"@en ;
         dash:editor     memorix:LinkedRecordEditor ;
         memorix:typeOf  memorix:FondsFieldLink ;
         sh:group        bestanddeel:identificationGroup ;
@@ -70,7 +70,7 @@ recordtypes:Bestanddeel
         sh:path         rico:isOrWasIncludedIn
     ] ;
     sh:property          [
-         rdfs:label        "Nummer bestanddeel"@nl ;
+         rdfs:label        "Nummer bestanddeel"@nl, "File number"@en ;
          rdfs:comment "Inventarisnummer, eventueel met lettertoevoeging erachter. Bij een cijfertoevoeging moet er een + of - teken tussen . De + is het meest gebruikt"@nl ; 
          sh:group          bestanddeel:identificationGroup ;
          memorix:inTitleAt 1.0 ;
@@ -78,12 +78,12 @@ recordtypes:Bestanddeel
          memorix:typeOf     memorix:Identifier ;
          sh:maxCount  1 ;
          sh:minCount 1 ;
-         sh:message        "Nummer bestanddeel mag niet leeg zijn"@nl ;
+         sh:message        "Nummer bestanddeel mag niet leeg zijn"@nl, "Please provide at a File number. It is required."@en ;
          sh:path           rico:identifier;
          sh:datatype       xsd:string
      ] ;
     sh:property [
-        rdfs:label   "Sorteervolgorde"@nl ;
+        rdfs:label   "Sorteervolgorde"@nl, "Order"@en ;
         rdfs:comment "Bepaalt de volgorde waarin Bestanddelen worden weergegeven"@nl ; 
         sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
@@ -92,7 +92,7 @@ recordtypes:Bestanddeel
         sh:path      schema:itemListOrder ;
     ] ;
     sh:property [
-        rdfs:label   "Titel"@nl ;
+        rdfs:label   "Titel"@nl, "Title"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         memorix:inTitleAt 2.0 ;
@@ -102,7 +102,7 @@ recordtypes:Bestanddeel
     ] ;
 
     sh:property [
-        rdfs:label "Bereik en inhoud"@nl ;
+        rdfs:label "Bereik en inhoud"@nl, "Content"@en ;
         rdfs:comment "Uitgebreide inhoudsbeschrijving, bijvoorbeeld per bladzijde"@nl ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
@@ -112,7 +112,7 @@ recordtypes:Bestanddeel
         dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [
-        rdfs:label "Fysieke beschrijving"@nl ;
+        rdfs:label "Fysieke beschrijving"@nl, "Physical description"@en ;
         sh:maxCount 100 ;
         sh:path rico:hasExtent ;
         sh:order 6.0 ;
@@ -122,7 +122,7 @@ recordtypes:Bestanddeel
         sh:group bestanddeel:descriptionGroup ;
     ] ;
     sh:property [
-        rdfs:label "Datering van bestanddeel"@nl ;
+        rdfs:label "Datering van bestanddeel"@nl, "Dated"@en ;
         sh:maxCount 1 ;
         sh:path rico:isAssociatedWithDate ;
         sh:order 7.0 ;
@@ -133,10 +133,8 @@ recordtypes:Bestanddeel
         sh:group bestanddeel:descriptionGroup ;
     ] ;
     sh:property [
-        rdfs:label "Gerelateerde actoren"@nl ;
+        rdfs:label "Gerelateerde actoren"@nl, "Linked agents"@en ;
         sh:maxCount 100 ;
-        # "Bestanddeel" is geen "Work Relation", maar deze komt in de buurt:
-        # "Connects a Work Relation to an Agent."
         sh:path rico:workRelationConnects ;
         sh:order 8.0 ;
         dash:viewer dash:DetailsEditor ;
@@ -145,7 +143,7 @@ recordtypes:Bestanddeel
         sh:group bestanddeel:descriptionGroup ;
     ] ;
     sh:property [
-        rdfs:label "Adres"@nl ;
+        rdfs:label "Adres"@nl, "Associated with address"@en ;
         sh:maxCount 100 ;
         sh:path schema:PostalAddress ;
         sh:order 9.0 ;
@@ -165,7 +163,7 @@ recordtypes:Bestanddeel
         sh:path     <http://bag.basisregistraties.overheid.nl/def/bag#identificatieVanPand> ;
     ] ;
         sh:property             [
-        rdfs:label  "Locatie coördinaten" ;
+        rdfs:label  "Locatie coördinaten", "Location coordinates"@en ;
         sh:maxCount 100 ;
         dash:editor memorix:LocationCoordinatesEditor ;
         sh:group    bestanddeel:locationGroup ;
@@ -174,7 +172,7 @@ recordtypes:Bestanddeel
         sh:path     schema:geo ;
     ] ;
     sh:property [
-        rdfs:label "Digitaal geboren"@nl ;
+        rdfs:label "Digital born"@nl, "Digital born"@en ;
         sh:maxCount 1 ;
         sh:path wikidata:Q14083178 ;
         sh:order 12.0 ;
@@ -182,7 +180,7 @@ recordtypes:Bestanddeel
         sh:datatype xsd:boolean ;
     ] ;
     sh:property [
-        rdfs:label "Verwijzing"@nl ;
+        rdfs:label "Verwijzing"@nl, "Reference"@en ;
         sh:maxCount 100 ;
         sh:path rico:Relation ;
         sh:order 14.0 ;
@@ -192,7 +190,7 @@ recordtypes:Bestanddeel
         sh:group bestanddeel:managementGroup ;
     ] ;
     sh:property [
-        rdfs:label   "Oude nummer(s)"@nl ;
+        rdfs:label   "Oude nummer(s)"@nl, "Old number(s)"@en ;
         sh:datatype  xsd:integer ;
         sh:group     bestanddeel:managementGroup ;
         sh:order     15.0 ;
@@ -200,7 +198,7 @@ recordtypes:Bestanddeel
         sh:path      bestanddeel:objectnumberOld ;
     ] ;
     sh:property [
-        rdfs:label "Status"@nl ;
+        rdfs:label "Status"@nl, "Status"@en ;
         sh:maxCount 1 ;
         sh:path rico:hasRecordState ;
         sh:group     bestanddeel:managementGroup ;
@@ -211,7 +209,7 @@ recordtypes:Bestanddeel
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen openbaar"@nl ;
+        rdfs:label "Opmerkingen openbaar"@nl, "Remarks"@en ;
         rdfs:comment "Hier kan je aantekeningen noteren. Begin nb's met 'N.B.:'"@nl ;
         sh:maxCount 1 ;
         sh:path rico:descriptiveNote ;
@@ -221,7 +219,7 @@ recordtypes:Bestanddeel
         sh:group bestanddeel:notesGroup ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen intern"@nl ;
+        rdfs:label "Opmerkingen intern"@nl, "Internal remarks"@en ;
         sh:maxCount 100 ;
         sh:path elo:opmerkingIntern ;
         sh:order 27.0 ;
@@ -237,14 +235,14 @@ rico:DateRange
     sh:closed            true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [
-        rdfs:label   "Periode"@nl ;
+        rdfs:label   "Periode"@nl, "Date (text)"@en ;
         sh:maxCount 1 ;
         sh:datatype  xsd:string ;
         sh:order     5.0 ;
         sh:path      rico:expressedDate ;
     ] ;
     sh:property [
-        rdfs:label   "Periode (van)"@nl ;
+        rdfs:label   "Periode (van)"@nl, "Begin date"@en ;
         rdfs:comment "Beginjaar van de periode. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
@@ -253,7 +251,7 @@ rico:DateRange
         sh:path      rico:hasBeginningDate ;
     ] ;
     sh:property [
-        rdfs:label   "Periode (tot)"@nl ;
+        rdfs:label   "Periode (tot)"@nl, "End date"@en ;
         rdfs:comment "Eindjaar van de periode. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
@@ -272,14 +270,14 @@ bestanddeel:PhysicalOrLogicalExtent
     # Voorheen: niet-bestaande rico:PhysicalOrLogicalExtent
     sh:targetClass rico:CarrierExtent ;
     sh:property [
-        rdfs:label   "Aantal"@nl ;
+        rdfs:label   "Aantal"@nl, "Amount"@en ;
         sh:maxCount 1 ;
         sh:datatype  xsd:integer ;
         sh:order     1.0 ;
         sh:path      rico:quantity ;
     ] ;
     sh:property [
-        rdfs:label "Fysieke eenheid"@nl ;
+        rdfs:label "Fysieke eenheid"@nl, "Physical unit"@en ;
         sh:maxCount 1 ;
         sh:path rico:hasCarrierType ;
         sh:order 2.0 ;
@@ -295,7 +293,7 @@ bestanddeel:Reference
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass bestanddeel:Reference ;
     sh:property [
-        rdfs:label   "Zie ook"@nl ;
+        rdfs:label   "Zie ook"@nl, "See also - link to another file"@en ;
         rdfs:comment   "Verwijzing naar een ander bestanddeel"@nl ;
         sh:maxCount 1 ;
         sh:order     1.0 ;
@@ -307,7 +305,7 @@ bestanddeel:Reference
         dash:editor memorix:LinkedRecordEditor ;
     ] ;
     sh:property [
-        rdfs:label "Toelichting"@nl ;
+        rdfs:label "Toelichting"@nl, "Explanation"@en ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    2.0 ;
@@ -322,7 +320,7 @@ bestanddeel:HistoricalAddress
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass bestanddeel:HistoricalAddress ;
     sh:property [
-        rdfs:label "Plaats"@nl ;
+        rdfs:label "Plaats"@nl, "City"@en ;
         sh:path schema:addressLocality ;
         sh:maxCount 1 ;
         sh:order 1.0 ;
@@ -332,7 +330,7 @@ bestanddeel:HistoricalAddress
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Straat"@nl ;
+        rdfs:label "Straat"@nl, "Street"@en ;
         sh:path schema:streetAddress ;
         sh:maxCount 1 ;
         sh:order 2.0 ;
@@ -342,17 +340,15 @@ bestanddeel:HistoricalAddress
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Huisnummer van"@nl ;
+        rdfs:label "Huisnummer van"@nl, "House number from"@en ;
         sh:maxCount 1 ;
-        # Dit is een noodgreep. Hier bestaat geen goede property voor
         sh:path elo:huisnummerVan ;
         sh:order 3.0 ;
         sh:datatype xsd:string ;
     ] ;
     sh:property [
-        rdfs:label "Huisnummer tot"@nl ;
+        rdfs:label "Huisnummer tot"@nl, "House number to"@en  ;
         sh:maxCount 1 ;
-        # Dit is een noodgreep. Hier bestaat geen goede property voor
         sh:path elo:huisnummerTot ;
         sh:order 3.0 ;
         sh:datatype xsd:string ;
@@ -375,7 +371,7 @@ bestanddeel:RelatedActor
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label   "Actor"@nl ;
+        rdfs:label   "Actor"@nl, "Role of related agent"@en  ;
         sh:maxCount 1 ;
         sh:order     2.0 ;
         sh:path      rico:Agent ;
@@ -396,7 +392,7 @@ bestanddeel:Notes
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass bestanddeel:Notes ;
     sh:property [
-        rdfs:label   "Datering"@nl ;
+        rdfs:label   "Datering"@nl, "Date"@en ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -404,14 +400,14 @@ bestanddeel:Notes
         sh:path      rico:expressedDate ;
     ] ;
     sh:property [
-        rdfs:label "Gebruiker"@nl ;
+        rdfs:label "Gebruiker"@nl, "User"@en ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    2.0 ;
         sh:path rico:hasOrHadAgentName ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen intern"@nl ;
+        rdfs:label "Opmerkingen intern"@nl, "Internal remarks"@en ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    3.0 ;
