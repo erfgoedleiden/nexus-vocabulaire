@@ -185,7 +185,7 @@ recordtypes:Organisatie
     memorix:searchWeight 1.0 ;
   ] ;
   sh:property [
-    rdfs:label "Postcode"@nl, "Zip code"@en ;
+    rdfs:label "Postcode"@nl, "Postal code"@en ;
     sh:path schema:postalCode ;
     sh:datatype xsd:string;
     sh:maxCount 1 ;
