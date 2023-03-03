@@ -17,18 +17,18 @@
 
 
 bijlage:attacementGroup a sh:PropertyGroup ;
-    rdfs:label "Bijlagen"@nl ;
+    rdfs:label "Bijlagen"@nl, "Appendix"@en ;
     sh:order 1.0
 .
 bijlage:listGroup a sh:PropertyGroup ;
-    rdfs:label "Lijst"@nl ;
+    rdfs:label "Lijst"@nl, "List"@en ;
     sh:order 2.0
 .
 
 recordtypes:Bijlage
     a memorix:Recordtype, sh:NodeShape ;
-    rdfs:label "Bijlage"@nl ;
-    rdfs:comment "Archief bijlagen - Erfgoed Leiden"@nl ;
+    rdfs:label "Bijlage"@nl, "Appendix"@en ;
+    rdfs:comment "Archief bijlagen - Erfgoed Leiden"@nl, "Fonds Appendix - Erfgoed Leiden"@nl ;
     dce:identifier "Bijlage" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -36,7 +36,7 @@ recordtypes:Bijlage
     memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
     dash:defaultViewForRole dash:all ;
     sh:property [
-        rdfs:label "Titel"@nl ;
+        rdfs:label "Titel"@nl, "Title"@en ;
         sh:maxCount 1;
         memorix:inTitleAt 1.0 ;
         sh:group bijlage:attacementGroup;
@@ -45,7 +45,7 @@ recordtypes:Bijlage
         sh:path rico:title ;
     ] ;
     sh:property [
-        rdfs:label "Aantekeningen"@nl ;
+        rdfs:label "Aantekeningen"@nl, "Remarks"@en ;
         sh:maxCount 1;
         sh:group bijlage:attacementGroup;
         sh:datatype xsd:string ;
@@ -54,7 +54,7 @@ recordtypes:Bijlage
         dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [
-        rdfs:label "Soort"@nl ;
+        rdfs:label "Soort"@nl, "Type of appendix"@en ;
         sh:maxCount 1;
         memorix:inTitleAt 2.0 ;
         sh:group bijlage:attacementGroup;
@@ -66,7 +66,7 @@ recordtypes:Bijlage
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Naam kolom 1"@nl ;
+        rdfs:label "Naam kolom 1"@nl, "Name column 1"@nl ;
         sh:maxCount 1;
         sh:group bijlage:listGroup;
         # Zelfde sh:path als ↓ ??
@@ -75,7 +75,7 @@ recordtypes:Bijlage
         sh:order    4.0 ;
     ] ;
     sh:property [
-        rdfs:label "Naam kolom 2"@nl ;
+        rdfs:label "Naam kolom 2"@nl, "Name column 2"@nl ;
         sh:maxCount 1;
         sh:group bijlage:listGroup;
         # Zelfde sh:path als ↑ ??
@@ -84,7 +84,7 @@ recordtypes:Bijlage
         sh:order    5.0 ;
     ] ;
     sh:property [
-        rdfs:label "Lijst"@nl ;
+        rdfs:label "Lijst"@nl, "List"@en ;
         sh:maxCount 100 ;
         sh:path schema:ItemList ;
         sh:order 6.0 ;
@@ -101,14 +101,14 @@ bijlage:List
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass bijlage:List ;
     sh:property [
-          rdfs:label   "Eerste kolom"@nl ;
+          rdfs:label   "Eerste kolom"@nl, "First column"@en ;
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order     1.0 ;
           sh:path      elo:itemKolom1 ;
       ] ;
     sh:property [
-          rdfs:label "Tweede kolom"@nl ;
+          rdfs:label "Tweede kolom"@nl, "Second column"@en ;
           sh:maxCount 1 ;
           sh:datatype xsd:string ;
           sh:order    2.0 ;
