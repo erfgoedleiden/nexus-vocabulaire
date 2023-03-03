@@ -17,8 +17,8 @@
 
 recordtypes:Koorboek
   a memorix:Recordtype, sh:NodeShape ;
-  rdfs:label "Koorboeken"@nl, "Choirbooks"@en ;
-  rdfs:comment "Koorboeken van Erfgoed Leiden"@nl, "Choirbooks - Erfgoed Leiden"@en ;
+  rdfs:label "Koorboeken"@nl, "Choirbook"@en ;
+  rdfs:comment "Koorboeken van Erfgoed Leiden"@nl, "Choirbook - Erfgoed Leiden"@en ;
   dce:identifier "Koorboek" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
