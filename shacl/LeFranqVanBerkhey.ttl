@@ -19,15 +19,15 @@
 
 recordtypes:LeFranqVanBerkhey
   a memorix:Recordtype, sh:NodeShape ;
-  rdfs:label "Le Franq van Berkhey"@nl ;
-  rdfs:comment "Le Franq van Berkhey van Erfgoed Leiden"@nl ;
+  rdfs:label "Le Franq van Berkhey"@nl, "Le Franq van Berkhey"@en ;
+  rdfs:comment "Le Franq van Berkhey van Erfgoed Leiden"@nl, "Le Franq van Berkhey - Erfgoed Leiden"@en ;
   dce:identifier "LeFranqVanBerkhey" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:LeFranqVanBerkhey ;
   dash:defaultViewForRole dash:all ;
   sh:property [
-    rdfs:label "Signatuur"@nl ;
+    rdfs:label "Signatuur"@nl, "Identification number"@en ;
     sh:path elo:signatuur ;
     sh:order 1.0 ;
     memorix:inSummaryAt 1.0 ;
@@ -35,7 +35,7 @@ recordtypes:LeFranqVanBerkhey
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Auteurs"@nl ;
+    rdfs:label "Auteurs"@nl, "Authors"@en  ;
     sh:path schema:author ;
     sh:order 2.0 ;
     sh:maxCount 100;
@@ -47,15 +47,14 @@ recordtypes:LeFranqVanBerkhey
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    # Gaat het hier echt om een "Corporatieve" auteur, of is hier een Coöperatieve auteur bedoeld?
-    rdfs:label "Corporatieve Auteur"@nl ;
+    rdfs:label "Corporatieve Auteur"@nl, "Contributor"@en ;
     sh:path schema:contributor ;
     sh:order 3.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Titel"@nl ;
+    rdfs:label "Titel"@nl, "Title"@en ;
     sh:path rico:title ;
     memorix:inTitleAt 1.0 ;
     sh:order 4.0 ;
@@ -64,8 +63,7 @@ recordtypes:LeFranqVanBerkhey
     dash:editor  dash:TextAreaEditor ;
   ] ;
   sh:property [
-    rdfs:label "ISBD Titel"@nl ;
-    # "has date of publication, production, distribution"
+    rdfs:label "ISBD Titel"@nl, "ISBD Title"@en ;
     sh:path isbd:P1012 ;
     sh:order 5.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
@@ -73,64 +71,63 @@ recordtypes:LeFranqVanBerkhey
     dash:editor  dash:TextAreaEditor ;
   ] ;
   sh:property [
-    rdfs:label "Plaats van uitgave"@nl ;
+    rdfs:label "Plaats van uitgave"@nl, "Publication place"@en ;
     sh:path schema:locationCreated ;
     sh:order 6.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Uitgever"@nl ;
+    rdfs:label "Uitgever"@nl, "Publisher"@en ;
     sh:path schema:publishedBy ;
     sh:order 7.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Pagina"@nl ;
+    rdfs:label "Pagina"@nl, "Page"@en ;
     sh:path schema:numberOfPages ;
     sh:order 8.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Editie"@nl ;
+    rdfs:label "Editie"@nl, "Edition"@en ;
     sh:path schema:bookEdition ;
     sh:order 9.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "ISBD jaar"@nl ;
+    rdfs:label "ISBD jaar"@nl, "ISBD year"@en ;
     sh:path isbd:P1018 ;
     sh:order 10.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Jaar"@nl ;
+    rdfs:label "Jaar"@nl, "Year"@en ;
     sh:path schema:datePublished ;
     sh:order 11.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Formaat"@nl ;
+    rdfs:label "Formaat"@nl, "Size"@en ;
     sh:path rico:measure ;
     sh:order 12.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Illustratie"@nl ;
-    # "has presence of illustrations"
+    rdfs:label "Illustratie"@nl, "Illustration"@en ;
     sh:path isbd:P1057 ;
     sh:order 13.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Annotatie"@nl ;
+    rdfs:label "Annotatie"@nl, "Annotation"@en ;
     sh:path dbpo:hasAnnotation ;
     sh:order 14.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
@@ -138,22 +135,21 @@ recordtypes:LeFranqVanBerkhey
     dash:editor  dash:TextAreaEditor ;
   ] ;
   sh:property [
-    rdfs:label "Bron"@nl ;
+    rdfs:label "Bron"@nl, "Source"@en ;
     sh:path dc:source ;
     sh:order 16.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Holding"@nl ;
+    rdfs:label "Holding"@nl, "Present"@en ;
     sh:path rico:hasOrHadHolder ;
     sh:order 17.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Personen"@nl ;
-    # Het label "Personen" is nogal ambigu, wat is de semantiek hiervan?
+    rdfs:label "Personen"@nl, "Persons"@en ;
     sh:path rico:isRelatedTo ;
     sh:order 18.0 ;
     sh:maxCount 100;
@@ -164,15 +160,14 @@ recordtypes:LeFranqVanBerkhey
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Opmerkingen"@nl ;
+    rdfs:label "Opmerkingen"@nl, "Remarks"@en ;
     sh:path rico:descriptiveNote ;
     sh:order 19.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "P.P.N."@nl ;
-    # Waar is dit een afkorting van?
+    rdfs:label "P.P.N."@nl, "P.P.N."@en ;
     sh:path rico:identifier ;
     sh:order 21.0 ;
     sh:group leFranqVanBerkhey:identificationGroup ;
