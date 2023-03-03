@@ -15,8 +15,8 @@
 
 recordtypes:BlaeuAtlas
   a memorix:Recordtype, sh:NodeShape ;
-  rdfs:label "Blaeu Atlas"@nl ;
-  rdfs:comment "Blaeu Atlas van Erfgoed Leiden"@nl ;
+  rdfs:label "Blaeu Atlas"@nl, "Blaeu Atlas"@en ;
+  rdfs:comment "Blaeu Atlas van Erfgoed Leiden"@nl, "Blaeu Atlas - Erfgoed Leiden"@en ;
   dce:identifier "BlaeuAtlas" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
@@ -24,7 +24,7 @@ recordtypes:BlaeuAtlas
   sh:targetClass recordtypes:BlaeuAtlas ;
   dash:defaultViewForRole dash:all ;
   sh:property [
-    rdfs:label "Titel"@nl ;
+    rdfs:label "Titel"@nl, "Title"@en ;
     sh:path rico:title ;
     memorix:inTitleAt 1.0 ;
     sh:order 1.0 ;
@@ -34,6 +34,6 @@ recordtypes:BlaeuAtlas
 .
 
 blaeuAtlas:identificationGroup a sh:PropertyGroup ;
-  rdfs:label "Identificatie"@nl ;
+  rdfs:label "Identificatie"@nl, "Identification"@en ;
   sh:order 1.0
 .
