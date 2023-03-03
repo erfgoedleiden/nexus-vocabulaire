@@ -17,8 +17,8 @@
 
 recordtypes:Koorboek
   a memorix:Recordtype, sh:NodeShape ;
-  rdfs:label "Koorboeken"@nl ;
-  rdfs:comment "Koorboeken van Erfgoed Leiden"@nl ;
+  rdfs:label "Koorboeken"@nl, "Choirbooks"@en ;
+  rdfs:comment "Koorboeken van Erfgoed Leiden"@nl, "Choirbooks - Erfgoed Leiden"@en ;
   dce:identifier "Koorboek" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
@@ -26,7 +26,7 @@ recordtypes:Koorboek
   memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
   dash:defaultViewForRole dash:all ;
   sh:property [
-    rdfs:label "Titel"@nl ;
+    rdfs:label "Titel"@nl, "Title"@en ;
     sh:path rico:title ;
     memorix:inTitleAt 1 ;
     sh:order 1.0 ;
@@ -34,7 +34,7 @@ recordtypes:Koorboek
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Archiefnummer"@nl ;
+    rdfs:label "Archiefnummer"@nl, "Fonds"@en ;
     sh:path rico:identifier ;
     sh:order 2.0 ;
     memorix:inSummaryAt 1 ;
@@ -42,7 +42,7 @@ recordtypes:Koorboek
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Inventarisnummer"@nl ;
+    rdfs:label "Inventarisnummer"@nl, "Inventory"@en ;
     sh:path elo:inventarisnummer ;
     memorix:inSummaryAt 2 ;
     sh:order 3.0 ;
@@ -52,6 +52,6 @@ recordtypes:Koorboek
 .
 
 koorboek:identificationGroup a sh:PropertyGroup ;
-  rdfs:label "Identificatie"@nl ;
+  rdfs:label "Identificatie"@nl, "Identification"@en ;
   sh:order 1.0
 .
