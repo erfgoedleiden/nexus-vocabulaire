@@ -20,8 +20,8 @@
 
 recordtypes:Image
   a memorix:Recordtype, sh:NodeShape ;
-  rdfs:label "Afbeelding"@nl ;
-  rdfs:comment "Afbeeldingen - Erfgoed Leiden"@nl ;
+  rdfs:label "Afbeelding"@nl, "Image"@en  ;
+  rdfs:comment "Afbeeldingen - Erfgoed Leiden"@nl, "Image - Erfgoed Leiden"@en  ;
   dce:identifier "Image" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
@@ -30,7 +30,7 @@ recordtypes:Image
   memorix:hasInformationComponent
           [ rdf:type  memorix:DigitalAssetComponent ] ;
   sh:property [
-    rdfs:label "Collectie"@nl ;
+    rdfs:label "Collectie"@nl, "Collection"@en ;
     sh:path rico:isOrWasPartOf ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -41,7 +41,7 @@ recordtypes:Image
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Bestandsnaam"@nl ;
+    rdfs:label "Bestandsnaam"@nl, "File name"@en ;
     sh:path dbpo:filename ;
     memorix:inSummaryAt 1.0 ;
     sh:maxCount 200 ;
@@ -51,7 +51,7 @@ recordtypes:Image
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Objectnummer"@nl ;
+    rdfs:label "Objectnummer"@nl, "Identifier"@en ;
     sh:path rico:identifier ;
     memorix:inTitleAt 1.0 ;
     sh:maxCount 100 ;
@@ -61,7 +61,7 @@ recordtypes:Image
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Documenttype"@nl ;
+    rdfs:label "Documenttype"@nl, "Document type"@en ;
     sh:path rico:hasContentOfType ;
     sh:maxCount 10 ;
     sh:order 4.0 ;
@@ -72,7 +72,7 @@ recordtypes:Image
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Titel"@nl ;
+    rdfs:label "Titel"@nl, "Title"@en ;
     sh:maxCount 1 ;
     sh:path rico:title ;
     memorix:inTitleAt 2.0 ;
@@ -82,7 +82,7 @@ recordtypes:Image
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Beschrijving"@nl ;
+    rdfs:label "Beschrijving"@nl, "Description"@en ;
     sh:maxCount 1 ;
     sh:path dc:description ;
     sh:order 11.0 ;
@@ -91,7 +91,7 @@ recordtypes:Image
     dash:editor  dash:TextAreaEditor ;
   ] ;
   sh:property [
-    rdfs:label "Extra informatie"@nl ;
+    rdfs:label "Extra informatie"@nl, "Extra information"@en ;
     sh:maxCount 1 ;
     sh:path elo:extraInformatie ;
     sh:order 12.0 ;
@@ -100,7 +100,7 @@ recordtypes:Image
     dash:editor  dash:TextAreaEditor ;
   ] ;
   sh:property [
-    rdfs:label "Afgebeelde personen"@nl ;
+    rdfs:label "Afgebeelde personen"@nl, "Depicted persons"@en ;
     sh:path foaf:depicts ;
     sh:maxCount 100 ;
     sh:order 13.0 ;
@@ -114,7 +114,7 @@ recordtypes:Image
   ] ;
 
   sh:property [
-    rdfs:label "Trefwoorden"@nl ;
+    rdfs:label "Trefwoorden"@nl, "Subjects"@en ;
     sh:path schema:keywords ;
     sh:maxCount 10 ;
     sh:order 14.0 ;
@@ -125,7 +125,7 @@ recordtypes:Image
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Datering gebeurtenis"@nl ;
+    rdfs:label "Datering gebeurtenis"@nl, "Date of the event"@en  ;
     sh:maxCount 1 ;
     sh:path rico:isAssociatedWithEvent ;
     sh:order 15.0 ;
@@ -135,7 +135,7 @@ recordtypes:Image
     sh:group image:contentDescriptionGroup ;
   ] ;
   sh:property [
-    rdfs:label "Afgebeelde locatie"@nl ;
+    rdfs:label "Afgebeelde locatie"@nl, "Places"@en ;
     sh:maxCount 10 ;
     # "The location depicted or described in the content. For example, the location in a photograph or painting."
     sh:path schema:contentLocation ;
@@ -147,7 +147,7 @@ recordtypes:Image
   ] ;
 
   sh:property [
-    rdfs:label "Techniek"@nl ;
+    rdfs:label "Techniek"@nl, "Technique"@en ;
     sh:path rico:hasProductionTechniqueType ;
     sh:maxCount 10 ;
     sh:order 17.0 ;
@@ -159,7 +159,7 @@ recordtypes:Image
   ] ;
 
   sh:property [
-    rdfs:label "Vervaardigers"@nl ;
+    rdfs:label "Vervaardigers"@nl, "Creators"@en ;
     sh:maxCount 10 ;
     sh:path rico:hasCreator ;
     sh:order 18.0 ;
@@ -169,7 +169,7 @@ recordtypes:Image
     sh:group image:physicalDescriptionGroup ;
   ] ;
   sh:property [
-    rdfs:label "Datering vervaardiging"@nl ;
+    rdfs:label "Datering vervaardiging"@nl, "Date of creation"@en ;
     sh:path rico:creationDate ;
     sh:maxCount 1 ;
     sh:order 19.0 ;
@@ -179,8 +179,7 @@ recordtypes:Image
     sh:group image:physicalDescriptionGroup ;
   ] ;
   sh:property [
-    rdfs:label "Afmetingen"@nl ;
-    # Advies: structureren in rico:height; rico:width
+    rdfs:label "Afmetingen"@nl, "Dimensions"@en ;
     sh:path rico:measure ;
     sh:maxCount 1 ;
     sh:order 20.0 ;
@@ -190,8 +189,7 @@ recordtypes:Image
     sh:group image:physicalDescriptionGroup ;
   ] ;
   sh:property [
-    rdfs:label "Geogerefereerd"@nl ;
-    # Hier is geen goede match voor
+    rdfs:label "Geogerefereerd"@nl, "Geo-referenced"@en ;
     sh:path rico:hasOrHadLocation ;
     sh:maxCount 1 ;
     sh:order 21.0 ;
@@ -199,7 +197,7 @@ recordtypes:Image
     sh:datatype xsd:boolean ;
   ] ;
   sh:property [
-    rdfs:label "Herkomst"@nl ;
+    rdfs:label "Herkomst"@nl, "Aquisition"@en ;
     sh:path rico:history ;
     sh:maxCount 10 ;
     sh:order 30.0 ;
@@ -210,7 +208,7 @@ recordtypes:Image
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Persoon/Organisatie"@nl ;
+    rdfs:label "Persoon/Organisatie"@nl, "Person/Organization"@en ;
     sh:path schema:seller ;
     sh:maxCount 10 ;
     sh:order 31.0 ;
@@ -223,7 +221,7 @@ recordtypes:Image
     dash:editor memorix:LinkedRecordEditor ;
   ] ;
   sh:property [
-    rdfs:label "Datum"@nl ;
+    rdfs:label "Datum"@nl, "Date"@en ;
     sh:maxCount 1 ;
     sh:group image:aquisitionGroup ;
     sh:path dc:date ;
@@ -233,7 +231,7 @@ recordtypes:Image
     dash:editor memorix:DateEditor ;
   ] ;
   sh:property [
-    rdfs:label "Opmerking"@nl ;
+    rdfs:label "Opmerking"@nl, "Remarks"@en ;
     sh:maxCount 1 ;
     sh:path rico:descriptiveNote ;
     sh:order 33.0 ;
@@ -243,7 +241,7 @@ recordtypes:Image
   ] ;
 
   sh:property [
-    rdfs:label "Standplaatsnummer"@nl ;
+    rdfs:label "Standplaatsnummer"@nl, "Depot location number"@en ;
     sh:path rico:hasOrHadPhysicalLocation ;
     memorix:inSummaryAt 2.0 ;
     sh:maxCount 10 ;
@@ -253,16 +251,7 @@ recordtypes:Image
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Tentoonstellingen"@nl ;
-    sh:maxCount 1 ;
-    sh:path dbpo:exhibition ;
-    sh:order 41.0 ;
-    sh:group image:managementGroup ;
-    sh:datatype xsd:string ;
-    dash:editor  dash:TextAreaEditor ;
-  ] ;
-  sh:property [
-    rdfs:label "Digitalisering"@nl ;
+    rdfs:label "Digitalisering"@nl, "Digitization"@en  ;
     sh:maxCount 1 ;
     sh:path rico:hasDerivedInstantiation ;
     sh:order 42.0 ;
@@ -271,7 +260,7 @@ recordtypes:Image
     dash:editor  dash:TextAreaEditor ;
   ] ;
   sh:property [
-    rdfs:label "Opmerkingen beheer"@nl ;
+    rdfs:label "Opmerkingen beheer"@nl, "Internal remarks"@en ;
     sh:maxCount 1 ;
     sh:path elo:opmerkingBeheerder ;
     sh:order 43.0 ;
@@ -287,7 +276,7 @@ image:EventDate
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass image:EventDate ;
   sh:property [
-    rdfs:label "Datum tekstveld"@nl ;
+    rdfs:label "Datum tekstveld"@nl, "Date (text)"@en ;
     sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -295,7 +284,7 @@ image:EventDate
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Datum van"@nl ;
+    rdfs:label "Datum van"@nl, "Begin date"@en ;
     sh:maxCount 1 ;
     sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
@@ -303,7 +292,7 @@ image:EventDate
     dash:editor memorix:DateEditor ;
   ] ;
   sh:property [
-    rdfs:label "Datum tot"@nl ;
+    rdfs:label "Datum tot"@nl, "End date"@en ;
     sh:maxCount 1 ;
     sh:path rico:hasEndDate ;
     sh:order 3.0 ;
@@ -318,7 +307,7 @@ image:DepictedLocation
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass image:DepictedLocation ;
   sh:property [
-    rdfs:label "Plaats"@nl ;
+    rdfs:label "Plaats"@nl, "City"@en ;
     sh:path schema:addressLocality ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -328,7 +317,7 @@ image:DepictedLocation
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Straat"@nl ;
+    rdfs:label "Straat"@nl, "Street"@en ;
     sh:path schema:streetAddress ;
     sh:maxCount 1 ;
     sh:order 2.0 ;
@@ -338,14 +327,14 @@ image:DepictedLocation
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-      rdfs:label "Huisnummer"@nl ;
+      rdfs:label "Huisnummer"@nl, "House number"@en ;
       sh:maxCount 1 ;
       sh:path bag:huisnummer ;
       sh:order 3.0 ;
       sh:datatype xsd:string ;
   ] ;
   sh:property [
-      rdfs:label "Coördinaten"@nl ;
+      rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
       sh:path schema:geo  ;
       sh:maxCount 10 ;
       sh:order 4.0 ;
@@ -361,7 +350,7 @@ image:Creator
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass image:Creator ;
   sh:property [
-    rdfs:label "Vervaardiger"@nl ;
+    rdfs:label "Vervaardiger"@nl, "Creator"@en ;
     sh:path rico:hasCreator ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -373,7 +362,7 @@ image:Creator
     dash:editor memorix:LinkedRecordEditor ;
   ] ;
   sh:property [
-    rdfs:label "Rol"@nl ;
+    rdfs:label "Rol"@nl, "Role"@en ;
     sh:path schema:roleName ;
     sh:maxCount 5 ;
     sh:order 2.0 ;
@@ -390,7 +379,7 @@ image:CreationDate
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass image:CreationDate ;
   sh:property [
-    rdfs:label "Datum tekstveld"@nl ;
+    rdfs:label "Datum tekstveld"@nl, "Date (text)"@en ;
     sh:path rico:expressedDate ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -398,7 +387,7 @@ image:CreationDate
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Datum van"@nl ;
+    rdfs:label "Datum van"@nl, "Date from"@en ;
     sh:maxCount 1 ;
     sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
@@ -406,7 +395,7 @@ image:CreationDate
     dash:editor memorix:DateEditor ;
   ] ;
   sh:property [
-    rdfs:label "Datum tot"@nl ;
+    rdfs:label "Datum tot"@nl, "Date until"@en ;
     sh:maxCount 1 ;
     sh:path rico:hasEndDate ;
     sh:order 3.0 ;
@@ -421,14 +410,14 @@ image:Dimension
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass image:Dimension ;
   sh:property [
-    rdfs:label "Hoogte"@nl ;
+    rdfs:label "Hoogte"@nl, "Height"@en ;
     sh:path rico:height ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Hoogte waarde"@nl ;
+    rdfs:label "Hoogte waarde"@nl, "Height value"@en ;
     sh:path elo:hoogteWaarde ;
     sh:maxCount 1 ;
     sh:order 2.0 ;
@@ -438,14 +427,14 @@ image:Dimension
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Breedte"@nl ;
+    rdfs:label "Breedte"@nl, "Width"@en ;
     sh:path rico:width ;
     sh:maxCount 1 ;
     sh:order 3.0 ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Breedte waarde"@nl ;
+    rdfs:label "Breedte waarde"@nl, "Width value"@en ;
     sh:path elo:breedteWaarde ;
     sh:maxCount 1 ;
     sh:order 4.0 ;
@@ -457,22 +446,22 @@ image:Dimension
 .
 
 image:identificationGroup a sh:PropertyGroup ;
-  rdfs:label "Identificatie"@nl ;
+  rdfs:label "Identificatie"@nl, "Identification"@en ;
   sh:order 1.0
 .
 image:contentDescriptionGroup a sh:PropertyGroup ;
-  rdfs:label "Voorstelling"@nl ;
+  rdfs:label "Voorstelling"@nl, "Image"@en ;
   sh:order 2.0
 .
 image:physicalDescriptionGroup a sh:PropertyGroup ;
-  rdfs:label "Fysieke beschrijving"@nl ;
+  rdfs:label "Fysieke beschrijving"@nl, "Physical description"@en  ;
   sh:order 3.0
 .
 image:aquisitionGroup a sh:PropertyGroup ;
-  rdfs:label "Verwerving"@nl ;
+  rdfs:label "Verwerving"@nl, "Acquisition"@en ;
   sh:order 4.0
 .
 image:managementGroup a sh:PropertyGroup ;
-  rdfs:label "Beheer en behoud"@nl ;
+  rdfs:label "Beheer en behoud"@nl, "Management"@en ;
   sh:order 5.0
 .
