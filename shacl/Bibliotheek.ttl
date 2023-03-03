@@ -368,7 +368,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Opmerking beheerder"@nl, "Internal remarks"@en ;
-    rdfs:comment "Opmerkingen die hier worden geplaats, zijn niet zichtbaar op de website"@nl
+    rdfs:comment "Opmerkingen die hier worden geplaats, zijn niet zichtbaar op de website"@nl ;
     sh:path elo:opmerkingBeheerder ;
     sh:maxCount 1 ;
     sh:order 29.0 ;
