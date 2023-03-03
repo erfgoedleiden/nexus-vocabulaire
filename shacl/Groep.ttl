@@ -17,24 +17,24 @@
 
 
 groep:identificationGroup a sh:PropertyGroup ;
-    rdfs:label "Identificatie"@nl ;
+    rdfs:label "Identificatie"@nl, "Identification"@en ;
     sh:order 1.0
 .
 
 groep:descriptionGroup a sh:PropertyGroup ;
-    rdfs:label "Beschrijving"@nl ;
+    rdfs:label "Beschrijving"@nl, "Description"@en ;
     sh:order 2.0
 .
 
 groep:notesGroup a sh:PropertyGroup ;
-    rdfs:label "Opmerkingen"@nl ;
+    rdfs:label "Opmerkingen"@nl, "Remarks"@en ;
     sh:order 3.0
 .
 
 recordtypes:Groep
     a memorix:Recordtype, sh:NodeShape ;
-    rdfs:label "Groep"@nl ;
-    rdfs:comment "Groep - Erfgoed Leiden"@nl ;
+    rdfs:label "Groep"@nl, "Series"@en ;
+    rdfs:comment "Groep - Erfgoed Leiden"@nl, "Series - Erfgoed Leiden"@en ;
     dce:identifier "Groep" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -46,7 +46,7 @@ recordtypes:Groep
       memorix:hasRecordtype  recordtypes:Archiefblok, recordtypes:Groep ;
     ] ;
     sh:property [
-        rdfs:label   "Bereik"@nl ;
+        rdfs:label   "Bereik"@nl, "Scope"@en ;
         sh:maxCount 1 ;
         sh:datatype  xsd:string ;
         sh:group     groep:identificationGroup ;
@@ -56,7 +56,7 @@ recordtypes:Groep
         sh:path      rico:hasOrHadConstituent ;
     ] ;
     sh:property [
-        rdfs:label   "Sorteervolgorde"@nl ;
+        rdfs:label   "Sorteervolgorde"@nl, "Order"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
         sh:group     groep:identificationGroup ;
@@ -64,7 +64,7 @@ recordtypes:Groep
         sh:path      schema:itemListOrder ;
     ] ;
     sh:property [
-        rdfs:label   "Titel"@nl ;
+        rdfs:label   "Titel"@nl, "Title"@en ;
         sh:maxCount 1 ;
         sh:datatype  xsd:string ;
         sh:group     groep:identificationGroup ;
@@ -73,7 +73,7 @@ recordtypes:Groep
         sh:path      rico:title ;
     ] ;
     sh:property [
-        rdfs:label "Bereik en inhoud"@nl ;
+        rdfs:label "Bereik en inhoud"@nl, "Content"@en ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:group groep:descriptionGroup ;
@@ -83,7 +83,7 @@ recordtypes:Groep
     ] ;
 
     sh:property [
-        rdfs:label "Datering van groep"@nl ;
+        rdfs:label "Datering van groep"@nl, "Dated"@en ;
         sh:maxCount 1 ;
         sh:path rico:isAssociatedWithDate ;
         memorix:inTitleAt 3.0 ;
@@ -94,7 +94,7 @@ recordtypes:Groep
         sh:group groep:descriptionGroup ;
     ] ;
     sh:property [
-        rdfs:label "Fysieke beschrijving"@nl ;
+        rdfs:label "Fysieke beschrijving"@nl, "Physical description"@en ;
         sh:maxCount 100 ;
         sh:path rico:physicalOrLogicalExtent ;
         sh:order 7.0 ;
@@ -104,7 +104,7 @@ recordtypes:Groep
         sh:group groep:descriptionGroup ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen openbaar"@nl ;
+        rdfs:label "Opmerkingen openbaar"@nl, "Remarks"@en ;
         sh:maxCount 1 ;
         sh:path rico:descriptiveNote ;
         sh:order 8.0 ;
@@ -113,7 +113,7 @@ recordtypes:Groep
         sh:group groep:notesGroup ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen intern"@nl ;
+        rdfs:label "Opmerkingen intern"@nl, "Internal remarks"@en ;
         sh:maxCount 100 ;
         sh:path elo:opmerkingIntern ;
         sh:order 9.0 ;
@@ -129,14 +129,14 @@ rico:DateRange
     sh:closed            true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [
-        rdfs:label   "Periode"@nl ;
+        rdfs:label   "Periode"@nl, "Date (text)"@en ;
         sh:maxCount 1 ;
         sh:datatype  xsd:string ;
         sh:order     5.0 ;
         sh:path      rico:expressedDate ;
     ] ;
     sh:property [
-        rdfs:label   "Periode (van)"@nl ;
+        rdfs:label   "Periode (van)"@nl, "Begin date"@en ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:gYear ;
@@ -144,7 +144,7 @@ rico:DateRange
         sh:path      rico:hasBeginningDate ;
     ] ;
     sh:property [
-        rdfs:label   "Periode (tot)"@nl ;
+        rdfs:label   "Periode (tot)"@nl, "End date"@en ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:gYear ;
@@ -159,14 +159,14 @@ rico:physicalOrLogicalExtent
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass rico:physicalOrLogicalExtent ;
     sh:property [
-        rdfs:label   "Aantal"@nl ;
+        rdfs:label   "Aantal"@nl, "Amount"@en  ;
         sh:maxCount 1 ;
         sh:datatype  xsd:integer ;
         sh:order     1.0 ;
         sh:path      rico:hasExtent ;
     ] ;
     sh:property [
-        rdfs:label "Fysieke eenheid"@nl ;
+        rdfs:label "Fysieke eenheid"@nl, "Physical unit"@en ;
         sh:maxCount 1 ;
         sh:path rico:unitOfMeasurement ;
         sh:order 2.0 ;
@@ -183,7 +183,7 @@ groep:Notes
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass groep:Notes ;
     sh:property [
-        rdfs:label   "Datering"@nl ;
+        rdfs:label   "Datering"@nl, "Date"@en ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
@@ -191,14 +191,14 @@ groep:Notes
         sh:path      dc:date ;
     ] ;
     sh:property [
-        rdfs:label "Gebruiker"@nl ;
+        rdfs:label "Gebruiker"@nl, "User"@en ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    2.0 ;
         sh:path rico:hasOrHadAgentName ;
     ] ;
     sh:property [
-        rdfs:label "Opmerkingen intern"@nl ;
+        rdfs:label "Opmerkingen intern"@nl, "Internal remarks"@en ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         sh:order    3.0 ;
