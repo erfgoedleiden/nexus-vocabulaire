@@ -166,7 +166,7 @@ recordtypes:Av
   ] ;
 
   sh:property [
-    rdfs:label "Herkomst"@nl, "Provenance"@en ;
+    rdfs:label "Herkomst"@nl, "Aquisition"@en ;
     sh:path rico:history ;
     sh:maxCount 10 ;
     sh:order 30.0 ;
