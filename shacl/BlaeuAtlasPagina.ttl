@@ -17,8 +17,8 @@
 
 recordtypes:BlaeuAtlasPagina
   a memorix:Recordtype, sh:NodeShape ;
-  rdfs:label "Blaeu Atlas pagina's"@nl ;
-  rdfs:comment "Blaeu Atlas pagina's van Erfgoed Leiden"@nl ;
+  rdfs:label "Blaeu Atlas pagina's"@nl, "Pages of Blaeu Atlas"@en ;
+  rdfs:comment "Blaeu Atlas pagina's van Erfgoed Leiden"@nl, "Pages of Blaeu Atlas - Erfgoed Leiden"@en ;
   dce:identifier "BlaeuAtlasPagina" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
@@ -30,7 +30,7 @@ recordtypes:BlaeuAtlasPagina
       memorix:hasRecordtype  recordtypes:BlaeuAtlas
     ] ;
   sh:property [
-    rdfs:label "Bestandsnaam"@nl ;
+    rdfs:label "Bestandsnaam"@nl, "File name"@en ;
     sh:path dbpo:filename ;
     memorix:inSummaryAt 1.0 ;
     sh:order 1.0 ;
@@ -38,7 +38,7 @@ recordtypes:BlaeuAtlasPagina
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Beschrijving"@nl ;
+    rdfs:label "Beschrijving"@nl, "Description"@en ;
     sh:path dc:description ;
     sh:order 2.0 ;
     memorix:inTitleAt 1.0 ;
@@ -47,7 +47,7 @@ recordtypes:BlaeuAtlasPagina
     dash:editor  dash:TextAreaEditor ;
   ] ;
   sh:property [
-    rdfs:label "Werelddeel"@nl ;
+    rdfs:label "Werelddeel"@nl, "Continent"@en ;
     sh:path schema:Continent ;
     sh:order 3.0 ;
     sh:maxCount 100 ;
@@ -55,7 +55,7 @@ recordtypes:BlaeuAtlasPagina
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Land"@nl ;
+    rdfs:label "Land"@nl, "Country"@en ;
     sh:path schema:addressCountry ;
     sh:order 4.0 ;
     sh:maxCount 100 ;
@@ -63,7 +63,7 @@ recordtypes:BlaeuAtlasPagina
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Landstreek"@nl ;
+    rdfs:label "Landstreek"@nl, "Region"@en ;
     sh:path schema:addressRegion ;
     sh:order 5.0 ;
     sh:maxCount 100 ;
@@ -71,7 +71,7 @@ recordtypes:BlaeuAtlasPagina
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Plaats"@nl ;
+    rdfs:label "Plaats"@nl, "City"@en ;
     sh:path schema:addressLocality ;
     sh:order 6.0 ;
     sh:maxCount 100 ;
@@ -79,7 +79,7 @@ recordtypes:BlaeuAtlasPagina
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Type pagina"@nl ;
+    rdfs:label "Type pagina"@nl, "Type of page"@en ;
     sh:path rico:hasContentOfType ;
     sh:order 7.0 ;
     sh:maxCount 100 ;
@@ -87,7 +87,7 @@ recordtypes:BlaeuAtlasPagina
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Volgnummer"@nl ;
+    rdfs:label "Volgnummer"@nl, "Sequence number"@en ;
     sh:path rico:identifier ;
     sh:order 8.0 ;
     sh:group blaeuAtlasPagina:identificationGroup ;
@@ -96,6 +96,6 @@ recordtypes:BlaeuAtlasPagina
 .
 
 blaeuAtlasPagina:identificationGroup a sh:PropertyGroup ;
-  rdfs:label "Identificatie"@nl ;
+  rdfs:label "Identificatie"@nl, "Identification"@en ;
   sh:order 1.0
 .
