@@ -16,15 +16,15 @@
 
 recordtypes:Complex
   a memorix:Recordtype, sh:NodeShape ;
-  rdfs:label "Complex"@nl ;
-  rdfs:comment "Erfgoedregister - Complexen van Erfgoed Leiden"@nl ;
+  rdfs:label "Complex"@nl, "Complex"@en ;
+  rdfs:comment "Erfgoedregister - Complexen van Erfgoed Leiden"@nl, "Heritage register Complex - Erfgoed Leiden"@en  ;
   dce:identifier "Complex" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:Complex ;
   dash:defaultViewForRole dash:all ;
   sh:property [
-    rdfs:label        "Registratienummer"@nl ;
+    rdfs:label        "Registratienummer"@nl, "Registration number"@en ;
     sh:path           rico:identifier ;
     memorix:inTitleAt 1.0 ;
     sh:maxCount       1 ;
@@ -34,7 +34,7 @@ recordtypes:Complex
     dash:singleLine   true ;
   ] ;
   sh:property [
-    rdfs:label        "Complexnaam"@nl ;
+    rdfs:label        "Complexnaam"@nl, "Name of the complex"@en ;
     memorix:inTitleAt 2.0 ;
     sh:path           rico:title ;
     sh:maxCount       1 ;
@@ -44,7 +44,7 @@ recordtypes:Complex
     dash:singleLine   true ;
   ] ;
   sh:property [
-    rdfs:label  "Omschrijving"@nl ;
+    rdfs:label  "Omschrijving"@nl, "Description"@en ;
     sh:path     dc:description ;
     sh:maxCount 1 ;
     sh:order    3.0 ;
@@ -53,7 +53,7 @@ recordtypes:Complex
     dash:editor dash:TextAreaEditor ;
   ] ;
   sh:property [
-    rdfs:label      "Geometrie"@nl ;
+    rdfs:label      "Geometrie"@nl, "Geometry"@en ;
     sh:path         geo:asWKT ;
     sh:maxCount     1 ;
     sh:order        4.0 ;
@@ -63,6 +63,6 @@ recordtypes:Complex
   ] ;
 .
 complex:complexGroup a sh:PropertyGroup ;
-  rdfs:label "Complex"@nl ;
+  rdfs:label "Complex"@nl, "Complex"@en ;
   sh:order 1.0
 .
