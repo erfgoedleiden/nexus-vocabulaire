@@ -19,15 +19,15 @@
 
 recordtypes:ErfgoedregisterAdres
   a memorix:Recordtype, sh:NodeShape ;
-  rdfs:label "Adres"@nl ;
-  rdfs:comment "Erfgoedregister - Adressen van Erfgoed Leiden"@nl ;
+  rdfs:label "Adres"@nl, "Address"@en ;
+  rdfs:comment "Erfgoedregister - Adressen van Erfgoed Leiden"@nl, "Heritage register Address - Erfgoed Leiden"@en ;
   dce:identifier "ErfgoedregisterAdres" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:ErfgoedregisterAdres ;
   dash:defaultViewForRole dash:all ;
   sh:property [
-    rdfs:label "Adres ID"@nl ;
+    rdfs:label "Adres ID"@nl, "Address ID"@en ;
     sh:path rico:identifier ;
     memorix:inTitleAt 9.0 ;
     sh:maxCount 1 ;
@@ -37,7 +37,7 @@ recordtypes:ErfgoedregisterAdres
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Straat"@nl ;
+    rdfs:label "Straat"@nl, "Street"@en ;
     memorix:inTitleAt 2.0 ;
     sh:path schema:streetAddress ;
     sh:maxCount 1 ;
@@ -47,7 +47,7 @@ recordtypes:ErfgoedregisterAdres
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Huisnummer"@nl ;
+    rdfs:label "Huisnummer"@nl, "House number"@en ;
     sh:path bag:huisnummer ;
     memorix:inTitleAt 3.0 ;
     sh:maxCount 1 ;
@@ -57,7 +57,7 @@ recordtypes:ErfgoedregisterAdres
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Huisletter"@nl ;
+    rdfs:label "Huisletter"@nl, "House letter"@en ;
     sh:path bag:huisletter ;
     memorix:inTitleAt 4.0 ;
     sh:maxCount 1 ;
@@ -67,7 +67,7 @@ recordtypes:ErfgoedregisterAdres
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Toevoeging"@nl ;
+    rdfs:label "Toevoeging"@nl, "Suffix"@en ;
     sh:path bag:huisnummertoevoeging ;
     memorix:inTitleAt 5.0 ;
     sh:maxCount 1 ;
@@ -77,7 +77,7 @@ recordtypes:ErfgoedregisterAdres
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Postcode"@nl ;
+    rdfs:label "Postcode"@nl, "Postal Code"@en ;
     sh:path schema:postalCode ;
     sh:maxCount 1 ;
     sh:order 6.0 ;
@@ -86,7 +86,7 @@ recordtypes:ErfgoedregisterAdres
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Gemeente"@nl ;
+    rdfs:label "Gemeente"@nl, "City"@en ;
     sh:path dbpo:municipality ;
     sh:maxCount 1 ;
     sh:order 7.0 ;
@@ -95,7 +95,7 @@ recordtypes:ErfgoedregisterAdres
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Stadsdeel"@nl ;
+    rdfs:label "Stadsdeel"@nl, "District"@en ;
     sh:path schema:addressRegion ;
     sh:maxCount 1 ;
     sh:order 8.0 ;
@@ -106,7 +106,7 @@ recordtypes:ErfgoedregisterAdres
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Buurt"@nl ;
+    rdfs:label "Buurt"@nl, "Neighbourhood"@en ;
     sh:path brt:Buurt ;
     sh:maxCount 1 ;
     sh:order 9.0 ;
@@ -118,7 +118,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     # TODO: samenvoegen met "Y" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
-    rdfs:label "X"@nl ;
+    rdfs:label "X"@nl, "X"@en ;
     sh:path <http://data.ign.fr/def/geometrie#coordX> ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
     sh:maxCount 1 ;
     sh:order 10.0 ;
@@ -128,7 +128,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     # TODO: samenvoegen met "X" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
-    rdfs:label "Y"@nl ;
+    rdfs:label "Y"@nl, "Y"@en ;
     sh:path <http://data.ign.fr/def/geometrie#coordY> ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
     sh:maxCount 1 ;
     sh:order 11.0 ;
@@ -137,7 +137,7 @@ recordtypes:ErfgoedregisterAdres
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Datum ingang"@nl ;
+    rdfs:label "Datum ingang"@nl, "Date (begin)"@en ;
     sh:path rico:hasBeginningDate ;
     sh:order 12.0 ;
     memorix:inSummaryAt 1.0 ;
@@ -146,7 +146,7 @@ recordtypes:ErfgoedregisterAdres
     dash:editor memorix:DateEditor ;
   ] ;
   sh:property [
-    rdfs:label "Datum einde"@nl ;
+    rdfs:label "Datum einde"@nl, "Date (end)"@en ;
     sh:path rico:hasEndDate ;
     memorix:inSummaryAt 2.0 ;
     sh:order 14.0 ;
@@ -155,7 +155,7 @@ recordtypes:ErfgoedregisterAdres
     dash:editor memorix:DateEditor ;
   ] ;
 .
-erfgoedregisterAdres:addressGroup a sh:PropertyGroup ;
-  rdfs:label "Adres"@nl ;
+erfgoedregisterAdres:addressGroup a sh:PropertyGrQoup ;
+  rdfs:label "Adres"@nl, "Address"@en ;
   sh:order 1.0
 .
