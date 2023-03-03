@@ -18,8 +18,8 @@
 
 recordtypes:KoorboekPagina
   a memorix:Recordtype, sh:NodeShape ;
-  rdfs:label "Koorboek pagina's"@nl ;
-  rdfs:comment "Koorboek pagina's van Erfgoed Leiden"@nl ;
+  rdfs:label "Koorboek pagina's"@nl, "Choirbook Pages"@en ;
+  rdfs:comment "Koorboek pagina's van Erfgoed Leiden"@nl, "Choirbook pages - Erfgoed Leiden"@en ;
   dce:identifier "KoorboekPagina" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
@@ -27,7 +27,7 @@ recordtypes:KoorboekPagina
   memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
   dash:defaultViewForRole dash:all ;
   sh:property [
-    rdfs:label "Koorboek"@nl ;
+    rdfs:label "Koorboek"@nl, "Choirbook"@en ;
     sh:path rico:isOrWasPartOf ;
     sh:order 0.5 ;
     memorix:inTitleAt 1 ;
@@ -39,7 +39,7 @@ recordtypes:KoorboekPagina
     dash:editor memorix:LinkedRecordEditor ;
   ] ;
   sh:property [
-    rdfs:label "Titel"@nl ;
+    rdfs:label "Titel"@nl, "Title"@en ;
     sh:path rico:title ;
     memorix:inTitleAt 2 ;
     sh:maxCount 100 ;
@@ -48,14 +48,14 @@ recordtypes:KoorboekPagina
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Bestandsnaam"@nl ;
+    rdfs:label "Bestandsnaam"@nl, "File name"@en ;
     sh:path dbpo:filename ;
     sh:order 2.0 ;
     sh:group koorboekPagina:identificationGroup ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Folio"@nl ;
+    rdfs:label "Folio"@nl, "Folio"@en;
     sh:path elo:folio ;
     memorix:inSummaryAt 1 ;
     sh:order 4.0 ;
@@ -63,7 +63,7 @@ recordtypes:KoorboekPagina
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Componist"@nl ;
+    rdfs:label "Componist"@nl, "Composer"@en ;
     sh:path schema:composer;
     memorix:inTitleAt 3 ;
     sh:order 5.0 ;
@@ -74,7 +74,7 @@ recordtypes:KoorboekPagina
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Bijzonderheden"@nl ;
+    rdfs:label "Bijzonderheden"@nl, "Details"@en ;
     sh:path rico:descriptiveNote ;
     sh:order 6.0 ;
     sh:group koorboekPagina:identificationGroup ;
@@ -82,7 +82,7 @@ recordtypes:KoorboekPagina
     dash:editor  dash:TextAreaEditor ;
   ] ;
   sh:property [
-    rdfs:label "Volgnummer"@nl ;
+    rdfs:label "Volgnummer"@nl, "Order"@en ;
     sh:path elo:volgnummer ;
     memorix:inSummaryAt 2 ;
     sh:order 7.0 ;
@@ -92,6 +92,6 @@ recordtypes:KoorboekPagina
 .
 
 koorboekPagina:identificationGroup a sh:PropertyGroup ;
-  rdfs:label "Identificatie"@nl ;
+  rdfs:label "Identificatie"@nl, "Identification"@en ;
   sh:order 1.0
 .
