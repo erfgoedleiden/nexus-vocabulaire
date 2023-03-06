@@ -79,7 +79,7 @@ recordtypes:Persoonsvermelding
         sh:path       dc:description ;
     ] ;
     sh:property              [
-        rdfs:label         "Achtervoegsel"@nl ;
+        rdfs:label         "Achtervoegsel"@nl, "Suffix"@en ;
         sh:datatype        xsd:string ;
         sh:maxCount  1 ;
         sh:group           persoonsvermelding:personListingGroup ;
@@ -159,7 +159,7 @@ recordtypes:Persoonsvermelding
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property              [
-        rdfs:label         "Voorvoegsel"@nl ;
+        rdfs:label         "Voorvoegsel"@nl, "Prefix"@en ;
         sh:maxCount  1 ;
         sh:datatype        xsd:string ;
         sh:group           persoonsvermelding:personListingGroup ;
