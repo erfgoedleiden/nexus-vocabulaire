@@ -400,7 +400,7 @@ organisatie:RightsAgreement
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Opmerking"@nl, "Remarks"@en ;
+    rdfs:label "Opmerking rechten-afspraken"@nl, "Remarks copyright"@en ;
     sh:path rico:descriptiveNote ;
     sh:order 2.0 ;
     sh:datatype xsd:string ;
