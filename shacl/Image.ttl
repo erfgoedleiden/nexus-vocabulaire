@@ -276,7 +276,7 @@ image:EventDate
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass image:EventDate ;
   sh:property [
-    rdfs:label "Datum tekstveld"@nl, "Date (text)"@en ;
+    rdfs:label "Datum gebeurtenis tekstveld"@nl, "Date (text)"@en ;
     sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -284,7 +284,7 @@ image:EventDate
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Datum van"@nl, "Begin date"@en ;
+    rdfs:label "Datum gebeurtenis van"@nl, "Begin date"@en ;
     sh:maxCount 1 ;
     sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
@@ -292,7 +292,7 @@ image:EventDate
     dash:editor memorix:DateEditor ;
   ] ;
   sh:property [
-    rdfs:label "Datum tot"@nl, "End date"@en ;
+    rdfs:label "Datum gebeurtenis tot"@nl, "End date"@en ;
     sh:maxCount 1 ;
     sh:path rico:hasEndDate ;
     sh:order 3.0 ;
@@ -379,7 +379,7 @@ image:CreationDate
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass image:CreationDate ;
   sh:property [
-    rdfs:label "Datum tekstveld"@nl, "Date (text)"@en ;
+    rdfs:label "Datum vervaardiging tekstveld"@nl, "Date (text)"@en ;
     sh:path rico:expressedDate ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -387,7 +387,7 @@ image:CreationDate
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Datum van"@nl, "Date from"@en ;
+    rdfs:label "Datum vervaardiging van"@nl, "Date from"@en ;
     sh:maxCount 1 ;
     sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
@@ -395,7 +395,7 @@ image:CreationDate
     dash:editor memorix:DateEditor ;
   ] ;
   sh:property [
-    rdfs:label "Datum tot"@nl, "Date until"@en ;
+    rdfs:label "Datum vervaardiging tot"@nl, "Date until"@en ;
     sh:maxCount 1 ;
     sh:path rico:hasEndDate ;
     sh:order 3.0 ;
