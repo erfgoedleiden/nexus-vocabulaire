@@ -67,7 +67,6 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Documenttype"@nl, "Document type"@en ;
-    rdfs:comment "Wat voor type object is het? Bijvoorbeeld: boek, tijdschrift, bidprentje, etc. Er kunnen meerdere termen worden gekozen"@nl ;
     sh:path rico:hasContentOfType ;
     sh:maxCount 10 ;
     sh:order 3.0 ;
@@ -100,7 +99,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Digitale publicatie"@nl, "Digital publication"@en ;
-    rdfs:comment "Link naar een extern digitale versie/voortzetting"@nl ;
+    rdfs:comment "Link naar een extern digitale versie, of de voortzetting van tijdschiften"@nl ;
     sh:path rico:hasDerivedInstantiation ;
     sh:maxCount 10 ;
     sh:order 6.0 ;
@@ -130,7 +129,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Plaats van uitgave"@nl, "Publication place"@en ;
-    rdfs:comment "Noteer de plaats deze in de pubicatie wordt genoemd (FOBID)"@nl ;
+    rdfs:comment "Noteer de plaats zoals deze in de pubicatie wordt genoemd (FOBID)"@nl ;
     sh:maxCount 10 ;
     sh:path schema:locationCreated ;
     sh:order 8.0 ;
@@ -185,7 +184,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Serie"@nl, "Series"@en ;
-    rdfs:commment "Vermeld hier de serietitel (FOBID)"@nl ;
+    rdfs:commment "Tite van de serie (FOBID)"@nl ;
     sh:path schema:partOfSeries ;
     sh:maxCount 1 ;
     sh:order 13.0 ;
@@ -543,7 +542,7 @@ bibliotheek:Location
 
   sh:property [
     rdfs:label "Regio trefwoord"@nl, "Location"@en ;
-    rdfs:comment "Geografisch onderwerp. Dat kan zowel een adres, wijk of stadsdeel zijn"@nl ; 
+    rdfs:comment "Geografisch onderwerp. Dat kan een adres, wijk of stadsdeel zijn"@nl ; 
     sh:path schema:addressRegion ;
     sh:maxCount 100 ;
     sh:order 1.0 ;
