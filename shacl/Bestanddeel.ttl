@@ -71,7 +71,7 @@ recordtypes:Bestanddeel
     ] ;
     sh:property          [
          rdfs:label        "Nummer bestanddeel"@nl, "File number"@en ;
-         rdfs:comment "Inventarisnummer, eventueel met lettertoevoeging erachter. Bij een cijfertoevoeging moet er een + of - teken tussen . De + is het meest gebruikt"@nl ; 
+         rdfs:comment "Inventarisnummer, soms gevolgd door een letter of cijfer. Bij een cijfertoevoeging moet er een + of - teken tussen . De + is het meest gebruikt"@nl ; 
          sh:group          bestanddeel:identificationGroup ;
          memorix:inTitleAt 1.0 ;
          sh:order          1.0 ;
@@ -93,6 +93,7 @@ recordtypes:Bestanddeel
     ] ;
     sh:property [
         rdfs:label   "Titel"@nl, "Title"@en ;
+        rdfs:comment "Korte beschrijving van het Bestanddeel"@nl ; 
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         memorix:inTitleAt 2.0 ;
@@ -210,7 +211,7 @@ recordtypes:Bestanddeel
     ] ;
     sh:property [
         rdfs:label "Opmerkingen openbaar"@nl, "Remarks"@en ;
-        rdfs:comment "Hier kan je aantekeningen noteren. Begin nb's met 'N.B.:'"@nl ;
+        rdfs:comment "Noteer hier opmerkingen die je niet in de overige velden kwijt kan. Begin nb's met 'N.B.:'"@nl ;
         sh:maxCount 1 ;
         sh:path rico:descriptiveNote ;
         sh:order 26.0 ;
@@ -220,6 +221,7 @@ recordtypes:Bestanddeel
     ] ;
     sh:property [
         rdfs:label "Opmerkingen intern"@nl, "Internal remarks"@en ;
+        rdfs:comment "Dit is een intern veld, dat niet op de website getoond wordt."@nl ;
         sh:maxCount 100 ;
         sh:path elo:opmerkingIntern ;
         sh:order 27.0 ;
@@ -236,6 +238,7 @@ rico:DateRange
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [
         rdfs:label   "Periode"@nl, "Date (text)"@en ;
+        rdfs:comment "Textuele weergave van de datering. Voorbeeld: 19e eeuw, ca. 1748"@nl ;
         sh:maxCount 1 ;
         sh:datatype  xsd:string ;
         sh:order     5.0 ;
@@ -243,7 +246,7 @@ rico:DateRange
     ] ;
     sh:property [
         rdfs:label   "Periode (van)"@nl, "Begin date"@en ;
-        rdfs:comment "Beginjaar van de periode. Bedoeld voor filteren op periode"@nl ;
+        rdfs:comment "Vroegst mogelijk datering. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:gYear ;
@@ -252,7 +255,7 @@ rico:DateRange
     ] ;
     sh:property [
         rdfs:label   "Periode (tot)"@nl, "End date"@en ;
-        rdfs:comment "Eindjaar van de periode. Bedoeld voor filteren op periode"@nl ;
+        rdfs:comment "Laatst mogelijke datering. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:gYear ;
