@@ -417,7 +417,7 @@ image:Dimension
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Hoogte waarde"@nl, "Height value"@en ;
+    rdfs:label "Hoogte eenheid"@nl, "Height unit"@en ;
     sh:path elo:hoogteWaarde ;
     sh:maxCount 1 ;
     sh:order 2.0 ;
@@ -434,7 +434,7 @@ image:Dimension
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Breedte waarde"@nl, "Width value"@en ;
+    rdfs:label "Breedte eenheid"@nl, "Width unit"@en ;
     sh:path elo:breedteWaarde ;
     sh:maxCount 1 ;
     sh:order 4.0 ;
