@@ -434,7 +434,7 @@ persoon:Relation
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass persoon:Relation ;
   sh:property [
-    rdfs:label "Soort relatie"@nl, "Type of relationship"@en ;
+    rdfs:label "Relatietype"@nl, "Type of relationship"@en ;
     sh:path rico:hasContentOfType ;
     sh:order 1.0 ;
     memorix:searchWeight 1.0 ;
@@ -444,7 +444,7 @@ persoon:Relation
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Gerelateerd Persoon/Organisatie"@nl, "Related Person/Organization"@en ;
+    rdfs:label "Relatie"@nl, "Related Person/Organization"@en ;
     sh:path rico:isRelatedTo ;
     sh:order 2.0 ;
     sh:nodeKind sh:IRI ;
