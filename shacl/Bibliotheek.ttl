@@ -45,7 +45,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Signatuur"@nl, "Identification number"@en ;
-    rdfs:comment "Het nummer dat een boek of tijdschift heeft"@nl ;
+    rdfs:comment "Identificatienummer. Deze wordt toegekend door de bibliothecaris."@nl ;
     sh:path rico:identifier ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
@@ -58,7 +58,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Standplaats"@nl, "Depot location number"@en ;
-    rdfs:comment "Alleen invullen als de standplaats afwijkt. Als dit veld leeg is, geeft de Signatuur aan waar het item in het depot te vinden is. Bij kranten altijd invullen"@nl ;           
+    rdfs:comment "Signatuur geeft in principe de standplaats aan. Als deze afwijkt, kan je hier aangeven waar het stuk te vinden is."@nl ;           
     sh:path  rico:hasOrHadPhysicalLocation ;
     sh:maxCount 1 ;
     sh:order 2.0 ;
@@ -78,7 +78,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Titel werkveld"@nl ;
-    rdfs:comment "Dit veld niet invullen. Hier staan oude beschrijvingen, die door de bibliothecaris worden aangepast"@nl ;
+    rdfs:comment "Met dit veld niets doen. Dit is een oude beschrijving die door de bibliothecaris wordt aangepast"@nl ;
     sh:path dc:subject ;
     sh:maxCount 1 ;
     sh:order 4.0 ;
@@ -88,7 +88,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Titel"@nl, "Title"@en ;
-    rdfs:comment "Neem de titel over van de titelpagina (FOBID)"@nl ;
+    rdfs:comment "Titel zoals vermeld op de titelpagina (FOBID)"@nl ;
     sh:path rico:title ;
     sh:maxCount 1 ;
     sh:order 5.0 ;
@@ -99,7 +99,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Digitale publicatie"@nl, "Digital publication"@en ;
-    rdfs:comment "Link naar een extern digitale versie, of de voortzetting van tijdschiften"@nl ;
+    rdfs:comment "Link naar de digitale versie op een externe website."@nl ;
     sh:path rico:hasDerivedInstantiation ;
     sh:maxCount 10 ;
     sh:order 6.0 ;
@@ -119,7 +119,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Editie"@nl, "Edition"@en ;
-    rdfs:comment "Bijvoorbeeld: 2e dr./geh. herz. ed. (FOBID)"@nl;  
+    rdfs:comment "Editie zoals vermeld in de publicatie (FOBID)"@nl;  
     sh:path schema:bookEdition ;
     sh:maxCount 1 ;
     sh:order 9.5 ;
@@ -129,7 +129,6 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Plaats van uitgave"@nl, "Publication place"@en ;
-    rdfs:comment "Noteer de plaats zoals deze in de pubicatie wordt genoemd (FOBID)"@nl ;
     sh:maxCount 10 ;
     sh:path schema:locationCreated ;
     sh:order 8.0 ;
@@ -140,7 +139,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Uitgever"@nl, "Publisher"@en ;
-    rdfs:comment "De naam van de uitgever (FOBID)"@nl ;
+    rdfs:comment "Uitgever zoals vermeld in de publicatie (FOBID)"@nl ;
     sh:path schema:publisher ;
     sh:order 9.0 ;
     sh:maxCount 5 ;
@@ -164,7 +163,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Pagina's"@nl, "Number of pages"@en ;
-    rdfs:comment "Bij een boek: 38 p. Bij een artikel: 76-200 (FOBID)"@nl ;
+    rdfs:comment "Voorbeeld boek: 38 p. Voorbeeld tijdschift: 76-200 (FOBID)"@nl ;
     sh:path schema:numberOfPages ;
     sh:maxCount 1 ;
     sh:order 11.0 ;
@@ -174,7 +173,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Geïllustreerd"@nl, "Illustrated"@en ;
-    rdfs:comment "Als er in de uitgave afbeeldingen voorkomen, noteer je hier: ill."@nl ;
+    rdfs:comment "Heeft een boek illustraties? Noteer dan 'ill.' (FOBID)"@nl ;
     sh:path schema:image ;
     sh:maxCount 1 ;
     sh:order 12.0 ;
@@ -184,7 +183,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Serie"@nl, "Series"@en ;
-    rdfs:commment "Tite van de serie (FOBID)"@nl ;
+    rdfs:commment "Gaat het om een deel uit een reeks? Noteer dan hier de serietitel (FOBID)"@nl ;
     sh:path schema:partOfSeries ;
     sh:maxCount 1 ;
     sh:order 13.0 ;
@@ -196,7 +195,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Annotatie"@nl, "Annotation"@en ;
-    rdfs:comment "Nadere vermelding over de uitgave (FOBID). Bijvoorbeeld: titelwijziging, ontbrekende afleveringen, oorspronkelijke uitgave, etc."@nl ;
+    rdfs:comment "Nadere informatie over de uitgave (FOBID). Voorbeeld: titelwijziging, ontbrekende afleveringen, etc."@nl ;
     sh:path dbpo:hasAnnotation ;
     sh:maxCount 1 ;
     sh:order 14.0 ;
@@ -206,7 +205,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "ISBN"@nl, "ISBN"@en ;
-    rdfs:comment "Neem het nummer over, zonder streepjes tussen de cijfers"@nl ;
+    rdfs:comment "Noteer het ISBN zonder steepjes tussen de cijfers"@nl ;
     sh:path schema:isbn ;
     sh:maxCount 1 ;
     sh:order 15.0 ;
@@ -217,7 +216,7 @@ recordtypes:Bibliotheek
 
   sh:property [
     rdfs:label "Korte inhoud"@nl, "Content"@en ;
-    rdfs:comment: "Geef in enkele zinnen objectief de inhoud weer"@nl ;
+    rdfs:comment: "Noteer in enkele zinnen objectief de inhoud"@nl ;
     sh:path schema:abstract ;
     sh:maxCount 1 ;
     sh:order 16.0 ;
@@ -227,7 +226,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Persoon"@nl, "Person"@en ;
-    rdfs:comment "Leids persoon of Leidse familie die het onderwerp zijn van de uitgave"@nl ;
+    rdfs:comment "Noteer hier personen die wonen of werken in Leiden of de Leidse regio, als zij het hoofdonderwerp zijn van de publicatie."@nl ;
     sh:path schema:character ;
     sh:maxCount 100 ;
     sh:order 17.0 ;
@@ -252,7 +251,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Opmerking inhoudelijk"@nl, "Remarks"@en ;
-    rdfs:comment "Opmerkingen over de inhoud of de vorm van de publicatie"@nl ; 
+    rdfs:comment "Opmerkingen met betrekking tot de publicatie of vorm. Voorbeeld: 'Zie ook…' of 'Overdruk'"@nl ; 
     sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
     sh:order 19.0 ;
@@ -283,7 +282,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Jaargang"@nl, "Volume"@en ;
-    rdfs: "De jaargang van een tijdschrift"@nl ;
+    rdfs: "Jaargang van het tijdschrift (FOBID)"@nl ;
     sh:path schema:volumeNumber ;
     sh:maxCount 1 ;
     sh:order 22.0 ;
@@ -293,7 +292,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Aflevering"@nl, "Episode"@en ;
-    rdfs:comment "De aflevering van een tijdschrift"@nl ;
+    rdfs:comment "Aflevering van het tijdschrift (FOBID)"@nl ;
     sh:path schema:episode ;
     sh:maxCount 1 ;
     sh:order 23.0 ;
@@ -303,7 +302,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Deel"@nl, "Part"@en ;
-    rdfs:comment "Het nummer van een deel binnen een serie"@nl ;
+    rdfs:comment "Nummer van een deel binnen de serie (FOBID)"@nl ;
     sh:path schema:hasPart ;
     sh:maxCount 1 ;
     sh:order 24.0 ;
@@ -313,7 +312,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Nummering"@nl, "Number"@en ;
-    rdfs:comment "Wanneer de seriële publicatie is begonnen en/of geëindigd (FOBID)"@nl ; 
+    rdfs:comment "Voorbeeld: 'Jrg. 1 no. 1 (1995)-jrg. 10 no. 8 (2005)'. Als het tijdschrift niet is geëindigd, vul je in: 'Jrg. 1 no. 1 (1995)-' (FOBID)"@nl ; 
     sh:path schema:position ;
     sh:maxCount 1 ;
     sh:order 25.0 ;
@@ -323,7 +322,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Aanwezig"@nl, "Present"@en ;
-    rdfs:comment "De holding van een tijdschrift (FOBID)"@nl ;
+    rdfs:comment "Holding van het tijdschrift (FOBID). Oftewel: welke uitgaven zijn er aanwezig?"@nl ;
     sh:path schema:availability ;
     sh:maxCount 1 ;
     sh:order 26.0 ;
@@ -333,7 +332,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Ingebonden in"@nl, "Bound in"@en ;
-    rdfs:comment "Als er meerdere jaargangen zijn gebonden, geef je hier aan in welke band"@nl ;
+    rdfs:comment "Band waarin de publicatie is ingebonden. Alleen invullen als er meerdere jaargangen samen zijn ingebonden."@nl ;
     sh:path schema:isPartOf ;
     sh:maxCount 10 ;
     sh:order 27.0 ;
@@ -366,8 +365,8 @@ recordtypes:Bibliotheek
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Opmerking beheerder"@nl, "Internal remarks"@en ;
-    rdfs:comment "Opmerkingen die hier worden geplaats, zijn niet zichtbaar op de website"@nl ;
+    rdfs:label "Opmerkingen beheer"@nl, "Internal remarks"@en ;
+    rdfs:comment "Dit is een intern veld, dat niet op de website getoond wordt."@nl ;
     sh:path elo:opmerkingBeheerder ;
     sh:maxCount 1 ;
     sh:order 29.0 ;
@@ -377,7 +376,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Retro"@nl, "Retro"@en ;
-    rdfs:comment "Oude beschrijvingen uit Titel werkveld. Alleen door bibliothecaris in te vullen veld"@nl ;
+    rdfs:comment "Met dit veld niets doen, is oude beschrijving uit 'titel werkveld' dat door de bibliothecaris wordt aangepast"@nl ;
     # Bestaat wegens vroegere documentatiemethode
     sh:path elo:retro ;
     sh:maxCount 1 ;
@@ -388,7 +387,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Aanwinst"@nl, "Acquisition"@en ;
-    rdfs:comment "Vul hier het jaar van beschrijving in (dus niet van aankomst bij Erfgoed Leiden)"@nl ;
+    rdfs:comment "Jaar van beschrijving (niet van aankomst bij Erfgoed Leiden))"@nl ;
     sh:path dbpo:startYearOfInsertion ;
     sh:maxCount 1 ;
     sh:order 31.0 ;
@@ -397,7 +396,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Archief"@nl, "Fonds"@en ;
-    rdfs:comment "Als het om een archiefachtige collectie van stukken gaat, vink je hier 'ja' aan"@nl ;
+    rdfs:comment "Gaat het om 'een archiefachtige collectie stukken'? Voorbeeld: een mix van documenten, zoals handgeschreven brieven, foto's en drukwerk."@nl ;
     sh:path schema:archivedAt ;
     sh:maxCount 1 ;
     sh:order 32.0 ;
@@ -406,7 +405,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Gecontroleerd"@nl, "Checked"@en ;
-    rdfs:comment "Alleen door de bibliothecaris in te vullen"@nl ;
+    rdfs:comment "Met dit veld geeft de bibliothecaris aan of zij het record heeft gecontroleerd."@nl ;
     sh:path dc:valid ;
     sh:maxCount 1 ;
     sh:order 33.0 ;
@@ -508,7 +507,7 @@ bibliotheek:PublicationDate
   sh:targetClass bibliotheek:PublicationDate ;
   sh:property [
     rdfs:label "Jaar van uitgave"@nl, "Year of publication"@en ;
-    rdfs:comment "Tekstveld om een jaar of periode te beschrijven. Bijvoorbeeld '1905-1915 of '19e eeuw'"@nl ;
+    rdfs:comment "Het jaar waarin de publicatie is uitgegeven. Je kan die hier tekstueel weergeven. Voorbeeld: 1900-1920"@nl ;
     sh:path schema:datePublished ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -518,7 +517,7 @@ bibliotheek:PublicationDate
   ] ;
   sh:property [
     rdfs:label "Jaar van uitgave / datum publicatie (van)"@nl, "Year of publication (from)"@en ;
-    rdfs:comment "Datumveld, waar je het beginjaar (van een periode) inzet. Deze wordt gebruikt voor filteren op datum"@nl ;
+    rdfs:comment "Vroegst mogelijke publicatiedatum. Deze is nodig voor filteren op datum."@nl ;
     sh:path schema:startDate ;
     sh:order 2.0 ;
     sh:datatype xsd:integer ;
@@ -526,7 +525,7 @@ bibliotheek:PublicationDate
   ] ;
   sh:property [
     rdfs:label "Jaar van uitgave / datum publicatie (tot)"@nl, "Year of publication (until)"@en ;
-    rdfs:comment "Datumveld, waar je het eindjaar (van een periode) inzet. Deze wordt gebruikt voor filteren op datum"@nl ;
+    rdfs:comment "Laatst mogelijke publicatiedatum. Deze is nodig voor filteren op datum."@nl ;
     sh:path schema:endDate ;
     sh:order 3.0 ;
     sh:datatype xsd:integer ;
@@ -541,8 +540,8 @@ bibliotheek:Location
   sh:targetClass bibliotheek:Location ;
 
   sh:property [
-    rdfs:label "Regio trefwoord"@nl, "Location"@en ;
-    rdfs:comment "Geografisch onderwerp. Dat kan een adres, wijk of stadsdeel zijn"@nl ; 
+    rdfs:label "Geografisch trefwoord"@nl, "Location"@en ;
+    rdfs:comment "Geografische locatie waar de publicatie over gaat. Er worden alleen locatie in Leiden of de Leidse regio genoteerd. Voorbeeld: 'Leiden', 'Marewijk' of 'Stadsgehoorzaal'"@nl ; 
     sh:path schema:addressRegion ;
     sh:maxCount 100 ;
     sh:order 1.0 ;
@@ -578,7 +577,7 @@ bibliotheek:Source
   sh:targetClass bibliotheek:Source ;
   sh:property [
     rdfs:label "Bron tekst"@nl, "Source text"@en ;
-    rdfs:comment "De naam van de bron waaruit een artikel komt. Bijvoorbeeld: Leids Nieuwsblad"@nl ;
+    rdfs:comment "Naam van de bron waaruit een artikel komt. Voorbeeld:'Leids Nieuwsblad'"@nl ;
     sh:path dc:source ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -587,7 +586,7 @@ bibliotheek:Source
   ] ;
   sh:property [
     rdfs:label "Bron link"@nl, "Source link"@en ;
-    rdfs:comment "Neem hier een link op naar een koepelbeschrijving"@nl ;
+    rdfs:comment "Link naar de koepelbeschrijving"@nl ;
     sh:path rico:source ;
     sh:maxCount 5 ;
     sh:order 2.0 ;
@@ -606,6 +605,7 @@ bibliotheek:Acquisition
   sh:targetClass bibliotheek:Acquisition ;
   sh:property [
     rdfs:label "Herkomst"@nl ;
+    rdfs:comment "Verwervingsmethode"@nl ;
     sh:path rico:history ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -616,6 +616,7 @@ bibliotheek:Acquisition
   ] ;
   sh:property [
     rdfs:label "Persoon/Organisatie"@nl ;
+    rdfs:comment "Persoon of organisatie van wie de aanwinst afkomstig is"@nl ;
     sh:path rico:hasSource ;
     sh:maxCount 10 ;
     sh:order 2.0 ;
@@ -628,6 +629,7 @@ bibliotheek:Acquisition
   ] ;
   sh:property [
     rdfs:label "Verwervingsdatum"@nl ;
+    rdfs:comment "Datum waarop de aanwinst is verkregen"@nl ;
     sh:path schema:ownedFrom ;
     sh:maxCount 1 ;
     sh:order 3.0 ;
