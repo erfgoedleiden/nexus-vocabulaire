@@ -33,6 +33,7 @@ recordtypes:Persoon
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Voornaam"@nl,"First name"@en ;
+    rdfs:comment "Voornaam of initialen"@nl ;
     sh:path schema:givenName ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -44,6 +45,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Tussenvoegsel"@nl, "Surname prefix"@en ;
+    rdfs:comment "Alle tussenvoegsels tussen voor- en achternaam. Een tussenvoegsel tussen onderdelen van de achternaam wordt opgenomen in 'Achternaam'."@nl ;
     sh:path dbpo:prefix ;
     sh:maxCount 1 ;
     sh:order 2.0 ;
@@ -54,6 +56,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Achternaam"@nl, "Surname"@en ;
+    rdfs:comment "Voornaam of initialen"@nl ;
     sh:path schema:familyName ;
     sh:maxCount 1 ;
     sh:order 3.0 ;
@@ -64,6 +67,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Alternatieve namen"@nl, "Alternate names"@en ;
+    rdfs:comment "Andere namen waaronder de persoon bekend staat. Voorbeeld: Koningin Beatrix"@nl ;
     sh:path schema:additionalName ;
     sh:maxCount 100 ;
     sh:order 4.0 ;
@@ -119,6 +123,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Biografie"@nl, "Biography"@en ;
+    rdfs:comment "Korte levensbeschrijving van de persoon"@nl ;
     sh:path rico:history ;
     sh:maxCount 1 ;
     sh:order 3.0 ;
@@ -130,6 +135,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Bibliografie"@nl, "Bibliography"@en ;
+    rdfs:comment "Literatuur die verschenen is over de persoon, zijn werkzaamheden, plaats van werkzaamheid, etc"@nl ;
     sh:path schema:citation ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
@@ -140,6 +146,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Opmerkingen beschrijving"@nl, "Remarks description"@en ;
+    rdfs:comment "Opmerkingen over de beschrijving die je in andere velden niet kwijt kunt."@nl ;
     sh:path rico:descriptiveNote ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
@@ -435,6 +442,7 @@ persoon:Relation
   sh:targetClass persoon:Relation ;
   sh:property [
     rdfs:label "Relatietype"@nl, "Type of relationship"@en ;
+    rdfs:comment "Voorbeeld: als je in dit record de ELO-medewerker 'Jan Lagas' beschrijft, is het relatietype 'Rechthebbende' en de relatie 'Erfgoed Leiden'"@nl ;
     sh:path rico:hasContentOfType ;
     sh:order 1.0 ;
     memorix:searchWeight 1.0 ;
@@ -463,7 +471,8 @@ persoon:RightsAgreement
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass persoon:RightsAgreement ;
   sh:property [
-    rdfs:label "Voorwaarde"@nl, "Copyright statement"@en ;
+    rdfs:label "Auteursrechtverklaring"@nl, "Copyright statement"@en ;
+    rdfs:comment "Rechtenset zoals in de auteursrechtenlicentie met de rechthebbende is vastgelegd"@nl ;         
     sh:path rico:conditionsOfUse ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -473,7 +482,7 @@ persoon:RightsAgreement
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    rdfs:label "Opmerking bij rechten-afspraken"@nl, "Remarks copyright"@en ;
+    rdfs:label "Opmerking rechten-afspraken"@nl, "Remarks copyright"@en ;
     sh:path rico:descriptiveNote ;
     sh:order 2.0 ;
     sh:datatype xsd:string ;
