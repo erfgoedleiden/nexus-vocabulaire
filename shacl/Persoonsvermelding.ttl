@@ -30,6 +30,7 @@ recordtypes:Persoonsvermelding
     sh:ignoredProperties     ( rdf:type ) ;
     sh:property              [
         rdfs:label   "Rol"@nl, "Role"@en ;
+        rdfs:comment "De rol of functie van de persoon in de akte of inschrijving. Voorbeeld: vader, belender"@nl ;
         sh:group     persoonsvermelding:personListingGroup ;
         sh:order     0.2 ;
         sh:maxCount 10 ;
@@ -51,6 +52,7 @@ recordtypes:Persoonsvermelding
     ] ;
     sh:property              [
         rdfs:label         "Achternaam"@nl, "Surname"@en ;
+        rdfs:comment       "Voor een getrouwde vrouw: neem de meisjesnaam. De getrouwde naam noteer je in Opmerkingen openbaar."@nl ;
         memorix:inTitleAt  3.0 ;
         sh:maxCount  1 ;
         sh:datatype        xsd:string ;
@@ -80,6 +82,8 @@ recordtypes:Persoonsvermelding
     ] ;
     sh:property              [
         rdfs:label         "Achtervoegsel"@nl, "Suffix"@en ;
+        rdfs:comment       "Voorbeeld: de oude, de jonge, sr, jr. Let op: een achtervoegsel kan ook voor de naam staan: jonge Pieter Vranckensz / Pieter Vranckensz de jonge"@nl ;
+        rdfs:comment       ""@nl ;
         sh:datatype        xsd:string ;
         sh:maxCount  1 ;
         sh:group           persoonsvermelding:personListingGroup ;
@@ -88,6 +92,7 @@ recordtypes:Persoonsvermelding
     ] ;
     sh:property              [
         rdfs:label   "Leeftijd (jaar)"@nl, "Age (year)"@en ;
+        rdfs:comment "Leeftijd in jaren, afgerond naar beneden. Voorbeeld: 6 maanden wordt hier geregistreerd als 0"@nl ;
         sh:datatype  xsd:integer ;
         sh:maxCount  1 ;
         sh:group     persoonsvermelding:personListingGroup ;
@@ -104,6 +109,7 @@ recordtypes:Persoonsvermelding
     ] ;
     sh:property              [
         rdfs:label   "Titel"@nl, "Title"@en ;
+        rdfs:comment "Academische titels (bv. prof., mr., dr.), adellijke titels (bv. keizer, koning, prinses) en kerkelijke titels (bv. ds., mgr.)"@nl ;
         sh:datatype  xsd:string ;
         sh:group     persoonsvermelding:personListingGroup ;
         sh:maxCount  20 ;
@@ -132,6 +138,7 @@ recordtypes:Persoonsvermelding
     ] ;
     sh:property              [
         rdfs:label         "Tussenvoegsel"@nl, "Surname prefix"@en ;
+        rdfs:comment       "Alle tussenvoegsels tussen voor- en achternaam. Een tussenvoegsel tussen onderdelen van de achternaam wordt opgenomen in 'Achternaam'."@nl ;  
         memorix:inTitleAt  2.5 ;
         sh:maxCount  1 ;
         sh:datatype        xsd:string ;
@@ -141,6 +148,7 @@ recordtypes:Persoonsvermelding
     ] ;
     sh:property              [
         rdfs:label   "Leeftijd"@nl, "Age"@en ;
+        rdfs:comment "Leeftijd noteren zoals deze in de bron staat. Voorbeeld: 6 maanden"@nl ;
         sh:datatype  xsd:string ;
         sh:maxCount  1 ;
         sh:group     persoonsvermelding:personListingGroup ;
@@ -149,6 +157,7 @@ recordtypes:Persoonsvermelding
     ] ;
     sh:property              [
         rdfs:label          "Geslacht"@nl, "Gender"@en ;
+        rdfs:comment        "Keuze uit 'man', 'vrouw' en 'onbekend'. Dit veld alleen invullen als er een geslachtsaanduiding in de bron staat. Dus niet afleiden van bijvoorbeeld de voornaam of het beroep"@nl ;   
         sh:maxCount         1 ;
         sh:group            persoonsvermelding:personListingGroup ;
         sh:order            3.6 ;
@@ -160,6 +169,7 @@ recordtypes:Persoonsvermelding
     ] ;
     sh:property              [
         rdfs:label         "Voorvoegsel"@nl, "Prefix"@en ;
+        rdfs:comment "Aanduiding van een niet bij name genoemd persoon ten opzichte van iemand, die wel is genoemd. Voorbeeld : de weduwe van, de erven van, kind van"@nl ;
         sh:maxCount  1 ;
         sh:datatype        xsd:string ;
         sh:group           persoonsvermelding:personListingGroup ;
@@ -178,7 +188,7 @@ recordtypes:Persoonsvermelding
         sh:path       schema:contentLocation
     ] ;
     sh:property              [
-        rdfs:comment  "Beroepen die genoemd worden op de akte"@nl ;
+        rdfs:comment  "Beroep overnemen zoals deze in de bron staat."@nl ;
         rdfs:label    "Beroep"@nl, "Profession"@en ;
         dash:viewer   dash:DetailsEditor ;
         sh:class      persoonsvermelding:Profession ;
@@ -190,6 +200,7 @@ recordtypes:Persoonsvermelding
     ] ;
     sh:property              [
         rdfs:label         "Patroniem"@nl, "Patronymic"@en ;
+        rdfs:comment       "Een patroniem kan in de tekst ook achter de achternaam staan."@nl ;            
         memorix:inTitleAt  2.0 ;
         sh:maxCount  1 ;
         sh:datatype        xsd:string ;
@@ -246,6 +257,7 @@ persoonsvermelding:Details
     ] ;
     sh:property           [
     rdfs:label   "Bijzonderheid"@nl, "Detail"@en ;
+    rdfs:comment       "Belangrijke informatie die niet in de overige velden past. Dit veld wordt gecombineerd met 'Bijzonderheid-type'."@nl ;  
     sh:datatype  xsd:string ;
     sh:maxCount  1 ;
     sh:order     2.0 ;
@@ -314,7 +326,6 @@ persoonsvermelding:Details
         sh:path      brt:Wijk
     ] ;
     sh:property           [
-        # Typo??? Wijk huisnummer -> Wijknummer?
         rdfs:label   "Wijk huisnummer"@nl, "Neighbourhood house number"@en ;
         sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
