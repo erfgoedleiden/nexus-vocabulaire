@@ -52,6 +52,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Registratienummer"@nl, "Registration number"@en ;
+      rdfs:comment "Bestaat bij monumenten uit cijfers. De overige soorten beginnen met een lettercode: AA (Aanwijzing Afgewezen) AF (object AFgevoerd) AP (Aanwijzing in Procedure) BW (Bouwhistorische Waarde) HI (Historisch Interessant object) KP (Karakteristiek Pand) KW (Kunstwerk)"@nl ; 
       sh:path rico:identifier ;
       sh:maxCount 1 ;
       memorix:inTitleAt 1.0 ;
@@ -72,6 +73,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Pand Id"@nl, "Building ID"@en ;
+      rdfs:comment "Uniek BAG identificatienummer, bestaat uit 16 karakters en begint altijd met 054610XXXXXXXXXX"@nl ; 
       sh:path bag:identificatie ;
       sh:maxCount 100 ;
       sh:order 3.5 ;
@@ -92,6 +94,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Redengevende omschrijving"@nl, "Description"@en ;
+      rdfs:comment "Omschrijving van het object, zoals deze is vastgesteld bij de aanwijzing"@nl ; 
       sh:path elo:redengevendeOmschrijving ;
       sh:maxCount 1 ;
       sh:order 5.0 ;
@@ -112,6 +115,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Opmerkingen"@nl, "Remarks"@en ;
+      rdfs:comment "Vrij tekstveld voor opmerkingen, toevoegingen, etc. bij de registatie, bedoeld voor externen."@nl ; 
       sh:path rico:descriptiveNote ;
       sh:maxCount 1 ;
       sh:order 7.0 ;
@@ -121,6 +125,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Opmerkingen beheer"@nl, "Internal remarks"@en ;
+      rdfs:comment "Opmerkingen over het beheer van de registratie. Dit is een intern veld, dat niet op de website getoond wordt."@nl ;
       sh:path elo:opmerkingBeheerder ;
       sh:maxCount 1 ;
       sh:order 8.0 ;
@@ -130,6 +135,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Datum advies commissie"@nl, "Date advise committee"@en ;
+      rdfs:comment "Datum van het advies van de Adviescommissie aan het college van B&W mbt de aanwijzing van het object als monument"@nl ;
       sh:path dc:dateAccepted ;
       sh:order 9.0 ;
       sh:group object:procedureDataGroup ;
@@ -149,6 +155,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Datum besluit B en W"@nl, "Date decision B&W"@en ;
+      rdfs:comment "Datum van het besluit van het college van B&W mbt de aanwijzing van het object als gemeentelijk monument"@nl ;
       sh:path dc:issued ;
       sh:order 11.0 ;
       sh:group object:procedureDataGroup ;
@@ -157,6 +164,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Nummer besluit B en W"@nl, "Number decision B&W"@en ;
+      rdfs:comment "Nummer van het besluit van het college ven B&W mbt de aanwijzing van het object als gemeentelijk monument. Voorbeeld: YY.0000"@nl ;
       sh:path rico:hasProvenance ;
       sh:maxCount 1 ;
       sh:order 12.0 ;
@@ -165,6 +173,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Datum registratie RM"@nl, "Date of registration RM"@en ;
+      rdfs:comment "Datum van het besluit van de minister/staatssecretaris van OCW mbt de aanwijzing van het object als Rijksmonument"@nl ;
       sh:path rico:expressedDate ;
       sh:order 13.0 ;
       sh:group object:procedureDataGroup ;
@@ -184,6 +193,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Type"@nl, "Type"@en ;
+      rdfs:comment "Typering van de fysieke verschijningsvorm van het object"@nl ;
       sh:path rico:hasOrHadPlaceType ;
       sh:maxCount 1 ;
       sh:order 15.0 ;
@@ -195,6 +205,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Oorspronkelijke functie"@nl, "Original function"@en ;
+      rdfs:comment "Functie(s) die leidend zijn geweest in het ontwerp van het object"@nl ;
       sh:path schema:roleName ;
       sh:maxCount 1 ;
       sh:order 16.0 ;
@@ -206,6 +217,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Opdrachtgever"@nl, "Client"@en ;
+      rdfs:comment "Degene die de opdracht heeft gegeven tot ontwerp en realisatie van het object"@nl ;
       sh:path schema:customer ;
       sh:maxCount 1 ;
       sh:order 17.0 ;
@@ -219,6 +231,7 @@ recordtypes:Object
     ] ;
   sh:property [
       rdfs:label "Architect/ontwerper"@nl, "Architect/designer"@en ;
+      rdfs:comment "Degene die het ontwerp visualiseert (op tekening zet) en die de verwerkelijking van dit concept technisch en administratief begeleidt"@nl ;
       sh:path dbpo:architect ;
       sh:maxCount 1 ;
       sh:order 18.0 ;
@@ -305,6 +318,7 @@ object:Dating
     ] ;
   sh:property [
       rdfs:label "Startdatum"@nl, "Begin date"@en ;
+      rdfs:comment "Begindatering van de materiele levensduur van het object"@nl ;
       sh:path rico:hasBeginningDate ;
       sh:order 2.0 ;
       sh:datatype xsd:integer ;
@@ -312,6 +326,7 @@ object:Dating
     ] ;
   sh:property [
       rdfs:label "Einddatum"@nl, "End date"@en ;
+      rdfs:comment "Einddatering van de materiele levensduur van het object"@nl ;
       sh:path rico:hasEndDate ;
       sh:order 3.0 ;
       sh:datatype xsd:integer ;
@@ -319,6 +334,7 @@ object:Dating
     ] ;
   sh:property [
       rdfs:label "Datering betreft/opmerking"@nl, "Date concerns"@en ;
+      rdfs:comment "Op welk onderdeel (of het geheel) is de datering van toepassing?"@nl ;
       sh:path dc:date ;
       sh:maxCount 1 ;
       sh:order 0.5 ;
@@ -334,6 +350,7 @@ object:ZoningPlan
   sh:targetClass object:ZoningPlan ;
   sh:property [
       rdfs:label "Datum bestemmingsplan"@nl, "Date development plan"@en ;
+      rdfs:comment "Datum waarop het bestemmingsplan onherroepelijk is geworden"@nl ;
       sh:path dc:date ;
       sh:order 2.0 ;
       sh:group object:procedureDataGroup ;
@@ -342,6 +359,7 @@ object:ZoningPlan
     ] ;
   sh:property [
       rdfs:label "Omgevingsplangebied"@nl, "Development plan area"@en ;
+      rdfs:comment "Naam van het bestemmingsplan"@nl ;
       sh:path rico:location ;
       sh:maxCount 1 ;
       sh:order 1.0 ;
@@ -374,6 +392,7 @@ object:Architecture
     ] ;
   sh:property [
       rdfs:label "Bouwstijl betreft/opmerking"@nl, "Architectural style remarks"@en ;
+      rdfs:comment "Op welk onderdeel (of het geheel) is de bouwstijl van toepassing?"@nl ;
       sh:path rico:descriptiveNote ;
       sh:maxCount 1 ;
       sh:order 0.5 ;
@@ -389,6 +408,7 @@ object:BagAddress
   sh:targetClass object:BagAddress ;
   sh:property [
       rdfs:label "Toestand"@nl, "BAG status"@en ;
+      rdfs:comment "Geeft aan of het adres nog actueel is"@nl ;
       sh:path bag:status ;
       sh:maxCount 1 ;
       sh:order 3.0 ;
@@ -399,6 +419,7 @@ object:BagAddress
     ] ;
   sh:property [
       rdfs:label "Situering"@nl, "BAG location"@en ;
+      rdfs:comment "Nadere duiding van het adres"@nl ;
       sh:path rico:location ;
       sh:maxCount 1 ;
       sh:order 2.0 ;
