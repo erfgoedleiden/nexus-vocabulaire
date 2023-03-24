@@ -162,6 +162,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
     ] ;
     sh:property              [
         rdfs:label           "Datum registratie"@nl, "Date of the record"@en ;
+        rdfs:comment         "Datum waarop het document is opgemaakt."@nl ;
         dash:editor          memorix:DateEditor ;
         sh:maxCount          1 ;
         sh:datatype          xsd:integer ;
@@ -171,6 +172,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
     ] ;
     sh:property              [
         rdfs:label           "Aktenummer"@nl, "Number of the deed"@en ;
+        rdfs:comment         "Het (volg)nummer dat bij de akte staat"@nl ;
         sh:maxCount  1 ;
         sh:datatype          xsd:string ;
         sh:group             deed:deedGroup ;
@@ -293,6 +295,7 @@ deed:Details  rdf:type        sh:NodeShape ;
     ] ;
     sh:property           [
         rdfs:label   "Bijzonderheid"@nl, "Detail"@en ;
+        rdfs:comment "Belangrijke informatie die niet in de overige velden past. Dit veld wordt gecombineerd met 'Bijzonderheid-Type'."@nl ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     2.0 ;
