@@ -28,6 +28,7 @@ recordtypes:ErfgoedregisterAdres
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Adres ID"@nl, "Address ID"@en ;
+    rdfs:comment "Uniek BAG identificatienummer. Het bestaat uit 16 karakters en begint altijd met 054620XXXXXXXXXX"@nl ;   
     sh:path rico:identifier ;
     memorix:inTitleAt 9.0 ;
     sh:maxCount 1 ;
@@ -119,6 +120,7 @@ recordtypes:ErfgoedregisterAdres
   sh:property [
     # TODO: samenvoegen met "Y" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
     rdfs:label "X"@nl, "X"@en ;
+    rdfs:comment "Locatie bepaling uit de BAG op basis van het Rijksdriehoekstelsel"@nl ;
     sh:path <http://data.ign.fr/def/geometrie#coordX> ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
     sh:maxCount 1 ;
     sh:order 10.0 ;
@@ -129,6 +131,7 @@ recordtypes:ErfgoedregisterAdres
   sh:property [
     # TODO: samenvoegen met "X" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
     rdfs:label "Y"@nl, "Y"@en ;
+    rdfs:comment "Locatie bepaling uit de BAG op basis van het Rijksdriehoekstelsel"@nl ;
     sh:path <http://data.ign.fr/def/geometrie#coordY> ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
     sh:maxCount 1 ;
     sh:order 11.0 ;
@@ -138,6 +141,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     rdfs:label "Datum ingang"@nl, "Date (begin)"@en ;
+    rdfs:comment "Moment van uitgeven van het adres (vanaf dan is het geldig)"@nl ;
     sh:path rico:hasBeginningDate ;
     sh:order 12.0 ;
     memorix:inSummaryAt 1.0 ;
@@ -147,6 +151,7 @@ recordtypes:ErfgoedregisterAdres
   ] ;
   sh:property [
     rdfs:label "Datum einde"@nl, "Date (end)"@en ;
+    rdfs:comment "Moment van intrekken van het adres (het is daarna niet meer geldig)"@nl ;
     sh:path rico:hasEndDate ;
     memorix:inSummaryAt 2.0 ;
     sh:order 14.0 ;
