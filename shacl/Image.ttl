@@ -31,6 +31,7 @@ recordtypes:Image
           [ rdf:type  memorix:DigitalAssetComponent ] ;
   sh:property [
     rdfs:label "Collectie"@nl, "Collection"@en ;
+    rdfs:comment         "Organisatie waar het beeldmateriaal van afkomstig is"@nl ;
     sh:path rico:isOrWasPartOf ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -42,6 +43,7 @@ recordtypes:Image
   ] ;
   sh:property [
     rdfs:label "Bestandsnaam"@nl, "File name"@en ;
+    rdfs:comment "Naam van het digitale bestand."@nl ;
     sh:path dbpo:filename ;
     memorix:inSummaryAt 1.0 ;
     sh:maxCount 200 ;
@@ -52,6 +54,7 @@ recordtypes:Image
   ] ;
   sh:property [
     rdfs:label "Objectnummer"@nl, "Identifier"@en ;
+    rdfs:comment "Identificatienummer van het object"@nl ;
     sh:path rico:identifier ;
     memorix:inTitleAt 1.0 ;
     sh:maxCount 100 ;
@@ -73,6 +76,7 @@ recordtypes:Image
   ] ;
   sh:property [
     rdfs:label "Titel"@nl, "Title"@en ;
+    rdfs:comment "Een korte omschrijving van het onderwerp (wie, wat, waar). Achter de zin wordt geen punt gezet. Als er een titel op de prent staat, dan citeer je de tekst en zet je deze tussen aanhalingstekens."@nl ;
     sh:maxCount 1 ;
     sh:path rico:title ;
     memorix:inTitleAt 2.0 ;
@@ -83,6 +87,7 @@ recordtypes:Image
   ] ;
   sh:property [
     rdfs:label "Beschrijving"@nl, "Description"@en ;
+    rdfs:comment "Uitgebreide beschrijving van wat er op de afbeelding te zien is. Noteer hier wie, wat en waar."@nl ;
     sh:maxCount 1 ;
     sh:path dc:description ;
     sh:order 11.0 ;
@@ -92,6 +97,7 @@ recordtypes:Image
   ] ;
   sh:property [
     rdfs:label "Extra informatie"@nl, "Extra information"@en ;
+    rdfs:comment "Hier kun je alles in kwijt wat niet in Beschrijving thuis hoort. Voorbeeld: Leidsch Dagblad, 1-04-1990; Zie ook PV34997"@nl ;
     sh:maxCount 1 ;
     sh:path elo:extraInformatie ;
     sh:order 12.0 ;
@@ -198,6 +204,7 @@ recordtypes:Image
   ] ;
   sh:property [
     rdfs:label "Herkomst"@nl, "Aquisition"@en ;
+    rdfs:comment "Verwervingsmethode"@nl ;
     sh:path rico:history ;
     sh:maxCount 10 ;
     sh:order 30.0 ;
@@ -252,6 +259,7 @@ recordtypes:Image
   ] ;
   sh:property [
     rdfs:label "Digitalisering"@nl, "Digitization"@en  ;
+    rdfs:comment "Opmerkingen over digitaliseren"@nl ;
     sh:maxCount 1 ;
     sh:path rico:hasDerivedInstantiation ;
     sh:order 42.0 ;
@@ -261,6 +269,7 @@ recordtypes:Image
   ] ;
   sh:property [
     rdfs:label "Opmerkingen beheer"@nl, "Internal remarks"@en ;
+    rdfs:comment "Hier kun je alles kwijt over beheer en behoud. Dit is een intern veld, dat niet op de website getoond wordt."@nl ;
     sh:maxCount 1 ;
     sh:path elo:opmerkingBeheerder ;
     sh:order 43.0 ;
@@ -277,6 +286,7 @@ image:EventDate
   sh:targetClass image:EventDate ;
   sh:property [
     rdfs:label "Datum gebeurtenis tekstveld"@nl, "Date (text)"@en ;
+    rdfs:comment "Het jaar waarop de afbeelding betrekking heeft. Je kan die hier tekstueel weergeven. Voorbeeld: bij een schilderij van het Beleg van Leiden vul je hier 1573-1574 in."@nl ;
     sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -285,6 +295,7 @@ image:EventDate
   ] ;
   sh:property [
     rdfs:label "Datum gebeurtenis van"@nl, "Begin date"@en ;
+    rdfs:comment "Vroegst mogelijke gebeurtenisdatum. Deze is nodig voor filteren op datum"@nl ;
     sh:maxCount 1 ;
     sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
@@ -293,6 +304,7 @@ image:EventDate
   ] ;
   sh:property [
     rdfs:label "Datum gebeurtenis tot"@nl, "End date"@en ;
+    rdfs:comment "Laatst mogelijke gebeurtenisdatum. Deze is nodig voor filteren op datum"@nl ;
     sh:maxCount 1 ;
     sh:path rico:hasEndDate ;
     sh:order 3.0 ;
@@ -380,6 +392,7 @@ image:CreationDate
   sh:targetClass image:CreationDate ;
   sh:property [
     rdfs:label "Datum vervaardiging tekstveld"@nl, "Date (text)"@en ;
+    rdfs:comment "Datum waarop de afbeelding is gemaakt. Je kan die hier tekstueel weergeven. Voorbeeld: 19e eeuw, ca. 1748, april 1950"@nl ;
     sh:path rico:expressedDate ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -388,6 +401,7 @@ image:CreationDate
   ] ;
   sh:property [
     rdfs:label "Datum vervaardiging van"@nl, "Date from"@en ;
+    rdfs:comment "Vroegst mogelijke vervaardigingsdatum. Deze is nodig voor filteren op datum"@nl ;
     sh:maxCount 1 ;
     sh:path rico:hasBeginningDate ;
     sh:order 2.0 ;
@@ -396,6 +410,7 @@ image:CreationDate
   ] ;
   sh:property [
     rdfs:label "Datum vervaardiging tot"@nl, "Date until"@en ;
+    rdfs:comment "Laatst mogelijke vervaardigingsdatum. Deze is nodig voor filteren op datum"@nl ;
     sh:maxCount 1 ;
     sh:path rico:hasEndDate ;
     sh:order 3.0 ;
@@ -411,6 +426,7 @@ image:Dimension
   sh:targetClass image:Dimension ;
   sh:property [
     rdfs:label "Hoogte"@nl, "Height"@en ;
+    rdfs:comment "Hoogte van het object, zonder passe-partout en opzetvel"@nl ;
     sh:path rico:height ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -428,6 +444,7 @@ image:Dimension
   ] ;
   sh:property [
     rdfs:label "Breedte"@nl, "Width"@en ;
+    rdfs:comment "Breedte van het object, zonder passe-partout en opzetvel"@nl ;
     sh:path rico:width ;
     sh:maxCount 1 ;
     sh:order 3.0 ;
