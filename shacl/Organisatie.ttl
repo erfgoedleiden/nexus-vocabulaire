@@ -32,6 +32,7 @@ recordtypes:Organisatie
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Naam"@nl, "Name"@en ;
+    rdfs:comment "Naam van de organisatie, zoals die in het KvK is vastgelegd"@nl ;
     sh:path rico:name ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -42,6 +43,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Alternatieve namen"@nl, "Alternate names"@en ;
+    rdfs:comment "Andere namen waaronder de organisatie bekend staat. Voorbeeld: ELO"@nl ;
     sh:path dc:alternative ;
     sh:maxCount 100 ;
     sh:order 4.0 ;
@@ -96,6 +98,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Bibliografie"@nl, "Bibliography"@en ;
+    rdfs:comment "Literatuur die verschenen is over de instelling"@nl ;
     sh:path schema:citation ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
@@ -106,6 +109,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Opmerkingen beschrijving"@nl, "Remarks Description"@en ;
+    rdfs:comment "Opmerkingen over de beschrijving die je in andere velden niet kwijt kunt. "@nl ;
     sh:path rico:descriptiveNote ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
@@ -391,6 +395,7 @@ organisatie:RightsAgreement
   sh:targetClass organisatie:RightsAgreement ;
   sh:property [
     rdfs:label "Auteursrechtverklaring"@nl, "Copyright"@en ;
+    rdfs:comment "Rechtenset zoals in de auteursrechtenlicentie met de organisatie is vastgelegd"@nl ;
     sh:path rico:conditionsOfUse ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
