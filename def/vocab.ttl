@@ -42,14 +42,9 @@ elo:retro a rdfs:Property ;
   rdfs:label "Opmerkingen uit eerdere documentatiemethode" ;
 .
 
-elo:nietOpenbaarBereik a rdfs:Property ;
+elo:opmerkingenOpenbaarheid a rdfs:Property ;
   rdfs:subPropertyOf rico:descriptiveNote ;
-  rdfs:label "Niet openbare stukken - periode" ;
-.
-
-elo:aangemerktVoorVernietiging a rdfs:Property ;
-  rdfs:subPropertyOf rico:descriptiveNote ;
-  rdfs:label "Gedeelte voor vernietiging vatbaar" ;
+  rdfs:label "Opmerkingen openbaarheid" ;
 .
 
 elo:verantwoording a rdfs:Property ;
@@ -135,39 +130,13 @@ elo:datumOvereenkomstGestuurd a rdfs:Property ;
   rdfs:label "Datum overeenkomst gestuurd" ;
 .
 
+elo:datumAkteOndertekend a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasBeginningDate ;
+  rdfs:label "Datum akte ondertekend" ;
+.
 elo:datumOvereenkomstRetour a rdfs:Property ;
   rdfs:subPropertyOf rico:hasEndDate ;
   rdfs:label "Datum overeenkomst retour" ;
-.
-
-elo:datumAkkoordInspectieEnAcquisitie a rdfs:Property ;
-  rdfs:subPropertyOf rico:hasBeginningDate ;
-  rdfs:label "Datum akkoord Inspectie en Acquisitie" ;
-.
-
-elo:datumAkkoordRestauratie a rdfs:Property ;
-  rdfs:subPropertyOf rico:hasBeginningDate ;
-  rdfs:label "Datum akkoord Restauratie" ;
-.
-
-elo:datumVerpakkingOfHerverpakking a rdfs:Property ;
-  rdfs:subPropertyOf rico:hasBeginningDate ;
-  rdfs:label "Datum (her)verpakking" ;
-.
-
-elo:datumBinnenkomstDepot a rdfs:Property ;
-  rdfs:subPropertyOf rico:hasBeginningDate ;
-  rdfs:label "Datum binnenkomst depot" ;
-.
-
-elo:datumAkkoordSchadeInventarisatie a rdfs:Property ;
-  rdfs:subPropertyOf rico:hasBeginningDate ;
-  rdfs:label "Datum akkoord schade-inventarisatie" ;
-.
-
-elo:datumOntvangenToegang a rdfs:Property ;
-  rdfs:subPropertyOf rico:hasBeginningDate ;
-  rdfs:label "Datum ontvangen toegang" ;
 .
 
 ##################################
@@ -273,9 +242,14 @@ elo:isVerwerkt a rdfs:Property ;
   rdfs:label "Geeft aan of het object of record verwerkt is" ;
 .
 
-elo:definitieveAcquisitie a rdfs:Property ;
+elo:isOntvangen a rdfs:Property ;
   rdfs:subPropertyOf rico:hasRecordState ;
-  rdfs:label "Definitieve acquisitie" ;
+  rdfs:label "Geeft aan of het object of record is ontvangen" ;
+.
+
+elo:isGoedgekeurd a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasRecordState ;
+  rdfs:label "Geeft aan of het object of record is goedgekeurd" ;
 .
 
 elo:huisnummerVan a rdfs:Property ;
@@ -361,4 +335,14 @@ elo:patroniem2 a rdfs:Property ;
 elo:perceelfunctie a rdfs:Property ;
   rdfs:subPropertyOf schema:roleName ;
   rdfs:label "Functie van het perceel" ;
+.
+
+elo:particulierOfOverheid a rdfs:Property ;
+  rdfs:subPropertyOf schema:offeredBy ;
+  rdfs:label "Particulier/overheid" ;
+.
+
+elo:particulier a rdfs:Property ;
+  rdfs:subPropertyOf schema:offeredBy ;
+  rdfs:label "Particulier" ;
 .
