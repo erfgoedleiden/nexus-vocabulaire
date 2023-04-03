@@ -79,21 +79,11 @@ recordtypes:ActorOrganisatie
     sh:property [
         rdfs:label "Datering van organisatie"@nl, "Period of existence"@en ;
         sh:maxCount 1 ;
-        # Dit is de oprichtingsdatum
-        sh:path rico:hasBeginningDate ;
+        sh:path rico:isAssociatedWithDate ;
         sh:order 4.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
-        sh:class rico:Date ;
-        sh:group actorOrganisatie:identificationGroup ;
-    ] ;
-    sh:property [
-        rdfs:label "Functies, beroepen en activiteiten"@nl, "Positions, occupations and activities"@en ;
-        sh:maxCount 1 ;
-        sh:datatype xsd:string ;
-        sh:order    5.0 ;
-        dash:editor  dash:TextAreaEditor ;
-        sh:path schema:roleName ;
+        sh:class actorOrganisatie:Date ;
         sh:group actorOrganisatie:identificationGroup ;
     ] ;
     sh:property [
@@ -148,7 +138,7 @@ recordtypes:ActorOrganisatie
     sh:property [
         rdfs:label "Website"@nl, "Website"@en  ;
         sh:maxCount 1 ;
-        sh:path schema:url ;
+        sh:path foaf:homepage ;
         sh:datatype xsd:string;
         sh:group actorOrganisatie:contactGroup ;
         sh:order 12.0 ;
@@ -159,7 +149,7 @@ recordtypes:ActorOrganisatie
         sh:datatype xsd:string ;
         sh:order    14.0 ;
         dash:editor  dash:TextAreaEditor ;
-        sh:path actorOrganisatie:rulesAndConventions ;
+        sh:path rico:isAssociatedWithRule ;
         sh:group actorOrganisatie:managementGroup ;
     ] ;
     sh:property [

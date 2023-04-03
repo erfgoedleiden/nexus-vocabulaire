@@ -97,7 +97,7 @@ recordtypes:ActorPersoon
     sh:property [
         rdfs:label "Adres"@nl, "Address"@en ;
         sh:maxCount 1 ;
-        sh:path schema:PostalAddress ;
+        sh:path schema:streetAddress ;
         sh:datatype xsd:string;
         sh:group actorPersoon:contactGroup ;
         sh:order 6.0 ;
