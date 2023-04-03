@@ -340,24 +340,21 @@ aanwinst:HasPart
         rdfs:label "Is beeldmateriaal"@nl, "Contains images"@en ;
         rdfs:comment "Bevat foto's, etc"@nl ;
         sh:maxCount 1 ;
-        # Geen goed passende term
-        sh:path schema:image ;
+        sh:path elo:isImage ;
         sh:order 1.0 ;
         sh:datatype xsd:boolean ;
     ] ;
     sh:property [
         rdfs:label "Bibliotheek"@nl, "Library"@en ;
         sh:maxCount 1 ;
-        # Geen goed passende term
-        sh:path schema:book ;
+        sh:path elo:isBook ;
         sh:order 2.0 ;
         sh:datatype xsd:boolean ;
     ] ;
     sh:property [
         rdfs:label "Audiovisueel"@nl, "Audiovisual"@en ;
         sh:maxCount 1 ;
-        # Geen goed passende term
-        sh:path schema:MediaObject ;
+        sh:path elo:isAudiovisual ;
         sh:order 3.0 ;
         sh:datatype xsd:boolean ;
     ] ;

@@ -252,6 +252,19 @@ elo:isGoedgekeurd a rdfs:Property ;
   rdfs:label "Geeft aan of het object of record is goedgekeurd" ;
 .
 
+elo:isImage a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasContentOfType ;
+  rdfs:label "Geeft aan of het object of record een afbeelding is" ;
+.
+elo:isBook a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasContentOfType ;
+  rdfs:label "Geeft aan of het object of record een boek is" ;
+.
+elo:isAudiovisual a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasContentOfType ;
+  rdfs:label "Geeft aan of het object of record een audiovisueel object is" ;
+.
+
 elo:huisnummerVan a rdfs:Property ;
   rdfs:subPropertyOf bag:huisnummer ;
   rdfs:label "Laagste huisnummer in een reeks aaneengesloten huisnummers" ;
