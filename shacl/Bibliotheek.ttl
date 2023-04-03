@@ -216,7 +216,7 @@ recordtypes:Bibliotheek
 
   sh:property [
     rdfs:label "Korte inhoud"@nl, "Content"@en ;
-    rdfs:comment: "Noteer in enkele zinnen objectief de inhoud"@nl ;
+    rdfs:comment "Noteer in enkele zinnen objectief de inhoud"@nl ;
     sh:path schema:abstract ;
     sh:maxCount 1 ;
     sh:order 16.0 ;
