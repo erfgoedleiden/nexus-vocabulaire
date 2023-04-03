@@ -28,7 +28,7 @@ recordtypes:ErfgoedregisterAdres
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Adres ID"@nl, "Address ID"@en ;
-    rdfs:comment "Uniek BAG identificatienummer. Het bestaat uit 16 karakters en begint altijd met 054620XXXXXXXXXX"@nl ;   
+    rdfs:comment "Uniek BAG identificatienummer. Het bestaat uit 16 karakters en begint altijd met 054620XXXXXXXXXX"@nl ;
     sh:path rico:identifier ;
     memorix:inTitleAt 9.0 ;
     sh:maxCount 1 ;
@@ -160,7 +160,7 @@ recordtypes:ErfgoedregisterAdres
     dash:editor memorix:DateEditor ;
   ] ;
 .
-erfgoedregisterAdres:addressGroup a sh:PropertyGrQoup ;
+erfgoedregisterAdres:addressGroup a sh:PropertyGroup ;
   rdfs:label "Adres"@nl, "Address"@en ;
   sh:order 1.0
 .
