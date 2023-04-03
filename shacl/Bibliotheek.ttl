@@ -183,7 +183,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Serie"@nl, "Series"@en ;
-    rdfs:commment "Gaat het om een deel uit een reeks? Noteer dan hier de serietitel (FOBID)"@nl ;
+    rdfs:comment "Gaat het om een deel uit een reeks? Noteer dan hier de serietitel (FOBID)"@nl ;
     sh:path schema:partOfSeries ;
     sh:maxCount 1 ;
     sh:order 13.0 ;
