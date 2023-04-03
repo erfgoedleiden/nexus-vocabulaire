@@ -359,3 +359,8 @@ elo:particulier a rdfs:Property ;
   rdfs:subPropertyOf schema:offeredBy ;
   rdfs:label "Particulier" ;
 .
+
+elo:overheid a rdfs:Property ;
+  rdfs:subPropertyOf schema:offeredBy ;
+  rdfs:label "Overheid" ;
+.

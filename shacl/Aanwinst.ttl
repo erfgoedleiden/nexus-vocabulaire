@@ -141,36 +141,15 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Overeenkomst retour"@nl, "Return agreement"@en ;
-        sh:order     10.0 ;
-        sh:path      elo:datumOvereenkomstRetour ;
+        rdfs:label   "Overheid"@nl, "Government"@en ;
+        sh:order     9.0 ;
+        sh:path      elo:overheid ;
         sh:group     aanwinst:acquisitionGroup ;
-        sh:datatype  xsd:date ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class aanwinst:Overheid ;
     ] ;
-    sh:property [
-        sh:maxCount 1 ;
-        rdfs:label   "Toegang ontvangen"@nl, "Fonds received"@en ;
-        sh:order     17.0 ;
-        sh:path      elo:isOntvangen ;
-        sh:group     aanwinst:acquisitionGroup ;
-        sh:datatype  xsd:boolean ;
-    ] ;
-    sh:property [
-        sh:maxCount 1 ;
-        rdfs:label   "Akte ondertekend"@nl, "Deed signed"@en ;
-        sh:order     18.0 ;
-        sh:path      elo:datumAkteOndertekend ;
-        sh:group     aanwinst:acquisitionGroup ;
-        sh:datatype  xsd:date ;
-    ] ;
-    sh:property [
-        sh:maxCount 1 ;
-        rdfs:label   "Plaatsingslijst goedgekeurd"@nl, "Placement list approved"@en ;
-        sh:order     19.0 ;
-        sh:path      elo:isGoedgekeurd ;
-        sh:group     aanwinst:acquisitionGroup ;
-        sh:datatype  xsd:boolean ;
-    ] ;
+
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Opmerkingen openbaarheid"@nl, "Publication comments"@en ;
@@ -380,5 +359,40 @@ aanwinst:Particulier
         sh:order     2.0 ;
         sh:path      elo:datumOvereenkomstGestuurd ;
         sh:datatype  xsd:date ;
+    ] ;
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label   "Overeenkomst retour"@nl, "Return agreement"@en ;
+        sh:order     3.0 ;
+        sh:path      elo:datumOvereenkomstRetour ;
+        sh:datatype  xsd:date ;
+    ] ;
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label   "Toegang ontvangen"@nl, "Fonds received"@en ;
+        sh:order     4.0 ;
+        sh:path      elo:isOntvangen ;
+        sh:datatype  xsd:boolean ;
+    ] ;
+.
+
+aanwinst:Overheid
+    rdf:type             sh:NodeShape ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass       aanwinst:Overheid ;
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label   "Akte ondertekend"@nl, "Deed signed"@en ;
+        sh:order     1.0 ;
+        sh:path      elo:datumAkteOndertekend ;
+        sh:datatype  xsd:date ;
+    ] ;
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label   "Plaatsingslijst goedgekeurd"@nl, "Placement list approved"@en ;
+        sh:order     2.0 ;
+        sh:path      elo:isGoedgekeurd ;
+        sh:datatype  xsd:boolean ;
     ] ;
 .
