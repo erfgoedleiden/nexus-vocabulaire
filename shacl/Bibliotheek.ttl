@@ -58,7 +58,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Standplaats"@nl, "Depot location number"@en ;
-    rdfs:comment "Signatuur geeft in principe de standplaats aan. Als deze afwijkt, kan je hier aangeven waar het stuk te vinden is."@nl ;           
+    rdfs:comment "Signatuur geeft in principe de standplaats aan. Als deze afwijkt, kan je hier aangeven waar het stuk te vinden is."@nl ;
     sh:path  rico:hasOrHadPhysicalLocation ;
     sh:maxCount 1 ;
     sh:order 2.0 ;
@@ -119,7 +119,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Editie"@nl, "Edition"@en ;
-    rdfs:comment "Editie zoals vermeld in de publicatie (FOBID)"@nl;  
+    rdfs:comment "Editie zoals vermeld in de publicatie (FOBID)"@nl;
     sh:path schema:bookEdition ;
     sh:maxCount 1 ;
     sh:order 9.5 ;
@@ -183,7 +183,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Serie"@nl, "Series"@en ;
-    rdfs:commment "Gaat het om een deel uit een reeks? Noteer dan hier de serietitel (FOBID)"@nl ;
+    rdfs:comment "Gaat het om een deel uit een reeks? Noteer dan hier de serietitel (FOBID)"@nl ;
     sh:path schema:partOfSeries ;
     sh:maxCount 1 ;
     sh:order 13.0 ;
@@ -216,7 +216,7 @@ recordtypes:Bibliotheek
 
   sh:property [
     rdfs:label "Korte inhoud"@nl, "Content"@en ;
-    rdfs:comment: "Noteer in enkele zinnen objectief de inhoud"@nl ;
+    rdfs:comment "Noteer in enkele zinnen objectief de inhoud"@nl ;
     sh:path schema:abstract ;
     sh:maxCount 1 ;
     sh:order 16.0 ;
@@ -251,7 +251,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Opmerking inhoudelijk"@nl, "Remarks"@en ;
-    rdfs:comment "Opmerkingen met betrekking tot de publicatie of vorm. Voorbeeld: 'Zie ook…' of 'Overdruk'"@nl ; 
+    rdfs:comment "Opmerkingen met betrekking tot de publicatie of vorm. Voorbeeld: 'Zie ook…' of 'Overdruk'"@nl ;
     sh:path rico:descriptiveNote ;
     sh:maxCount 1 ;
     sh:order 19.0 ;
@@ -312,7 +312,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Nummering"@nl, "Number"@en ;
-    rdfs:comment "Voorbeeld: 'Jrg. 1 no. 1 (1995)-jrg. 10 no. 8 (2005)'. Als het tijdschrift niet is geëindigd, vul je in: 'Jrg. 1 no. 1 (1995)-' (FOBID)"@nl ; 
+    rdfs:comment "Voorbeeld: 'Jrg. 1 no. 1 (1995)-jrg. 10 no. 8 (2005)'. Als het tijdschrift niet is geëindigd, vul je in: 'Jrg. 1 no. 1 (1995)-' (FOBID)"@nl ;
     sh:path schema:position ;
     sh:maxCount 1 ;
     sh:order 25.0 ;
@@ -350,7 +350,7 @@ recordtypes:Bibliotheek
     sh:maxCount   10 ;
     sh:nodeKind   sh:BlankNode ;
     sh:order      8.0 ;
-    sh:path       schema:comment
+    sh:path       schema:comment ;
   ] ;
 
   sh:property [
@@ -541,7 +541,7 @@ bibliotheek:Location
 
   sh:property [
     rdfs:label "Geografisch trefwoord"@nl, "Location"@en ;
-    rdfs:comment "Geografische locatie waar de publicatie over gaat. Er worden alleen locatie in Leiden of de Leidse regio genoteerd. Voorbeeld: 'Leiden', 'Marewijk' of 'Stadsgehoorzaal'"@nl ; 
+    rdfs:comment "Geografische locatie waar de publicatie over gaat. Er worden alleen locatie in Leiden of de Leidse regio genoteerd. Voorbeeld: 'Leiden', 'Marewijk' of 'Stadsgehoorzaal'"@nl ;
     sh:path schema:addressRegion ;
     sh:maxCount 100 ;
     sh:order 1.0 ;

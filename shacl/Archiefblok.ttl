@@ -95,7 +95,8 @@ recordtypes:Archiefblok
         sh:group          archiefblok:identificationGroup ;
         sh:order          2.0 ;
         memorix:inTitleAt 2.0 ;
-        sh:path           rico:hasOrHadTitle
+        sh:path           rico:hasOrHadTitle ;
+        dash:editor       dash:TextAreaEditor ;
     ] ;
     sh:property          [
         rdfs:label        "Verkorte titel"@nl, "Abbreviated title"@en ;

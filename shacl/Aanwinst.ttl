@@ -27,7 +27,7 @@ aanwinst:descriptionGroup
 
 aanwinst:acquisitionGroup
     rdf:type   sh:PropertyGroup ;
-    rdfs:label "Acquisitie"@nl, "Acquisition"@en ;
+    rdfs:label "Acquisitie/Overbrenging"@nl, "Acquisition/Transfer"@en ;
     sh:order   3.0 .
 
 aanwinst:managementGroup
@@ -72,13 +72,22 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         sh:maxCount 1 ;
+        rdfs:label "Particulier/overheid"@nl, "Private/government"@en ;
+        sh:group aanwinst:descriptionGroup ;
+        sh:path elo:particulierOfOverheid ;
+        sh:order 2.5 ;
+        dash:editor             dash:EnumSelectEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/62bfc6e5-bb15-4f2f-8898-a76cd5e89d5a> ) ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        sh:maxCount 1 ;
         rdfs:label "Datum ontvangst"@nl, "Date of reception"@en ;
         sh:group aanwinst:descriptionGroup ;
         sh:path schema:ownedFrom ;
         sh:order 3.0 ;
-        # TODO: datumveld zou geen integer moeten zijn
-        sh:datatype xsd:integer ;
-        dash:editor memorix:DateEditor ;
+        sh:datatype          xsd:date ;
     ] ;
     sh:property [
         sh:maxCount 1 ;
@@ -122,147 +131,43 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Datum eerste contact"@nl, "Date of first contact"@en ;
+        rdfs:label   "Particulier"@nl, "Private"@en ;
         sh:order     8.0 ;
-        sh:path      elo:datumEersteContact ;
+        sh:path      elo:particulier ;
         sh:group     aanwinst:acquisitionGroup ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:integer ;
-        sh:maxLength 8 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class aanwinst:Particulier ;
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Overeenkomst gestuurd"@nl, "Agreement sent"@en ;
+        rdfs:label   "Overheid"@nl, "Government"@en ;
         sh:order     9.0 ;
-        sh:path      elo:datumOvereenkomstGestuurd ;
+        sh:path      elo:overheid ;
         sh:group     aanwinst:acquisitionGroup ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:integer ;
-        sh:maxLength 8 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class aanwinst:Overheid ;
     ] ;
     sh:property [
         sh:maxCount 1 ;
-        rdfs:label   "Overeenkomst retour"@nl, "Return agreement"@en ;
-        sh:order     10.0 ;
-        sh:path      elo:datumOvereenkomstRetour ;
-        sh:group     aanwinst:acquisitionGroup ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:integer ;
-        sh:maxLength 8 ;
-    ] ;
-    sh:property [
-        sh:maxCount 1 ;
-        rdfs:label   "Akkoord Inspectie en Acquisitie"@nl, "Agreement Inspection and Aquisition"@en ;
-        sh:order     11.0 ;
-        sh:path      elo:datumAkkoordInspectieEnAcquisitie ;
-        sh:group     aanwinst:acquisitionGroup ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:integer ;
-        sh:maxLength 8 ;
-    ] ;
-    sh:property [
-        sh:maxCount 1 ;
-        rdfs:label   "Akkoord Restauratie"@nl, "Agreement restoration"@en ;
-        sh:order     12.0 ;
-        sh:path      elo:datumAkkoordRestauratie ;
-        sh:group     aanwinst:acquisitionGroup ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:integer ;
-        sh:maxLength 8 ;
-    ] ;
-    sh:property [
-        sh:maxCount 1 ;
-        rdfs:label   "(Her)verpakking"@nl, "(Re)packaging"@en ;
-        sh:order     14.0 ;
-        sh:path      elo:datumVerpakkingOfHerverpakking ;
-        sh:group     aanwinst:acquisitionGroup ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:integer ;
-        sh:maxLength 8 ;
-    ] ;
-    sh:property [
-        sh:maxCount 1 ;
-        rdfs:label   "Binnenkomst depot"@nl, "Depot entry"@en ;
-        sh:order     15.0 ;
-        sh:path      elo:datumBinnenkomstDepot ;
-        sh:group     aanwinst:acquisitionGroup ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:integer ;
-        sh:maxLength 8 ;
-    ] ;
-    sh:property [
-        sh:maxCount 1 ;
-        rdfs:label   "Akkoord schade inv."@nl, "Agreement damage inventory"@en ;
-        sh:order     16.0 ;
-        sh:path      elo:datumAkkoordSchadeInventarisatie ;
-        sh:group     aanwinst:acquisitionGroup ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:integer ;
-        sh:maxLength 8 ;
-    ] ;
-    sh:property [
-        sh:maxCount 1 ;
-        rdfs:label   "Datum ontvangen toegang"@nl, "Date of receipt"@en ;
-        sh:order     17.0 ;
-        sh:path      elo:datumOntvangenToegang ;
-        sh:group     aanwinst:acquisitionGroup ;
-        dash:editor  memorix:DateEditor ;
-        sh:datatype  xsd:integer ;
-        sh:maxLength 8 ;
-    ] ;
-    sh:property [
-        rdfs:label "Definitieve acquisitie"@nl, "Completed acquisition"@en ;
-        sh:maxCount 1 ;
-        sh:path      elo:definitieveAcquisitie ;
-        sh:order 18.0 ;
-        sh:group aanwinst:acquisitionGroup ;
-        sh:datatype xsd:boolean ;
-    ] ;
-    sh:property [
-        sh:maxCount 1 ;
-        rdfs:label "Bijzonderheden inspectie"@nl, "Remarks inspection"@en ;
-        sh:path elo:opmerkingBeheerder ;
-        sh:order 19.0 ;
-        sh:group aanwinst:acquisitionGroup ;
-        sh:datatype xsd:string ;
-        dash:editor  dash:TextAreaEditor ;
-    ] ;
-    sh:property [
-        rdfs:label "Volledig openbaar"@nl, "Completely public"@en ;
-        sh:maxCount 1 ;
-        # Redelijk passend: "A flag to signal that the Place is open to public visitors."
-        sh:path schema:publicAccess ;
-        sh:order 20.0 ;
-        sh:group aanwinst:managementGroup ;
-        sh:datatype xsd:boolean ;
-    ] ;
-    sh:property [
-        sh:maxCount 1 ;
-        rdfs:label "Niet openbare stukken - periode"@nl, "Non-public documents - period"@en ;
+        rdfs:label "Opmerkingen openbaarheid"@nl, "Publication comments"@en ;
         # Geen goed passende term
-        sh:path elo:nietOpenbaarBereik ;
+        sh:path elo:opmerkingenOpenbaarheid ;
         sh:order 21.0 ;
         sh:group aanwinst:managementGroup ;
         sh:datatype xsd:string ;
         dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [
-        rdfs:label "Gedeelte voor vernietiging vatbaar"@nl ;
+        rdfs:label "Bevat"@nl, "Contains"@en ;
         sh:maxCount 1 ;
-        sh:path elo:aangemerktVoorVernietiging ;
-        sh:order 22.0 ;
-        sh:group aanwinst:managementGroup ;
-        sh:datatype xsd:boolean ;
-    ] ;
-    sh:property [
-        rdfs:label "Beeldmateriaal"@nl, "Contains images"@en ;
-        rdfs:comment "Bevat foto's, etc"@nl ;
-        sh:maxCount 1 ;
-        # Geen goed passende term
-        sh:path schema:image ;
+        sh:path schema:hasPart ;
         sh:order 23.0 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class aanwinst:HasPart ;
         sh:group aanwinst:managementGroup ;
-        sh:datatype xsd:boolean ;
     ] ;
     sh:property [
         rdfs:label "Opgegaan in"@nl, "Merged into"@en ;
@@ -276,7 +181,7 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         rdfs:label "Aanwinst verwerkt"@nl, "Acquisition processed"@en ;
-        rdfs:comment "Als alle gegevens bij het Archiefrecord zijn verwerkt, kies je hier Ja"@nl ; 
+        rdfs:comment "Als alle gegevens bij het Archiefrecord zijn verwerkt, kies je hier Ja"@nl ;
         sh:maxCount 1 ;
         sh:path elo:isVerwerkt  ;
         sh:order 25.0 ;
@@ -376,7 +281,7 @@ aanwinst:MergedInto
     sh:targetClass       aanwinst:MergedInto ;
     sh:property [
         rdfs:label "Voorlopige naam archief"@nl, "Provisional name"@en ;
-        rdfs:comment "Korte weergave welk archief het is, of waar het vermoedelijk bij hoort"@nl ; 
+        rdfs:comment "Korte weergave welk archief het is, of waar het vermoedelijk bij hoort"@nl ;
         sh:maxCount 1 ;
         sh:path rico:hasOrHadIdentifier ;
         sh:order 1.0 ;
@@ -384,7 +289,7 @@ aanwinst:MergedInto
     ] ;
     sh:property [
         rdfs:label "Aanvulling op archief"@nl, "Addition to fonds"@en ;
-        rdfs:comment "Kies Ja als er al eerder bijbehorend archief is geregistreerd"@nl ; 
+        rdfs:comment "Kies Ja als er al eerder bijbehorend archief is geregistreerd"@nl ;
         sh:maxCount 1 ;
         sh:path rico:accrual ;
         sh:order 2.0 ;
@@ -392,7 +297,7 @@ aanwinst:MergedInto
     ] ;
     sh:property [
         rdfs:label   "Archief"@nl, "Fonds"@en ;
-        rdfs:comment "Kies hier het archief waar de aanwinst bij hoort"@nl ; 
+        rdfs:comment "Kies hier het archief waar de aanwinst bij hoort"@nl ;
         sh:order     3.0 ;
         sh:maxCount 1 ;
         sh:path      rico:isOrWasPartOf ;
@@ -402,15 +307,91 @@ aanwinst:MergedInto
         ) ;
         dash:editor memorix:LinkedRecordEditor ;
     ] ;
+.
+
+aanwinst:HasPart
+    rdf:type             sh:NodeShape ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass       aanwinst:HasPart ;
     sh:property [
-        rdfs:label   "Gerelateerde toegang"@nl, "Related fonds"@en ;
-        sh:order     4.0 ;
+        rdfs:label "Beeldmateriaal"@nl, "Contains images"@en ;
+        rdfs:comment "Bevat foto's, etc"@nl ;
         sh:maxCount 1 ;
-        sh:path      rico:isRelatedTo ;
-        sh:nodeKind sh:IRI ;
-        sh:or (
-            [ sh:class recordtypes:Archiefblok ]
-        ) ;
-        dash:editor memorix:LinkedRecordEditor ;
+        sh:path elo:isImage ;
+        sh:order 1.0 ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    sh:property [
+        rdfs:label "Bibliotheek"@nl, "Library"@en ;
+        sh:maxCount 1 ;
+        sh:path elo:isBook ;
+        sh:order 2.0 ;
+        sh:datatype xsd:boolean ;
+    ] ;
+    sh:property [
+        rdfs:label "Audiovisueel"@nl, "Audiovisual"@en ;
+        sh:maxCount 1 ;
+        sh:path elo:isAudiovisual ;
+        sh:order 3.0 ;
+        sh:datatype xsd:boolean ;
+    ] ;
+.
+
+
+aanwinst:Particulier
+    rdf:type             sh:NodeShape ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass       aanwinst:Particulier ;
+
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label   "Datum eerste contact"@nl, "Date of first contact"@en ;
+        sh:order     1.0 ;
+        sh:path      elo:datumEersteContact ;
+        sh:datatype  xsd:date ;
+    ] ;
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label   "Overeenkomst gestuurd"@nl, "Agreement sent"@en ;
+        sh:order     2.0 ;
+        sh:path      elo:datumOvereenkomstGestuurd ;
+        sh:datatype  xsd:date ;
+    ] ;
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label   "Overeenkomst retour"@nl, "Return agreement"@en ;
+        sh:order     3.0 ;
+        sh:path      elo:datumOvereenkomstRetour ;
+        sh:datatype  xsd:date ;
+    ] ;
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label   "Toegang ontvangen"@nl, "Fonds received"@en ;
+        sh:order     4.0 ;
+        sh:path      elo:isOntvangen ;
+        sh:datatype  xsd:boolean ;
+    ] ;
+.
+
+aanwinst:Overheid
+    rdf:type             sh:NodeShape ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass       aanwinst:Overheid ;
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label   "Akte ondertekend"@nl, "Deed signed"@en ;
+        sh:order     1.0 ;
+        sh:path      elo:datumAkteOndertekend ;
+        sh:datatype  xsd:date ;
+    ] ;
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label   "Plaatsingslijst goedgekeurd"@nl, "Placement list approved"@en ;
+        sh:order     2.0 ;
+        sh:path      elo:isGoedgekeurd ;
+        sh:datatype  xsd:boolean ;
     ] ;
 .
