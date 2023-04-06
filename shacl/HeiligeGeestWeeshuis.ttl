@@ -22,7 +22,7 @@
 recordtypes:HeiligeGeestWeeshuis
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Heilige Geest Weeshuis"@nl, "Heilige Geest Weeshuis"@en ;
-  rdfs:comment "Heilige Geest Weeshuis van Erfgoed Leiden"@nl, "Heilige Geest Weeshuis - Erfgoed Leiden"@en ;
+  sh:description "Heilige Geest Weeshuis van Erfgoed Leiden"@nl, "Heilige Geest Weeshuis - Erfgoed Leiden"@en ;
   dce:identifier "HeiligeGeestWeeshuis" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;

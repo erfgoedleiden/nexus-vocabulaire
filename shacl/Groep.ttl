@@ -34,7 +34,7 @@ groep:notesGroup a sh:PropertyGroup ;
 recordtypes:Groep
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Groep"@nl, "Series"@en ;
-    rdfs:comment "Groep - Erfgoed Leiden"@nl, "Series - Erfgoed Leiden"@en ;
+    sh:description "Groep - Erfgoed Leiden"@nl, "Series - Erfgoed Leiden"@en ;
     dce:identifier "Groep" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;

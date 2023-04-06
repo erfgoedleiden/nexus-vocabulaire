@@ -42,7 +42,7 @@ recordtypes:Archiefblok
     rdf:type             sh:NodeShape,
                          memorix:Recordtype ;
     rdfs:label           "Archiefblok"@nl, "Fonds"@en  ;
-    rdfs:comment "Archiefblok - Erfgoed Leiden"@nl, "Fonds - Erfgoed Leiden"@en  ;
+    sh:description "Archiefblok - Erfgoed Leiden"@nl, "Fonds - Erfgoed Leiden"@en  ;
     memorix:hasInformationComponent
     [ rdf:type               memorix:HasRecordsComponent ;
         memorix:hasRecordType  recordtypes:Bestanddeel ;
@@ -89,7 +89,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property          [
         rdfs:label        "Titel"@nl, "Title"@en ;
-        rdfs:comment "Noteer hier alleen de naam van de familie of instelling, zonder het woord 'inventaris' en zonder periode"@nl ;                    
+        sh:description "Noteer hier alleen de naam van de familie of instelling, zonder het woord 'inventaris' en zonder periode"@nl ;
         sh:maxCount 1 ;
         sh:datatype       xsd:string ;
         sh:group          archiefblok:identificationGroup ;
@@ -100,7 +100,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property          [
         rdfs:label        "Verkorte titel"@nl, "Abbreviated title"@en ;
-        rdfs:comment "Uitsluitend gebruikt voor vaste afkortingen, zoals 'SA II'"@nl ;                    
+        sh:description "Uitsluitend gebruikt voor vaste afkortingen, zoals 'SA II'"@nl ;
         sh:maxCount 1 ;
         sh:datatype       xsd:string ;
         sh:group          archiefblok:identificationGroup ;
@@ -136,7 +136,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Categorie"@nl, "Category"@en ;
-        rdfs:comment "Alleen voor Leiden in detail invullen. Kies voor andere gemeenten alleen 'Overheid' en 'Particulier'"@nl ;
+        sh:description "Alleen voor Leiden in detail invullen. Kies voor andere gemeenten alleen 'Overheid' en 'Particulier'"@nl ;
         sh:path rico:hasOrHadCategory ;
         sh:maxCount 1 ;
         sh:order 9.0 ;
@@ -193,7 +193,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label   "Zorgdrager"@nl ;
-        rdfs:comment "Noteer wie er betaalt er voor het beheer. Voorbeeld: Gemeente Leiden bij schenking, de regiogemeente bij overbrenging"@nl ;            
+        sh:description "Noteer wie er betaalt er voor het beheer. Voorbeeld: Gemeente Leiden bij schenking, de regiogemeente bij overbrenging"@nl ;
         dash:editor memorix:LinkedRecordEditor ;
         sh:maxCount  1 ;
         sh:nodeKind sh:IRI ;
@@ -226,7 +226,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Nummer toegang"@nl, "Fonds number"@en  ;
-        rdfs:comment "4 cijfers, evt. met toevoeging van 1 of meer letters, of passend binnen serie xxx.y.zz van Nieuwkoop/KaagEnBraassem"@nl ;
+        sh:description "4 cijfers, evt. met toevoeging van 1 of meer letters, of passend binnen serie xxx.y.zz van Nieuwkoop/KaagEnBraassem"@nl ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
@@ -235,7 +235,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Titel toegang"@nl, "Fonds title"@en  ;
-        rdfs:comment "Voorbeeld: Plaatsingslijst van het archief van X, jjjj-jjjj."@nl ;   
+        sh:description "Voorbeeld: Plaatsingslijst van het archief van X, jjjj-jjjj."@nl ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
@@ -292,7 +292,7 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Verantwoording"@nl, "Accountability"@en ;
-        rdfs:comment "Bijvoorbeeld een voorwoord uit een archiefinventaris van een stagiair"@nl ;             
+        sh:description "Bijvoorbeeld een voorwoord uit een archiefinventaris van een stagiair"@nl ;
         sh:maxCount  1 ;
         sh:datatype xsd:string ;
         sh:group archiefblok:accessGroup ;
@@ -327,7 +327,7 @@ rico:DateRange
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [
         rdfs:label   "Periode"@nl, "Dates of accumulation"@en ;
-        rdfs:comment "Periode van archief in tekstvorm"@nl ;
+        sh:description "Periode van archief in tekstvorm"@nl ;
         sh:maxCount 1 ;
         sh:datatype  xsd:string ;
         sh:order     1.0 ;
@@ -335,7 +335,7 @@ rico:DateRange
     ] ;
     sh:property [
         rdfs:label   "Periode (van)"@nl, "Dates of accumulation (begin)"@en ;
-        rdfs:comment "Beginjaar van de periode. Bedoeld voor filteren op periode"@nl ;
+        sh:description "Beginjaar van de periode. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:gYear ;
@@ -344,7 +344,7 @@ rico:DateRange
     ] ;
     sh:property [
         rdfs:label   "Periode (tot)"@nl, "Dates of accumulation (end)"@en ;
-        rdfs:comment "Eindjaar van de periode. Bedoeld voor filteren op periode"@nl ;
+        sh:description "Eindjaar van de periode. Bedoeld voor filteren op periode"@nl ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:gYear ;

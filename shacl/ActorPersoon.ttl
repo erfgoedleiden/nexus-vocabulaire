@@ -37,7 +37,7 @@ actorPersoon:notesGroup a sh:PropertyGroup ;
 recordtypes:ActorPersoon
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Persoon"@nl, "Person"@en ;
-    rdfs:comment "Actoren - Persoon - Erfgoed Leiden"@nl, "Record type for Person - Erfgoed Leiden"@en ;
+    sh:description "Actoren - Persoon - Erfgoed Leiden"@nl, "Record type for Person - Erfgoed Leiden"@en ;
     dce:identifier "ActorPersoon" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -65,7 +65,7 @@ recordtypes:ActorPersoon
     ] ;
     sh:property [
         rdfs:label "Identiek aan (extern)"@nl, "Is same as (external)"@en ;
-        rdfs:comment "Is identiek aan persoon in andere terminologiebron"@nl, "Is same as person in external vocabulary"@en ;
+        sh:description "Is identiek aan persoon in andere terminologiebron"@nl, "Is same as person in external vocabulary"@en ;
         sh:path rico:isRelatedTo ;
         sh:maxCount 1 ;
         sh:order 3.0 ;

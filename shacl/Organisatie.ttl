@@ -21,7 +21,7 @@
 recordtypes:Organisatie
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Organisatie"@nl, "Organization"@en ;
-  rdfs:comment "Organisaties voor Erfgoed Leiden"@nl, "Record type for Organization - Erfgoed Leiden"@en ;
+  sh:description "Organisaties voor Erfgoed Leiden"@nl, "Record type for Organization - Erfgoed Leiden"@en ;
   dce:identifier "Organisatie" ;
   sh:closed true ;
   memorix:copyrightHolderSource  true ;
@@ -32,7 +32,7 @@ recordtypes:Organisatie
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Naam"@nl, "Name"@en ;
-    rdfs:comment "Naam van de organisatie, zoals die in het KvK is vastgelegd"@nl ;
+    sh:description "Naam van de organisatie, zoals die in het KvK is vastgelegd"@nl ;
     sh:path rico:name ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -43,7 +43,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Alternatieve namen"@nl, "Alternate names"@en ;
-    rdfs:comment "Andere namen waaronder de organisatie bekend staat. Voorbeeld: ELO"@nl ;
+    sh:description "Andere namen waaronder de organisatie bekend staat. Voorbeeld: ELO"@nl ;
     sh:path dc:alternative ;
     sh:maxCount 100 ;
     sh:order 4.0 ;
@@ -62,7 +62,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Identiek aan"@nl, "Is same as (external)"@en ;
-    rdfs:comment "Is identiek aan organisatie in andere terminologiebron"@nl, "Is same as organization in external vocabulary"@en ;
+    sh:description "Is identiek aan organisatie in andere terminologiebron"@nl, "Is same as organization in external vocabulary"@en ;
     sh:path rico:isRelatedTo ;
     sh:maxCount 1 ;
     sh:order 6.0 ;
@@ -98,7 +98,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Bibliografie"@nl, "Bibliography"@en ;
-    rdfs:comment "Literatuur die verschenen is over de instelling"@nl ;
+    sh:description "Literatuur die verschenen is over de instelling"@nl ;
     sh:path schema:citation ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
@@ -109,7 +109,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Opmerkingen beschrijving"@nl, "Remarks Description"@en ;
-    rdfs:comment "Opmerkingen over de beschrijving die je in andere velden niet kwijt kunt. "@nl ;
+    sh:description "Opmerkingen over de beschrijving die je in andere velden niet kwijt kunt. "@nl ;
     sh:path rico:descriptiveNote ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
@@ -160,7 +160,7 @@ recordtypes:Organisatie
   ] ;
   sh:property [
     rdfs:label "Plaats van werkzaamheid"@nl, "Place of activity"@en ;
-    rdfs:comment "Plaatsen van werkzaamheid"@nl ;
+    sh:description "Plaatsen van werkzaamheid"@nl ;
     sh:maxCount 10 ;
     sh:path schema:workLocation ;
     sh:order 4.0 ;
@@ -395,7 +395,7 @@ organisatie:RightsAgreement
   sh:targetClass organisatie:RightsAgreement ;
   sh:property [
     rdfs:label "Auteursrechtverklaring"@nl, "Copyright"@en ;
-    rdfs:comment "Rechtenset zoals in de auteursrechtenlicentie met de organisatie is vastgelegd"@nl ;
+    sh:description "Rechtenset zoals in de auteursrechtenlicentie met de organisatie is vastgelegd"@nl ;
     sh:path rico:conditionsOfUse ;
     sh:maxCount 1 ;
     sh:order 1.0 ;

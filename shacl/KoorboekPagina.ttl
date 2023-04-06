@@ -19,7 +19,7 @@
 recordtypes:KoorboekPagina
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Koorboek pagina's"@nl, "Choirbook Pages"@en ;
-  rdfs:comment "Koorboek pagina's van Erfgoed Leiden"@nl, "Choirbook pages - Erfgoed Leiden"@en ;
+  sh:description "Koorboek pagina's van Erfgoed Leiden"@nl, "Choirbook pages - Erfgoed Leiden"@en ;
   dce:identifier "KoorboekPagina" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;

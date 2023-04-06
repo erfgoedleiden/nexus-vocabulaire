@@ -18,7 +18,7 @@
 recordtypes:DanielvdMeulen
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Daniel vd Meulen"@nl, "Daniel van der Meulen"@en ;
-  rdfs:comment "Daniel vd Meulen van Erfgoed Leiden"@nl, "Daniel van der Meulen - Erfgoed Leiden"@en ;
+  sh:description "Daniel vd Meulen van Erfgoed Leiden"@nl, "Daniel van der Meulen - Erfgoed Leiden"@en ;
   dce:identifier "DanielvdMeulen" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;

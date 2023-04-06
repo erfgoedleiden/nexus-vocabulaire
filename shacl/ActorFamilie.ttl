@@ -37,7 +37,7 @@ actorFamilie:notesGroup a sh:PropertyGroup ;
 recordtypes:ActorFamilie
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Familie"@nl, "Family"@en ;
-    rdfs:comment "Actoren - Familie - Erfgoed Leiden"@nl, "Record type for Family - Erfgoed Leiden"@en ;
+    sh:description "Actoren - Familie - Erfgoed Leiden"@nl, "Record type for Family - Erfgoed Leiden"@en ;
     dce:identifier "ActorFamilie" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -55,7 +55,7 @@ recordtypes:ActorFamilie
     ] ;
     sh:property [
         rdfs:label "Naam"@nl, "Name"@en ;
-        rdfs:comment "Naam van de gehele familie"@nl, "Name of a family"@en ;
+        sh:description "Naam van de gehele familie"@nl, "Name of a family"@en ;
         sh:maxCount 1 ;
         sh:datatype xsd:string ;
         memorix:inTitleAt 3.0 ;
@@ -65,7 +65,7 @@ recordtypes:ActorFamilie
     ] ;
     sh:property [
         rdfs:label "Identiek aan (extern)"@nl, "Is same as (external)"@en ;
-        rdfs:comment "Is identiek aan familie in andere terminologiebron"@nl, "Is same as family in external vocabulary"@en ;
+        sh:description "Is identiek aan familie in andere terminologiebron"@nl, "Is same as family in external vocabulary"@en ;
         sh:path rico:isRelatedTo ;
         sh:maxCount 1 ;
         sh:order 3.0 ;

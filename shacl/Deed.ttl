@@ -40,7 +40,7 @@ deed:deedGroup  rdf:type  sh:PropertyGroup ;
     sh:order    1.0 .
 
 recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
-    rdfs:comment                "Standaard Recordtype voor Aktes"@nl ;
+    sh:description                "Standaard Recordtype voor Aktes"@nl ;
     rdfs:label                  "Akte"@nl, "Deed"@en ;
     dash:defaultViewForRole     dash:all ;
     dce:identifier               "Deed" ;
@@ -126,7 +126,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path      rico:isAssociatedWithEvent
     ] ;
     sh:property              [
-        rdfs:comment  "Locaties die voorkomen op de akte"@nl ;
+        sh:description  "Locaties die voorkomen op de akte"@nl ;
         rdfs:label    "Locatie"@nl, "Location"@en ;
         dash:viewer   dash:DetailsEditor ;
         sh:class      deed:Location ;
@@ -137,7 +137,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path       schema:contentLocation
     ] ;
     sh:property              [
-        rdfs:comment  "Persoon die voorkomt op de akte en zijn rol"@nl ;
+        sh:description  "Persoon die voorkomt op de akte en zijn rol"@nl ;
         rdfs:label    "Person observation"@en, "Persoonsvermelding"@nl ;
         dash:viewer   dash:DetailsEditor ;
         sh:class      deed:Person ;
@@ -162,7 +162,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
     ] ;
     sh:property              [
         rdfs:label           "Datum registratie"@nl, "Date of the record"@en ;
-        rdfs:comment         "Datum waarop het document is opgemaakt."@nl ;
+        sh:description         "Datum waarop het document is opgemaakt."@nl ;
         dash:editor          memorix:DateEditor ;
         sh:maxCount          1 ;
         sh:datatype          xsd:integer ;
@@ -172,7 +172,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
     ] ;
     sh:property              [
         rdfs:label           "Aktenummer"@nl, "Number of the deed"@en ;
-        rdfs:comment         "Het (volg)nummer dat bij de akte staat"@nl ;
+        sh:description         "Het (volg)nummer dat bij de akte staat"@nl ;
         sh:maxCount  1 ;
         sh:datatype          xsd:string ;
         sh:group             deed:deedGroup ;
@@ -190,7 +190,7 @@ recordtypes:Deed  rdf:type      sh:NodeShape, memorix:Recordtype ;
         sh:path              schema:pagination
     ] ;
     sh:property              [
-        rdfs:comment  "Bijzonderheid bij deze akte"@nl ;
+        sh:description  "Bijzonderheid bij deze akte"@nl ;
         rdfs:label    "Bijzonderheid"@nl, "Details"@en ;
         dash:viewer   dash:DetailsEditor ;
         sh:class      deed:Details ;
@@ -295,7 +295,7 @@ deed:Details  rdf:type        sh:NodeShape ;
     ] ;
     sh:property           [
         rdfs:label   "Bijzonderheid"@nl, "Detail"@en ;
-        rdfs:comment "Belangrijke informatie die niet in de overige velden past. Dit veld wordt gecombineerd met 'Bijzonderheid-Type'."@nl ;
+        sh:description "Belangrijke informatie die niet in de overige velden past. Dit veld wordt gecombineerd met 'Bijzonderheid-Type'."@nl ;
         sh:maxCount  1 ;
         sh:datatype  xsd:string ;
         sh:order     2.0 ;

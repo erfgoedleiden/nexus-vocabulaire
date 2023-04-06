@@ -33,7 +33,7 @@ bezoekersregistratie:notesGroup
 recordtypes:Bezoekersregistratie
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Bezoekersregistratie"@nl, "Visitor registration"@en ;
-    rdfs:comment "Bezoekersregistratie - Erfgoed Leiden"@nl, "Visitor registration - Erfgoed Leiden"@en ;
+    sh:description "Bezoekersregistratie - Erfgoed Leiden"@nl, "Visitor registration - Erfgoed Leiden"@en ;
     dce:identifier "Bezoekersregistratie" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;

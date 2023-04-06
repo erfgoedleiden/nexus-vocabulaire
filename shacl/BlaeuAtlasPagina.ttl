@@ -18,7 +18,7 @@
 recordtypes:BlaeuAtlasPagina
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Blaeu Atlas pagina's"@nl, "Pages of Blaeu Atlas"@en ;
-  rdfs:comment "Blaeu Atlas pagina's van Erfgoed Leiden"@nl, "Pages of Blaeu Atlas - Erfgoed Leiden"@en ;
+  sh:description "Blaeu Atlas pagina's van Erfgoed Leiden"@nl, "Pages of Blaeu Atlas - Erfgoed Leiden"@en ;
   dce:identifier "BlaeuAtlasPagina" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
