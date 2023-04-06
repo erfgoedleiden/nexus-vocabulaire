@@ -149,7 +149,6 @@ recordtypes:Aanwinst
         sh:nodeKind sh:BlankNode ;
         sh:class aanwinst:Overheid ;
     ] ;
-
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Opmerkingen openbaarheid"@nl, "Publication comments"@en ;
