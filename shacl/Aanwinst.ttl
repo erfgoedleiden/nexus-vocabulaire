@@ -316,7 +316,7 @@ aanwinst:HasPart
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass       aanwinst:HasPart ;
     sh:property [
-        rdfs:label "Is beeldmateriaal"@nl, "Contains images"@en ;
+        rdfs:label "Beeldmateriaal"@nl, "Contains images"@en ;
         rdfs:comment "Bevat foto's, etc"@nl ;
         sh:maxCount 1 ;
         sh:path elo:isImage ;
