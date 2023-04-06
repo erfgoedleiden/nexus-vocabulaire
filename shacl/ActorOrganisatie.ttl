@@ -37,7 +37,7 @@ actorOrganisatie:notesGroup a sh:PropertyGroup ;
 recordtypes:ActorOrganisatie
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Organisatie"@nl, "Organization"@en ;
-    rdfs:comment "Actoren - Organisatie - Erfgoed Leiden"@nl, "Record type for Organization - Erfgoed Leiden"@en ;
+    sh:description "Actoren - Organisatie - Erfgoed Leiden"@nl, "Record type for Organization - Erfgoed Leiden"@en ;
     dce:identifier "ActorOrganisatie" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -64,7 +64,7 @@ recordtypes:ActorOrganisatie
     ] ;
     sh:property [
         rdfs:label "Identiek aan (extern)"@nl, "Is same as (external)"@en ;
-        rdfs:comment "Is identiek aan organisatie in andere terminologiebron"@nl, "Is same as organization in external vocabulary"@en ;
+        sh:description "Is identiek aan organisatie in andere terminologiebron"@nl, "Is same as organization in external vocabulary"@en ;
         # Ben zeer terughoudend in het gebruik van owl:sameAs of vergelijkbare concepten: ze verwachten
         # _exact_ identieke entiteiten, wat het vaak net niet zijn. owl:sameAs kan veel reasoning verstoren.
         sh:path rico:isFunctionallyEquivalentTo ;

@@ -43,7 +43,7 @@ aanwinst:notesGroup
 recordtypes:Aanwinst
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Aanwinst"@nl, "Acquisition"@en ;
-    rdfs:comment "Aanwinst - Erfgoed Leiden"@nl, "Record type for Acquisition"@en ;
+    sh:description "Aanwinst - Erfgoed Leiden"@nl, "Record type for Acquisition"@en ;
     dce:identifier "Aanwinst" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -54,7 +54,7 @@ recordtypes:Aanwinst
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Identificatiecode"@nl, "Identification code"@en ;
-        rdfs:comment "Jaartal aanwinst, streepje (-), volgnummer met 3 cijfers [jjjj-vvv]. Gebruik voor een nieuw nummer het eerstvolgende niet gebruikte nummer"@nl ;
+        sh:description "Jaartal aanwinst, streepje (-), volgnummer met 3 cijfers [jjjj-vvv]. Gebruik voor een nieuw nummer het eerstvolgende niet gebruikte nummer"@nl ;
         sh:group aanwinst:identificationGroup ;
         sh:path rico:identifier ;
         memorix:inTitleAt 1.0 ;
@@ -181,7 +181,7 @@ recordtypes:Aanwinst
     ] ;
     sh:property [
         rdfs:label "Aanwinst verwerkt"@nl, "Acquisition processed"@en ;
-        rdfs:comment "Als alle gegevens bij het Archiefrecord zijn verwerkt, kies je hier Ja"@nl ;
+        sh:description "Als alle gegevens bij het Archiefrecord zijn verwerkt, kies je hier Ja"@nl ;
         sh:maxCount 1 ;
         sh:path elo:isVerwerkt  ;
         sh:order 25.0 ;
@@ -205,7 +205,7 @@ rico:DateRange
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [
         rdfs:label   "Periode"@nl, "Dates of accumulation"@en ;
-        rdfs:comment "Periode van de aanwinst in tekstvorm. Voorbeeld: 18e eeuw"@nl ;
+        sh:description "Periode van de aanwinst in tekstvorm. Voorbeeld: 18e eeuw"@nl ;
         sh:maxCount 1 ;
         sh:datatype  xsd:string ;
         sh:order     1.0 ;
@@ -261,7 +261,7 @@ aanwinst:Contact
     ] ;
     sh:property [
         rdfs:label   "Contactpersoon"@nl, "Contact"@en ;
-        rdfs:comment "Is meestal de schenker of bruikleengever"@nl ;
+        sh:description "Is meestal de schenker of bruikleengever"@nl ;
         sh:order     3.0 ;
         sh:maxCount 100 ;
         sh:path      schema:contactPoint ;
@@ -281,7 +281,7 @@ aanwinst:MergedInto
     sh:targetClass       aanwinst:MergedInto ;
     sh:property [
         rdfs:label "Voorlopige naam archief"@nl, "Provisional name"@en ;
-        rdfs:comment "Korte weergave welk archief het is, of waar het vermoedelijk bij hoort"@nl ;
+        sh:description "Korte weergave welk archief het is, of waar het vermoedelijk bij hoort"@nl ;
         sh:maxCount 1 ;
         sh:path rico:hasOrHadIdentifier ;
         sh:order 1.0 ;
@@ -289,7 +289,7 @@ aanwinst:MergedInto
     ] ;
     sh:property [
         rdfs:label "Aanvulling op archief"@nl, "Addition to fonds"@en ;
-        rdfs:comment "Kies Ja als er al eerder bijbehorend archief is geregistreerd"@nl ;
+        sh:description "Kies Ja als er al eerder bijbehorend archief is geregistreerd"@nl ;
         sh:maxCount 1 ;
         sh:path rico:accrual ;
         sh:order 2.0 ;
@@ -297,7 +297,7 @@ aanwinst:MergedInto
     ] ;
     sh:property [
         rdfs:label   "Archief"@nl, "Fonds"@en ;
-        rdfs:comment "Kies hier het archief waar de aanwinst bij hoort"@nl ;
+        sh:description "Kies hier het archief waar de aanwinst bij hoort"@nl ;
         sh:order     3.0 ;
         sh:maxCount 1 ;
         sh:path      rico:isOrWasPartOf ;
@@ -316,7 +316,7 @@ aanwinst:HasPart
     sh:targetClass       aanwinst:HasPart ;
     sh:property [
         rdfs:label "Beeldmateriaal"@nl, "Contains images"@en ;
-        rdfs:comment "Bevat foto's, etc"@nl ;
+        sh:description "Bevat foto's, etc"@nl ;
         sh:maxCount 1 ;
         sh:path elo:isImage ;
         sh:order 1.0 ;

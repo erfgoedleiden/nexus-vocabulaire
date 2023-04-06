@@ -16,7 +16,7 @@
 recordtypes:BlaeuAtlas
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Blaeu Atlas"@nl, "Blaeu Atlas"@en ;
-  rdfs:comment "Blaeu Atlas van Erfgoed Leiden"@nl, "Blaeu Atlas - Erfgoed Leiden"@en ;
+  sh:description "Blaeu Atlas van Erfgoed Leiden"@nl, "Blaeu Atlas - Erfgoed Leiden"@en ;
   dce:identifier "BlaeuAtlas" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;

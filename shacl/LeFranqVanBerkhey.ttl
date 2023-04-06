@@ -20,7 +20,7 @@
 recordtypes:LeFranqVanBerkhey
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Le Franq van Berkhey"@nl, "Le Franq van Berkhey"@en ;
-  rdfs:comment "Le Franq van Berkhey van Erfgoed Leiden"@nl, "Le Franq van Berkhey - Erfgoed Leiden"@en ;
+  sh:description "Le Franq van Berkhey van Erfgoed Leiden"@nl, "Le Franq van Berkhey - Erfgoed Leiden"@en ;
   dce:identifier "LeFranqVanBerkhey" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;

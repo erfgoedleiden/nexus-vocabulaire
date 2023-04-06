@@ -17,7 +17,7 @@
 recordtypes:Complex
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Complex"@nl, "Complex"@en ;
-  rdfs:comment "Erfgoedregister - Complexen van Erfgoed Leiden"@nl, "Heritage register Complex - Erfgoed Leiden"@en  ;
+  sh:description "Erfgoedregister - Complexen van Erfgoed Leiden"@nl, "Heritage register Complex - Erfgoed Leiden"@en  ;
   dce:identifier "Complex" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
@@ -25,7 +25,7 @@ recordtypes:Complex
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label        "Registratienummer"@nl, "Registration number"@en ;
-    rdfs:comment "Identificatienummer van het Complex. Een Complex is een overkoepelende registratie van onderdelen die individueel als beschermd monument zijn aangewezen. Het dient om de samenhang en de context van die onderdelen te duiden. Complexen kennen we alleen bij Rijksmonumenten en Gemeentelijk monumenten."@nl ;   
+    sh:description "Identificatienummer van het Complex. Een Complex is een overkoepelende registratie van onderdelen die individueel als beschermd monument zijn aangewezen. Het dient om de samenhang en de context van die onderdelen te duiden. Complexen kennen we alleen bij Rijksmonumenten en Gemeentelijk monumenten."@nl ;
     sh:path           rico:identifier ;
     memorix:inTitleAt 1.0 ;
     sh:maxCount       1 ;
@@ -46,7 +46,7 @@ recordtypes:Complex
   ] ;
   sh:property [
     rdfs:label  "Omschrijving"@nl, "Description"@en ;
-    rdfs:comment "Omschrijving van het complex, zoals deze is vastgesteld bij de aanwijzing"@nl ;   
+    sh:description "Omschrijving van het complex, zoals deze is vastgesteld bij de aanwijzing"@nl ;
     sh:path     dc:description ;
     sh:maxCount 1 ;
     sh:order    3.0 ;

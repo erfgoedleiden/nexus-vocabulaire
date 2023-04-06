@@ -28,7 +28,7 @@ bijlage:listGroup a sh:PropertyGroup ;
 recordtypes:Bijlage
     a memorix:Recordtype, sh:NodeShape ;
     rdfs:label "Bijlage"@nl, "Appendix"@en ;
-    rdfs:comment "Archief bijlagen - Erfgoed Leiden"@nl, "Fonds Appendix - Erfgoed Leiden"@nl ;
+    sh:description "Archief bijlagen - Erfgoed Leiden"@nl, "Fonds Appendix - Erfgoed Leiden"@en ;
     dce:identifier "Bijlage" ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
@@ -66,7 +66,7 @@ recordtypes:Bijlage
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Naam kolom 1"@nl, "Name column 1"@nl ;
+        rdfs:label "Naam kolom 1"@nl, "Name column 1"@en ;
         sh:maxCount 1;
         sh:group bijlage:listGroup;
         # Zelfde sh:path als ↓ ??
@@ -75,7 +75,7 @@ recordtypes:Bijlage
         sh:order    4.0 ;
     ] ;
     sh:property [
-        rdfs:label "Naam kolom 2"@nl, "Name column 2"@nl ;
+        rdfs:label "Naam kolom 2"@nl, "Name column 2"@en ;
         sh:maxCount 1;
         sh:group bijlage:listGroup;
         # Zelfde sh:path als ↑ ??

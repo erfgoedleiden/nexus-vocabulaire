@@ -37,7 +37,7 @@ recordtypes:Archiefbibliotheek
     rdf:type             sh:NodeShape,
                          memorix:Recordtype ;
     rdfs:label           "Archiefbibliotheek"@nl ;
-    rdfs:comment "Archiefbibliotheek - Erfgoed Leiden"@nl ;
+    sh:description "Archiefbibliotheek - Erfgoed Leiden"@nl ;
     memorix:hasInformationComponent
     [ rdf:type               memorix:HasRecordsComponent ;
         memorix:hasRecordType  recordtypes:Bibliotheek ;

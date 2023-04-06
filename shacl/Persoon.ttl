@@ -22,7 +22,7 @@
 recordtypes:Persoon
   a memorix:Recordtype, sh:NodeShape ;
   rdfs:label "Persoon"@nl, "Person"@en ;
-  rdfs:comment "Standaard Recordtype voor Personen met uitbreidingen speciefiek voor Erfgoed Leiden"@nl, "Record type for Person - Erfgoed Leiden"@en ;
+  sh:description "Standaard Recordtype voor Personen met uitbreidingen speciefiek voor Erfgoed Leiden"@nl, "Record type for Person - Erfgoed Leiden"@en ;
   dce:identifier "Persoon" ;
   memorix:copyrightHolderSource  true ;
   sh:closed true ;
@@ -33,7 +33,7 @@ recordtypes:Persoon
   dash:defaultViewForRole dash:all ;
   sh:property [
     rdfs:label "Voornaam"@nl,"First name"@en ;
-    rdfs:comment "Voornaam of initialen"@nl ;
+    sh:description "Voornaam of initialen"@nl ;
     sh:path schema:givenName ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -45,7 +45,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Tussenvoegsel"@nl, "Surname prefix"@en ;
-    rdfs:comment "Alle tussenvoegsels tussen voor- en achternaam. Een tussenvoegsel tussen onderdelen van de achternaam wordt opgenomen in 'Achternaam'."@nl ;
+    sh:description "Alle tussenvoegsels tussen voor- en achternaam. Een tussenvoegsel tussen onderdelen van de achternaam wordt opgenomen in 'Achternaam'."@nl ;
     sh:path dbpo:prefix ;
     sh:maxCount 1 ;
     sh:order 2.0 ;
@@ -56,7 +56,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Achternaam"@nl, "Surname"@en ;
-    rdfs:comment "Voornaam of initialen"@nl ;
+    sh:description "Voornaam of initialen"@nl ;
     sh:path schema:familyName ;
     sh:maxCount 1 ;
     sh:order 3.0 ;
@@ -67,7 +67,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Alternatieve namen"@nl, "Alternate names"@en ;
-    rdfs:comment "Andere namen waaronder de persoon bekend staat. Voorbeeld: Koningin Beatrix"@nl ;
+    sh:description "Andere namen waaronder de persoon bekend staat. Voorbeeld: Koningin Beatrix"@nl ;
     sh:path schema:additionalName ;
     sh:maxCount 100 ;
     sh:order 4.0 ;
@@ -86,7 +86,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Identiek aan"@nl, "Is same as (external)"@en ;
-    rdfs:comment "Is identiek aan persoon in andere terminologiebron"@nl, "Is same as person in external vocabulary"@en ;
+    sh:description "Is identiek aan persoon in andere terminologiebron"@nl, "Is same as person in external vocabulary"@en ;
     sh:path rico:isRelatedTo ;
     sh:maxCount 1 ;
     sh:order 6.0 ;
@@ -123,7 +123,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Biografie"@nl, "Biography"@en ;
-    rdfs:comment "Korte levensbeschrijving van de persoon"@nl ;
+    sh:description "Korte levensbeschrijving van de persoon"@nl ;
     sh:path rico:history ;
     sh:maxCount 1 ;
     sh:order 3.0 ;
@@ -135,7 +135,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Bibliografie"@nl, "Bibliography"@en ;
-    rdfs:comment "Literatuur die verschenen is over de persoon, zijn werkzaamheden, plaats van werkzaamheid, etc"@nl ;
+    sh:description "Literatuur die verschenen is over de persoon, zijn werkzaamheden, plaats van werkzaamheid, etc"@nl ;
     sh:path schema:citation ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
@@ -146,7 +146,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Opmerkingen beschrijving"@nl, "Remarks description"@en ;
-    rdfs:comment "Opmerkingen over de beschrijving die je in andere velden niet kwijt kunt."@nl ;
+    sh:description "Opmerkingen over de beschrijving die je in andere velden niet kwijt kunt."@nl ;
     sh:path rico:descriptiveNote ;
     sh:datatype xsd:string ;
     dash:editor dash:TextAreaEditor ;
@@ -157,7 +157,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Geboorte"@nl, "Birth"@en ;
-    rdfs:comment "Geboorte Event"@nl ;
+    sh:description "Geboorte Event"@nl ;
     sh:maxCount 1 ;
     sh:path rico:hasBirthDate ;
     sh:order 1.0 ;
@@ -168,7 +168,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Overlijden"@nl, "Decease"@en ;
-    rdfs:comment "Overlijden Event"@nl ;
+    sh:description "Overlijden Event"@nl ;
     sh:maxCount 1 ;
     sh:path rico:hasDeathDate ;
     sh:order 2.0 ;
@@ -199,7 +199,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Plaats van werkzaamheid"@nl, "Place of activity"@en ;
-    rdfs:comment "Plaatsen van werkzaamheid"@nl ;
+    sh:description "Plaatsen van werkzaamheid"@nl ;
     sh:maxCount 10 ;
     sh:path schema:workLocation ;
     sh:order 4.0 ;
@@ -210,7 +210,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Relatie"@nl, "Relation"@en ;
-    rdfs:comment "Relatie tussen personen"@nl ;
+    sh:description "Relatie tussen personen"@nl ;
     sh:maxCount 10 ;
     sh:path rico:isAgentAssociatedWithAgent ;
     sh:order 1.0 ;
@@ -442,7 +442,7 @@ persoon:Relation
   sh:targetClass persoon:Relation ;
   sh:property [
     rdfs:label "Relatietype"@nl, "Type of relationship"@en ;
-    rdfs:comment "Voorbeeld: als je in dit record de ELO-medewerker 'Jan Lagas' beschrijft, is het relatietype 'Rechthebbende' en de relatie 'Erfgoed Leiden'"@nl ;
+    sh:description "Voorbeeld: als je in dit record de ELO-medewerker 'Jan Lagas' beschrijft, is het relatietype 'Rechthebbende' en de relatie 'Erfgoed Leiden'"@nl ;
     sh:path rico:hasContentOfType ;
     sh:order 1.0 ;
     memorix:searchWeight 1.0 ;
@@ -472,7 +472,7 @@ persoon:RightsAgreement
   sh:targetClass persoon:RightsAgreement ;
   sh:property [
     rdfs:label "Auteursrechtverklaring"@nl, "Copyright statement"@en ;
-    rdfs:comment "Rechtenset zoals in de auteursrechtenlicentie met de rechthebbende is vastgelegd"@nl ;         
+    sh:description "Rechtenset zoals in de auteursrechtenlicentie met de rechthebbende is vastgelegd"@nl ;
     sh:path rico:conditionsOfUse ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
