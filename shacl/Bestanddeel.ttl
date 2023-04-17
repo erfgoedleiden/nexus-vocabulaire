@@ -164,7 +164,7 @@ recordtypes:Bestanddeel
         sh:path     <http://bag.basisregistraties.overheid.nl/def/bag#identificatieVanPand> ;
     ] ;
         sh:property             [
-        rdfs:label  "Locatie coördinaten", "Location coordinates"@en ;
+        rdfs:label  "Coördinaten"@nl, "Location coordinates"@en ;
         sh:maxCount 100 ;
         dash:editor memorix:LocationCoordinatesEditor ;
         sh:group    bestanddeel:locationGroup ;
