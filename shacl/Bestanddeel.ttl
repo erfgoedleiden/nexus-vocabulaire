@@ -57,7 +57,7 @@ recordtypes:Bestanddeel
     ] ;
     memorix:typeOf        memorix:File ;
 
-    sh:property           [ rdfs:label      "Archiefblok", "Fonds"@en ;
+    sh:property           [ rdfs:label      "Archiefblok"@nl, "Fonds"@en ;
         dash:editor     memorix:LinkedRecordEditor ;
         memorix:typeOf  memorix:FondsFieldLink ;
         sh:group        bestanddeel:identificationGroup ;
