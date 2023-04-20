@@ -71,6 +71,7 @@ recordtypes:Groep
         memorix:inTitleAt 2.0 ;
         sh:order     4.0 ;
         sh:path      rico:title ;
+        dash:editor  dash:TextAreaEditor ;
     ] ;
     sh:property [
         rdfs:label "Bereik en inhoud"@nl, "Content"@en ;
@@ -95,13 +96,24 @@ recordtypes:Groep
     ] ;
     sh:property [
         rdfs:label "Fysieke beschrijving"@nl, "Physical description"@en ;
-        sh:maxCount 100 ;
         sh:path rico:physicalOrLogicalExtent ;
         sh:order 7.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
-        sh:class rico:physicalOrLogicalExtent ;
+        sh:class groep:PhysicalOrLogicalExtent ;
         sh:group groep:descriptionGroup ;
+    ] ;
+
+    sh:property [
+        rdfs:label   "Bijlage"@nl, "Appendix"@en ;
+        sh:order     7.5 ;
+        sh:group groep:descriptionGroup ;
+        sh:path      rico:isRecordResourceAssociatedWithRecordResource ;
+        sh:nodeKind sh:IRI ;
+        sh:or (
+        [ sh:class recordtypes:Bijlage ]
+        ) ;
+        dash:editor memorix:LinkedRecordEditor ;
     ] ;
     sh:property [
         rdfs:label "Opmerkingen openbaar"@nl, "Remarks"@en ;
@@ -114,7 +126,6 @@ recordtypes:Groep
     ] ;
     sh:property [
         rdfs:label "Opmerkingen intern"@nl, "Internal remarks"@en ;
-        sh:maxCount 100 ;
         sh:path elo:opmerkingIntern ;
         sh:order 9.0 ;
         dash:viewer dash:DetailsEditor ;
@@ -153,11 +164,21 @@ rico:DateRange
     ] ;
     sh:targetClass       rico:DateRange ;
 .
-rico:physicalOrLogicalExtent
+groep:PhysicalOrLogicalExtent
     a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:targetClass rico:physicalOrLogicalExtent ;
+    sh:targetClass groep:PhysicalOrLogicalExtent ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property [
         rdfs:label   "Aantal"@nl, "Amount"@en  ;
         sh:maxCount 1 ;
@@ -182,6 +203,16 @@ groep:Notes
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass groep:Notes ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property [
         rdfs:label   "Datering"@nl, "Date"@en ;
         sh:maxCount 1 ;

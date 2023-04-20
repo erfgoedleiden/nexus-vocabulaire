@@ -63,7 +63,7 @@ recordtypes:Archiefblok
             ] ;
             memorix:inlineField    [
                 memorix:order  1.0 ;
-                memorix:path   rico:identifier
+                memorix:path   rico:hasOrHadConstituent
             ]
         ] ;
         dc:title         "Groep"
@@ -311,7 +311,6 @@ recordtypes:Archiefblok
     ] ;
     sh:property [
         rdfs:label "Opmerkingen intern"@nl, "Internal remarks"@en ;
-        sh:maxCount 100 ;
         sh:path elo:opmerkingIntern ;
         sh:order 27.0 ;
         dash:viewer dash:DetailsEditor ;
@@ -359,6 +358,16 @@ archiefblok:Notes
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass archiefblok:Notes ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property [
           rdfs:label   "Datering"@nl, "Date"@en ;
           sh:maxCount 1 ;

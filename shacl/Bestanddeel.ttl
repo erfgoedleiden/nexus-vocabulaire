@@ -57,12 +57,13 @@ recordtypes:Bestanddeel
     ] ;
     memorix:typeOf        memorix:File ;
 
-    sh:property           [ rdfs:label      "Archiefblok"@nl, "Fonds"@en ;
+    sh:property           [ rdfs:label      "Archiefblok", "Fonds"@en ;
         dash:editor     memorix:LinkedRecordEditor ;
         memorix:typeOf  memorix:FondsFieldLink ;
         sh:group        bestanddeel:identificationGroup ;
         sh:maxCount     1 ;
         sh:minCount     1 ;
+        memorix:inSummaryAt 1.0 ;
         sh:nodeKind     sh:IRI ;
         sh:or           ( [ sh:class  recordtypes:Archiefblok ] ) ;
         sh:order        0.3 ;
@@ -100,6 +101,7 @@ recordtypes:Bestanddeel
         sh:group     bestanddeel:identificationGroup ;
         sh:order     4.0 ;
         sh:path      rico:title ;
+        dash:editor  dash:TextAreaEditor ;
     ] ;
 
     sh:property [
@@ -114,7 +116,6 @@ recordtypes:Bestanddeel
     ] ;
     sh:property [
         rdfs:label "Fysieke beschrijving"@nl, "Physical description"@en ;
-        sh:maxCount 100 ;
         sh:path rico:hasExtent ;
         sh:order 6.0 ;
         dash:viewer dash:DetailsEditor ;
@@ -135,7 +136,6 @@ recordtypes:Bestanddeel
     ] ;
     sh:property [
         rdfs:label "Gerelateerde actoren"@nl, "Linked agents"@en ;
-        sh:maxCount 100 ;
         sh:path rico:workRelationConnects ;
         sh:order 8.0 ;
         dash:viewer dash:DetailsEditor ;
@@ -143,9 +143,20 @@ recordtypes:Bestanddeel
         sh:class bestanddeel:RelatedActor ;
         sh:group bestanddeel:descriptionGroup ;
     ] ;
+
+    sh:property [
+        rdfs:label   "Bijlage"@nl, "Appendix"@en ;
+        sh:order     8.5 ;
+        sh:group bestanddeel:descriptionGroup ;
+        sh:path      rico:isRecordResourceAssociatedWithRecordResource ;
+        sh:nodeKind sh:IRI ;
+        sh:or (
+            [ sh:class recordtypes:Bijlage ]
+        ) ;
+        dash:editor memorix:LinkedRecordEditor ;
+    ] ;
     sh:property [
         rdfs:label "Adres"@nl, "Associated with address"@en ;
-        sh:maxCount 100 ;
         sh:path schema:PostalAddress ;
         sh:order 9.0 ;
         dash:viewer dash:DetailsEditor ;
@@ -161,11 +172,10 @@ recordtypes:Bestanddeel
         # Dit is waarschijnlijk incorrect, dit moet vermoedelijk een link zijn
         sh:class    memorix:GeoCoordinates ;
         sh:order    10.0 ;
-        sh:path     <http://bag.basisregistraties.overheid.nl/def/bag#identificatieVanPand> ;
+        sh:path     bag:identificatieVanPand ;
     ] ;
         sh:property             [
-        rdfs:label  "Coördinaten"@nl, "Location coordinates"@en ;
-        sh:maxCount 100 ;
+        rdfs:label  "Locatie coördinaten"@nl, "Location coordinates"@en ;
         dash:editor memorix:LocationCoordinatesEditor ;
         sh:group    bestanddeel:locationGroup ;
         sh:class    memorix:GeoCoordinates ;
@@ -182,7 +192,6 @@ recordtypes:Bestanddeel
     ] ;
     sh:property [
         rdfs:label "Verwijzing"@nl, "Reference"@en ;
-        sh:maxCount 100 ;
         sh:path rico:Relation ;
         sh:order 14.0 ;
         dash:viewer dash:DetailsEditor ;
@@ -192,22 +201,10 @@ recordtypes:Bestanddeel
     ] ;
     sh:property [
         rdfs:label   "Oude nummer(s)"@nl, "Old number(s)"@en ;
-        sh:datatype  xsd:integer ;
+        sh:datatype  xsd:string ;
         sh:group     bestanddeel:managementGroup ;
         sh:order     15.0 ;
-        sh:maxCount 10 ;
         sh:path      bestanddeel:objectnumberOld ;
-    ] ;
-    sh:property [
-        rdfs:label "Status"@nl, "Status"@en ;
-        sh:maxCount 1 ;
-        sh:path rico:hasRecordState ;
-        sh:group     bestanddeel:managementGroup ;
-        sh:order 16.0 ;
-        dash:editor             dash:EnumSelectEditor ;
-        sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:1e8c3597-8936-4f60-807e-a57b49469149 ) ;
-        sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
         rdfs:label "Opmerkingen openbaar"@nl, "Remarks"@en ;
@@ -222,7 +219,6 @@ recordtypes:Bestanddeel
     sh:property [
         rdfs:label "Opmerkingen intern"@nl, "Internal remarks"@en ;
         sh:description "Dit is een intern veld, dat niet op de website getoond wordt."@nl ;
-        sh:maxCount 100 ;
         sh:path elo:opmerkingIntern ;
         sh:order 27.0 ;
         dash:viewer dash:DetailsEditor ;
@@ -271,7 +267,17 @@ bestanddeel:PhysicalOrLogicalExtent
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     # Voorheen: niet-bestaande rico:PhysicalOrLogicalExtent
-    sh:targetClass rico:CarrierExtent ;
+    sh:targetClass bestanddeel:PhysicalOrLogicalExtent ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property [
         rdfs:label   "Aantal"@nl, "Amount"@en ;
         sh:maxCount 1 ;
@@ -295,6 +301,16 @@ bestanddeel:Reference
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass bestanddeel:Reference ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property [
         rdfs:label   "Zie ook"@nl, "See also - link to another file"@en ;
         sh:description   "Verwijzing naar een ander bestanddeel"@nl ;
@@ -322,6 +338,16 @@ bestanddeel:HistoricalAddress
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass bestanddeel:HistoricalAddress ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property [
         rdfs:label "Plaats"@nl, "City"@en ;
         sh:path schema:addressLocality ;
@@ -363,12 +389,22 @@ bestanddeel:RelatedActor
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass bestanddeel:RelatedActor ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property [
         rdfs:label "Rol actor"@nl ;
         sh:maxCount 1 ;
         sh:path schema:roleName ;
         sh:order 1.0 ;
-        dash:editor             dash:EnumSelectEditor ;
+        dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
         memorix:conceptSchemeIn ( vocabularies:9b0aa324-5b0f-320e-b2ad-25e0a2b89be3 ) ;
         sh:nodeKind sh:IRI ;
@@ -381,8 +417,8 @@ bestanddeel:RelatedActor
         sh:nodeKind sh:IRI ;
         sh:or (
             # bestanddeel klinkt als een merkwaardige entiteit als "Actor"
-            [ sh:class recordtypes:Bestanddeel ]
             [ sh:class recordtypes:ActorOrganisatie ]
+            [ sh:class recordtypes:ActorFamilie ]
             [ sh:class recordtypes:ActorPersoon ]
         ) ;
         dash:editor memorix:LinkedRecordEditor ;
@@ -394,13 +430,23 @@ bestanddeel:Notes
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass bestanddeel:Notes ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property [
         rdfs:label   "Datering"@nl, "Date"@en ;
         sh:maxCount 1 ;
         dash:editor  memorix:DateEditor ;
         sh:datatype  xsd:integer ;
         sh:order     1.0 ;
-        sh:path      rico:expressedDate ;
+        sh:path      dc:date ;
     ] ;
     sh:property [
         rdfs:label "Gebruiker"@nl, "User"@en ;

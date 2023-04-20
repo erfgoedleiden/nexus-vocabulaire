@@ -85,7 +85,6 @@ recordtypes:Bijlage
     ] ;
     sh:property [
         rdfs:label "Lijst"@nl, "List"@en ;
-        sh:maxCount 100 ;
         sh:path schema:ItemList ;
         sh:order 6.0 ;
         dash:viewer dash:DetailsEditor ;
@@ -100,6 +99,16 @@ bijlage:List
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:targetClass bijlage:List ;
+    sh:property          [
+        rdfs:label  "order"@en ;
+        memorix:hidden true ;
+        sh:description "This field is required for persistent order of group items" ;
+        sh:path     memorix:order ;
+        sh:order    0.0 ;
+        sh:datatype xsd:integer ;
+        sh:minCount 1 ;
+        sh:maxCount 1 ;
+    ] ;
     sh:property [
           rdfs:label   "Eerste kolom"@nl, "First column"@en ;
           sh:maxCount 1 ;
