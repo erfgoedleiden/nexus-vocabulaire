@@ -60,13 +60,39 @@ recordtypes:Persoonsvermelding
         sh:order           3.0 ;
         sh:path            schema:familyName
     ] ;
+    sh:property [
+        rdfs:label "Alias"@nl, "Alias"@en ;
+        sh:path rico:isRelatedTo ;
+        sh:maxCount 1 ;
+        sh:datatype        xsd:string ;
+        sh:group           persoonsvermelding:personListingGroup ;
+        sh:order 3.5 ;
+    ] ;
+    sh:property              [
+        rdfs:label   "Samenvatting"@nl, "Summary"@en ;
+        dash:editor  dash:TextAreaEditor ;
+        sh:datatype  xsd:string ;
+        sh:group     persoonsvermelding:remarksGroup ;
+        sh:maxCount  1 ;
+        sh:order     1.0 ;
+        sh:path      elo:extraInformatie
+    ] ;
+    sh:property              [
+        rdfs:label   "Samenvatting regel 2"@nl, "Summary rule 2"@en ;
+        dash:editor  dash:TextAreaEditor ;
+        sh:datatype  xsd:string ;
+        sh:group     persoonsvermelding:remarksGroup ;
+        sh:maxCount  1 ;
+        sh:order     2.0 ;
+        sh:path      elo:extraInformatie2
+    ] ;
     sh:property              [
         rdfs:label   "Opmerkingen openbaar"@nl, "Remarks"@en ;
         dash:editor  dash:TextAreaEditor ;
         sh:datatype  xsd:string ;
         sh:group     persoonsvermelding:remarksGroup ;
         sh:maxCount  1 ;
-        sh:order     1.0 ;
+        sh:order     3.0 ;
         sh:path      rico:descriptiveNote
     ] ;
     sh:property              [
@@ -102,10 +128,13 @@ recordtypes:Persoonsvermelding
     sh:property              [
         rdfs:label   "Religie"@nl, "Religion"@en ;
         sh:maxCount  1 ;
-        sh:datatype  xsd:string ;
         sh:group     persoonsvermelding:personListingGroup ;
         sh:order     9.0 ;
-        sh:path      dbpo:religion
+        sh:path      dbpo:religion ;
+        dash:editor memorix:VocabularyEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/6f6e0744-50f9-4d8a-8e5f-f31c7c1d3ed3> ) ;
+        sh:nodeKind sh:IRI ;
     ] ;
     sh:property              [
         rdfs:label   "Titel"@nl, "Title"@en ;
@@ -133,7 +162,7 @@ recordtypes:Persoonsvermelding
         sh:datatype  xsd:string ;
         sh:group     persoonsvermelding:remarksGroup ;
         sh:maxCount  1 ;
-        sh:order     2.0 ;
+        sh:order     4.0 ;
         sh:path      elo:opmerkingIntern
     ] ;
     sh:property              [
@@ -259,6 +288,7 @@ persoonsvermelding:Details
     rdfs:label   "Bijzonderheid"@nl, "Detail"@en ;
     sh:description       "Belangrijke informatie die niet in de overige velden past. Dit veld wordt gecombineerd met 'Bijzonderheid-type'."@nl ;
     sh:datatype  xsd:string ;
+    dash:editor  dash:TextAreaEditor ;
     sh:maxCount  1 ;
     sh:order     2.0 ;
     sh:path      rico:descriptiveNote
@@ -316,6 +346,13 @@ persoonsvermelding:Details
         sh:datatype  xsd:string ;
         sh:order     5.0 ;
         sh:path      schema:addressLocality
+    ] ;
+    sh:property [
+        rdfs:label "Gemeente"@nl, "Municipality"@en ;
+        sh:maxCount  1 ;
+        sh:datatype  xsd:string ;
+        sh:order 5.5 ;
+        sh:path dbpo:municipality ;
     ] ;
     sh:property           [
         rdfs:label   "Wijk"@nl, "Neighbourhood"@en ;
