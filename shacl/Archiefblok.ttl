@@ -46,14 +46,14 @@ recordtypes:Archiefblok
     memorix:hasInformationComponent
     [ rdf:type               memorix:HasRecordsComponent ;
         memorix:hasRecordType  recordtypes:Bestanddeel ;
-        memorix:path           bestanddeel:archiefblok ;
+        memorix:path           rico:isOrWasIncludedIn ;
         dc:title               "Bestanddelen"
     ] ;
     memorix:hasInformationComponent
     [ rdf:type         memorix:TreeComponent ;
         memorix:hasLeaf  [
             memorix:hasRecordType  recordtypes:Bestanddeel ;
-            memorix:path           bestanddeel:archiefblok
+            memorix:path           rico:isOrWasIncludedIn
         ] ;
         memorix:hasNode  [
             memorix:hasRecordType  recordtypes:Groep ;
