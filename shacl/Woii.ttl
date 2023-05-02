@@ -12,7 +12,7 @@
 @prefix schema:       <http://schema.org/> .
 @prefix sh:           <http://www.w3.org/ns/shacl#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies: </resources/vocabularies/> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
 @prefix woII:         </resources/recordtypes/Woii#> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
@@ -56,7 +56,7 @@ recordtypes:Woii
     sh:group woII:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/f4feee18-e6d5-4add-9860-b5904c607ad4> ) ;
+    memorix:conceptSchemeIn ( vocabularies:f4feee18-e6d5-4add-9860-b5904c607ad4 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [

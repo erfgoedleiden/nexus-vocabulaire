@@ -13,7 +13,7 @@
 @prefix schema:         <http://schema.org/> .
 @prefix sh:             <http://www.w3.org/ns/shacl#> .
 @prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies:   </resources/vocabularies/> .
+@prefix vocabularies:   </resources/vocabularies/conceptschemes/> .
 @prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:KoorboekPagina
@@ -70,7 +70,7 @@ recordtypes:KoorboekPagina
     sh:group koorboekPagina:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/6fb8c7a0-15a6-3974-aa6b-61f8656bcd28> ) ;
+    memorix:conceptSchemeIn ( vocabularies:6fb8c7a0-15a6-3974-aa6b-61f8656bcd28 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [

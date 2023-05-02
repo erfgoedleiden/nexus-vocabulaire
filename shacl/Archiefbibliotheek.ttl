@@ -115,7 +115,7 @@ recordtypes:Archiefbibliotheek
         sh:group    archiefbibliotheek:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class    skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/4190de09-7dca-44ce-a9bd-04716cfa70aa> ) ;
+        memorix:conceptSchemeIn ( vocabularies:4190de09-7dca-44ce-a9bd-04716cfa70aa ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property          [

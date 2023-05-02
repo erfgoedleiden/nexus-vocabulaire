@@ -12,7 +12,7 @@
 @prefix schema:       <http://schema.org/> .
 @prefix sh:           <http://www.w3.org/ns/shacl#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies: </resources/vocabularies/> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 aanwinst:identificationGroup
@@ -78,7 +78,7 @@ recordtypes:Aanwinst
         sh:order 2.5 ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/62bfc6e5-bb15-4f2f-8898-a76cd5e89d5a> ) ;
+        memorix:conceptSchemeIn ( vocabularies:62bfc6e5-bb15-4f2f-8898-a76cd5e89d5a ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -98,7 +98,7 @@ recordtypes:Aanwinst
         sh:group aanwinst:descriptionGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/af5e1f30-ab30-33bf-9f81-6063449ee0c8> ) ;
+        memorix:conceptSchemeIn ( vocabularies:af5e1f30-ab30-33bf-9f81-6063449ee0c8 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [

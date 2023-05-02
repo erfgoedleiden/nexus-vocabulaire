@@ -49,6 +49,7 @@ spec:
       - https://data.rkd.nl/rkdartists
       # Alle URIs met 'resources/vocabularies' zijn niet te dereferencen
       - /resources/vocabularies/
+      - /resources/vocabularies/conceptschemes/
       # negeer 'xsd' prefix: die is niet op te vragen in linked data vorm
       - http://www.w3.org/2001/XMLSchema
       # Negeer record URIs

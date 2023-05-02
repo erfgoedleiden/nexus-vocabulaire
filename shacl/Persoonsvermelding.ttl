@@ -17,7 +17,7 @@
 @prefix schema:             <http://schema.org/> .
 @prefix sh:                 <http://www.w3.org/ns/shacl#> .
 @prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies:       </resources/vocabularies/> .
+@prefix vocabularies:       </resources/vocabularies/conceptschemes/> .
 @prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:Persoonsvermelding
@@ -38,7 +38,7 @@ recordtypes:Persoonsvermelding
         sh:path      schema:roleName ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/7b9df6df-1c81-463f-85e1-d8ce7d002ab7> ) ;
+        memorix:conceptSchemeIn ( vocabularies:7b9df6df-1c81-463f-85e1-d8ce7d002ab7 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property              [
@@ -133,7 +133,7 @@ recordtypes:Persoonsvermelding
         sh:path      dbpo:religion ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/6f6e0744-50f9-4d8a-8e5f-f31c7c1d3ed3> ) ;
+        memorix:conceptSchemeIn ( vocabularies:6f6e0744-50f9-4d8a-8e5f-f31c7c1d3ed3 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property              [
@@ -193,7 +193,7 @@ recordtypes:Persoonsvermelding
         sh:path             schema:gender ;
         dash:editor         memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/bf92f5f7-d8be-45b8-be59-c79af171ce11> ) ;
+        memorix:conceptSchemeIn ( vocabularies:bf92f5f7-d8be-45b8-be59-c79af171ce11 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property              [
@@ -281,7 +281,7 @@ persoonsvermelding:Details
     sh:maxCount  1 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/e2f783dd-710d-473a-9515-b97eaa0da52d> ) ;
+    memorix:conceptSchemeIn ( vocabularies:e2f783dd-710d-473a-9515-b97eaa0da52d ) ;
     sh:nodeKind sh:IRI ;
     ] ;
     sh:property           [
@@ -316,7 +316,7 @@ persoonsvermelding:Details
         sh:path             rico:hasOrHadPlaceType ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/42cfec07-894f-4e72-a80d-1418f5ecc324> ) ;
+        memorix:conceptSchemeIn ( vocabularies:42cfec07-894f-4e72-a80d-1418f5ecc324 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property           [
@@ -329,7 +329,7 @@ persoonsvermelding:Details
     sh:property           [
         rdfs:label   "Huisnummer"@nl, "House number"@en ;
         sh:maxCount  1 ;
-        sh:datatype  xsd:integer ;
+        sh:datatype  xsd:string ;
         sh:order     3.0 ;
         sh:path      bag:huisnummer
     ] ;
@@ -450,7 +450,7 @@ persoonsvermelding:Profession
         sh:path             elo:gestandaardiseerdBeroep ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/44f97a78-f417-4a89-a368-9882a5bf7c84> ) ;
+        memorix:conceptSchemeIn ( vocabularies:44f97a78-f417-4a89-a368-9882a5bf7c84 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:targetClass        persoonsvermelding:Profession .
@@ -474,7 +474,7 @@ persoonsvermelding:Event  rdf:type          sh:NodeShape ;
         sh:maxCount  1 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/2dff6cc5-1e18-4640-ae32-79c9c8cd0dd7> ) ;
+        memorix:conceptSchemeIn ( vocabularies:2dff6cc5-1e18-4640-ae32-79c9c8cd0dd7 ) ;
         sh:nodeKind sh:IRI ;
         sh:order           1.0 ;
         sh:path            rico:hasEventType

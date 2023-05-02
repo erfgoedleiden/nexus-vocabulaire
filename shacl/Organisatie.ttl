@@ -15,7 +15,7 @@
 @prefix schema:       <http://schema.org/> .
 @prefix sh:           <http://www.w3.org/ns/shacl#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies: </resources/vocabularies/> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:Organisatie
@@ -52,15 +52,6 @@ recordtypes:Organisatie
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Identificatiekenmerk"@nl, "Identification"@en ;
-    sh:path rico:identifier ;
-    sh:maxCount 1 ;
-    sh:order 5.0 ;
-    sh:group organisatie:identityGroup ;
-    memorix:searchWeight 1.0 ;
-    sh:datatype xsd:string ;
-  ] ;
-  sh:property [
     rdfs:label "Identiek aan"@nl, "Is same as (external)"@en ;
     sh:description "Is identiek aan organisatie in andere terminologiebron"@nl, "Is same as organization in external vocabulary"@en ;
     sh:path rico:isRelatedTo ;
@@ -71,18 +62,6 @@ recordtypes:Organisatie
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
     memorix:conceptSchemeIn ( <https://data.rkd.nl/rkdartists>  <http://data.bibliotheken.nl/id/dataset/persons> ) ;
-    sh:nodeKind sh:IRI ;
-  ] ;
-    sh:property [
-    rdfs:label "Type organisatie"@nl, "Organization type"@en ;
-    sh:path rico:hasContentOfType ;
-    sh:maxCount 1 ;
-    sh:order 1.0 ;
-    sh:group organisatie:descriptiveInformationGroup ;
-    memorix:searchWeight 1.0 ;
-    dash:editor memorix:VocabularyEditor ;
-    sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/79db463e-d870-4631-ba99-b2d7f70c3f03> ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -138,36 +117,17 @@ recordtypes:Organisatie
     sh:class organisatie:EndEvent ;
     sh:group organisatie:lifeEventsGroup ;
   ] ;
+
   sh:property [
-    rdfs:label "Werkzame periode start"@nl, "Active period starts"@en ;
-    sh:path elo:werkzaamBeginDatum ;
-    dash:editor  memorix:DateEditor ;
-    sh:datatype  xsd:integer ;
-    sh:maxCount 1 ;
-    sh:order 3.0 ;
-    sh:group organisatie:lifeEventsGroup ;
-    memorix:searchWeight 1.0 ;
-  ] ;
-  sh:property [
-    rdfs:label "Werkzame periode eind"@nl, "Active period ends"@en ;
-    sh:path elo:werkzaamEindDatum ;
-    dash:editor  memorix:DateEditor ;
-    sh:datatype  xsd:integer ;
-    sh:maxCount 1 ;
-    sh:order 3.5 ;
-    sh:group organisatie:lifeEventsGroup ;
-    memorix:searchWeight 1.0 ;
-  ] ;
-  sh:property [
-    rdfs:label "Plaats van werkzaamheid"@nl, "Place of activity"@en ;
-    sh:description "Plaatsen van werkzaamheid"@nl ;
+    rdfs:label "Relatie"@nl, "Relation"@en ;
+    sh:description "Relatie tussen personen"@nl ;
     sh:maxCount 10 ;
-    sh:path schema:workLocation ;
-    sh:order 4.0 ;
+    sh:path rico:isAgentAssociatedWithAgent ;
+    sh:order 1.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
-    sh:class organisatie:PlaceOfActivity ;
-    sh:group organisatie:lifeEventsGroup ;
+    sh:class organisatie:Relation ;
+    sh:group organisatie:relationsGroup;
   ] ;
   sh:property [
     rdfs:label "Contactpersoon"@nl, "Contact"@en ;
@@ -207,15 +167,6 @@ recordtypes:Organisatie
     memorix:searchWeight 1.0 ;
   ] ;
   sh:property [
-    rdfs:label "Land"@nl, "Country"@en ;
-    sh:path schema:addressCountry ;
-    sh:datatype xsd:string;
-    sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup ;
-    sh:order 3.0 ;
-    memorix:searchWeight 1.0 ;
-  ] ;
-  sh:property [
     rdfs:label "E-mail"@nl, "E-mail"@en ;
     sh:path schema:email ;
     sh:datatype xsd:string;
@@ -241,24 +192,6 @@ recordtypes:Organisatie
     sh:group organisatie:contactInformationGroup ;
     sh:order 6.0 ;
     memorix:searchWeight 1.0 ;
-  ] ;
-  sh:property [
-    rdfs:label "Contactnummer"@nl, "Contact number"@en ;
-    sh:path elo:contactnummer ;
-    sh:datatype xsd:string;
-    sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup ;
-    sh:order 7.0 ;
-    memorix:searchWeight 1.0 ;
-  ] ;
-  sh:property [
-    rdfs:label "Opmerkingen bij contactinformatie"@nl, "Remarks on Contact"@en ;
-    sh:path elo:opmerkingContact ;
-    sh:maxCount 1 ;
-    sh:group organisatie:contactInformationGroup ;
-    sh:order 8.0 ;
-    sh:datatype xsd:string ;
-    dash:editor  dash:TextAreaEditor ;
   ] ;
 
   sh:property [
@@ -332,60 +265,35 @@ organisatie:EndEvent
     # TODO dit moet een link naar Geonames worden
   ]
 .
-organisatie:PlaceOfActivity
+
+organisatie:Relation
   a sh:NodeShape ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
-  sh:targetClass organisatie:PlaceOfActivity ;
+  sh:targetClass organisatie:Relation ;
   sh:property [
-      rdfs:label "Locatie coördinaten"@nl, "Location coordinates"@en ;
-      sh:path schema:geo ;
-      sh:order 0.9 ;
-      sh:datatype xsd:string ;
+      rdfs:label "Relatietype"@nl, "Type of relationship"@en ;
+      sh:description "Voorbeeld: als je in dit record de ELO-medewerker 'Jan Lagas' beschrijft, is het relatietype 'Rechthebbende' en de relatie 'Erfgoed Leiden'"@nl ;
+      sh:path rico:hasContentOfType ;
+      sh:order 1.0 ;
       memorix:searchWeight 1.0 ;
-    # TODO dit moet een link naar coordinates
-  ] ;
+      dash:editor memorix:VocabularyEditor ;
+      sh:class skos:Concept ;
+      memorix:conceptSchemeIn ( vocabularies:0f3d31f2-066b-49e8-8992-91c1e493a364 ) ;
+      sh:nodeKind sh:IRI ;
+    ] ;
   sh:property [
-    rdfs:label "Locatie geoNames"@nl, "Location geoNames"@en ;
-    # In GeoNames: "A feature code."
-    sh:path gn:Code ;
-    sh:order 1.0 ;
-    sh:datatype xsd:string ;
-    memorix:searchWeight 1.0 ;
-  # TODO dit moet een link naar Geonames worden
-  ] ;
-  sh:property [
-    rdfs:label "Locatie address (BAG)"@nl, "Location address (BAG)"@en ;
-    sh:path bag:identificatie ;
-    sh:order 1.1 ;
-    sh:datatype xsd:string ;
-    memorix:searchWeight 1.0 ;
-  # TODO dit moet een link naar BAG IDS worden
-  ] ;
-  sh:property [
-    rdfs:label "Begindatum"@nl, "Starting date"@en ;
-    sh:path rico:hasBeginningDate ;
-    sh:order 2.0 ;
-    dash:editor  memorix:DateEditor ;
-    sh:datatype  xsd:integer ;
-    memorix:searchWeight 1.0 ;
-  ] ;
-  sh:property [
-    rdfs:label "Einddatum"@nl, "End date"@en ;
-    sh:path rico:hasEndDate ;
-    sh:order 3.0 ;
-    dash:editor  memorix:DateEditor ;
-    sh:datatype  xsd:integer ;
-    memorix:searchWeight 1.0 ;
-  ] ;
-  sh:property [
-    rdfs:label "Opmerking bij plaats werkzaamheid"@nl, "Remarks on place of activity"@en ;
-    sh:path rico:descriptiveNote ;
-    sh:order 4.0 ;
-    sh:datatype xsd:string ;
-    dash:editor dash:TextAreaEditor ;
-    memorix:searchWeight 1.0 ;
-  ]
+      rdfs:label "Relatie"@nl, "Related Person/Organization"@en ;
+      sh:path rico:isRelatedTo ;
+      sh:order 2.0 ;
+      sh:nodeKind sh:IRI ;
+      sh:or (
+                   [ sh:class recordtypes:Persoon ]
+                   [ sh:class recordtypes:Organisatie ]
+                 ) ;
+      dash:editor memorix:LinkedRecordEditor ;
+      memorix:searchWeight 1.0 ;
+    ]
 .
 
 organisatie:RightsAgreement
@@ -401,7 +309,7 @@ organisatie:RightsAgreement
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/affe15be-8c77-40e5-87af-6e86137799e6> ) ;
+    memorix:conceptSchemeIn ( vocabularies:affe15be-8c77-40e5-87af-6e86137799e6 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -425,6 +333,10 @@ organisatie:descriptiveInformationGroup a sh:PropertyGroup ;
 organisatie:lifeEventsGroup a sh:PropertyGroup ;
   rdfs:label "Levensloop"@nl, "Lifecycle"@en ;
   sh:order 3.0
+.
+organisatie:relationsGroup a sh:PropertyGroup ;
+  rdfs:label "Relaties"@nl, "Relations"@en ;
+  sh:order 4.0
 .
 organisatie:contactInformationGroup a sh:PropertyGroup ;
   rdfs:label "Contactinformatie"@nl, "Contact"@en ;
