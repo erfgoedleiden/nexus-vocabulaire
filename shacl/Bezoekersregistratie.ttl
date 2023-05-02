@@ -12,7 +12,7 @@
 @prefix schema:                 <http://schema.org/> .
 @prefix sh:                     <http://www.w3.org/ns/shacl#> .
 @prefix skos:                   <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies:           </resources/vocabularies/> .
+@prefix vocabularies:           </resources/vocabularies/conceptschemes/> .
 @prefix xsd:                    <http://www.w3.org/2001/XMLSchema#> .
 
 bezoekersregistratie:identificationGroup
@@ -67,7 +67,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/60397446-47f1-397c-a92e-ac66f2fdcedc> ) ;
+        memorix:conceptSchemeIn ( vocabularies:60397446-47f1-397c-a92e-ac66f2fdcedc ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -102,7 +102,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/bf92f5f7-d8be-45b8-be59-c79af171ce11> ) ;
+        memorix:conceptSchemeIn ( vocabularies:bf92f5f7-d8be-45b8-be59-c79af171ce11 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -114,7 +114,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/6ce476da-0db3-3097-883d-889c3a1897e0> ) ;
+        memorix:conceptSchemeIn ( vocabularies:6ce476da-0db3-3097-883d-889c3a1897e0 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -141,7 +141,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/38aa391f-a0da-3bb3-9c10-e3feaf61f4d1> ) ;
+        memorix:conceptSchemeIn ( vocabularies:38aa391f-a0da-3bb3-9c10-e3feaf61f4d1 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [

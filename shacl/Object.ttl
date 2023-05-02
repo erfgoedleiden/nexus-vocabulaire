@@ -15,7 +15,7 @@
 @prefix schema:       <http://schema.org/> .
 @prefix sh:           <http://www.w3.org/ns/shacl#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies: </resources/vocabularies/> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:Object
@@ -36,7 +36,7 @@ recordtypes:Object
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
       # Overweeg hier om een CBS-gemeente te nemen
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/a5538bf3-2d67-3f6f-acff-f95eaaa169c4> ) ;
+      memorix:conceptSchemeIn ( vocabularies:a5538bf3-2d67-3f6f-acff-f95eaaa169c4 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -47,7 +47,7 @@ recordtypes:Object
       sh:group object:basicDataGroup ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/b1b75c03-b2b4-4f37-a852-0f42d7edc7a0> ) ;
+      memorix:conceptSchemeIn ( vocabularies:b1b75c03-b2b4-4f37-a852-0f42d7edc7a0 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -110,7 +110,7 @@ recordtypes:Object
       sh:group object:basicDataGroup ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/6d84729b-566e-479b-96da-7cb6d119bad6> ) ;
+      memorix:conceptSchemeIn ( vocabularies:6d84729b-566e-479b-96da-7cb6d119bad6 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -150,7 +150,7 @@ recordtypes:Object
       sh:group object:procedureDataGroup ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/46efe6fe-4d6a-499f-aa06-06be04cf363b> ) ;
+      memorix:conceptSchemeIn ( vocabularies:46efe6fe-4d6a-499f-aa06-06be04cf363b ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -200,7 +200,7 @@ recordtypes:Object
       sh:group object:valueDataGroup ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/86504c0f-bf2f-4647-aa59-333351e090e2> ) ;
+      memorix:conceptSchemeIn ( vocabularies:86504c0f-bf2f-4647-aa59-333351e090e2 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -212,7 +212,7 @@ recordtypes:Object
       sh:group object:valueDataGroup ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/85f914b6-00e0-4f42-a63d-c4f8763888c0> ) ;
+      memorix:conceptSchemeIn ( vocabularies:85f914b6-00e0-4f42-a63d-c4f8763888c0 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -379,7 +379,7 @@ object:Architecture
       sh:order 1.0 ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/3c90d4f9-bbd3-4c6a-a473-541b87d7a7af> ) ;
+      memorix:conceptSchemeIn ( vocabularies:3c90d4f9-bbd3-4c6a-a473-541b87d7a7af ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -414,7 +414,7 @@ object:BagAddress
       sh:order 3.0 ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/da1d9451-8a91-4c83-b15a-04c8105e0ad7> ) ;
+      memorix:conceptSchemeIn ( vocabularies:da1d9451-8a91-4c83-b15a-04c8105e0ad7 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -452,7 +452,7 @@ object:BgtTopography
       sh:order 3.0 ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/da1d9451-8a91-4c83-b15a-04c8105e0ad7> ) ;
+      memorix:conceptSchemeIn ( vocabularies:da1d9451-8a91-4c83-b15a-04c8105e0ad7 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -495,7 +495,7 @@ object:DicoData
       sh:order 2.0 ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/817164bb-03bb-3b68-8327-416558a8455c> ) ;
+      memorix:conceptSchemeIn ( vocabularies:817164bb-03bb-3b68-8327-416558a8455c ) ;
       sh:nodeKind sh:IRI ;
     ] ;
 .

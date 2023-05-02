@@ -11,7 +11,7 @@
 @prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
 @prefix sh:           <http://www.w3.org/ns/shacl#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies: </resources/vocabularies/> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:Complex

@@ -14,7 +14,7 @@
 @prefix sh:           <http://www.w3.org/ns/shacl#> .
 @prefix schema:       <http://schema.org/> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies: </resources/vocabularies/> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 archiefblok:identificationGroup
@@ -143,7 +143,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/59dd2557-a079-38ab-9db7-7269f9a80241> ) ;
+        memorix:conceptSchemeIn ( vocabularies:59dd2557-a079-38ab-9db7-7269f9a80241 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -154,7 +154,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/4190de09-7dca-44ce-a9bd-04716cfa70aa> ) ;
+        memorix:conceptSchemeIn ( vocabularies:4190de09-7dca-44ce-a9bd-04716cfa70aa ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -251,7 +251,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:accessGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/3348861e-3f20-3720-94f8-00d429612388> );
+        memorix:conceptSchemeIn ( vocabularies:3348861e-3f20-3720-94f8-00d429612388 );
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -262,7 +262,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:accessGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/f9c3d992-e77a-36ff-9c28-ac57b41c5a66> );
+        memorix:conceptSchemeIn ( vocabularies:f9c3d992-e77a-36ff-9c28-ac57b41c5a66 );
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [

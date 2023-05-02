@@ -15,7 +15,7 @@
 @prefix schema:       <http://schema.org/> .
 @prefix sh:           <http://www.w3.org/ns/shacl#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies: </resources/vocabularies/> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:Image
@@ -38,7 +38,7 @@ recordtypes:Image
     sh:group image:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/8490ee59-818e-41a8-b37f-7b5040f3c4a4> ) ;
+    memorix:conceptSchemeIn ( vocabularies:8490ee59-818e-41a8-b37f-7b5040f3c4a4 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -71,7 +71,7 @@ recordtypes:Image
     sh:group image:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/5f449ae6-01a2-44a3-a5a6-f74dfa587a87> ) ;
+    memorix:conceptSchemeIn ( vocabularies:5f449ae6-01a2-44a3-a5a6-f74dfa587a87 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -127,7 +127,7 @@ recordtypes:Image
     sh:group image:contentDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/4190de09-7dca-44ce-a9bd-04716cfa70aa> ) ;
+    memorix:conceptSchemeIn ( vocabularies:4190de09-7dca-44ce-a9bd-04716cfa70aa ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -160,7 +160,7 @@ recordtypes:Image
     sh:group image:physicalDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/421b42cd-90c2-495d-86bd-8d49ddec08df> ) ;
+    memorix:conceptSchemeIn ( vocabularies:421b42cd-90c2-495d-86bd-8d49ddec08df ) ;
     sh:nodeKind sh:IRI ;
   ] ;
 
@@ -211,7 +211,7 @@ recordtypes:Image
     sh:group image:aquisitionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/cae01719-c37a-4e31-bd5a-9e063db0bab5> ) ;
+    memorix:conceptSchemeIn ( vocabularies:cae01719-c37a-4e31-bd5a-9e063db0bab5 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -325,7 +325,7 @@ image:DepictedLocation
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/026baf4a-c14f-4819-be3e-2301fb6b4a67> ) ;
+    memorix:conceptSchemeIn ( vocabularies:026baf4a-c14f-4819-be3e-2301fb6b4a67 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -335,7 +335,7 @@ image:DepictedLocation
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/2540c439-bebf-4ce7-bca9-3c3cba71a6c9> ) ;
+    memorix:conceptSchemeIn ( vocabularies:2540c439-bebf-4ce7-bca9-3c3cba71a6c9 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -380,7 +380,7 @@ image:Creator
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/3136ddd0-0eb0-4fc9-b78e-5df18be5313f> ) ;
+    memorix:conceptSchemeIn ( vocabularies:3136ddd0-0eb0-4fc9-b78e-5df18be5313f ) ;
     sh:nodeKind sh:IRI ;
   ] ;
 .
@@ -439,7 +439,7 @@ image:Dimension
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/5fbfb737-54a9-4e55-a9fd-156ccf4d0f5f> ) ;
+    memorix:conceptSchemeIn ( vocabularies:5fbfb737-54a9-4e55-a9fd-156ccf4d0f5f ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -457,7 +457,7 @@ image:Dimension
     sh:order 4.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/5fbfb737-54a9-4e55-a9fd-156ccf4d0f5f> ) ;
+    memorix:conceptSchemeIn ( vocabularies:5fbfb737-54a9-4e55-a9fd-156ccf4d0f5f ) ;
     sh:nodeKind sh:IRI ;
   ] ;
 .

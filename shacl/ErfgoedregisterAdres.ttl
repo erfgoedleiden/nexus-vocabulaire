@@ -14,7 +14,7 @@
 @prefix schema:               <http://schema.org/> .
 @prefix sh:                   <http://www.w3.org/ns/shacl#> .
 @prefix skos:                 <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies:         </resources/vocabularies/> .
+@prefix vocabularies:         </resources/vocabularies/conceptschemes/> .
 @prefix xsd:                  <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:ErfgoedregisterAdres
@@ -103,7 +103,7 @@ recordtypes:ErfgoedregisterAdres
     sh:group erfgoedregisterAdres:addressGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/603ea3e8-81f9-4b32-b9a6-1e9d3f16f7e7> ) ;
+    memorix:conceptSchemeIn ( vocabularies:603ea3e8-81f9-4b32-b9a6-1e9d3f16f7e7 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -114,7 +114,7 @@ recordtypes:ErfgoedregisterAdres
     sh:group erfgoedregisterAdres:addressGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/6366587f-e155-4a87-a4a7-28113eaa7206> ) ;
+    memorix:conceptSchemeIn ( vocabularies:6366587f-e155-4a87-a4a7-28113eaa7206 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [

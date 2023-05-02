@@ -15,7 +15,7 @@
 @prefix rico:           <https://www.ica.org/standards/RiC/ontology#> .
 @prefix sh:             <http://www.w3.org/ns/shacl#> .
 @prefix schema:         <http://schema.org/> .
-@prefix vocabularies:   </resources/vocabularies/> .
+@prefix vocabularies:   </resources/vocabularies/conceptschemes/> .
 @prefix xsd:            <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos:           <http://www.w3.org/2004/02/skos/core#> .
 
@@ -118,7 +118,7 @@ recordtypes:Persoon
     memorix:searchWeight 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/bf92f5f7-d8be-45b8-be59-c79af171ce11> ) ;
+    memorix:conceptSchemeIn ( vocabularies:bf92f5f7-d8be-45b8-be59-c79af171ce11 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -448,7 +448,7 @@ persoon:Relation
     memorix:searchWeight 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/0f3d31f2-066b-49e8-8992-91c1e493a364> ) ;
+    memorix:conceptSchemeIn ( vocabularies:0f3d31f2-066b-49e8-8992-91c1e493a364 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -478,7 +478,7 @@ persoon:RightsAgreement
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/affe15be-8c77-40e5-87af-6e86137799e6> ) ;
+    memorix:conceptSchemeIn ( vocabularies:affe15be-8c77-40e5-87af-6e86137799e6 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [

@@ -14,7 +14,7 @@
 @prefix schema:       <http://schema.org/> .
 @prefix sh:           <http://www.w3.org/ns/shacl#> .
 @prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies: </resources/vocabularies/> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:Bibliotheek
@@ -73,7 +73,7 @@ recordtypes:Bibliotheek
     sh:group bibliotheek:physicalDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/5f449ae6-01a2-44a3-a5a6-f74dfa587a87> ) ;
+    memorix:conceptSchemeIn ( vocabularies:5f449ae6-01a2-44a3-a5a6-f74dfa587a87 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -190,7 +190,7 @@ recordtypes:Bibliotheek
     sh:group bibliotheek:physicalDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/5ca204af-c3c4-42ad-9d18-af483670d8f5> ) ;
+    memorix:conceptSchemeIn ( vocabularies:5ca204af-c3c4-42ad-9d18-af483670d8f5 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -246,7 +246,7 @@ recordtypes:Bibliotheek
     sh:group bibliotheek:contentDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/4190de09-7dca-44ce-a9bd-04716cfa70aa> ) ;
+    memorix:conceptSchemeIn ( vocabularies:4190de09-7dca-44ce-a9bd-04716cfa70aa ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -361,7 +361,7 @@ recordtypes:Bibliotheek
     sh:group bibliotheek:managementGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/28a07f1f-a398-4d81-b907-a0a356f3429b> ) ;
+    memorix:conceptSchemeIn ( vocabularies:28a07f1f-a398-4d81-b907-a0a356f3429b ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -447,7 +447,7 @@ bibliotheek:Author
     memorix:inSummaryAt 2.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/304b0173-711b-4670-8045-5d85cb8b24b1> ) ;
+    memorix:conceptSchemeIn ( vocabularies:304b0173-711b-4670-8045-5d85cb8b24b1 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
 
@@ -469,7 +469,7 @@ bibliotheek:Author
     sh:order 3.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/efcca629-b7ad-4bb0-b9f5-ab88b57cb79c> ) ;
+    memorix:conceptSchemeIn ( vocabularies:efcca629-b7ad-4bb0-b9f5-ab88b57cb79c ) ;
     sh:nodeKind sh:IRI ;
   ] ;
 .
@@ -548,9 +548,9 @@ bibliotheek:Location
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
     memorix:conceptSchemeIn (
-        </resources/vocabularies/conceptschemes/026baf4a-c14f-4819-be3e-2301fb6b4a67>
-        </resources/vocabularies/conceptschemes/2540c439-bebf-4ce7-bca9-3c3cba71a6c9>
-        </resources/vocabularies/conceptschemes/5e2c373d-3451-3ce6-af6a-cdbc6fba861e> ) ;
+        vocabularies:026baf4a-c14f-4819-be3e-2301fb6b4a67
+        vocabularies:2540c439-bebf-4ce7-bca9-3c3cba71a6c9
+        vocabularies:5e2c373d-3451-3ce6-af6a-cdbc6fba861e ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -611,7 +611,7 @@ bibliotheek:Acquisition
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/0afc54d2-d623-4ab3-9e27-b1ea6d866cc1> ) ;
+    memorix:conceptSchemeIn ( vocabularies:0afc54d2-d623-4ab3-9e27-b1ea6d866cc1 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -658,7 +658,7 @@ bibliotheek:Details
     sh:path      rico:hasContentOfType ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/e2f783dd-710d-473a-9515-b97eaa0da52d> ) ;
+    memorix:conceptSchemeIn ( vocabularies:e2f783dd-710d-473a-9515-b97eaa0da52d ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [

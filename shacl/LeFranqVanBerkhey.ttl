@@ -14,7 +14,7 @@
 @prefix schema:             <http://schema.org/> .
 @prefix sh:                 <http://www.w3.org/ns/shacl#> .
 @prefix skos:               <http://www.w3.org/2004/02/skos/core#> .
-@prefix vocabularies:       </resources/vocabularies/> .
+@prefix vocabularies:       </resources/vocabularies/conceptschemes/> .
 @prefix xsd:                <http://www.w3.org/2001/XMLSchema#> .
 
 recordtypes:LeFranqVanBerkhey
@@ -43,7 +43,7 @@ recordtypes:LeFranqVanBerkhey
     sh:group leFranqVanBerkhey:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/b87ceca4-7885-3a6d-864c-46c1359bc038> ) ;
+    memorix:conceptSchemeIn ( vocabularies:b87ceca4-7885-3a6d-864c-46c1359bc038 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -156,7 +156,7 @@ recordtypes:LeFranqVanBerkhey
     sh:group leFranqVanBerkhey:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( </resources/vocabularies/conceptschemes/75081b2a-4566-37d4-be9f-c24cd261fad9> ) ;
+    memorix:conceptSchemeIn ( vocabularies:75081b2a-4566-37d4-be9f-c24cd261fad9 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
