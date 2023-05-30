@@ -43,6 +43,7 @@ spec:
       - http://memorix.io/ontology#hidden
       - http://memorix.io/ontology#copyrightHolderSource
       - http://memorix.io/ontology#LocationGeonamesEditor
+      - http://memorix.io/ontology#required
       # Wikidata in custom graph, niet op te vragen via internet
       - https://www.wikidata.org
       # "RKDartists" worden niet (meer) gepubliceerd onder dit URI schema
