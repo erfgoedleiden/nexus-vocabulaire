@@ -44,6 +44,7 @@ recordtypes:Groep
     memorix:hasInformationComponent
     [ rdf:type               memorix:TreePathComponent ;
       memorix:hasRecordtype  recordtypes:Archiefblok, recordtypes:Groep ;
+      memorix:required true ;
     ] ;
     sh:property [
         rdfs:label   "Bereik"@nl, "Scope"@en ;

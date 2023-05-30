@@ -307,6 +307,16 @@ persoon:Relation
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass persoon:Relation ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Relatietype"@nl, "Type of relationship"@en ;
     sh:description "Voorbeeld: als je in dit record de ELO-medewerker 'Jan Lagas' beschrijft, is het relatietype 'Rechthebbende' en de relatie 'Erfgoed Leiden'"@nl ;
@@ -337,6 +347,16 @@ persoon:RightsAgreement
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass persoon:RightsAgreement ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Auteursrechtverklaring"@nl, "Copyright statement"@en ;
     sh:description "Rechtenset zoals in de auteursrechtenlicentie met de rechthebbende is vastgelegd"@nl ;

@@ -41,7 +41,7 @@ recordtypes:Archiefbibliotheek
     memorix:hasInformationComponent
     [ rdf:type               memorix:HasRecordsComponent ;
         memorix:hasRecordType  recordtypes:Bibliotheek ;
-        memorix:path           bibliotheek:archiefbibliotheek ;
+        memorix:path           rico:isRelatedTo ;
         dc:title               "Signaturen"
     ] ;
     memorix:typeOf        memorix:Fonds ;

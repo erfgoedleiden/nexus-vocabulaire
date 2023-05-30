@@ -1,6 +1,6 @@
 @prefix bezoekersregistratie:   </resources/recordtypes/Bezoekersregistratie#> .
 @prefix dash:                   <http://datashapes.org/dash#> .
-@prefix dc:                     <http://purl.org/dc/elements/1.1/> .
+@prefix dc:                     <http://purl.org/dc/terms/> .
 @prefix dce:                    <http://purl.org/dc/elements/1.1/> .
 @prefix elo:                    <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
 @prefix html:                   <http://www.w3.org/1999/xhtml/> .
@@ -15,14 +15,14 @@
 @prefix vocabularies:           </resources/vocabularies/conceptschemes/> .
 @prefix xsd:                    <http://www.w3.org/2001/XMLSchema#> .
 
+bezoekersregistratie:visitGroup
+    rdf:type   sh:PropertyGroup ;
+    rdfs:label "Bezoeken"@nl, "Visits"@en ;
+    sh:order 1.0 .
+
 bezoekersregistratie:identificationGroup
     rdf:type   sh:PropertyGroup ;
     rdfs:label "Identificatie"@nl, "Identification"@en;
-    sh:order   1.0 .
-
-bezoekersregistratie:addressGroup
-    rdf:type   sh:PropertyGroup ;
-    rdfs:label "Adres"@nl, "Address"@en;
     sh:order   2.0 .
 
 bezoekersregistratie:notesGroup
@@ -48,7 +48,7 @@ recordtypes:Bezoekersregistratie
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
         sh:class bezoekersregistratie:Visit ;
-        sh:group bezoekersregistratie:identificationGroup ;
+        sh:group bezoekersregistratie:visitGroup ;
     ] ;
     sh:property [
         rdfs:label   "Registratiedatum"@nl, "Registration date"@en ;
@@ -63,7 +63,6 @@ recordtypes:Bezoekersregistratie
         sh:maxCount 1 ;
         sh:path dc:subject ;
         sh:order 3.0 ;
-        memorix:inTitleAt 2.0 ;
         sh:group bezoekersregistratie:identificationGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
@@ -79,9 +78,10 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
     ] ;
     sh:property [
-        rdfs:label "Achternaam"@nl, "Surname"@en  ;
+        rdfs:label "Naam"@nl, "Name"@en  ;
         sh:maxCount 1 ;
-        sh:path schema:familyName ;
+        sh:path rico:hasOrHadName ;
+        memorix:inTitleAt 1.0 ;
         sh:order 5.0 ;
         sh:datatype xsd:string ;
         sh:group bezoekersregistratie:identificationGroup ;
@@ -90,6 +90,7 @@ recordtypes:Bezoekersregistratie
         rdfs:label   "Geboortedatum"@nl, "Date of birth"@en ;
         sh:maxCount 1;
         sh:datatype  xsd:date ;
+        memorix:inTitleAt 2.0 ;
         sh:order     6.0 ;
         sh:path      rico:hasBirthDate ;
         sh:group bezoekersregistratie:identificationGroup ;
@@ -110,7 +111,6 @@ recordtypes:Bezoekersregistratie
         sh:maxCount 1 ;
         sh:path rico:hasIdentifierType ;
         sh:order 8.0 ;
-        memorix:inTitleAt 2.0 ;
         sh:group bezoekersregistratie:identificationGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
@@ -139,67 +139,17 @@ recordtypes:Bezoekersregistratie
         sh:maxCount 1 ;
         sh:order 11.0 ;
         sh:group bezoekersregistratie:identificationGroup ;
-        dash:editor memorix:VocabularyEditor ;
-        sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:38aa391f-a0da-3bb3-9c10-e3feaf61f4d1 ) ;
-        sh:nodeKind sh:IRI ;
-    ] ;
-    sh:property [
-        rdfs:label "Land"@nl, "Country"@en ;
-        sh:path schema:addressCountry ;
-        sh:maxCount 1 ;
-        sh:order 12.0 ;
-        sh:group bezoekersregistratie:addressGroup ;
-        dash:editor memorix:LocationGeonamesEditor ;
-        sh:class    memorix:GeoCoordinates ;
-    ] ;
-    sh:property [
-        rdfs:label "Postcode"@nl, "Postal Code"@en ;
-        sh:maxCount 1 ;
-        sh:path schema:postalCode ;
-        sh:order 14.0 ;
         sh:datatype xsd:string ;
-        sh:group bezoekersregistratie:addressGroup ;
     ] ;
     sh:property [
-        rdfs:label "Regio/Provincie"@nl, "Region/Province"@en ;
-        sh:path schema:addressRegion ;
+        rdfs:label "Adres"@nl, "Associated with address"@en ;
+        sh:path schema:PostalAddress ;
         sh:maxCount 1 ;
-        sh:order 15.0 ;
-        sh:group bezoekersregistratie:addressGroup ;
-        dash:editor memorix:LocationGeonamesEditor ;
-        sh:class    memorix:GeoCoordinates ;
-    ] ;
-    sh:property [
-        rdfs:label "Plaats"@nl, "City"@en ;
-        sh:path schema:addressLocality ;
-        sh:maxCount 1 ;
-        sh:order 16.0 ;
-        sh:group bezoekersregistratie:addressGroup ;
-        dash:editor memorix:LocationGeonamesEditor ;
-        sh:class    memorix:GeoCoordinates ;
-    ] ;
-    sh:property [
-        rdfs:label "Adres"@nl, "Address"@en ;
-        sh:maxCount 1 ;
-        sh:path schema:streetAddress ;
-        sh:order 17.0 ;
-        sh:datatype xsd:string ;
-        sh:group bezoekersregistratie:addressGroup ;
-    ] ;
-    sh:property [
-        rdfs:label "Telefoonnummer"@nl, "Phone number"@en ;
-        sh:path schema:telephone ;
-        sh:order 18.0 ;
-        sh:datatype xsd:string ;
-        sh:group bezoekersregistratie:addressGroup ;
-    ] ;
-    sh:property [
-        rdfs:label "Email"@nl, "E-mail"@en ;
-        sh:path schema:email ;
-        sh:order 19.0 ;
-        sh:datatype xsd:string ;
-        sh:group bezoekersregistratie:addressGroup ;
+        sh:order 11.5 ;
+        dash:viewer dash:DetailsEditor ;
+        sh:nodeKind sh:BlankNode ;
+        sh:class bezoekersregistratie:Address ;
+        sh:group bezoekersregistratie:identificationGroup ;
     ] ;
 
     sh:property [
@@ -244,3 +194,67 @@ bezoekersregistratie:Visit
         dash:editor  dash:TextAreaEditor ;
     ] ;
 .
+
+
+bezoekersregistratie:Address
+    rdf:type             sh:NodeShape ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass       bezoekersregistratie:Address ;
+    sh:property [
+        rdfs:label "Land"@nl, "Country"@en ;
+        sh:path schema:addressCountry ;
+        sh:maxCount 1 ;
+        sh:order 12.0 ;
+        sh:group bezoekersregistratie:addressGroup ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        rdfs:label "Postcode"@nl, "Postal Code"@en ;
+        sh:maxCount 1 ;
+        sh:path schema:postalCode ;
+        sh:order 14.0 ;
+        sh:datatype xsd:string ;
+        sh:group bezoekersregistratie:addressGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Regio/Provincie"@nl, "Region/Province"@en ;
+        sh:path schema:addressRegion ;
+        sh:maxCount 1 ;
+        sh:order 15.0 ;
+        sh:group bezoekersregistratie:addressGroup ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        rdfs:label "Plaats"@nl, "City"@en ;
+        sh:path schema:addressLocality ;
+        sh:maxCount 1 ;
+        sh:order 16.0 ;
+        memorix:inSummaryAt 2.0 ;
+        sh:group bezoekersregistratie:addressGroup ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        rdfs:label "Adres"@nl, "Address"@en ;
+        sh:maxCount 1 ;
+        sh:path schema:streetAddress ;
+        memorix:inSummaryAt 1.0 ;
+        sh:order 17.0 ;
+        sh:datatype xsd:string ;
+        sh:group bezoekersregistratie:addressGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Telefoonnummer"@nl, "Phone number"@en ;
+        sh:path schema:telephone ;
+        sh:order 18.0 ;
+        sh:datatype xsd:string ;
+        sh:group bezoekersregistratie:addressGroup ;
+    ] ;
+    sh:property [
+        rdfs:label "Email"@nl, "E-mail"@en ;
+        sh:path schema:email ;
+        sh:order 19.0 ;
+        sh:datatype xsd:string ;
+        sh:group bezoekersregistratie:addressGroup ;
+    ] ;
+    .

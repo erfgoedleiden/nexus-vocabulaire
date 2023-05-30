@@ -44,17 +44,24 @@ recordtypes:Bibliotheek
     sh:path         rico:isRelatedTo
   ] ;
   sh:property [
-    rdfs:label "Signatuur"@nl, "Identification number"@en ;
-    sh:description "Identificatienummer. Deze wordt toegekend door de bibliothecaris."@nl ;
+    rdfs:label "Identificatiecode"@nl, "Identification code"@en ;
     sh:path rico:identifier ;
     sh:maxCount 1 ;
     sh:minCount 1 ;
-    sh:order 1.0 ;
-    memorix:inSummaryAt 1.0 ;
+    sh:order 0.7 ;
     sh:group bibliotheek:identityGroup ;
     memorix:typeOf     memorix:Identifier ;
     sh:datatype xsd:string ;
-    dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Signatuur"@nl, "Identification number"@en ;
+    sh:description "Identificatienummer. Deze wordt toegekend door de bibliothecaris."@nl ;
+    sh:path elo:signatuur ;
+    sh:maxCount 1 ;
+    sh:order 1.0 ;
+    memorix:inSummaryAt 1.0 ;
+    sh:group bibliotheek:identityGroup ;
+    sh:datatype xsd:string ;
   ] ;
   sh:property [
     rdfs:label "Standplaats"@nl, "Depot location number"@en ;
@@ -68,7 +75,6 @@ recordtypes:Bibliotheek
   sh:property [
     rdfs:label "Documenttype"@nl, "Document type"@en ;
     sh:path rico:hasContentOfType ;
-    sh:maxCount 10 ;
     sh:order 3.0 ;
     sh:group bibliotheek:physicalDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
@@ -101,7 +107,6 @@ recordtypes:Bibliotheek
     rdfs:label "Digitale publicatie"@nl, "Digital publication"@en ;
     sh:description "Link naar de digitale versie op een externe website."@nl ;
     sh:path rico:hasDerivedInstantiation ;
-    sh:maxCount 10 ;
     sh:order 6.0 ;
     sh:group bibliotheek:physicalDescriptionGroup ;
     sh:datatype xsd:string ;
@@ -109,7 +114,6 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Auteur"@nl, "Author"@en ;
-    sh:maxCount 10 ;
     sh:path schema:author ;
     sh:order 7.0 ;
     dash:viewer dash:DetailsEditor ;
@@ -128,37 +132,12 @@ recordtypes:Bibliotheek
     dash:singleLine true ;
   ] ;
   sh:property [
-    rdfs:label "Plaats van uitgave"@nl, "Publication place"@en ;
-    sh:maxCount 10 ;
-    sh:path schema:locationCreated ;
+    rdfs:label "Uitgave"@nl, "Publication"@en ;
+    sh:path schema:publication ;
     sh:order 8.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
-    sh:class bibliotheek:PlaceOfPublication ;
-    sh:group bibliotheek:physicalDescriptionGroup ;
-  ] ;
-  sh:property [
-    rdfs:label "Uitgever"@nl, "Publisher"@en ;
-    sh:description "Uitgever zoals vermeld in de publicatie (FOBID)"@nl ;
-    sh:path schema:publisher ;
-    sh:order 9.0 ;
-    sh:maxCount 5 ;
-    sh:group bibliotheek:physicalDescriptionGroup ;
-    sh:nodeKind sh:IRI ;
-    sh:or (
-      [ sh:class recordtypes:Persoon ]
-      [ sh:class recordtypes:Organisatie ]
-    ) ;
-    dash:editor memorix:LinkedRecordEditor ;
-  ] ;
-  sh:property [
-    rdfs:label "Datum van uitgave"@nl, "Publication date"@en ;
-    sh:maxCount 10 ;
-    sh:path schema:datePublished ;
-    sh:order 10.0 ;
-    dash:viewer dash:DetailsEditor ;
-    sh:nodeKind sh:BlankNode ;
-    sh:class bibliotheek:PublicationDate ;
+    sh:class bibliotheek:Publication ;
     sh:group bibliotheek:physicalDescriptionGroup ;
   ] ;
   sh:property [
@@ -228,7 +207,6 @@ recordtypes:Bibliotheek
     rdfs:label "Persoon"@nl, "Person"@en ;
     sh:description "Noteer hier personen die wonen of werken in Leiden of de Leidse regio, als zij het hoofdonderwerp zijn van de publicatie."@nl ;
     sh:path schema:character ;
-    sh:maxCount 100 ;
     sh:order 17.0 ;
     sh:group bibliotheek:contentDescriptionGroup ;
     sh:nodeKind sh:IRI ;
@@ -241,7 +219,6 @@ recordtypes:Bibliotheek
   sh:property [
     rdfs:label "Onderwerp"@nl, "Subjects"@en ;
     sh:path schema:about ;
-    sh:maxCount 20 ;
     sh:order 18.0 ;
     sh:group bibliotheek:contentDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
@@ -261,7 +238,6 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Locatie"@nl, "Location"@en ;
-    sh:maxCount 10 ;
     sh:path schema:contentLocation ;
     sh:order 20.0 ;
     dash:viewer dash:DetailsEditor ;
@@ -272,7 +248,6 @@ recordtypes:Bibliotheek
 
   sh:property [
     rdfs:label "Bron"@nl, "Source"@en ;
-    sh:maxCount 10 ;
     sh:path dc:source ;
     sh:order 21.0 ;
     dash:viewer dash:DetailsEditor ;
@@ -282,7 +257,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Jaargang"@nl, "Volume"@en ;
-    rdfs: "Jaargang van het tijdschrift (FOBID)"@nl ;
+    sh:description "Jaargang van het tijdschrift (FOBID)"@nl ;
     sh:path schema:volumeNumber ;
     sh:maxCount 1 ;
     sh:order 22.0 ;
@@ -334,7 +309,6 @@ recordtypes:Bibliotheek
     rdfs:label "Ingebonden in"@nl, "Bound in"@en ;
     sh:description "Band waarin de publicatie is ingebonden. Alleen invullen als er meerdere jaargangen samen zijn ingebonden."@nl ;
     sh:path schema:isPartOf ;
-    sh:maxCount 10 ;
     sh:order 27.0 ;
     sh:group bibliotheek:partOfGroup ;
     sh:datatype xsd:string ;
@@ -347,7 +321,6 @@ recordtypes:Bibliotheek
     dash:viewer   dash:DetailsEditor ;
     sh:class      bibliotheek:Details ;
     sh:group      bibliotheek:detailsGroup ;
-    sh:maxCount   10 ;
     sh:nodeKind   sh:BlankNode ;
     sh:order      8.0 ;
     sh:path       schema:comment ;
@@ -395,6 +368,14 @@ recordtypes:Bibliotheek
     sh:datatype xsd:gYear ;
   ] ;
   sh:property [
+    rdfs:label "Identiek aan (Worldcat)"@nl, "Is same as (Worldcat)"@en ;
+    sh:path rico:isFunctionallyEquivalentTo ;
+    sh:maxCount 1 ;
+    sh:order 31.5 ;
+    sh:group bibliotheek:managementGroup ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
     rdfs:label "Archief"@nl, "Fonds"@en ;
     sh:description "Gaat het om 'een archiefachtige collectie stukken'? Voorbeeld: een mix van documenten, zoals handgeschreven brieven, foto's en drukwerk."@nl ;
     sh:path schema:archivedAt ;
@@ -438,6 +419,17 @@ bibliotheek:Author
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass bibliotheek:Author ;
+
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Auteur als in publicatie"@nl, "Author as stated on the publication"@en ;
     sh:description "Noteer de auteur zoals deze op de titelpagina (of anders elders) wordt vermeld (FOBID)"@nl ;
@@ -465,7 +457,6 @@ bibliotheek:Author
   sh:property [
     rdfs:label "Rol"@nl, "Role"@en ;
     sh:path schema:roleName ;
-    sh:maxCount 5 ;
     sh:order 3.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
@@ -474,37 +465,21 @@ bibliotheek:Author
   ] ;
 .
 
-bibliotheek:PlaceOfPublication
+bibliotheek:Publication
   a sh:NodeShape ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
-  sh:targetClass bibliotheek:PlaceOfPublication ;
-  sh:property [
-    rdfs:label "Plaats van uitgave geonames"@nl ;
-    # In GeoNames: "A feature code."
-    sh:path gn:Code  ;
-    sh:order 2.0 ;
-    sh:datatype gn:geonamesID ;
-    dash:editor dash:TextFieldEditor ;
-    memorix:searchWeight 1.0 ;
-    # TODO dit moet een link naar Geonames worden
-  ] ;
-  sh:property [
-    rdfs:label "Plaats van uitgave als in publicatie"@nl, "Publication place as stated on the publication"@en ;
-    sh:description "Noteer de plaats van uitgave zoals deze in de publicatie wordt genoemd (FOBID)"@nl ;
-    sh:path schema:addressLocality ;
+  sh:targetClass bibliotheek:Publication ;
+  sh:property          [
+  rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
     sh:maxCount 1 ;
-    sh:order 1.0 ;
-    sh:datatype xsd:string ;
-    dash:singleLine true ;
   ] ;
-.
-
-bibliotheek:PublicationDate
-  a sh:NodeShape ;
-  sh:closed true ;
-  sh:ignoredProperties ( rdf:type ) ;
-  sh:targetClass bibliotheek:PublicationDate ;
   sh:property [
     rdfs:label "Jaar van uitgave"@nl, "Year of publication"@en ;
     sh:description "Het jaar waarin de publicatie is uitgegeven. Je kan die hier tekstueel weergeven. Voorbeeld: 1900-1920"@nl ;
@@ -518,6 +493,7 @@ bibliotheek:PublicationDate
   sh:property [
     rdfs:label "Jaar van uitgave / datum publicatie (van)"@nl, "Year of publication (from)"@en ;
     sh:description "Vroegst mogelijke publicatiedatum. Deze is nodig voor filteren op datum."@nl ;
+    sh:maxCount 1 ;
     sh:path schema:startDate ;
     sh:order 2.0 ;
     sh:datatype xsd:integer ;
@@ -526,10 +502,28 @@ bibliotheek:PublicationDate
   sh:property [
     rdfs:label "Jaar van uitgave / datum publicatie (tot)"@nl, "Year of publication (until)"@en ;
     sh:description "Laatst mogelijke publicatiedatum. Deze is nodig voor filteren op datum."@nl ;
+    sh:maxCount 1 ;
     sh:path schema:endDate ;
     sh:order 3.0 ;
     sh:datatype xsd:integer ;
     dash:editor memorix:DateEditor ;
+  ] ;
+  sh:property [
+    rdfs:label "Uitgever"@nl, "Publisher"@en ;
+    sh:description "Uitgever zoals vermeld in de publicatie (FOBID)"@nl ;
+    sh:path schema:publisher ;
+    sh:maxCount 1 ;
+    sh:order 4.0 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Plaats van uitgave"@nl, "Publication place"@en ;
+    sh:description "Noteer de plaats van uitgave zoals deze in de publicatie wordt genoemd (FOBID)"@nl ;
+    sh:path schema:locationCreated ;
+    sh:maxCount 1 ;
+    sh:order 5.0 ;
+    sh:datatype xsd:string ;
+    dash:singleLine true ;
   ] ;
 .
 
@@ -539,11 +533,20 @@ bibliotheek:Location
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass bibliotheek:Location ;
 
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Geografisch trefwoord"@nl, "Location"@en ;
     sh:description "Geografische locatie waar de publicatie over gaat. Er worden alleen locatie in Leiden of de Leidse regio genoteerd. Voorbeeld: 'Leiden', 'Marewijk' of 'Stadsgehoorzaal'"@nl ;
     sh:path schema:addressRegion ;
-    sh:maxCount 100 ;
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
@@ -562,7 +565,6 @@ bibliotheek:Location
   sh:property [
       rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
       sh:path schema:geo ;
-      sh:maxCount 10 ;
       sh:order 3.0 ;
       sh:datatype xsd:string ;
       memorix:searchWeight 1.0 ;
@@ -575,6 +577,16 @@ bibliotheek:Source
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass bibliotheek:Source ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Bron tekst"@nl, "Source text"@en ;
     sh:description "Naam van de bron waaruit een artikel komt. Voorbeeld:'Leids Nieuwsblad'"@nl ;
@@ -588,7 +600,6 @@ bibliotheek:Source
     rdfs:label "Bron link"@nl, "Source link"@en ;
     sh:description "Link naar de koepelbeschrijving"@nl ;
     sh:path rico:source ;
-    sh:maxCount 5 ;
     sh:order 2.0 ;
     sh:nodeKind sh:IRI ;
     sh:or (
@@ -618,7 +629,6 @@ bibliotheek:Acquisition
     rdfs:label "Persoon/Organisatie"@nl ;
     sh:description "Persoon of organisatie van wie de aanwinst afkomstig is"@nl ;
     sh:path rico:hasSource ;
-    sh:maxCount 10 ;
     sh:order 2.0 ;
     sh:nodeKind sh:IRI ;
     sh:or (

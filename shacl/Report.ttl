@@ -41,7 +41,7 @@ report:treatmentGroup
 
 recordtypes:Report
     a memorix:Recordtype, sh:NodeShape ;
-    rdfs:label "Concerveringsrapport"@nl, "Conservation report"@en ;
+    rdfs:label "Conserveringsrapport"@nl, "Conservation report"@en ;
     sh:description "Report - Erfgoed Leiden"@nl, "Conservation report - Erfgoed Leiden"@en ;
     dce:identifier "Report" ;
     memorix:hasInformationComponent [ rdf:type  memorix:DigitalAssetComponent ] ;
@@ -274,7 +274,7 @@ report:Treatments
     sh:property [
         rdfs:label "Onderdeel"@nl, "Part of"@en ;
         sh:path schema:hasPart ;
-        sh:order 1.5 ;
+        sh:order 0.5 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
         memorix:conceptSchemeIn ( vocabularies:e64246ff-1166-42db-9877-f4272f9da0e8 ) ;

@@ -122,5 +122,6 @@ bijlage:List
           sh:datatype xsd:string ;
           sh:order    2.0 ;
           sh:path     elo:itemKolom2 ;
+          dash:editor  dash:TextAreaEditor ;
       ] ;
 .
