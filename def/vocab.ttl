@@ -364,3 +364,18 @@ elo:overheid a rdfs:Property ;
   rdfs:subPropertyOf schema:offeredBy ;
   rdfs:label "Overheid" ;
 .
+
+elo:uur a rdfs:Property ;
+  rdfs:subPropertyOf rico:recordResourceExtent ;
+  rdfs:label "Uur" ;
+.
+
+elo:minuut a rdfs:Property ;
+  rdfs:subPropertyOf rico:recordResourceExtent ;
+  rdfs:label "Minuut" ;
+.
+
+elo:seconde a rdfs:Property ;
+  rdfs:subPropertyOf rico:recordResourceExtent ;
+  rdfs:label "Seconde" ;
+.

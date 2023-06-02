@@ -143,6 +143,18 @@ recordtypes:Av
     sh:class av:Technique ;
     sh:group av:physicalDescriptionGroup ;
   ] ;
+
+  sh:property [
+    rdfs:label "Tijdsduur"@nl, "Duration"@en ;
+    sh:description "Lengte van de film"@nl ;
+    sh:maxCount 1 ;
+    sh:path rico:recordResourceExtent ;
+    sh:order 17.9 ;
+    dash:viewer dash:DetailsEditor ;
+    sh:nodeKind sh:BlankNode ;
+    sh:class av:Duration ;
+    sh:group av:physicalDescriptionGroup
+              ] ;
   sh:property [
     rdfs:label "Vervaardigers"@nl, "Creators"@en ;
     sh:path rico:hasCreator ;
@@ -318,29 +330,50 @@ av:Technique
     sh:datatype xsd:boolean ;
   ] ;
 .
+
 av:Duration
   a sh:NodeShape ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
-  sh:targetClass av:DepictedLocation ;
+  sh:targetClass av:Duration ;
   sh:property [
     rdfs:label "Uren"@nl, "Hours"@en ;
-    sh:path schema:addressLocality ;
+    sh:path elo:uur ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
-    dash:editor memorix:VocabularyEditor ;
-    sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:026baf4a-c14f-4819-be3e-2301fb6b4a67 ) ;
-    sh:nodeKind sh:IRI ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Minuten"@nl, "Minutes"@en ;
+    sh:path elo:minuut ;
+    sh:maxCount 1 ;
+    sh:order 2.0 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Seconden"@nl, "Seconds"@en ;
+    sh:path elo:seconde ;
+    sh:maxCount 1 ;
+    sh:order 3.0 ;
+    sh:datatype xsd:string ;
   ] ;
 .
-
 
 av:DepictedLocation
   a sh:NodeShape ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass av:DepictedLocation ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Plaats"@nl, "City"@en ;
     sh:path schema:addressLocality ;
@@ -383,6 +416,16 @@ av:Creator
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass av:Creator ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Vervaardiger"@nl, "Creator"@en ;
     sh:path rico:hasCreator ;
