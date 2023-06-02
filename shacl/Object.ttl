@@ -26,6 +26,7 @@ recordtypes:Object
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:Object ;
+  memorix:hasInformationComponent [ rdf:type  memorix:DigitalAssetComponent ] ;
   dash:defaultViewForRole dash:all ;
 
   sh:property [
@@ -59,7 +60,6 @@ recordtypes:Object
       sh:order 2.0 ;
       sh:group object:basicDataGroup ;
       sh:datatype xsd:string ;
-      dash:singleLine true ;
     ] ;
   sh:property [
       rdfs:label "Objectnaam"@nl, "Name"@en ;
@@ -69,7 +69,6 @@ recordtypes:Object
       sh:order 3.0 ;
       sh:group object:basicDataGroup ;
       sh:datatype xsd:string ;
-      dash:singleLine true ;
     ] ;
   sh:property [
       rdfs:label "Pand Id"@nl, "Building ID"@en ;
@@ -79,7 +78,6 @@ recordtypes:Object
       sh:order 3.5 ;
       sh:group object:basicDataGroup ;
       sh:datatype xsd:string ;
-      dash:singleLine true ;
     ] ;
   sh:property [
       rdfs:label  "Complex"@nl, "Complex"@en ;
@@ -485,7 +483,7 @@ object:DicoData
       sh:maxCount 1 ;
       sh:order 1.0 ;
       # TODO: geometriedata opnemen als Well-Known-Text data
-      sh:datatype geo:wktLiteral ;
+      sh:datatype xsd:string ;
       dash:editor  dash:TextAreaEditor ;
     ] ;
   sh:property [

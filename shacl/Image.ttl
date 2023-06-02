@@ -28,7 +28,7 @@ recordtypes:Image
   sh:targetClass recordtypes:Image ;
   dash:defaultViewForRole dash:all ;
   memorix:hasInformationComponent
-          [ rdf:type  memorix:DigitalAssetComponent ] ;
+          [ rdf:type  memorix:DepotLocationComponent, memorix:DigitalAssetComponent ] ;
   sh:property [
     rdfs:label "Collectie"@nl, "Collection"@en ;
     sh:description         "Organisatie waar het beeldmateriaal van afkomstig is"@nl ;

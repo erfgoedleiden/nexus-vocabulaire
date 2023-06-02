@@ -25,7 +25,7 @@ recordtypes:Av
   dce:identifier "Av" ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
-  memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
+  memorix:hasInformationComponent [ rdf:type memorix:DepotLocationComponent, memorix:DigitalAssetComponent ] ;
   sh:targetClass recordtypes:Av ;
   dash:defaultViewForRole dash:all ;
   sh:property [
@@ -33,7 +33,6 @@ recordtypes:Av
     sh:description "Naam van het digitale bestand."@nl ;
     sh:path dbpo:filename ;
     memorix:inTitleAt 1.0 ;
-    sh:maxCount 100 ;
     sh:order 2.0 ;
     sh:group av:identificationGroup ;
     sh:datatype xsd:string ;
@@ -44,7 +43,6 @@ recordtypes:Av
     sh:description "Identificatienummer van het object"@nl ;
     sh:path rico:hasOrHadIdentifier ;
     memorix:inTitleAt 2.0 ;
-    sh:maxCount 100 ;
     sh:order 3.0 ;
     sh:group av:identificationGroup ;
     sh:datatype xsd:string ;
@@ -53,7 +51,6 @@ recordtypes:Av
   sh:property [
     rdfs:label "Documenttype"@nl, "Document type"@en ;
     sh:path rico:hasContentOfType ;
-    sh:maxCount 10 ;
     sh:order 4.0 ;
     sh:group av:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
@@ -95,7 +92,6 @@ recordtypes:Av
   sh:property [
     rdfs:label "Afgebeelde personen"@nl, "Depicted persons"@en ;
     sh:path foaf:depicts ;
-    sh:maxCount 10 ;
     sh:order 13.0 ;
     sh:nodeKind sh:IRI ;
     sh:group av:contentDescriptionGroup ;
@@ -109,7 +105,6 @@ recordtypes:Av
   sh:property [
     rdfs:label "Trefwoorden"@nl, "Subjects"@en ;
     sh:path schema:keywords ;
-    sh:maxCount 10 ;
     sh:order 14.0 ;
     sh:group av:contentDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
@@ -130,7 +125,6 @@ recordtypes:Av
 
   sh:property [
     rdfs:label "Afgebeelde locatie"@nl, "Places"@en ;
-    sh:maxCount 10 ;
     sh:path schema:contentLocation ;
     sh:order 16.0 ;
     dash:viewer dash:DetailsEditor ;
@@ -142,7 +136,6 @@ recordtypes:Av
   sh:property [
     rdfs:label "Techniek"@nl, "Technique"@en ;
     sh:path rico:hasProductionTechniqueType ;
-    sh:maxCount 10 ;
     sh:order 17.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -151,7 +144,6 @@ recordtypes:Av
   ] ;
   sh:property [
     rdfs:label "Vervaardigers"@nl, "Creators"@en ;
-    sh:maxCount 10 ;
     sh:path rico:hasCreator ;
     sh:order 18.0 ;
     dash:viewer dash:DetailsEditor ;
@@ -174,7 +166,6 @@ recordtypes:Av
     rdfs:label "Herkomst"@nl, "Aquisition"@en ;
     sh:description "Verwervingsmethode"@nl ;
     sh:path rico:history ;
-    sh:maxCount 10 ;
     sh:order 30.0 ;
     sh:group av:aquisitionGroup ;
     dash:editor memorix:VocabularyEditor ;
@@ -186,7 +177,6 @@ recordtypes:Av
     rdfs:label "Persoon/Organisatie"@nl, "Person/Organization"@en ;
     sh:description "Persoon of organisatie van wie de aanwinst afkomstig is"@nl ;
     sh:path schema:acquiredFrom ;
-    sh:maxCount 10 ;
     sh:order 31.0 ;
     sh:nodeKind sh:IRI ;
     sh:group av:aquisitionGroup ;
@@ -219,7 +209,6 @@ recordtypes:Av
   sh:property [
     rdfs:label "Standplaatsnummer"@nl, "Depot location number"@en ;
     sh:path rico:hasOrHadPhysicalLocation ;
-    sh:maxCount 100 ;
     sh:order 40.0 ;
     sh:group av:managementGroup ;
     sh:datatype xsd:string ;
@@ -303,7 +292,6 @@ av:Technique
     rdfs:label "Kopieën"@nl, "Copies"@en ;
     sh:description "Analoge drager of het digitale bestandsformaat van eventuele kopieen."@nl ;
     sh:path rico:hasCopy ;
-    sh:maxCount 10 ;
     sh:order 17.4 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
@@ -314,7 +302,6 @@ av:Technique
   sh:property [
     rdfs:label "Kleur"@nl, "Color"@en ;
     sh:path schema:color ;
-    sh:maxCount 10 ;
     sh:order 17.6 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
@@ -376,7 +363,6 @@ av:DepictedLocation
   sh:property [
       rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
       sh:path schema:geo ;
-      sh:maxCount 10 ;
       sh:order 4.0 ;
       sh:datatype xsd:string ;
       memorix:searchWeight 1.0 ;
@@ -405,7 +391,6 @@ av:Creator
     rdfs:label "Rol"@nl, "Role"@en ;
     # "Connects a Creation Relation to the Role Type that the creator Agent(s) has in the creation process"
     sh:path schema:roleName  ;
-    sh:maxCount 5 ;
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
