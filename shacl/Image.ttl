@@ -346,13 +346,12 @@ image:DepictedLocation
       sh:datatype xsd:string ;
   ] ;
   sh:property [
-      rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
-      sh:path schema:geo  ;
-      sh:maxCount 10 ;
-      sh:order 4.0 ;
-      sh:datatype xsd:string ;
-      memorix:searchWeight 1.0 ;
-    # TODO dit moet een link naar coordinates
+    rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
+    sh:path schema:geo  ;
+    sh:order 4.0 ;
+    dash:editor memorix:LocationCoordinatesEditor ;
+    sh:class    memorix:GeoCoordinates ;
+    memorix:searchWeight 1.0 ;
   ] ;
 .
 

@@ -364,9 +364,9 @@ av:DepictedLocation
       rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
       sh:path schema:geo ;
       sh:order 4.0 ;
-      sh:datatype xsd:string ;
+      dash:editor memorix:LocationCoordinatesEditor ;
+      sh:class    memorix:GeoCoordinates ;
       memorix:searchWeight 1.0 ;
-    # TODO dit moet een link naar coordinates
   ] ;
 .
 
