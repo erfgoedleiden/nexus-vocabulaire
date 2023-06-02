@@ -16,6 +16,7 @@
 @prefix skos:                 <http://www.w3.org/2004/02/skos/core#> .
 @prefix vocabularies:         </resources/vocabularies/conceptschemes/> .
 @prefix xsd:                  <http://www.w3.org/2001/XMLSchema#> .
+@prefix geometrie:            <http://data.ign.fr/def/geometrie#> .
 
 recordtypes:ErfgoedregisterAdres
   a memorix:Recordtype, sh:NodeShape ;
@@ -121,7 +122,7 @@ recordtypes:ErfgoedregisterAdres
     # TODO: samenvoegen met "Y" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
     rdfs:label "X"@nl, "X"@en ;
     sh:description "Locatie bepaling uit de BAG op basis van het Rijksdriehoekstelsel"@nl ;
-    sh:path <http://data.ign.fr/def/geometrie#coordX> ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
+    sh:path geometrie:coordX ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
     sh:maxCount 1 ;
     sh:order 10.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
@@ -132,7 +133,7 @@ recordtypes:ErfgoedregisterAdres
     # TODO: samenvoegen met "X" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
     rdfs:label "Y"@nl, "Y"@en ;
     sh:description "Locatie bepaling uit de BAG op basis van het Rijksdriehoekstelsel"@nl ;
-    sh:path <http://data.ign.fr/def/geometrie#coordY> ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
+    sh:path geometrie:coordY ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
     sh:maxCount 1 ;
     sh:order 11.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;

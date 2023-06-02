@@ -136,6 +136,7 @@ recordtypes:Av
   sh:property [
     rdfs:label "Techniek"@nl, "Technique"@en ;
     sh:path rico:hasProductionTechniqueType ;
+    sh:maxCount 1 ;
     sh:order 17.0 ;
     dash:viewer dash:DetailsEditor ;
     sh:nodeKind sh:BlankNode ;
@@ -316,17 +317,24 @@ av:Technique
     sh:order 17.8 ;
     sh:datatype xsd:boolean ;
   ] ;
-
+.
+av:Duration
+  a sh:NodeShape ;
+  sh:closed true ;
+  sh:ignoredProperties ( rdf:type ) ;
+  sh:targetClass av:DepictedLocation ;
   sh:property [
-    rdfs:label "Tijdsduur"@nl, "Duration"@en ;
-    sh:description "Lengte van de film"@nl ;
+    rdfs:label "Uren"@nl, "Hours"@en ;
+    sh:path schema:addressLocality ;
     sh:maxCount 1 ;
-    sh:path rico:recordResourceExtent ;
-    sh:order 17.9 ;
-    sh:datatype xsd:string ;
-    dash:singleLine true ;
+    sh:order 1.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( vocabularies:026baf4a-c14f-4819-be3e-2301fb6b4a67 ) ;
+    sh:nodeKind sh:IRI ;
   ] ;
 .
+
 
 av:DepictedLocation
   a sh:NodeShape ;
