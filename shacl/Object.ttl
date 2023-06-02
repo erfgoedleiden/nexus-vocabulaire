@@ -298,6 +298,16 @@ object:Dating
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:Dating ;
+  sh:property          [
+   rdfs:label  "order"@en ;
+   memorix:hidden true ;
+   sh:description "This field is required for persistent order of group items" ;
+   sh:path     memorix:order ;
+   sh:order    0.0 ;
+   sh:datatype xsd:integer ;
+   sh:minCount 1 ;
+   sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Datering (tekst)"@nl, "Date (text)"@en ;
       sh:path rico:expressedDate ;
@@ -346,6 +356,16 @@ object:ZoningPlan
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:ZoningPlan ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Datum bestemmingsplan"@nl, "Date development plan"@en ;
       sh:description "Datum waarop het bestemmingsplan onherroepelijk is geworden"@nl ;
@@ -370,6 +390,16 @@ object:Architecture
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:Architecture ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Bouwstijl"@nl, "Architectural style"@en ;
       sh:path dbpo:architecturalStyle ;
@@ -404,6 +434,16 @@ object:BagAddress
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:BagAddress ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Toestand"@nl, "BAG status"@en ;
       sh:description "Geeft aan of het adres nog actueel is"@nl ;
@@ -443,6 +483,16 @@ object:BgtTopography
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:BgtTopography ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Toestand"@nl, "BGT condition"@en ;
       sh:path rico:hasRecordState ;
@@ -477,6 +527,16 @@ object:DicoData
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:DicoData ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Geometrie data"@nl, "Geometry data"@e ;
       sh:path geo:asWKT ;

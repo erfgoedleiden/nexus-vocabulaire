@@ -318,6 +318,16 @@ image:DepictedLocation
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass image:DepictedLocation ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Plaats"@nl, "City"@en ;
     sh:path schema:addressLocality ;
@@ -360,6 +370,16 @@ image:Creator
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass image:Creator ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Vervaardiger"@nl, "Creator"@en ;
     sh:path rico:hasCreator ;
