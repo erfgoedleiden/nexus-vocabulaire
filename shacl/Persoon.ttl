@@ -97,7 +97,7 @@ recordtypes:Persoon
     memorix:searchWeight 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:bf92f5f7-d8be-45b8-be59-c79af171ce11 ) ;
+    memorix:conceptSchemeIn ( vocabularies:c626c572-43bd-3908-a868-4eb336067a22 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -325,7 +325,7 @@ persoon:Relation
     memorix:searchWeight 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:0f3d31f2-066b-49e8-8992-91c1e493a364 ) ;
+    memorix:conceptSchemeIn ( vocabularies:986038cb-798b-3c94-9791-ac6ecd5cafe4 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -365,7 +365,7 @@ persoon:RightsAgreement
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:affe15be-8c77-40e5-87af-6e86137799e6 ) ;
+    memorix:conceptSchemeIn ( vocabularies:6748399b-c445-3823-82a8-c7b7f72b1a17 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [

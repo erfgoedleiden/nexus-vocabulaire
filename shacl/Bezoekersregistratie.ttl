@@ -66,7 +66,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:60397446-47f1-397c-a92e-ac66f2fdcedc ) ;
+        memorix:conceptSchemeIn ( vocabularies:46a21201-e7f0-3b65-a96e-df765ea4921b ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -103,7 +103,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:bf92f5f7-d8be-45b8-be59-c79af171ce11 ) ;
+        memorix:conceptSchemeIn ( vocabularies:c626c572-43bd-3908-a868-4eb336067a22 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -114,7 +114,7 @@ recordtypes:Bezoekersregistratie
         sh:group bezoekersregistratie:identificationGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:6ce476da-0db3-3097-883d-889c3a1897e0 ) ;
+        memorix:conceptSchemeIn ( vocabularies:d3824049-5f5d-391d-8b7a-1ee009959132 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [

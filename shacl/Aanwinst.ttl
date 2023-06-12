@@ -78,7 +78,7 @@ recordtypes:Aanwinst
         sh:order 2.5 ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:62bfc6e5-bb15-4f2f-8898-a76cd5e89d5a ) ;
+        memorix:conceptSchemeIn ( vocabularies:d1a66f2e-8709-366b-818b-92c993a48e11 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -98,7 +98,7 @@ recordtypes:Aanwinst
         sh:group aanwinst:descriptionGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:af5e1f30-ab30-33bf-9f81-6063449ee0c8 ) ;
+        memorix:conceptSchemeIn ( vocabularies:0e80330b-5808-3aa6-b558-703d4476f95a ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [

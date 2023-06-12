@@ -153,7 +153,7 @@ recordtypes:Document  rdf:type      sh:NodeShape, memorix:Recordtype ;
 
         dash:editor          memorix:VocabularyEditor ;
         sh:class             skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:636f4239-6069-46ab-b8ce-cda56ab489d1 ) ;
+        memorix:conceptSchemeIn ( vocabularies:758dd47b-7756-400f-a99c-95c2f1feeae4 ) ;
         sh:nodeKind          sh:IRI ;
         sh:group             document:documentGroup ;
         sh:maxCount          1 ;
@@ -222,7 +222,7 @@ document:Location  rdf:type       sh:NodeShape ;
         sh:maxCount  1 ;
         dash:editor  memorix:VocabularyEditor ;
         sh:class     skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:42cfec07-894f-4e72-a80d-1418f5ecc324 ) ;
+        memorix:conceptSchemeIn ( vocabularies:f5007287-0409-306b-8a49-bcda8ff4a18c ) ;
         sh:nodeKind  sh:IRI ;
     ] ;
     sh:property           [
@@ -232,7 +232,7 @@ document:Location  rdf:type       sh:NodeShape ;
         sh:maxCount  1 ;
         dash:editor  memorix:VocabularyEditor ;
         sh:class     skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:889f909b-1057-46ed-bce6-104570ab939f ) ;
+        memorix:conceptSchemeIn ( vocabularies:9536e51c-2eba-33fc-ba19-e3a1555105f2 ) ;
         sh:nodeKind  sh:IRI ;
     ] ;
     sh:property           [
@@ -290,7 +290,7 @@ document:Details  rdf:type        sh:NodeShape ;
         sh:path      rico:hasContentOfType ;
         dash:editor  memorix:VocabularyEditor ;
         sh:class     skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:e2f783dd-710d-473a-9515-b97eaa0da52d ) ;
+        memorix:conceptSchemeIn ( vocabularies:822be07c-b1a0-48a5-b972-b9a6b64b2ce3 ) ;
         sh:nodeKind  sh:IRI ;
     ] ;
     sh:property           [
@@ -326,7 +326,7 @@ document:Event  rdf:type          sh:NodeShape ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
         memorix:inTitleAt  2.0 ;
-        memorix:conceptSchemeIn ( vocabularies:2dff6cc5-1e18-4640-ae32-79c9c8cd0dd7 ) ;
+        memorix:conceptSchemeIn ( vocabularies:043ec0bc-96bb-405d-9bd9-bbb691c12b31 ) ;
         sh:nodeKind sh:IRI ;
         sh:order           1.0 ;
         sh:path            rico:hasEventType

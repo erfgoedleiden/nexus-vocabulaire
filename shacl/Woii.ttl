@@ -56,7 +56,7 @@ recordtypes:Woii
     sh:group woII:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:f4feee18-e6d5-4add-9860-b5904c607ad4 ) ;
+    memorix:conceptSchemeIn ( vocabularies:56eac266-fdea-3262-8ae9-2b25faf3837e ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [

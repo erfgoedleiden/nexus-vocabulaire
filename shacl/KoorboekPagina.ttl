@@ -70,7 +70,7 @@ recordtypes:KoorboekPagina
     sh:group koorboekPagina:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:6fb8c7a0-15a6-3974-aa6b-61f8656bcd28 ) ;
+    memorix:conceptSchemeIn ( vocabularies:e9a5e7d1-14ab-3d53-addc-09312af120fb ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [

@@ -62,7 +62,7 @@ recordtypes:Bijlage
         sh:order 3.0 ;
         dash:editor dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:0e288be9-8887-3872-b082-906a55c0a755 ) ;
+        memorix:conceptSchemeIn ( vocabularies:9f7d0165-2526-3189-b84a-26ae763f2e72 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [

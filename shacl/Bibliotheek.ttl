@@ -79,7 +79,7 @@ recordtypes:Bibliotheek
     sh:group bibliotheek:physicalDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:5f449ae6-01a2-44a3-a5a6-f74dfa587a87 ) ;
+    memorix:conceptSchemeIn ( vocabularies:7be67558-1870-4f11-aa16-01679e9a645f ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -169,7 +169,7 @@ recordtypes:Bibliotheek
     sh:group bibliotheek:physicalDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:5ca204af-c3c4-42ad-9d18-af483670d8f5 ) ;
+    memorix:conceptSchemeIn ( vocabularies:e8646a93-815e-4e21-8a05-5ddb0c79668f ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -223,7 +223,7 @@ recordtypes:Bibliotheek
     sh:group bibliotheek:contentDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:4190de09-7dca-44ce-a9bd-04716cfa70aa ) ;
+    memorix:conceptSchemeIn ( vocabularies:bb2f0040-d9cb-3d27-ab12-a5b88da714e7 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -334,7 +334,7 @@ recordtypes:Bibliotheek
     sh:group bibliotheek:managementGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:28a07f1f-a398-4d81-b907-a0a356f3429b ) ;
+    memorix:conceptSchemeIn ( vocabularies:7b740e58-76f6-33ec-bc40-3a760fb88d13 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -439,7 +439,7 @@ bibliotheek:Author
     memorix:inSummaryAt 2.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:304b0173-711b-4670-8045-5d85cb8b24b1 ) ;
+    memorix:conceptSchemeIn ( vocabularies:a25c7081-07fe-3979-ab6c-b1849c14537c ) ;
     sh:nodeKind sh:IRI ;
   ] ;
 
@@ -460,7 +460,7 @@ bibliotheek:Author
     sh:order 3.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:efcca629-b7ad-4bb0-b9f5-ab88b57cb79c ) ;
+    memorix:conceptSchemeIn ( vocabularies:63b4992f-206e-43b2-a59d-85add46bd824 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
 .
@@ -551,9 +551,9 @@ bibliotheek:Location
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
     memorix:conceptSchemeIn (
-        vocabularies:026baf4a-c14f-4819-be3e-2301fb6b4a67
-        vocabularies:2540c439-bebf-4ce7-bca9-3c3cba71a6c9
-        vocabularies:5e2c373d-3451-3ce6-af6a-cdbc6fba861e ) ;
+        vocabularies:24214165-73ab-48ff-b399-550f232d4b3b
+        vocabularies:d8411992-87e6-4f1c-85b2-80940a038410
+        vocabularies:ac2cbb87-9428-4982-bda6-a91cad52c929 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -622,7 +622,7 @@ bibliotheek:Acquisition
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:0afc54d2-d623-4ab3-9e27-b1ea6d866cc1 ) ;
+    memorix:conceptSchemeIn ( vocabularies:2008e956-98fe-453f-bb74-cd1b3227d8fd ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -668,7 +668,7 @@ bibliotheek:Details
     sh:path      rico:hasContentOfType ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:e2f783dd-710d-473a-9515-b97eaa0da52d ) ;
+    memorix:conceptSchemeIn ( vocabularies:822be07c-b1a0-48a5-b972-b9a6b64b2ce3 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [

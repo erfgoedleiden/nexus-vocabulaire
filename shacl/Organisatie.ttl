@@ -289,7 +289,7 @@ organisatie:Relation
       memorix:searchWeight 1.0 ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:0f3d31f2-066b-49e8-8992-91c1e493a364 ) ;
+      memorix:conceptSchemeIn ( vocabularies:986038cb-798b-3c94-9791-ac6ecd5cafe4 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -329,7 +329,7 @@ organisatie:RightsAgreement
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:affe15be-8c77-40e5-87af-6e86137799e6 ) ;
+    memorix:conceptSchemeIn ( vocabularies:6748399b-c445-3823-82a8-c7b7f72b1a17 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [

@@ -194,7 +194,7 @@ groep:PhysicalOrLogicalExtent
         sh:order 2.0 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:eacb36c5-fb34-385e-98c4-9c82e1857a6b ) ;
+        memorix:conceptSchemeIn ( vocabularies:d1eac00a-81d1-3e18-9d0d-2a9d3999d394 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
 .

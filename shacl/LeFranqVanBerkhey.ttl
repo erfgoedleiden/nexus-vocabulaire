@@ -43,7 +43,7 @@ recordtypes:LeFranqVanBerkhey
     sh:group leFranqVanBerkhey:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:b87ceca4-7885-3a6d-864c-46c1359bc038 ) ;
+    memorix:conceptSchemeIn ( vocabularies:02b1efce-221d-4138-a5de-da1bee608e4e ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -156,7 +156,7 @@ recordtypes:LeFranqVanBerkhey
     sh:group leFranqVanBerkhey:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:75081b2a-4566-37d4-be9f-c24cd261fad9 ) ;
+    memorix:conceptSchemeIn ( vocabularies:8bd1ea31-640a-4f0e-a33b-4900e32d7f64 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
