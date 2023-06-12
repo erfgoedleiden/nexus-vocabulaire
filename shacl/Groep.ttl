@@ -58,7 +58,9 @@ recordtypes:Groep
     ] ;
     sh:property [
         rdfs:label   "Sorteervolgorde"@nl, "Order"@en ;
-        sh:maxCount  1 ;
+        memorix:typeOf    memorix:Identifier ;
+        sh:minCount       1 ;
+        sh:maxCount       1 ;
         sh:datatype  xsd:integer ;
         sh:group     groep:identificationGroup ;
         sh:order     2.0 ;

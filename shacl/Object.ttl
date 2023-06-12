@@ -512,13 +512,12 @@ object:BgtTopography
       dash:singleLine true ;
     ] ;
   sh:property [
-      rdfs:label "BGT adres"@nl, "BGT address"@en  ;
+      rdfs:label "BGT id"@nl, "BGT id"@en  ;
       sh:path elo:bgtAdres ;
       sh:order 1.0 ;
       sh:datatype xsd:string ;
       dash:editor dash:TextFieldEditor ;
       memorix:searchWeight 1.0 ;
-      # TODO dit moet een link naar BAG worden
     ]
 .
 

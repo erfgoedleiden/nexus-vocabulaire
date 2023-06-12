@@ -56,7 +56,7 @@ recordtypes:Persoon
   ] ;
   sh:property [
     rdfs:label "Achternaam"@nl, "Surname"@en ;
-    sh:description "Voornaam of initialen"@nl ;
+    sh:description "Voor een getrouwde vrouw: neem de meisjesnaam"@nl ;
     sh:path schema:familyName ;
     sh:maxCount 1 ;
     sh:order 3.0 ;

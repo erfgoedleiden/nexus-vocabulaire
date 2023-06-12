@@ -513,7 +513,7 @@ bibliotheek:Publication
     sh:description "Uitgever zoals vermeld in de publicatie (FOBID)"@nl ;
     sh:path schema:publisher ;
     sh:maxCount 1 ;
-    sh:order 4.0 ;
+    sh:order 0.6 ;
     sh:datatype xsd:string ;
   ] ;
   sh:property [
@@ -521,7 +521,7 @@ bibliotheek:Publication
     sh:description "Noteer de plaats van uitgave zoals deze in de publicatie wordt genoemd (FOBID)"@nl ;
     sh:path schema:locationCreated ;
     sh:maxCount 1 ;
-    sh:order 5.0 ;
+    sh:order 0.3 ;
     sh:datatype xsd:string ;
     dash:singleLine true ;
   ] ;

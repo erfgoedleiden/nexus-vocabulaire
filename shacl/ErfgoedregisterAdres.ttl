@@ -119,7 +119,6 @@ recordtypes:ErfgoedregisterAdres
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    # TODO: samenvoegen met "Y" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
     rdfs:label "X"@nl, "X"@en ;
     sh:description "Locatie bepaling uit de BAG op basis van het Rijksdriehoekstelsel"@nl ;
     sh:path geometrie:coordX ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
@@ -130,7 +129,6 @@ recordtypes:ErfgoedregisterAdres
     dash:singleLine true ;
   ] ;
   sh:property [
-    # TODO: samenvoegen met "X" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
     rdfs:label "Y"@nl, "Y"@en ;
     sh:description "Locatie bepaling uit de BAG op basis van het Rijksdriehoekstelsel"@nl ;
     sh:path geometrie:coordY ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
@@ -139,6 +137,14 @@ recordtypes:ErfgoedregisterAdres
     sh:group erfgoedregisterAdres:addressGroup ;
     sh:datatype xsd:string ;  # -> <http://www.opengis.net/ont/geosparql#wktLiteral>
     dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
+    sh:path schema:geo ;
+    sh:order 11.5 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    dash:editor memorix:LocationCoordinatesEditor ;
+    sh:class    memorix:GeoCoordinates ;
   ] ;
   sh:property [
     rdfs:label "Datum ingang"@nl, "Date (begin)"@en ;
