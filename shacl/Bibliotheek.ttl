@@ -105,7 +105,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Digitale publicatie"@nl, "Digital publication"@en ;
-    sh:description "Link naar de digitale versie op een externe website."@nl ;
+    sh:description "Als er een digitale versie of een voortzetting is op een externe website, hier de link zetten"@nl ;
     sh:path rico:hasDerivedInstantiation ;
     sh:order 6.0 ;
     sh:group bibliotheek:physicalDescriptionGroup ;
@@ -205,7 +205,7 @@ recordtypes:Bibliotheek
   ] ;
   sh:property [
     rdfs:label "Persoon"@nl, "Person"@en ;
-    sh:description "Noteer hier personen die wonen of werken in Leiden of de Leidse regio, als zij het hoofdonderwerp zijn van de publicatie."@nl ;
+    sh:description "Noteer hier de persoon uit Leiden of de Leidse regio, die het hoofdonderwerp van de publicatie"@nl ;
     sh:path schema:character ;
     sh:order 17.0 ;
     sh:group bibliotheek:contentDescriptionGroup ;
@@ -437,22 +437,17 @@ bibliotheek:Author
     sh:maxCount 1 ;
     sh:order 1.0 ;
     memorix:inSummaryAt 2.0 ;
-    dash:editor memorix:VocabularyEditor ;
-    sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:a25c7081-07fe-3979-ab6c-b1849c14537c ) ;
-    sh:nodeKind sh:IRI ;
+    sh:datatype xsd:string ;
   ] ;
 
   sh:property [
     rdfs:label "Auteur / maker"@nl, "Author/creator"@en ;
     sh:path dc:creator ;
     sh:order 2.0 ;
+    dash:editor memorix:VocabularyEditor ;
+    sh:class skos:Concept ;
+    memorix:conceptSchemeIn ( <http://data.bibliotheken.nl/id/dataset/persons> ) ;
     sh:nodeKind sh:IRI ;
-    sh:or (
-      [ sh:class recordtypes:Persoon ]
-      [ sh:class recordtypes:Organisatie ]
-    ) ;
-    dash:editor memorix:LinkedRecordEditor ;
   ] ;
   sh:property [
     rdfs:label "Rol"@nl, "Role"@en ;
@@ -482,7 +477,7 @@ bibliotheek:Publication
   ] ;
   sh:property [
     rdfs:label "Jaar van uitgave"@nl, "Year of publication"@en ;
-    sh:description "Het jaar waarin de publicatie is uitgegeven. Je kan die hier tekstueel weergeven. Voorbeeld: 1900-1920"@nl ;
+    sh:description "Het jaar waarin de publicatie is uitgegeven. Je kan die hier tekstueel weergeven. Voorbeeld: ca. 2001, 1956-1960, of zomer 1988"@nl ;
     sh:path schema:datePublished ;
     sh:maxCount 1 ;
     sh:order 1.0 ;
@@ -570,6 +565,13 @@ bibliotheek:Location
     sh:class    memorix:GeoCoordinates ;
     memorix:searchWeight 1.0 ;
   ] ;
+  sh:property [
+    rdfs:label "Polygons"@nl, "Polygons"@en ;
+    sh:path elo:polygon ;
+    sh:order 4.0 ;
+    sh:datatype xsd:string ;
+  ] ;
+
 .
 
 bibliotheek:Source

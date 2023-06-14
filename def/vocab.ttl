@@ -183,6 +183,11 @@ elo:noordwestgrens a rdfs:Property ;
                rdfs:label "Noordwestgrens" ;
 .
 
+elo:polygon a rdfs:Property ;
+            rdfs:subPropertyOf schema:geo ;
+            rdfs:label "Polygon" ;
+.
+
 ###############################
 # RiC-O misc. specializations #
 ###############################
