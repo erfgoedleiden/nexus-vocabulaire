@@ -41,7 +41,7 @@ recordtypes:Archiefbibliotheek
     memorix:hasInformationComponent
     [ rdf:type               memorix:HasRecordsComponent ;
         memorix:hasRecordType  recordtypes:Bibliotheek ;
-        memorix:path           bibliotheek:archiefbibliotheek ;
+        memorix:path           rico:isRelatedTo ;
         dc:title               "Signaturen"
     ] ;
     memorix:typeOf        memorix:Fonds ;
@@ -115,7 +115,7 @@ recordtypes:Archiefbibliotheek
         sh:group    archiefbibliotheek:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class    skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:4190de09-7dca-44ce-a9bd-04716cfa70aa ) ;
+        memorix:conceptSchemeIn ( vocabularies:bb2f0040-d9cb-3d27-ab12-a5b88da714e7 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property          [

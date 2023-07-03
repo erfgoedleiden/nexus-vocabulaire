@@ -38,7 +38,7 @@ recordtypes:Persoonsvermelding
         sh:path      schema:roleName ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:7b9df6df-1c81-463f-85e1-d8ce7d002ab7 ) ;
+        memorix:conceptSchemeIn ( vocabularies:c0b9667e-bf29-35a3-b1ee-1d26c537246b ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property              [
@@ -133,7 +133,7 @@ recordtypes:Persoonsvermelding
         sh:path      dbpo:religion ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:6f6e0744-50f9-4d8a-8e5f-f31c7c1d3ed3 ) ;
+        memorix:conceptSchemeIn ( vocabularies:cf864093-2145-36ed-b48d-6578481693d9 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property              [
@@ -193,7 +193,7 @@ recordtypes:Persoonsvermelding
         sh:path             schema:gender ;
         dash:editor         memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:bf92f5f7-d8be-45b8-be59-c79af171ce11 ) ;
+        memorix:conceptSchemeIn ( vocabularies:c626c572-43bd-3908-a868-4eb336067a22 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property              [
@@ -281,7 +281,7 @@ persoonsvermelding:Details
     sh:maxCount  1 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:e2f783dd-710d-473a-9515-b97eaa0da52d ) ;
+    memorix:conceptSchemeIn ( vocabularies:822be07c-b1a0-48a5-b972-b9a6b64b2ce3 ) ;
     sh:nodeKind sh:IRI ;
     ] ;
     sh:property           [
@@ -316,7 +316,7 @@ persoonsvermelding:Details
         sh:path             rico:hasOrHadPlaceType ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:42cfec07-894f-4e72-a80d-1418f5ecc324 ) ;
+        memorix:conceptSchemeIn ( vocabularies:f5007287-0409-306b-8a49-bcda8ff4a18c ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property           [
@@ -450,7 +450,7 @@ persoonsvermelding:Profession
         sh:path             elo:gestandaardiseerdBeroep ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:44f97a78-f417-4a89-a368-9882a5bf7c84 ) ;
+        memorix:conceptSchemeIn ( vocabularies:ba46f9c2-fac8-38f7-8ee9-b901fd80c1c1 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:targetClass        persoonsvermelding:Profession .
@@ -474,7 +474,7 @@ persoonsvermelding:Event  rdf:type          sh:NodeShape ;
         sh:maxCount  1 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:2dff6cc5-1e18-4640-ae32-79c9c8cd0dd7 ) ;
+        memorix:conceptSchemeIn ( vocabularies:043ec0bc-96bb-405d-9bd9-bbb691c12b31 ) ;
         sh:nodeKind sh:IRI ;
         sh:order           1.0 ;
         sh:path            rico:hasEventType

@@ -183,6 +183,11 @@ elo:noordwestgrens a rdfs:Property ;
                rdfs:label "Noordwestgrens" ;
 .
 
+elo:polygon a rdfs:Property ;
+            rdfs:subPropertyOf schema:geo ;
+            rdfs:label "Polygon" ;
+.
+
 ###############################
 # RiC-O misc. specializations #
 ###############################
@@ -263,6 +268,16 @@ elo:isBook a rdfs:Property ;
 elo:isAudiovisual a rdfs:Property ;
   rdfs:subPropertyOf rico:hasContentOfType ;
   rdfs:label "Geeft aan of het object of record een audiovisueel object is" ;
+.
+
+elo:aantal a rdfs:Property ;
+    rdfs:subPropertyOf rico:quantity ;
+    rdfs:label "Geeft het aantal containers aan" ;
+.
+
+elo:fysiekeEenheid a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasCarrierType ;
+  rdfs:label "Geeft aan wat voor type container een record fysiek in zit in het depot" ;
 .
 
 elo:huisnummerVan a rdfs:Property ;
@@ -363,4 +378,19 @@ elo:particulier a rdfs:Property ;
 elo:overheid a rdfs:Property ;
   rdfs:subPropertyOf schema:offeredBy ;
   rdfs:label "Overheid" ;
+.
+
+elo:uur a rdfs:Property ;
+  rdfs:subPropertyOf rico:recordResourceExtent ;
+  rdfs:label "Uur" ;
+.
+
+elo:minuut a rdfs:Property ;
+  rdfs:subPropertyOf rico:recordResourceExtent ;
+  rdfs:label "Minuut" ;
+.
+
+elo:seconde a rdfs:Property ;
+  rdfs:subPropertyOf rico:recordResourceExtent ;
+  rdfs:label "Seconde" ;
 .

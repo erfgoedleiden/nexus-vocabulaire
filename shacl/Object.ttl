@@ -26,6 +26,7 @@ recordtypes:Object
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass recordtypes:Object ;
+  memorix:hasInformationComponent [ rdf:type  memorix:DigitalAssetComponent ] ;
   dash:defaultViewForRole dash:all ;
 
   sh:property [
@@ -36,7 +37,7 @@ recordtypes:Object
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
       # Overweeg hier om een CBS-gemeente te nemen
-      memorix:conceptSchemeIn ( vocabularies:a5538bf3-2d67-3f6f-acff-f95eaaa169c4 ) ;
+      memorix:conceptSchemeIn ( vocabularies:d73d21d2-6400-4494-9cd7-68f94da07f29 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -47,7 +48,7 @@ recordtypes:Object
       sh:group object:basicDataGroup ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:b1b75c03-b2b4-4f37-a852-0f42d7edc7a0 ) ;
+      memorix:conceptSchemeIn ( vocabularies:63f7868a-e844-4f1a-ae31-f140fea1fd7b ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -59,7 +60,6 @@ recordtypes:Object
       sh:order 2.0 ;
       sh:group object:basicDataGroup ;
       sh:datatype xsd:string ;
-      dash:singleLine true ;
     ] ;
   sh:property [
       rdfs:label "Objectnaam"@nl, "Name"@en ;
@@ -69,7 +69,6 @@ recordtypes:Object
       sh:order 3.0 ;
       sh:group object:basicDataGroup ;
       sh:datatype xsd:string ;
-      dash:singleLine true ;
     ] ;
   sh:property [
       rdfs:label "Pand Id"@nl, "Building ID"@en ;
@@ -79,7 +78,6 @@ recordtypes:Object
       sh:order 3.5 ;
       sh:group object:basicDataGroup ;
       sh:datatype xsd:string ;
-      dash:singleLine true ;
     ] ;
   sh:property [
       rdfs:label  "Complex"@nl, "Complex"@en ;
@@ -110,7 +108,7 @@ recordtypes:Object
       sh:group object:basicDataGroup ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:6d84729b-566e-479b-96da-7cb6d119bad6 ) ;
+      memorix:conceptSchemeIn ( vocabularies:a5d06745-ed37-4fb3-a7e0-ddc75a6f3fdf ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -150,7 +148,7 @@ recordtypes:Object
       sh:group object:procedureDataGroup ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:46efe6fe-4d6a-499f-aa06-06be04cf363b ) ;
+      memorix:conceptSchemeIn ( vocabularies:7ca7ac7d-bc81-367d-a1f8-3199794e93f0 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -200,7 +198,7 @@ recordtypes:Object
       sh:group object:valueDataGroup ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:86504c0f-bf2f-4647-aa59-333351e090e2 ) ;
+      memorix:conceptSchemeIn ( vocabularies:d55b9f82-3d5a-381e-89a5-03f330323bde ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -212,7 +210,7 @@ recordtypes:Object
       sh:group object:valueDataGroup ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:85f914b6-00e0-4f42-a63d-c4f8763888c0 ) ;
+      memorix:conceptSchemeIn ( vocabularies:64138f75-6476-3369-8e40-57bcc80cbfdb ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -300,6 +298,16 @@ object:Dating
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:Dating ;
+  sh:property          [
+   rdfs:label  "order"@en ;
+   memorix:hidden true ;
+   sh:description "This field is required for persistent order of group items" ;
+   sh:path     memorix:order ;
+   sh:order    0.0 ;
+   sh:datatype xsd:integer ;
+   sh:minCount 1 ;
+   sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Datering (tekst)"@nl, "Date (text)"@en ;
       sh:path rico:expressedDate ;
@@ -348,6 +356,16 @@ object:ZoningPlan
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:ZoningPlan ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Datum bestemmingsplan"@nl, "Date development plan"@en ;
       sh:description "Datum waarop het bestemmingsplan onherroepelijk is geworden"@nl ;
@@ -372,6 +390,16 @@ object:Architecture
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:Architecture ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Bouwstijl"@nl, "Architectural style"@en ;
       sh:path dbpo:architecturalStyle ;
@@ -379,7 +407,7 @@ object:Architecture
       sh:order 1.0 ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:3c90d4f9-bbd3-4c6a-a473-541b87d7a7af ) ;
+      memorix:conceptSchemeIn ( vocabularies:e4c1e933-6376-3c4f-9b75-f0dac679aec2 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -406,6 +434,16 @@ object:BagAddress
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:BagAddress ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Toestand"@nl, "BAG status"@en ;
       sh:description "Geeft aan of het adres nog actueel is"@nl ;
@@ -414,7 +452,7 @@ object:BagAddress
       sh:order 3.0 ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:da1d9451-8a91-4c83-b15a-04c8105e0ad7 ) ;
+      memorix:conceptSchemeIn ( vocabularies:59e308ef-21ae-3065-aca1-0d9d9738e86a ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -445,6 +483,16 @@ object:BgtTopography
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:BgtTopography ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Toestand"@nl, "BGT condition"@en ;
       sh:path rico:hasRecordState ;
@@ -452,7 +500,7 @@ object:BgtTopography
       sh:order 3.0 ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:da1d9451-8a91-4c83-b15a-04c8105e0ad7 ) ;
+      memorix:conceptSchemeIn ( vocabularies:59e308ef-21ae-3065-aca1-0d9d9738e86a ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -464,13 +512,12 @@ object:BgtTopography
       dash:singleLine true ;
     ] ;
   sh:property [
-      rdfs:label "BGT adres"@nl, "BGT address"@en  ;
+      rdfs:label "BGT Id"@nl, "BGT Id"@en  ;
       sh:path elo:bgtAdres ;
       sh:order 1.0 ;
       sh:datatype xsd:string ;
       dash:editor dash:TextFieldEditor ;
       memorix:searchWeight 1.0 ;
-      # TODO dit moet een link naar BAG worden
     ]
 .
 
@@ -479,13 +526,23 @@ object:DicoData
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass object:DicoData ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Geometrie data"@nl, "Geometry data"@e ;
       sh:path geo:asWKT ;
       sh:maxCount 1 ;
       sh:order 1.0 ;
       # TODO: geometriedata opnemen als Well-Known-Text data
-      sh:datatype geo:wktLiteral ;
+      sh:datatype xsd:string ;
       dash:editor  dash:TextAreaEditor ;
     ] ;
   sh:property [
@@ -495,7 +552,7 @@ object:DicoData
       sh:order 2.0 ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:817164bb-03bb-3b68-8327-416558a8455c ) ;
+      memorix:conceptSchemeIn ( vocabularies:e1647653-b1b9-3afe-bffd-7106dfab3818 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
 .

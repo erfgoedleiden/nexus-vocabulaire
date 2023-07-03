@@ -44,6 +44,7 @@ recordtypes:Groep
     memorix:hasInformationComponent
     [ rdf:type               memorix:TreePathComponent ;
       memorix:hasRecordtype  recordtypes:Archiefblok, recordtypes:Groep ;
+      memorix:required true ;
     ] ;
     sh:property [
         rdfs:label   "Bereik"@nl, "Scope"@en ;
@@ -57,11 +58,21 @@ recordtypes:Groep
     ] ;
     sh:property [
         rdfs:label   "Sorteervolgorde"@nl, "Order"@en ;
-        sh:maxCount  1 ;
         sh:datatype  xsd:integer ;
+        sh:maxCount       1 ;
         sh:group     groep:identificationGroup ;
         sh:order     2.0 ;
         sh:path      schema:itemListOrder ;
+    ] ;
+    sh:property [
+        rdfs:label "Identificatiecode"@nl, "Identification code"@en ;
+        memorix:typeOf    memorix:Identifier ;
+        sh:minCount       1 ;
+        sh:maxCount       1 ;
+        sh:datatype  xsd:string ;
+        sh:group     groep:identificationGroup ;
+        sh:order     2.5 ;
+        sh:path      rico:identifier ;
     ] ;
     sh:property [
         rdfs:label   "Titel"@nl, "Title"@en ;
@@ -180,21 +191,36 @@ groep:PhysicalOrLogicalExtent
         sh:maxCount 1 ;
     ] ;
     sh:property [
-        rdfs:label   "Aantal"@nl, "Amount"@en  ;
+        rdfs:label   "Aantal (oud, vervangen)"@nl, "Amount (old, replaced)"@en ;
         sh:maxCount 1 ;
         sh:datatype  xsd:integer ;
         sh:order     1.0 ;
         sh:path      rico:hasExtent ;
     ] ;
     sh:property [
-        rdfs:label "Fysieke eenheid"@nl, "Physical unit"@en ;
+        rdfs:label   "Aantal"@nl, "Amount"@en ;
+        sh:maxCount 1 ;
+        sh:datatype  xsd:float ;
+        sh:order     1.5 ;
+        sh:path      elo:aantal ;
+    ] ;
+    sh:property [
+        rdfs:label "Fysieke eenheid (oud, vervangen door tekstveld)"@nl, "Physical unit (old, replaced by text field)"@en ;
         sh:maxCount 1 ;
         sh:path rico:unitOfMeasurement ;
         sh:order 2.0 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:eacb36c5-fb34-385e-98c4-9c82e1857a6b ) ;
+        memorix:conceptSchemeIn ( vocabularies:d1eac00a-81d1-3e18-9d0d-2a9d3999d394 ) ;
         sh:nodeKind sh:IRI ;
+    ] ;
+
+    sh:property [
+        rdfs:label "Fysieke eenheid"@nl, "Physical unit"@en ;
+        sh:maxCount 1 ;
+        sh:path elo:fysiekeEenheid ;
+        sh:order 2.5 ;
+        sh:datatype  xsd:string ;
     ] ;
 .
 

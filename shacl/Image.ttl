@@ -28,7 +28,7 @@ recordtypes:Image
   sh:targetClass recordtypes:Image ;
   dash:defaultViewForRole dash:all ;
   memorix:hasInformationComponent
-          [ rdf:type  memorix:DigitalAssetComponent ] ;
+          [ rdf:type  memorix:DepotLocationComponent, memorix:DigitalAssetComponent ] ;
   sh:property [
     rdfs:label "Collectie"@nl, "Collection"@en ;
     sh:description         "Organisatie waar het beeldmateriaal van afkomstig is"@nl ;
@@ -38,7 +38,7 @@ recordtypes:Image
     sh:group image:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:8490ee59-818e-41a8-b37f-7b5040f3c4a4 ) ;
+    memorix:conceptSchemeIn ( vocabularies:ee09abf4-62df-416e-8035-8e3897b19210 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -46,7 +46,6 @@ recordtypes:Image
     sh:description "Naam van het digitale bestand."@nl ;
     sh:path dbpo:filename ;
     memorix:inSummaryAt 1.0 ;
-    sh:maxCount 200 ;
     sh:order 2.0 ;
     sh:group image:identificationGroup ;
     sh:datatype xsd:string ;
@@ -57,7 +56,6 @@ recordtypes:Image
     sh:description "Identificatienummer van het object"@nl ;
     sh:path rico:identifier ;
     memorix:inTitleAt 1.0 ;
-    sh:maxCount 100 ;
     sh:order 3.0 ;
     sh:group image:identificationGroup ;
     sh:datatype xsd:string ;
@@ -66,12 +64,11 @@ recordtypes:Image
   sh:property [
     rdfs:label "Documenttype"@nl, "Document type"@en ;
     sh:path rico:hasContentOfType ;
-    sh:maxCount 10 ;
     sh:order 4.0 ;
     sh:group image:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:5f449ae6-01a2-44a3-a5a6-f74dfa587a87 ) ;
+    memorix:conceptSchemeIn ( vocabularies:7be67558-1870-4f11-aa16-01679e9a645f ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -108,7 +105,6 @@ recordtypes:Image
   sh:property [
     rdfs:label "Afgebeelde personen"@nl, "Depicted persons"@en ;
     sh:path foaf:depicts ;
-    sh:maxCount 100 ;
     sh:order 13.0 ;
     sh:nodeKind sh:IRI ;
     sh:group image:contentDescriptionGroup ;
@@ -122,12 +118,11 @@ recordtypes:Image
   sh:property [
     rdfs:label "Trefwoorden"@nl, "Subjects"@en ;
     sh:path schema:keywords ;
-    sh:maxCount 10 ;
     sh:order 14.0 ;
     sh:group image:contentDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:4190de09-7dca-44ce-a9bd-04716cfa70aa ) ;
+    memorix:conceptSchemeIn ( vocabularies:bb2f0040-d9cb-3d27-ab12-a5b88da714e7 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -142,7 +137,6 @@ recordtypes:Image
   ] ;
   sh:property [
     rdfs:label "Afgebeelde locatie"@nl, "Places"@en ;
-    sh:maxCount 10 ;
     # "The location depicted or described in the content. For example, the location in a photograph or painting."
     sh:path schema:contentLocation ;
     sh:order 16.0 ;
@@ -155,18 +149,16 @@ recordtypes:Image
   sh:property [
     rdfs:label "Techniek"@nl, "Technique"@en ;
     sh:path rico:hasProductionTechniqueType ;
-    sh:maxCount 10 ;
     sh:order 17.0 ;
     sh:group image:physicalDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:421b42cd-90c2-495d-86bd-8d49ddec08df ) ;
+    memorix:conceptSchemeIn ( vocabularies:cd1c6cb9-3f3e-3920-9901-855110dfeb96 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
 
   sh:property [
     rdfs:label "Vervaardigers"@nl, "Creators"@en ;
-    sh:maxCount 10 ;
     sh:path rico:hasCreator ;
     sh:order 18.0 ;
     dash:viewer dash:DetailsEditor ;
@@ -206,18 +198,16 @@ recordtypes:Image
     rdfs:label "Herkomst"@nl, "Aquisition"@en ;
     sh:description "Verwervingsmethode"@nl ;
     sh:path rico:history ;
-    sh:maxCount 10 ;
     sh:order 30.0 ;
     sh:group image:aquisitionGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:cae01719-c37a-4e31-bd5a-9e063db0bab5 ) ;
+    memorix:conceptSchemeIn ( vocabularies:2084d192-a0a2-453e-9f45-3f9cb13f2e7b ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
     rdfs:label "Persoon/Organisatie"@nl, "Person/Organization"@en ;
     sh:path schema:seller ;
-    sh:maxCount 10 ;
     sh:order 31.0 ;
     sh:nodeKind sh:IRI ;
     sh:group image:aquisitionGroup ;
@@ -251,7 +241,6 @@ recordtypes:Image
     rdfs:label "Standplaatsnummer"@nl, "Depot location number"@en ;
     sh:path rico:hasOrHadPhysicalLocation ;
     memorix:inSummaryAt 2.0 ;
-    sh:maxCount 10 ;
     sh:order 40.0 ;
     sh:group image:managementGroup ;
     sh:datatype xsd:string ;
@@ -318,6 +307,16 @@ image:DepictedLocation
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass image:DepictedLocation ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Plaats"@nl, "City"@en ;
     sh:path schema:addressLocality ;
@@ -325,7 +324,7 @@ image:DepictedLocation
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:026baf4a-c14f-4819-be3e-2301fb6b4a67 ) ;
+    memorix:conceptSchemeIn ( vocabularies:24214165-73ab-48ff-b399-550f232d4b3b ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -335,7 +334,7 @@ image:DepictedLocation
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:2540c439-bebf-4ce7-bca9-3c3cba71a6c9 ) ;
+    memorix:conceptSchemeIn ( vocabularies:d8411992-87e6-4f1c-85b2-80940a038410 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -346,13 +345,27 @@ image:DepictedLocation
       sh:datatype xsd:string ;
   ] ;
   sh:property [
-      rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
-      sh:path schema:geo  ;
-      sh:maxCount 10 ;
-      sh:order 4.0 ;
-      sh:datatype xsd:string ;
-      memorix:searchWeight 1.0 ;
-    # TODO dit moet een link naar coordinates
+    rdfs:label "Werkveld locatie"@nl, "Workfield location"@en ;
+    sh:path schema:location ;
+    sh:order 4.0 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
+    rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
+    sh:path schema:geo  ;
+    sh:order 5.0 ;
+    dash:editor memorix:LocationCoordinatesEditor ;
+    sh:class    memorix:GeoCoordinates ;
+    sh:maxCount 1 ;
+    memorix:searchWeight 1.0 ;
+  ] ;
+  sh:property [
+    rdfs:label "Polygonen"@nl, "Polygons"@en ;
+    sh:path elo:polygon ;
+    sh:order 6.0 ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    dash:editor  dash:TextAreaEditor ;
   ] ;
 .
 
@@ -361,6 +374,16 @@ image:Creator
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass image:Creator ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Vervaardiger"@nl, "Creator"@en ;
     sh:path rico:hasCreator ;
@@ -376,11 +399,10 @@ image:Creator
   sh:property [
     rdfs:label "Rol"@nl, "Role"@en ;
     sh:path schema:roleName ;
-    sh:maxCount 5 ;
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:3136ddd0-0eb0-4fc9-b78e-5df18be5313f ) ;
+    memorix:conceptSchemeIn ( vocabularies:5b48e96c-6ad1-379f-a145-f079e9d90e20 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
 .
@@ -439,7 +461,7 @@ image:Dimension
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:5fbfb737-54a9-4e55-a9fd-156ccf4d0f5f ) ;
+    memorix:conceptSchemeIn ( vocabularies:8b659e97-724e-4297-93dd-eec6a907966f ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -457,7 +479,7 @@ image:Dimension
     sh:order 4.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:5fbfb737-54a9-4e55-a9fd-156ccf4d0f5f ) ;
+    memorix:conceptSchemeIn ( vocabularies:8b659e97-724e-4297-93dd-eec6a907966f ) ;
     sh:nodeKind sh:IRI ;
   ] ;
 .

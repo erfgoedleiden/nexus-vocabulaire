@@ -25,10 +25,18 @@ recordtypes:BlaeuAtlasPagina
   sh:targetClass recordtypes:BlaeuAtlasPagina ;
   memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
   dash:defaultViewForRole dash:all ;
-  memorix:hasInformationComponent
-    [ rdf:type               memorix:TreePathComponent ;
-      memorix:hasRecordtype  recordtypes:BlaeuAtlas
-    ] ;
+  sh:property [
+        rdfs:label "Blaeu Atlas"@nl, "Blaeu Atlas"@en ;
+        sh:path rico:isOrWasPartOf ;
+        sh:order 0.5 ;
+        memorix:inTitleAt 3.0 ;
+        sh:nodeKind sh:IRI ;
+        sh:group blaeuAtlasPagina:identificationGroup ;
+        sh:or (
+                     [ sh:class recordtypes:BlaeuAtlas ]
+                   ) ;
+        dash:editor memorix:LinkedRecordEditor ;
+  ] ;
   sh:property [
     rdfs:label "Bestandsnaam"@nl, "File name"@en ;
     sh:path dbpo:filename ;
@@ -41,7 +49,7 @@ recordtypes:BlaeuAtlasPagina
     rdfs:label "Beschrijving"@nl, "Description"@en ;
     sh:path dc:description ;
     sh:order 2.0 ;
-    memorix:inTitleAt 1.0 ;
+    memorix:inTitleAt 2.0 ;
     sh:group blaeuAtlasPagina:identificationGroup ;
     sh:datatype xsd:string ;
     dash:editor  dash:TextAreaEditor ;
@@ -91,6 +99,7 @@ recordtypes:BlaeuAtlasPagina
     sh:path rico:identifier ;
     sh:order 8.0 ;
     sh:group blaeuAtlasPagina:identificationGroup ;
+    memorix:inTitleAt 1.0 ;
     sh:datatype xsd:string ;
   ] ;
 .

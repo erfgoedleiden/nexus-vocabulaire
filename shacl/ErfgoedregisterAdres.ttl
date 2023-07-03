@@ -16,6 +16,7 @@
 @prefix skos:                 <http://www.w3.org/2004/02/skos/core#> .
 @prefix vocabularies:         </resources/vocabularies/conceptschemes/> .
 @prefix xsd:                  <http://www.w3.org/2001/XMLSchema#> .
+@prefix geometrie:            <http://data.ign.fr/def/geometrie#> .
 
 recordtypes:ErfgoedregisterAdres
   a memorix:Recordtype, sh:NodeShape ;
@@ -103,7 +104,7 @@ recordtypes:ErfgoedregisterAdres
     sh:group erfgoedregisterAdres:addressGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:603ea3e8-81f9-4b32-b9a6-1e9d3f16f7e7 ) ;
+    memorix:conceptSchemeIn ( vocabularies:633106b1-b8f3-38cc-87cc-e275ff0dbb79 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
@@ -114,14 +115,13 @@ recordtypes:ErfgoedregisterAdres
     sh:group erfgoedregisterAdres:addressGroup ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:6366587f-e155-4a87-a4a7-28113eaa7206 ) ;
+    memorix:conceptSchemeIn ( vocabularies:ed1b73b6-fc90-3380-9b88-3c7fb50379d6 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
-    # TODO: samenvoegen met "Y" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
     rdfs:label "X"@nl, "X"@en ;
     sh:description "Locatie bepaling uit de BAG op basis van het Rijksdriehoekstelsel"@nl ;
-    sh:path <http://data.ign.fr/def/geometrie#coordX> ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
+    sh:path geometrie:coordX ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
     sh:maxCount 1 ;
     sh:order 10.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
@@ -129,15 +129,22 @@ recordtypes:ErfgoedregisterAdres
     dash:singleLine true ;
   ] ;
   sh:property [
-    # TODO: samenvoegen met "X" -> "Puntlocatie" veld, als geo:asWKT@geo:wktLiteral
     rdfs:label "Y"@nl, "Y"@en ;
     sh:description "Locatie bepaling uit de BAG op basis van het Rijksdriehoekstelsel"@nl ;
-    sh:path <http://data.ign.fr/def/geometrie#coordY> ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
+    sh:path geometrie:coordY ;  # -> <http://www.opengis.net/ont/geosparql#asWKT>
     sh:maxCount 1 ;
     sh:order 11.0 ;
     sh:group erfgoedregisterAdres:addressGroup ;
     sh:datatype xsd:string ;  # -> <http://www.opengis.net/ont/geosparql#wktLiteral>
     dash:singleLine true ;
+  ] ;
+  sh:property [
+    rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
+    sh:path schema:geo ;
+    sh:order 11.5 ;
+    sh:group erfgoedregisterAdres:addressGroup ;
+    dash:editor memorix:LocationCoordinatesEditor ;
+    sh:class    memorix:GeoCoordinates ;
   ] ;
   sh:property [
     rdfs:label "Datum ingang"@nl, "Date (begin)"@en ;

@@ -1,3 +1,4 @@
+@prefix arco:         <https://w3id.org/arco/ontology/location/> .
 @prefix bag:          <http://bag.basisregistraties.overheid.nl/def/bag#> .
 @prefix brk:          <http://brk.basisregistraties.overheid.nl/def/brk#> .
 @prefix dash:         <http://datashapes.org/dash#> .
@@ -8,7 +9,6 @@
 @prefix hgw:          </resources/recordtypes/HeiligeGeestWeeshuis#> .
 @prefix html:         <http://www.w3.org/1999/xhtml/> .
 @prefix memorix:      <http://memorix.io/ontology#> .
-@prefix person:       <http://www.w3.org/ns/person#> .
 @prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix recordtypes:  </resources/recordtypes/> .
@@ -75,7 +75,7 @@ recordtypes:HeiligeGeestWeeshuis
     sh:datatype xsd:string ;
   ] ;
   sh:property [
-    rdfs:label "Beroep"@nl, "Profession1"@en ;
+    rdfs:label "Beroep"@nl, "Profession"@en ;
     sh:path rico:hasOrHadOccupationOfType ;
     sh:order 7.0 ;
     sh:group hgw:identificationGroup ;
@@ -143,7 +143,7 @@ recordtypes:HeiligeGeestWeeshuis
     rdfs:label "Perceelnaam"@nl, "Parcel name"@en ;
     sh:maxCount 100;
     # Lastige property. Dit komt in de buurt.
-    sh:path <https://w3id.org/arco/ontology/location/hasToponymInTime> ;
+    sh:path arco:hasToponymInTime ;
     memorix:inTitleAt  2.0 ;
     sh:order 18.0 ;
     sh:group hgw:identificationGroup ;

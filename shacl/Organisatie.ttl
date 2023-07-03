@@ -271,6 +271,16 @@ organisatie:Relation
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass organisatie:Relation ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
       rdfs:label "Relatietype"@nl, "Type of relationship"@en ;
       sh:description "Voorbeeld: als je in dit record de ELO-medewerker 'Jan Lagas' beschrijft, is het relatietype 'Rechthebbende' en de relatie 'Erfgoed Leiden'"@nl ;
@@ -279,7 +289,7 @@ organisatie:Relation
       memorix:searchWeight 1.0 ;
       dash:editor memorix:VocabularyEditor ;
       sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:0f3d31f2-066b-49e8-8992-91c1e493a364 ) ;
+      memorix:conceptSchemeIn ( vocabularies:986038cb-798b-3c94-9791-ac6ecd5cafe4 ) ;
       sh:nodeKind sh:IRI ;
     ] ;
   sh:property [
@@ -301,6 +311,16 @@ organisatie:RightsAgreement
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass organisatie:RightsAgreement ;
+  sh:property          [
+    rdfs:label  "order"@en ;
+    memorix:hidden true ;
+    sh:description "This field is required for persistent order of group items" ;
+    sh:path     memorix:order ;
+    sh:order    0.0 ;
+    sh:datatype xsd:integer ;
+    sh:minCount 1 ;
+    sh:maxCount 1 ;
+  ] ;
   sh:property [
     rdfs:label "Auteursrechtverklaring"@nl, "Copyright"@en ;
     sh:description "Rechtenset zoals in de auteursrechtenlicentie met de organisatie is vastgelegd"@nl ;
@@ -309,7 +329,7 @@ organisatie:RightsAgreement
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:affe15be-8c77-40e5-87af-6e86137799e6 ) ;
+    memorix:conceptSchemeIn ( vocabularies:6748399b-c445-3823-82a8-c7b7f72b1a17 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [

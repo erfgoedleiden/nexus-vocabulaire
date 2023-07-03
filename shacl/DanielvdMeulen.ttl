@@ -108,6 +108,15 @@ recordtypes:DanielvdMeulen
     sh:datatype xsd:string ;
   ] ;
   sh:property [
+    rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
+    sh:path schema:geo ;
+    sh:order 10.5 ;
+    dash:editor memorix:LocationCoordinatesEditor ;
+    sh:class    memorix:GeoCoordinates ;
+    sh:group    danielvdMeulen:identificationGroup ;
+    memorix:searchWeight 1.0 ;
+  ] ;
+  sh:property [
     rdfs:label  "Opmerkingen"@nl, "Remarks"@en ;
     sh:datatype xsd:string ;
     sh:group    danielvdMeulen:identificationGroup ;

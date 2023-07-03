@@ -41,7 +41,7 @@ report:treatmentGroup
 
 recordtypes:Report
     a memorix:Recordtype, sh:NodeShape ;
-    rdfs:label "Concerveringsrapport"@nl, "Conservation report"@en ;
+    rdfs:label "Conserveringsrapport"@nl, "Conservation report"@en ;
     sh:description "Report - Erfgoed Leiden"@nl, "Conservation report - Erfgoed Leiden"@en ;
     dce:identifier "Report" ;
     memorix:hasInformationComponent [ rdf:type  memorix:DigitalAssetComponent ] ;
@@ -126,7 +126,7 @@ recordtypes:Report
         sh:group report:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:30fa5163-6203-3b1b-8ea4-86e8945fd1ba ) ;
+        memorix:conceptSchemeIn ( vocabularies:98b091c8-0efb-369d-9e3e-cd82df6f329f ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -136,7 +136,7 @@ recordtypes:Report
         sh:group report:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:f21ccd01-6681-3a85-8ae6-12ea9d723d5c ) ;
+        memorix:conceptSchemeIn ( vocabularies:c8a2465a-f786-48f2-8413-31d3e57a2f93 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
 
@@ -147,7 +147,7 @@ recordtypes:Report
         sh:group report:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:0dc32079-f2be-47d2-a373-b1f8b7b1ccab ) ;
+        memorix:conceptSchemeIn ( vocabularies:aa2370a3-5a56-3422-a64c-1b3be091bb9a ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -165,7 +165,7 @@ recordtypes:Report
         rdfs:label              "Conditie primaire drager"@nl, "Condition Primary carrier"@en ;
         sh:message              "Kies een term uit de keuzelijst."@nl, "Please choose from the list."@en ;
         dash:editor             memorix:VocabularyEditor ;
-        memorix:conceptSchemeIn ( vocabularies:10033a56-3208-434c-921e-b8917963bec9 ) ;
+        memorix:conceptSchemeIn ( vocabularies:56602ae3-d846-339f-b177-091c0084e35f ) ;
         sh:class                skos:Concept ;
         sh:nodeKind             sh:IRI ;
         sh:order                1.0 ;
@@ -176,7 +176,7 @@ recordtypes:Report
         rdfs:label              "Conditie medium"@nl, "Condition Medium"@en ;
         sh:message              "Kies een term uit de keuzelijst."@nl, "Please choose from the list."@en ;
         dash:editor             memorix:VocabularyEditor ;
-        memorix:conceptSchemeIn ( vocabularies:10033a56-3208-434c-921e-b8917963bec9 ) ;
+        memorix:conceptSchemeIn ( vocabularies:56602ae3-d846-339f-b177-091c0084e35f ) ;
         sh:class                skos:Concept ;
         sh:nodeKind             sh:IRI ;
         sh:order                2.0 ;
@@ -187,7 +187,7 @@ recordtypes:Report
         rdfs:label              "Conditie toevoeging"@nl, "Condition addition"@en ;
         sh:message              "Kies een term uit de keuzelijst."@nl, "Please choose from the list."@en ;
         dash:editor             memorix:VocabularyEditor ;
-        memorix:conceptSchemeIn ( vocabularies:10033a56-3208-434c-921e-b8917963bec9 ) ;
+        memorix:conceptSchemeIn ( vocabularies:56602ae3-d846-339f-b177-091c0084e35f ) ;
         sh:class                skos:Concept ;
         sh:nodeKind             sh:IRI ;
         sh:order                3.0 ;
@@ -267,17 +267,17 @@ report:Treatments
         sh:group report:treatmentGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:4f0039e5-fce0-3f78-8a35-8cf586d7ee7d ) ;
+        memorix:conceptSchemeIn ( vocabularies:95cc51c2-b9bb-476f-a9f9-b3f9208bff2d ) ;
         sh:nodeKind sh:IRI ;
     ] ;
 
     sh:property [
         rdfs:label "Onderdeel"@nl, "Part of"@en ;
         sh:path schema:hasPart ;
-        sh:order 1.5 ;
+        sh:order 0.5 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:e64246ff-1166-42db-9877-f4272f9da0e8 ) ;
+        memorix:conceptSchemeIn ( vocabularies:cd3fb389-dc25-4c02-b2a9-289d24003951 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -286,7 +286,7 @@ report:Treatments
         sh:order 2.0 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:c1451412-7ec0-3429-ba87-1ad145c2872c ) ;
+        memorix:conceptSchemeIn ( vocabularies:d1a17a3f-43ca-390a-b2a2-5581c89ec96e ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -295,7 +295,7 @@ report:Treatments
         sh:order 3.0 ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:40279af2-2868-3585-b9e1-b70b48dc323f ) ;
+        memorix:conceptSchemeIn ( vocabularies:d2ec9eae-532d-4f62-ad28-80d95c037b5b ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -349,7 +349,7 @@ report:CarriedOutTests
     sh:ignoredProperties ( rdf:type ) ;
     sh:property          [ rdfs:label              "Soort test"@nl, "Type of test"@en ;
                            dash:editor             memorix:VocabularyEditor ;
-                           memorix:conceptSchemeIn vocabularies:571e85af-aaf1-4a29-9295-9d77f467920d ;
+                           memorix:conceptSchemeIn vocabularies:48362e7f-7995-4144-a726-3ad014fd77fc ;
                            sh:class                skos:Concept ;
                            sh:maxCount             1 ;
                            sh:nodeKind             sh:IRI ;

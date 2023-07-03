@@ -143,7 +143,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:59dd2557-a079-38ab-9db7-7269f9a80241 ) ;
+        memorix:conceptSchemeIn ( vocabularies:d5cb009f-0004-30b9-8f8e-925181c5d546 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -154,7 +154,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:descriptionGroup ;
         dash:editor memorix:VocabularyEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:4190de09-7dca-44ce-a9bd-04716cfa70aa ) ;
+        memorix:conceptSchemeIn ( vocabularies:bb2f0040-d9cb-3d27-ab12-a5b88da714e7 ) ;
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -251,7 +251,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:accessGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:3348861e-3f20-3720-94f8-00d429612388 );
+        memorix:conceptSchemeIn ( vocabularies:2037f50a-064f-3f5e-abfa-78a07bd89cd8 );
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
@@ -262,7 +262,7 @@ recordtypes:Archiefblok
         sh:group archiefblok:accessGroup ;
         dash:editor             dash:EnumSelectEditor ;
         sh:class skos:Concept ;
-        memorix:conceptSchemeIn ( vocabularies:f9c3d992-e77a-36ff-9c28-ac57b41c5a66 );
+        memorix:conceptSchemeIn ( vocabularies:4a2cdca0-4bbc-3cb1-94b0-1d1305b15d1c );
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
