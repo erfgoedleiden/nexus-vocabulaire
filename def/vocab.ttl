@@ -270,6 +270,11 @@ elo:isAudiovisual a rdfs:Property ;
   rdfs:label "Geeft aan of het object of record een audiovisueel object is" ;
 .
 
+elo:aantal a rdfs:Property ;
+    rdfs:subPropertyOf rico:quantity ;
+    rdfs:label "Geeft het aantal containers aan" ;
+.
+
 elo:fysiekeEenheid a rdfs:Property ;
   rdfs:subPropertyOf rico:hasCarrierType ;
   rdfs:label "Geeft aan wat voor type container een record fysiek in zit in het depot" ;

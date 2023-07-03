@@ -279,11 +279,18 @@ bestanddeel:PhysicalOrLogicalExtent
         sh:maxCount 1 ;
     ] ;
     sh:property [
-        rdfs:label   "Aantal"@nl, "Amount"@en ;
+        rdfs:label   "Aantal (oud, vervangen)"@nl, "Amount (old, replaced)"@en ;
         sh:maxCount 1 ;
         sh:datatype  xsd:integer ;
         sh:order     1.0 ;
         sh:path      rico:quantity ;
+    ] ;
+    sh:property [
+        rdfs:label   "Aantal"@nl, "Amount"@en ;
+        sh:maxCount 1 ;
+        sh:datatype  xsd:float ;
+        sh:order     1.5 ;
+        sh:path      elo:aantal ;
     ] ;
     sh:property [
         rdfs:label "Fysieke eenheid (oud, vervangen door tekstveld)"@nl, "Physical unit (old, replaced by text field)"@en ;
