@@ -58,13 +58,21 @@ recordtypes:Groep
     ] ;
     sh:property [
         rdfs:label   "Sorteervolgorde"@nl, "Order"@en ;
-        memorix:typeOf    memorix:Identifier ;
-        sh:minCount       1 ;
-        sh:maxCount       1 ;
         sh:datatype  xsd:integer ;
+        sh:maxCount       1 ;
         sh:group     groep:identificationGroup ;
         sh:order     2.0 ;
         sh:path      schema:itemListOrder ;
+    ] ;
+    sh:property [
+        rdfs:label "Identificatiecode"@nl, "Identification code"@en ;
+        memorix:typeOf    memorix:Identifier ;
+        sh:minCount       1 ;
+        sh:maxCount       1 ;
+        sh:datatype  xsd:string ;
+        sh:group     groep:identificationGroup ;
+        sh:order     2.5 ;
+        sh:path      rico:identifier ;
     ] ;
     sh:property [
         rdfs:label   "Titel"@nl, "Title"@en ;

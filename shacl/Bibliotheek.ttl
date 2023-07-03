@@ -564,12 +564,15 @@ bibliotheek:Location
     dash:editor memorix:LocationCoordinatesEditor ;
     sh:class    memorix:GeoCoordinates ;
     memorix:searchWeight 1.0 ;
+    sh:maxCount 1 ;
   ] ;
   sh:property [
-    rdfs:label "Polygons"@nl, "Polygons"@en ;
+    rdfs:label "Polygonen"@nl, "Polygons"@en ;
     sh:path elo:polygon ;
     sh:order 4.0 ;
     sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    dash:editor  dash:TextAreaEditor ;
   ] ;
 
 .
