@@ -512,7 +512,7 @@ object:BgtTopography
       dash:singleLine true ;
     ] ;
   sh:property [
-      rdfs:label "BGT id"@nl, "BGT id"@en  ;
+      rdfs:label "BGT Id"@nl, "BGT Id"@en  ;
       sh:path elo:bgtAdres ;
       sh:order 1.0 ;
       sh:datatype xsd:string ;

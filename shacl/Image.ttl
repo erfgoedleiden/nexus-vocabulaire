@@ -46,7 +46,6 @@ recordtypes:Image
     sh:description "Naam van het digitale bestand."@nl ;
     sh:path dbpo:filename ;
     memorix:inSummaryAt 1.0 ;
-    sh:maxCount 200 ;
     sh:order 2.0 ;
     sh:group image:identificationGroup ;
     sh:datatype xsd:string ;
@@ -57,7 +56,6 @@ recordtypes:Image
     sh:description "Identificatienummer van het object"@nl ;
     sh:path rico:identifier ;
     memorix:inTitleAt 1.0 ;
-    sh:maxCount 100 ;
     sh:order 3.0 ;
     sh:group image:identificationGroup ;
     sh:datatype xsd:string ;
@@ -66,7 +64,6 @@ recordtypes:Image
   sh:property [
     rdfs:label "Documenttype"@nl, "Document type"@en ;
     sh:path rico:hasContentOfType ;
-    sh:maxCount 10 ;
     sh:order 4.0 ;
     sh:group image:identificationGroup ;
     dash:editor memorix:VocabularyEditor ;
@@ -108,7 +105,6 @@ recordtypes:Image
   sh:property [
     rdfs:label "Afgebeelde personen"@nl, "Depicted persons"@en ;
     sh:path foaf:depicts ;
-    sh:maxCount 100 ;
     sh:order 13.0 ;
     sh:nodeKind sh:IRI ;
     sh:group image:contentDescriptionGroup ;
@@ -122,7 +118,6 @@ recordtypes:Image
   sh:property [
     rdfs:label "Trefwoorden"@nl, "Subjects"@en ;
     sh:path schema:keywords ;
-    sh:maxCount 10 ;
     sh:order 14.0 ;
     sh:group image:contentDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
@@ -142,7 +137,6 @@ recordtypes:Image
   ] ;
   sh:property [
     rdfs:label "Afgebeelde locatie"@nl, "Places"@en ;
-    sh:maxCount 10 ;
     # "The location depicted or described in the content. For example, the location in a photograph or painting."
     sh:path schema:contentLocation ;
     sh:order 16.0 ;
@@ -155,7 +149,6 @@ recordtypes:Image
   sh:property [
     rdfs:label "Techniek"@nl, "Technique"@en ;
     sh:path rico:hasProductionTechniqueType ;
-    sh:maxCount 10 ;
     sh:order 17.0 ;
     sh:group image:physicalDescriptionGroup ;
     dash:editor memorix:VocabularyEditor ;
@@ -166,7 +159,6 @@ recordtypes:Image
 
   sh:property [
     rdfs:label "Vervaardigers"@nl, "Creators"@en ;
-    sh:maxCount 10 ;
     sh:path rico:hasCreator ;
     sh:order 18.0 ;
     dash:viewer dash:DetailsEditor ;
@@ -206,7 +198,6 @@ recordtypes:Image
     rdfs:label "Herkomst"@nl, "Aquisition"@en ;
     sh:description "Verwervingsmethode"@nl ;
     sh:path rico:history ;
-    sh:maxCount 10 ;
     sh:order 30.0 ;
     sh:group image:aquisitionGroup ;
     dash:editor memorix:VocabularyEditor ;
@@ -217,7 +208,6 @@ recordtypes:Image
   sh:property [
     rdfs:label "Persoon/Organisatie"@nl, "Person/Organization"@en ;
     sh:path schema:seller ;
-    sh:maxCount 10 ;
     sh:order 31.0 ;
     sh:nodeKind sh:IRI ;
     sh:group image:aquisitionGroup ;
@@ -251,7 +241,6 @@ recordtypes:Image
     rdfs:label "Standplaatsnummer"@nl, "Depot location number"@en ;
     sh:path rico:hasOrHadPhysicalLocation ;
     memorix:inSummaryAt 2.0 ;
-    sh:maxCount 10 ;
     sh:order 40.0 ;
     sh:group image:managementGroup ;
     sh:datatype xsd:string ;
@@ -356,12 +345,27 @@ image:DepictedLocation
       sh:datatype xsd:string ;
   ] ;
   sh:property [
+    rdfs:label "Werkveld locatie"@nl, "Workfield location"@en ;
+    sh:path schema:location ;
+    sh:order 4.0 ;
+    sh:datatype xsd:string ;
+  ] ;
+  sh:property [
     rdfs:label "Coördinaten"@nl, "Coordinates"@en ;
     sh:path schema:geo  ;
-    sh:order 4.0 ;
+    sh:order 5.0 ;
     dash:editor memorix:LocationCoordinatesEditor ;
     sh:class    memorix:GeoCoordinates ;
+    sh:maxCount 1 ;
     memorix:searchWeight 1.0 ;
+  ] ;
+  sh:property [
+    rdfs:label "Polygonen"@nl, "Polygons"@en ;
+    sh:path elo:polygon ;
+    sh:order 6.0 ;
+    sh:datatype xsd:string ;
+    sh:maxCount 1 ;
+    dash:editor  dash:TextAreaEditor ;
   ] ;
 .
 
@@ -395,7 +399,6 @@ image:Creator
   sh:property [
     rdfs:label "Rol"@nl, "Role"@en ;
     sh:path schema:roleName ;
-    sh:maxCount 5 ;
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
