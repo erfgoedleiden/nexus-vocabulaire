@@ -286,7 +286,7 @@ bestanddeel:PhysicalOrLogicalExtent
         sh:path      rico:quantity ;
     ] ;
     sh:property [
-        rdfs:label "Fysieke eenheid"@nl, "Physical unit"@en ;
+        rdfs:label "Fysieke eenheid (oud, vervangen door tekstveld)"@nl, "Physical unit (old, replaced by text field)"@en ;
         sh:maxCount 1 ;
         sh:path rico:hasCarrierType ;
         sh:order 2.0 ;
@@ -294,6 +294,13 @@ bestanddeel:PhysicalOrLogicalExtent
         sh:class skos:Concept ;
         memorix:conceptSchemeIn ( vocabularies:d1eac00a-81d1-3e18-9d0d-2a9d3999d394 ) ;
         sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        rdfs:label "Fysieke eenheid"@nl, "Physical unit"@en ;
+        sh:maxCount 1 ;
+        sh:path elo:fysiekeEenheid ;
+        sh:order 2.5 ;
+        sh:datatype  xsd:string ;
     ] ;
 .
 bestanddeel:Reference

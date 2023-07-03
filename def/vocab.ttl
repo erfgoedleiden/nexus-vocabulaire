@@ -270,6 +270,11 @@ elo:isAudiovisual a rdfs:Property ;
   rdfs:label "Geeft aan of het object of record een audiovisueel object is" ;
 .
 
+elo:fysiekeEenheid a rdfs:Property ;
+  rdfs:subPropertyOf rico:hasCarrierType ;
+  rdfs:label "Geeft aan wat voor type container een record fysiek in zit in het depot" ;
+.
+
 elo:huisnummerVan a rdfs:Property ;
   rdfs:subPropertyOf bag:huisnummer ;
   rdfs:label "Laagste huisnummer in een reeks aaneengesloten huisnummers" ;
