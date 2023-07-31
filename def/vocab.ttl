@@ -139,6 +139,57 @@ elo:datumOvereenkomstRetour a rdfs:Property ;
   rdfs:label "Datum overeenkomst retour" ;
 .
 
+elo:vroegsteBegindatering a rdfs:Property ;
+    rdfs:subPropertyOf rico:hasBeginningDate ;
+    rdfs:label "Vroegste begindatering" ;
+.
+
+elo:laatsteBegindatering a rdfs:Property ;
+    rdfs:subPropertyOf rico:hasBeginningDate ;
+    rdfs:label "Laatste begindatering" ;
+.
+
+elo:vroegsteEinddatering a rdfs:Property ;
+    rdfs:subPropertyOf rico:hasEndDate ;
+    rdfs:label "Vroegste einddatering" ;
+.
+
+elo:laatsteEinddatering a rdfs:Property ;
+    rdfs:subPropertyOf rico:hasEndDate ;
+    rdfs:label "Laatste einddatering" ;
+.
+
+elo:bronVroegsteBegindatering a rdfs:Property ;
+    rdfs:subPropertyOf rico:source ;
+    rdfs:label "Bron vroegste begindatering" ;
+.
+
+elo:bronLaatsteBegindatering a rdfs:Property ;
+    rdfs:subPropertyOf rico:source ;
+    rdfs:label "Bron laatste begindatering" ;
+.
+
+elo:bronVroegsteEinddatering a rdfs:Property ;
+    rdfs:subPropertyOf rico:source ;
+    rdfs:label "Bron vroegste einddatering" ;
+.
+
+elo:bronLaatsteEinddatering a rdfs:Property ;
+    rdfs:subPropertyOf rico:source ;
+    rdfs:label "Bron laatste einddatering" ;
+.
+
+elo:bronBegindatering a rdfs:Property ;
+    rdfs:subPropertyOf rico:source ;
+    rdfs:label "Bron begindatering" ;
+.
+
+elo:bronEinddatering a rdfs:Property ;
+    rdfs:subPropertyOf rico:source ;
+    rdfs:label "Bron einddatering" ;
+.
+
+
 ##################################
 # RiC-O boundary specializations #
 ##################################
@@ -310,6 +361,10 @@ elo:gestandaardiseerdBeroep a rdfs:Property ;
   rdfs:label "Gestandaardiseerd beroep" ;
 .
 
+elo:wijk a rdfs:Property ;
+    rdfs:subPropertyOf schema:addressRegion ;
+    rdfs:label 'Wijk' ;
+.
 elo:wijkNummer a rdfs:Property ;
   rdfs:subPropertyOf schema:addressRegion ;
   rdfs:label 'Wijknummer of Wijk huisnummer' ;
@@ -318,6 +373,11 @@ elo:wijkNummer a rdfs:Property ;
 elo:wijkToevoeging a rdfs:Property ;
   rdfs:subPropertyOf schema:addressRegion ;
   rdfs:label 'Wijk toevoeging' ;
+.
+
+elo:straat a rdfs:Property ;
+         rdfs:subPropertyOf schema:streetAddress ;
+         rdfs:label 'Straat' ;
 .
 
 elo:leeftijd a rdfs:Property ;
@@ -393,4 +453,14 @@ elo:minuut a rdfs:Property ;
 elo:seconde a rdfs:Property ;
   rdfs:subPropertyOf rico:recordResourceExtent ;
   rdfs:label "Seconde" ;
+.
+
+elo:naamsvariant a rdfs:Property ;
+  rdfs:subPropertyOf rico:isRelatedTo ;
+  rdfs:label "Naamsvariant" ;
+.
+
+elo:relatie a rdfs:Property ;
+    rdfs:subPropertyOf rico:isRelatedTo ;
+    rdfs:label "Relatie" ;
 .

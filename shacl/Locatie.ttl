@@ -1,0 +1,204 @@
+@prefix bag:              <http://bag.basisregistraties.overheid.nl/def/bag#> .
+@prefix locatie:          </resources/recordtypes/Locatie#> .
+@prefix dash:             <http://datashapes.org/dash#> .
+@prefix dc:               <http://purl.org/dc/terms/> .
+@prefix dce:              <http://purl.org/dc/elements/1.1/> .
+@prefix elo:              <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
+@prefix html:             <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:          <http://memorix.io/ontology#> .
+@prefix rdf:              <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dbpo:             <http://dbpedia.org/ontology/> .
+@prefix rdfs:             <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:      </resources/recordtypes/> .
+@prefix rico:             <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:           <http://schema.org/> .
+@prefix sh:               <http://www.w3.org/ns/shacl#> .
+@prefix skos:             <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies:     </resources/vocabularies/conceptschemes/> .
+@prefix xsd:              <http://www.w3.org/2001/XMLSchema#> .
+
+locatie:identificationGroup
+    a          sh:PropertyGroup ;
+    rdfs:label "Identificatie"@nl, "Identification"@en ;
+    sh:order   1.0
+.
+
+locatie:geometryGroup
+    rdf:type   sh:PropertyGroup ;
+    rdfs:label "Geometrie"@nl, "Geometry"@en ;
+    sh:order   2.0 .
+
+
+locatie:notesGroup
+    rdf:type   sh:PropertyGroup ;
+    rdfs:label "Opmerkingen"@nl, "Remarks"@en ;
+    sh:order   3.0 .
+
+
+recordtypes:Locatie
+    a                               memorix:Recordtype, sh:NodeShape ;
+    rdfs:label                      "Locatie"@nl, "Location"@en ;
+    sh:description                  "Locatie - Erfgoed Leiden"@nl, "Record type for Locations"@en ;
+    dce:identifier                  "Locatie" ;
+    sh:closed                       true ;
+    sh:ignoredProperties            ( rdf:type ) ;
+    sh:targetClass                  recordtypes:Locatie ;
+    dash:defaultViewForRole         dash:all ;
+    memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
+    sh:property                     [ rdfs:label  "Wijknaam"@nl, "District name"@en ;
+                                      sh:path     elo:wijk ;
+                                      sh:datatype xsd:string ;
+                                      sh:maxCount 1 ;
+                                      sh:order    1.0 ;
+                                      sh:group    locatie:identificationGroup ; ] ;
+    sh:property                     [ rdfs:label  "Wijklink"@nl, "District link"@en ;
+                                      sh:order    2.0 ;
+                                      sh:path     schema:addressRegion ;
+                                      sh:maxCount 1 ;
+                                      sh:nodeKind sh:IRI ;
+                                      sh:or       ( [ sh:class recordtypes:StraatEnWijk ] ) ;
+                                      dash:editor memorix:LinkedRecordEditor ;
+                                      sh:group    locatie:identificationGroup ; ] ;
+    sh:property                     [ rdfs:label        "Straatnaam"@nl, "Street name"@en ;
+                                      sh:path           elo:straat ;
+                                      memorix:inTitleAt 3.0 ;
+                                      sh:datatype       xsd:string ;
+                                      sh:maxCount       1 ;
+                                      sh:order          3.0 ;
+                                      sh:group          locatie:identificationGroup ; ] ;
+    sh:property                     [ rdfs:label  "Straatlink"@nl, "Street link"@en ;
+                                      sh:order    4.0 ;
+                                      sh:path     schema:streetAddress ;
+                                      sh:nodeKind sh:IRI ;
+                                      sh:maxCount 1 ;
+                                      sh:or       ( [ sh:class recordtypes:StraatEnWijk ] ) ;
+                                      dash:editor memorix:LinkedRecordEditor ;
+                                      sh:group    locatie:identificationGroup ; ] ;
+    sh:property                     [ rdfs:label        "Nummer"@nl, "Number"@en ;
+                                      memorix:inTitleAt 4.0 ;
+                                      sh:path           bag:huisnummer ;
+                                      sh:maxCount       1 ;
+                                      sh:order          5.0 ;
+                                      sh:group          locatie:identificationGroup ;
+                                      sh:datatype       xsd:integer ; ] ;
+    sh:property                     [ rdfs:label        "Nummer toevoeging"@nl, "Number suffix"@en ;
+                                      memorix:inTitleAt 5.0 ;
+                                      sh:path           bag:huisnummertoevoeging ;
+                                      sh:maxCount       1 ;
+                                      sh:order          6.0 ;
+                                      sh:group          locatie:identificationGroup ;
+                                      sh:datatype       xsd:string ; ] ;
+    sh:property                     [ rdfs:label        "Naam locatie"@nl, "Location name"@en ;
+                                      memorix:inTitleAt 1.0 ;
+                                      sh:path           rico:hasOrHadName ; ;
+                                      sh:order          7.0 ;
+                                      sh:group          locatie:identificationGroup ;
+                                      sh:datatype       xsd:string ; ] ;
+    sh:property                     [ rdfs:label        "Plaats"@nl, "City"@en ;
+                                      sh:maxCount       1 ;
+                                      memorix:inTitleAt 6.0 ;
+                                      sh:path           schema:addressLocality ;
+                                      sh:datatype       xsd:string ;
+                                      sh:group          locatie:identificationGroup ;
+                                      sh:order          8.0 ; ] ;
+    sh:property                     [ rdfs:label          "Locatiepunt"@nl, "Locationpoint"@en ;
+                                      sh:order            9.0 ;
+                                      memorix:inSummaryAt 1.0 ;
+                                      sh:path             schema:contentLocation ;
+                                      sh:nodeKind         sh:IRI ;
+                                      sh:maxCount         1 ;
+                                      sh:minCount         1 ;
+                                      sh:or               ( [ sh:class recordtypes:LocatiePunt ] ) ;
+                                      dash:editor         memorix:LinkedRecordEditor ;
+                                      sh:group            locatie:identificationGroup ; ] ;
+    sh:property                     [ rdfs:label  "Datering"@nl ;
+                                      sh:maxCount 1 ;
+                                      sh:path     rico:isAssociatedWithDate ;
+                                      sh:order    10.0 ;
+                                      dash:viewer dash:DetailsEditor ;
+                                      sh:nodeKind sh:BlankNode ;
+                                      sh:class    rico:DateRange ;
+                                      sh:group    locatie:identificationGroup ; ] ;
+    sh:property                     [ rdfs:label  "Geometrie"@nl ;
+                                      sh:path     dbpo:shape ;
+                                      sh:order    11.0 ;
+                                      dash:viewer dash:DetailsEditor ;
+                                      sh:nodeKind sh:BlankNode ;
+                                      sh:class    locatie:Geometry ;
+                                      sh:group    locatie:geometryGroup ; ] ;
+    sh:property                     [ rdfs:label  "Interne opmerkingen"@nl, "Internal remarks"@en ;
+                                      dash:editor dash:TextAreaEditor ;
+                                      sh:path     rico:descriptiveNote ;
+                                      sh:datatype xsd:string ;
+                                      sh:maxCount 1 ;
+                                      sh:order    12.0 ;
+                                      sh:group    locatie:notesGroup ; ] ;
+.
+
+rico:DateRange
+    rdf:type             sh:NodeShape ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property          [ rdfs:label  "Vroegste begindatering"@nl, "Earliest start date"@en ;
+                           sh:maxCount 1 ;
+                           sh:datatype xsd:date ;
+                           sh:path     elo:vroegsteBegindatering ;
+                           sh:order    1.0 ; ] ;
+    sh:property          [ rdfs:label  "Bron vroegste begindatering"@nl, "Source earliest starting date"@en ;
+                           sh:maxCount 1 ;
+                           sh:datatype xsd:string ;
+                           sh:path     elo:bronVroegsteBegindatering ;
+                           sh:order    2.0 ; ] ;
+    sh:property          [ rdfs:label  "Laatste begindatering"@nl, "Latest start date"@en ;
+                           sh:maxCount 1 ;
+                           sh:datatype xsd:date ;
+                           sh:path     elo:laatsteBegindatering ;
+                           sh:order    3.0 ; ] ;
+    sh:property          [ rdfs:label  "Bron laatste begindatering"@nl, "Source latest starting date"@en ;
+                           sh:maxCount 1 ;
+                           sh:datatype xsd:string ;
+                           sh:path     elo:bronLaatsteBegindatering ;
+                           sh:order    4.0 ; ] ;
+    sh:property          [ rdfs:label  "Vroegste einddatering"@nl, "Earliest end date"@en ;
+                           sh:maxCount 1 ;
+                           sh:datatype xsd:date ;
+                           sh:path     elo:vroegsteEinddatering ;
+                           sh:order    5.0 ; ] ;
+    sh:property          [ rdfs:label  "Bron vroegste einddatering"@nl, "Source earliest end date"@en ;
+                           sh:maxCount 1 ;
+                           sh:datatype xsd:string ;
+                           sh:path     elo:bronVroegsteEinddatering ;
+                           sh:order    6.0 ; ] ;
+    sh:property          [ rdfs:label  "Laatste einddatering"@nl, "Latest end date"@en ;
+                           sh:maxCount 1 ;
+                           sh:datatype xsd:date ;
+                           sh:path     elo:laatsteEinddatering ;
+                           sh:order    7.0 ; ] ;
+    sh:property          [ rdfs:label  "Bron laatste einddatering"@nl, "Source latest end date"@en ;
+                           sh:maxCount 1 ;
+                           sh:datatype xsd:string ;
+                           sh:path     elo:bronLaatsteEinddatering ;
+                           sh:order    8.0 ; ] ;
+    sh:targetClass       rico:DateRange ;
+.
+
+locatie:Geometry
+    rdf:type             sh:NodeShape ;
+    sh:closed            true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property          [ rdfs:label     "order"@en ;
+                           memorix:hidden true ;
+                           sh:description "This field is required for persistent order of group items" ;
+                           sh:path        memorix:order ;
+                           sh:order       0.0 ;
+                           sh:datatype    xsd:integer ;
+                           sh:minCount    1 ;
+                           sh:maxCount    1 ; ] ;
+    sh:property          [ rdfs:label  "Geometrie"@nl, "Geometry"@en ;
+                           sh:maxCount 1 ;
+                           sh:datatype xsd:string ;
+                           sh:path     dbpo:shape ;
+                           dash:editor dash:TextAreaEditor ;
+                           sh:order    1.0 ; ] ;
+    sh:targetClass       locatie:Geometry ;
+.

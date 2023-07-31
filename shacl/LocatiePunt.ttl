@@ -1,0 +1,75 @@
+@prefix locatiePunt:     </resources/recordtypes/LocatiePunt#> .
+@prefix dash:            <http://datashapes.org/dash#> .
+@prefix dc:              <http://purl.org/dc/terms/> .
+@prefix dce:             <http://purl.org/dc/elements/1.1/> .
+@prefix elo:             <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
+@prefix geo:             <http://www.opengis.net/ont/geosparql#> .
+@prefix html:            <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:         <http://memorix.io/ontology#> .
+@prefix rdf:             <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:            <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:     </resources/recordtypes/> .
+@prefix rico:            <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:          <http://schema.org/> .
+@prefix sh:              <http://www.w3.org/ns/shacl#> .
+@prefix skos:            <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies:    </resources/vocabularies/conceptschemes/> .
+@prefix xsd:             <http://www.w3.org/2001/XMLSchema#> .
+
+
+locatiePunt:identificationGroup
+    a          sh:PropertyGroup ;
+    rdfs:label "Identificatie"@nl, "Identification"@en ;
+    sh:order   1.0
+.
+
+locatiePunt:geometryGroup
+    rdf:type   sh:PropertyGroup ;
+    rdfs:label "Geometrie"@nl, "Geometry"@en ;
+    sh:order   2.0 .
+
+
+locatiePunt:notesGroup
+    rdf:type   sh:PropertyGroup ;
+    rdfs:label "Opmerkingen"@nl, "Remarks"@en ;
+    sh:order   3.0 .
+
+
+recordtypes:LocatiePunt
+    a                       memorix:Recordtype, sh:NodeShape ;
+    rdfs:label              "LocatiePunt"@nl, "Location point"@en ;
+    sh:description          "LocatiePunt - Erfgoed Leiden"@nl, "Record type for Location points"@en ;
+    dce:identifier          "LocatiePunt" ;
+    sh:closed               true ;
+    sh:ignoredProperties    ( rdf:type ) ;
+    sh:targetClass          recordtypes:LocatiePunt ;
+    dash:defaultViewForRole dash:all ;
+    sh:property             [ rdfs:label        "LocatiepuntID"@nl, "Identifier"@en ;
+                              sh:path           rico:hasOrHadIdentifier ;
+                              memorix:inTitleAt 1.0 ;
+                              sh:order          1.0 ;
+                              sh:maxCount       1 ;
+                              sh:group          locatiePunt:identificationGroup ;
+                              sh:datatype       xsd:string ; ] ;
+    sh:property             [ rdfs:label  "BAG"@nl, "BAG"@en ;
+                              sh:path     rico:isFunctionallyEquivalentTo ;
+                              sh:order    2.0 ;
+                              sh:group    locatiePunt:identificationGroup ;
+                              sh:datatype xsd:string ;
+                                #TODO Needs to be link to BAG
+                            ] ;
+    sh:property             [ rdfs:label        "Geometrie"@nl, "Geometry"@en ;
+                              sh:path           geo:asWKT ;
+                              memorix:inTitleAt 2.0 ;
+                              sh:minCount       1 ;
+                              sh:order          3.0 ;
+                              sh:group          locatiePunt:geometryGroup ;
+                              sh:datatype       xsd:string ; ] ;
+    sh:property             [ rdfs:label  "Interne opmerkingen"@nl, "Internal remarks"@en ;
+                              dash:editor dash:TextAreaEditor ;
+                              sh:path     rico:descriptiveNote ;
+                              sh:datatype xsd:string ;
+                              sh:maxCount 1 ;
+                              sh:order    4.0 ;
+                              sh:group    locatiePunt:notesGroup ; ] ;
+.

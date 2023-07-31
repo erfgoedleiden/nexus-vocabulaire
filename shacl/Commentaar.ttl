@@ -1,0 +1,113 @@
+@prefix commentaar:     </resources/recordtypes/Commentaar#> .
+@prefix dash:         <http://datashapes.org/dash#> .
+@prefix dc:           <http://purl.org/dc/terms/> .
+@prefix dce:          <http://purl.org/dc/elements/1.1/> .
+@prefix elo:          <http://erfgoedleiden.github.io/nexus-vocabulaire/def/vocab#> .
+@prefix html:         <http://www.w3.org/1999/xhtml/> .
+@prefix memorix:      <http://memorix.io/ontology#> .
+@prefix rdf:          <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix recordtypes:  </resources/recordtypes/> .
+@prefix rico:         <https://www.ica.org/standards/RiC/ontology#> .
+@prefix schema:       <http://schema.org/> .
+@prefix sh:           <http://www.w3.org/ns/shacl#> .
+@prefix skos:         <http://www.w3.org/2004/02/skos/core#> .
+@prefix vocabularies: </resources/vocabularies/conceptschemes/> .
+@prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
+
+commentaar:identificationGroup a sh:PropertyGroup ;
+    rdfs:label "Identificatie"@nl, "Identification"@en ;
+    sh:order 1.0
+.
+commentaar:managementGroup
+    rdf:type   sh:PropertyGroup ;
+    rdfs:label "Beheer"@nl, "Management"@en ;
+    sh:order 2.0 .
+
+recordtypes:Commentaar
+    a memorix:Recordtype, sh:NodeShape ;
+    rdfs:label "Commentaar"@nl, "Comment"@en ;
+    sh:description "Commentaar - Erfgoed Leiden"@nl, "Record type for Comments"@en ;
+    dce:identifier "Commentaar" ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass recordtypes:Commentaar ;
+    dash:defaultViewForRole dash:all ;
+    rdfs:subClassOf                 rico:RecordSet ;
+    memorix:hasInformationComponent [ rdf:type memorix:DigitalAssetComponent ] ;
+    sh:property [
+        rdfs:label   "Record"@nl, "Record"@en ;
+        sh:description "Kies hier het record waar het commentaar bij hoort"@nl ;
+        sh:order     1.0 ;
+        sh:group    commentaar:identificationGroup ;
+        sh:maxCount 1 ;
+        sh:path      rico:isOrWasPartOf ;
+        memorix:inSummaryAt 1.0 ;
+        sh:nodeKind sh:IRI ;
+        sh:or (
+            [ sh:class recordtypes:Av ]
+            [ sh:class recordtypes:Bestanddeel ]
+            [ sh:class recordtypes:Bibliotheek ]
+            [ sh:class recordtypes:BlaeuAtlas ]
+            [ sh:class recordtypes:BlaeuAtlasPagina ]
+            [ sh:class recordtypes:DanielvdMeulen ]
+            [ sh:class recordtypes:Document ]
+            [ sh:class recordtypes:HeiligeGeestWeeshuis ]
+            [ sh:class recordtypes:Image ]
+            [ sh:class recordtypes:Koorboek ]
+            [ sh:class recordtypes:KoorboekPagina ]
+            [ sh:class recordtypes:LeFranqVanBerkhey ]
+            [ sh:class recordtypes:Object ]
+            [ sh:class recordtypes:Woii ]
+        ) ;
+        dash:editor memorix:LinkedRecordEditor ;
+    ] ;
+
+    sh:property [
+        rdfs:label  "Datum reactie"@nl, "Reaction date"@en ;
+        sh:path     dc:date ;
+        sh:order    2.0 ;
+        memorix:inTitleAt 1.0 ;
+        sh:group    commentaar:identificationGroup ;
+        sh:maxCount 1 ;
+        sh:datatype xsd:date ;
+    ] ;
+
+    sh:property [
+        rdfs:label "Commentaar"@nl, "Comment"@en ;
+        sh:maxCount 1 ;
+        sh:path dc:description ;
+        sh:order 3.0 ;
+        sh:group commentaar:identificationGroup ;
+        sh:datatype xsd:string ;
+        dash:editor  dash:TextAreaEditor ;
+    ] ;
+    sh:property [
+        rdfs:label "Status"@nl, "Status"@en ;
+        sh:path rico:hasRecordState ;
+        sh:maxCount 1 ;
+        memorix:inTitleAt 2.0 ;
+        sh:order 4.0 ;
+        sh:group commentaar:managementGroup ;
+        dash:editor dash:EnumSelectEditor ;
+        sh:class skos:Concept ;
+        memorix:conceptSchemeIn ( vocabularies:a974fc39-c1c3-495f-ac90-edeb43afcae2 ) ;
+        sh:nodeKind sh:IRI ;
+    ] ;
+    sh:property [
+        rdfs:label "Naam"@nl, "Name"@en ;
+        sh:path rico:name ;
+        sh:maxCount 1 ;
+        sh:order 5.0 ;
+        sh:group commentaar:managementGroup ;
+        sh:datatype xsd:string ;
+    ] ;
+    sh:property [
+        rdfs:label "E-mail"@nl, "E-mail"@en ;
+        sh:path schema:email ;
+        sh:datatype xsd:string;
+        sh:maxCount 1 ;
+        sh:group commentaar:managementGroup ;
+        sh:order 6.0 ;
+    ] ;
+.
