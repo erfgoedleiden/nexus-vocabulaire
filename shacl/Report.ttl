@@ -121,6 +121,7 @@ recordtypes:Report
     ] ;
     sh:property [
         rdfs:label "Soort object"@nl, "Object type"@en ;
+        sh:description "Vermeld hier wat het object is (bijv. boek; prent; tekening; affiche; document; charter etc.)"@nl ;
         sh:path rico:hasContentOfType ;
         sh:order 6.0 ;
         sh:group report:descriptionGroup ;
@@ -131,6 +132,7 @@ recordtypes:Report
     ] ;
     sh:property [
         rdfs:label "Materiaal"@nl, "Material of carrier"@en ;
+        sh:description "Vermeld hier waar het object uit bestaat, kan meerdere materialen betreffen (bijv. papier; inkt; aquarelverf; karton; leer; perkament etc.)."@nl ;
         sh:path rico:hasCarrierType ;
         sh:order 7.0 ;
         sh:group report:descriptionGroup ;
@@ -142,6 +144,7 @@ recordtypes:Report
 
     sh:property [
         rdfs:label "Techniek/procedé"@nl, "Technique/process"@en ;
+        sh:description "Vermeld hier hoe het object gemaakt is (bijv. gedrukt; pentekening; aquarel; olieverf; lichtdruk etc.) of in het geval van een boek de bindwijze (bijv. spitselband; bandzetter; gekartonneerd etc.)."@nl ;
         sh:path report:technique ;
         sh:order 7.5 ;
         sh:group report:descriptionGroup ;
@@ -163,9 +166,10 @@ recordtypes:Report
 
     sh:property [
         rdfs:label              "Conditie primaire drager"@nl, "Condition Primary carrier"@en ;
+        sh:description          "Hier wordt de conditie beschreven van het basis materiaal waaruit het object bestaat (bijv. papier; leer; perkament; karton etc.). Meerdere trefwoorden zijn mogelijk."@nl ;
         sh:message              "Kies een term uit de keuzelijst."@nl, "Please choose from the list."@en ;
         dash:editor             memorix:VocabularyEditor ;
-        memorix:conceptSchemeIn ( vocabularies:56602ae3-d846-339f-b177-091c0084e35f ) ;
+        memorix:conceptSchemeIn ( vocabularies:95cc51c2-b9bb-476f-a9f9-b3f9208bff2d ) ;
         sh:class                skos:Concept ;
         sh:nodeKind             sh:IRI ;
         sh:order                1.0 ;
@@ -174,9 +178,10 @@ recordtypes:Report
     ] ;
     sh:property [
         rdfs:label              "Conditie medium"@nl, "Condition Medium"@en ;
+        sh:description          "Hier wordt de conditie beschreven van het gebruikte schrijf/teken/schilder materiaal (inkt;verf;pen;potlood etc.). Meerdere trefwoorden zijn mogelijk."@nl ;
         sh:message              "Kies een term uit de keuzelijst."@nl, "Please choose from the list."@en ;
         dash:editor             memorix:VocabularyEditor ;
-        memorix:conceptSchemeIn ( vocabularies:56602ae3-d846-339f-b177-091c0084e35f ) ;
+        memorix:conceptSchemeIn ( vocabularies:95cc51c2-b9bb-476f-a9f9-b3f9208bff2d ) ;
         sh:class                skos:Concept ;
         sh:nodeKind             sh:IRI ;
         sh:order                2.0 ;
@@ -185,9 +190,10 @@ recordtypes:Report
     ] ;
     sh:property [
         rdfs:label              "Conditie toevoeging"@nl, "Condition addition"@en ;
+        sh:description          "Hier wordt de conditie van een toevoeging aan het object beschreven, welke niet oorspronkelijk bij het object hoort, maar er wel aan toegevoegd is (bijv: passe-partout; plakband; andersoortige oude reparatie; verpakking etc.). Meerdere trefwoorden zijn mogelijk."@nl ;
         sh:message              "Kies een term uit de keuzelijst."@nl, "Please choose from the list."@en ;
         dash:editor             memorix:VocabularyEditor ;
-        memorix:conceptSchemeIn ( vocabularies:56602ae3-d846-339f-b177-091c0084e35f ) ;
+        memorix:conceptSchemeIn ( vocabularies:95cc51c2-b9bb-476f-a9f9-b3f9208bff2d ) ;
         sh:class                skos:Concept ;
         sh:nodeKind             sh:IRI ;
         sh:order                3.0 ;
@@ -195,7 +201,8 @@ recordtypes:Report
         sh:group                report:conditionGroup;
     ] ;
     sh:property [
-        rdfs:label              "Conditie toevoeging"@nl, "Condition addition"@en ;
+        rdfs:label              "Conditie beschrijving"@nl, "Condition description"@en ;
+        sh:description          "In dit veld kan vrij beschreven worden wat de conditie is van het object."@nl ;
         sh:message              "Kies een term uit de keuzelijst."@nl, "Please choose from the list."@en ;
         dash:editor             dash:TextAreaEditor ;
         sh:datatype             xsd:string ;
@@ -205,18 +212,6 @@ recordtypes:Report
         sh:group                report:conditionGroup;
     ] ;
 
-    sh:property [
-                    rdfs:label  "Azijnzuurgas (A-D strips)"@nl, "Acidity (A-D strips)"@en ;
-                    html:placeholder  "0,1,2,3 of 4"@nl, "0,1,2,3 or 4"@en ;
-                    sh:datatype xsd:integer ;
-                    sh:group    report:investigationGroup ;
-                    sh:order    1.0 ;
-                    sh:maxCount 1 ;
-                    sh:minInclusive 0 ;
-                    sh:maxInclusive 4 ;
-                    sh:message  "Zuurgraad moet liggen tussen 0 en 4"@nl, "Acidity must be between 0 and 4"@en ;
-                    sh:path     report:acidity
-                ] ;
     sh:property [
                     rdfs:label  "Uitgevoerde tests"@nl, "Carried out tests"@en ;
                     sh:path     report:hasCarriedOutTests ;
@@ -228,6 +223,7 @@ recordtypes:Report
                 ] ;
     sh:property [
                     rdfs:label  "Vooronderzoek overig"@nl, "Other preliminary results"@en ;
+                    sh:description    "Beschrijf hier overig onderzoek aan het object voordat tot restauratie is overgegaan."@nl ;
                     dash:editor dash:TextAreaEditor ;
                     sh:datatype xsd:string ;
                     sh:group    report:investigationGroup ;
@@ -262,6 +258,7 @@ report:Treatments
     sh:targetClass       report:Treatments ;
     sh:property [
         rdfs:label "Schade"@nl, "Damage"@en ;
+        sh:description    "Vermeld hier schadesoort van het bovengenoemde onderdeel (meerdere trefwoorden mogelijk per onderdeel)."@nl ;
         sh:path rico:qualityOfRepresentation ;
         sh:order 1.0 ;
         sh:group report:treatmentGroup ;
@@ -273,6 +270,7 @@ report:Treatments
 
     sh:property [
         rdfs:label "Onderdeel"@nl, "Part of"@en ;
+        sh:description    "Vermeld hier welk onderdeel van het object schade heeft (bij meerdere beschadigde onderdelen, één onderdeel vermelden, later het hele blok herhalen met volgende onderdeel)."@nl ;
         sh:path schema:hasPart ;
         sh:order 0.5 ;
         dash:editor memorix:VocabularyEditor ;
@@ -282,6 +280,7 @@ report:Treatments
     ] ;
     sh:property [
         rdfs:label "Behandeling"@nl, "Treatment"@en ;
+        sh:description    "Vermeld hier de gebruikte behandeling van bovengenoemde schadesoort (meerdere trefwoorden mogelijk per schadesoort)."@nl ;
         sh:path dc:description ;
         sh:order 2.0 ;
         dash:editor memorix:VocabularyEditor ;
@@ -291,6 +290,7 @@ report:Treatments
     ] ;
     sh:property [
         rdfs:label "Materiaal/middel"@nl, "Treated with"@en ;
+        sh:description    "Vermeld hier de gebruikte materialen/middelen bij het behandelen van bovengenoemde schadesoort (meerderde trefwoorden mogelijk per behandeling)."@nl ;
         sh:path rico:hasCarrierType ;
         sh:order 3.0 ;
         dash:editor memorix:VocabularyEditor ;
@@ -301,7 +301,7 @@ report:Treatments
     sh:property [
         sh:maxCount 1 ;
         rdfs:label "Opmerkingen behandeling"@nl,  "Treatment remarks"@en ;
-        sh:description "Vermeld hier hoe de behandelingen verliepen, indien het anders was dan verwacht."@nl ;
+        sh:description "Vermeld hier hoe de behandelingen verliepen indien het anders was dan verwacht."@nl ;
         sh:path rico:descriptiveNote ;
         sh:order 4.0 ;
         sh:datatype xsd:string ;
@@ -348,6 +348,7 @@ report:CarriedOutTests
     sh:closed            true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property          [ rdfs:label              "Soort test"@nl, "Type of test"@en ;
+                           sh:description          "Vermeld hier welke test gebruikt is om vooronderzoek te verrichten."@nl ;
                            dash:editor             memorix:VocabularyEditor ;
                            memorix:conceptSchemeIn vocabularies:48362e7f-7995-4144-a726-3ad014fd77fc ;
                            sh:class                skos:Concept ;
@@ -357,6 +358,7 @@ report:CarriedOutTests
                            sh:path                 report:typeOfTest
                          ] ;
     sh:property          [ rdfs:label  "Uitslag"@nl, "Result"@en ;
+                           sh:description    "Vermeld hier de uitslag van de gebruikte test."@nl ;
                            html:placeholder  "positief/negatief"@nl ;
                            sh:datatype xsd:string ;
                            sh:maxCount 1 ;
