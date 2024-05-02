@@ -393,7 +393,7 @@ bestanddeel:HistoricalAddress
         rdfs:label "Huisnummer tot"@nl, "House number to"@en  ;
         sh:maxCount 1 ;
         sh:path elo:huisnummerTot ;
-        sh:order 3.0 ;
+        sh:order 4.0 ;
         sh:datatype xsd:string ;
     ] ;
 .
