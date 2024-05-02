@@ -174,6 +174,17 @@ recordtypes:Report
         sh:class report:ConditionDescription ;
         sh:group report:conditionGroup ;
      ] ;
+    sh:property [
+        rdfs:label              "Opmerkingen conditie/schade"@nl, "Condition/damage remarks"@en ;
+        sh:description          "Hier kunnen opmerkingen m.b.t. de algehele conditie/ schade worden beschreven, welke niet in de bovenstaande velden kunnen worden beschreven."@nl ;
+        dash:editor             dash:TextAreaEditor ;
+        sh:datatype             xsd:string ;
+        sh:maxCount             1 ;
+        sh:order                2.0 ;
+        sh:path                 report:remarksDamage ;
+        sh:group                report:conditionGroup ;
+    ] ;
+
 
     
 
@@ -334,58 +345,48 @@ report:CarriedOutTests
 .
 
 report:ConditionDescription
-  a sh:NodeShape ;
+  rdf:type sh:NodeShape ;
   sh:closed true ;
   sh:ignoredProperties ( rdf:type ) ;
   sh:targetClass report:ConditionDescription ;
+  rdfs:label           "Conditie beschrijving"@nl, "Condition description"@en ;
   sh:property          [
-    rdfs:label  "order"@en ;
-    memorix:hidden true ;
-    sh:description "This field is required for persistent order of group items" ;
-    sh:path     memorix:order ;
-    sh:order    0.0 ;
-    sh:datatype xsd:integer ;
-    sh:minCount 1 ;
-    sh:maxCount 1 ;
+    rdfs:label                  "order"@en ;
+    memorix:hidden              true ;
+    sh:description              "This field is required for persistent order of group items" ;
+    sh:path                     memorix:order ;
+    sh:order                    0.0 ;
+    sh:datatype                 xsd:integer ;
+    sh:minCount                 1 ;
+    sh:maxCount                 1 ;
   ] ;
-//  sh:property [
-    rdfs:label "Plaats"@nl, "City"@en ;
-    sh:path schema:addressLocality ;
-    sh:maxCount 1 ;
-    sh:order 1.0 ;
-    dash:editor memorix:VocabularyEditor ;
-    sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:24214165-73ab-48ff-b399-550f232d4b3b ) ;
-    sh:nodeKind sh:IRI ;
-  ] ;  
-
-sh:property [
+  sh:property [
         rdfs:label              "Onderdeel"@nl, "Part"@en ;
-//        sh:description          "Hier wordt de conditie beschreven van het basis materiaal waaruit het object bestaat (bijv. papier; leer; perkament; karton etc.). Meerdere trefwoorden zijn mogelijk."@nl ;
+        sh:description          "Hier wordt aangegeven welk onderdeel van het object schade heeft."@nl ;
         sh:message              "Kies een term uit de keuzelijst."@nl, "Please choose from the list."@en ;
         dash:editor             memorix:VocabularyEditor ;
         memorix:conceptSchemeIn ( vocabularies:cd3fb389-dc25-4c02-b2a9-289d24003951 ) ;
-//        sh:class                skos:Concept ;
-//        sh:nodeKind             sh:IRI ;
+        sh:class                skos:Concept ;
+        sh:nodeKind             sh:IRI ;
         sh:maxCount             1 ;
         sh:order                1.0 ;
         sh:path                 report:part ;
     ] ;
-//    sh:property [
+    sh:property [
         rdfs:label              "Materiaal"@nl, "Material"@en ;
-        sh:description          "Hier wordt de conditie beschreven van het gebruikte schrijf/teken/schilder materiaal (inkt;verf;pen;potlood etc.). Meerdere trefwoorden zijn mogelijk."@nl ;
+        sh:description          "Hier wordt aangegeven uit welk materiaal het beschadigde onderdeel bestaat, meer keuzes zijn mogelijk."@nl ;
         sh:message              "Kies een term uit de keuzelijst."@nl, "Please choose from the list."@en ;
         dash:editor             memorix:VocabularyEditor ;
-        memorix:conceptSchemeIn ( vocabularies:95cc51c2-b9bb-476f-a9f9-b3f9208bff2d ) ;
+        memorix:conceptSchemeIn ( vocabularies:c8a2465a-f786-48f2-8413-31d3e57a2f93 ) ;
         sh:class                skos:Concept ;
         sh:nodeKind             sh:IRI ;
-        sh:maxCount             1 ;
+        sh:maxCount             10 ;
         sh:order                2.0 ;
         sh:path                 report:material ;
     ] ;
-//    sh:property [
+    sh:property [
         rdfs:label              "Schade"@nl, "Damage"@en ;
-        sh:description          "Hier wordt de conditie van een toevoeging aan het object beschreven, welke niet oorspronkelijk bij het object hoort, maar er wel aan toegevoegd is (bijv: passe-partout; plakband; andersoortige oude reparatie; verpakking etc.). Meerdere trefwoorden zijn mogelijk."@nl ;
+        sh:description          "Hier wordt aangegeven om wat voor soort schade het gaat bij dit onderdeel van het object."@nl ;
         sh:message              "Kies een term uit de keuzelijst."@nl, "Please choose from the list."@en ;
         dash:editor             memorix:VocabularyEditor ;
         memorix:conceptSchemeIn ( vocabularies:95cc51c2-b9bb-476f-a9f9-b3f9208bff2d ) ;
@@ -395,9 +396,9 @@ sh:property [
         sh:order                3.0 ;
         sh:path                 report:damage ;
     ] ;
-//    sh:property [
-        rdfs:label              "Omschrijving conditie/schade"@nl, "Condition/damage description"@en ;
-        sh:description          "In dit veld kan vrij beschreven worden wat de conditie is van het object."@nl ;
+    sh:property [
+        rdfs:label              "Toelichting"@nl, "Clarification"@en ;
+        sh:description          "Hier kan de schade nader worden gespecificeerd"@nl ;
         dash:editor             dash:TextAreaEditor ;
         sh:datatype             xsd:string ;
         sh:maxCount             1 ;
