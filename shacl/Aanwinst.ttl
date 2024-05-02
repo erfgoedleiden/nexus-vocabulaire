@@ -110,10 +110,39 @@ recordtypes:Aanwinst
         sh:group aanwinst:descriptionGroup ;
     ] ;
     sh:property [
+        sh:maxCount 1 ;
+        rdfs:label   "Omvang (GB)"@nl, "Extent (GB)"@en ;
+        sh:description "Alleen invullen indien digitale dragers aanwezig"@nl ;
+        sh:datatype  xsd:decimal ;
+        sh:order     6.0 ;
+        sh:path      elo:recordDigitalResourceExtent ;
+        sh:group aanwinst:descriptionGroup ;
+    ] ;
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label "Digitale drager(s)"@nl, "Digital medium(s)"@en ;
+        sh:description "Alleen invullen indien digitale dragers aanwezig"@nl ;
+        sh:path elo:digitalMedium ;
+        sh:order 6.5 ;
+        sh:group aanwinst:identificationGroup ;
+        sh:datatype xsd:string ;
+        dash:editor  dash:TextAreaEditor ;
+    ] ;
+    sh:property [
+        sh:maxCount 1 ;
+        rdfs:label "Registratienummer e-depot"@nl, "Registration number e-depot"@en ;
+        sh:description "Alleen invullen indien digitale archieven aanwezig"@nl ;
+        sh:path elo:edepotRegistration ;
+        sh:order 6.7 ;
+        sh:group aanwinst:identificationGroup ;
+        sh:datatype xsd:string ;
+        dash:editor  dash:TextAreaEditor ;
+    ] ;
+    sh:property [
         rdfs:label "Datering van archief"@nl, "Date of fonds"@en ;
         sh:maxCount 1 ;
         sh:path rico:isAssociatedWithDate ;
-        sh:order 6.0 ;
+        sh:order 7.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
         sh:class rico:DateRange ;
@@ -123,7 +152,7 @@ recordtypes:Aanwinst
         rdfs:label "Contact"@nl, "Contact"@en ;
         sh:maxCount 1 ;
         sh:path schema:contactPoint ;
-        sh:order 7.0 ;
+        sh:order 8.0 ;
         dash:viewer dash:DetailsEditor ;
         sh:nodeKind sh:BlankNode ;
         sh:class aanwinst:Contact ;
@@ -132,7 +161,7 @@ recordtypes:Aanwinst
     sh:property [
         sh:maxCount 1 ;
         rdfs:label   "Particulier"@nl, "Private"@en ;
-        sh:order     8.0 ;
+        sh:order     9.0 ;
         sh:path      elo:particulier ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:viewer dash:DetailsEditor ;
@@ -142,7 +171,7 @@ recordtypes:Aanwinst
     sh:property [
         sh:maxCount 1 ;
         rdfs:label   "Overheid"@nl, "Government"@en ;
-        sh:order     9.0 ;
+        sh:order     10.0 ;
         sh:path      elo:overheid ;
         sh:group     aanwinst:acquisitionGroup ;
         dash:viewer dash:DetailsEditor ;
