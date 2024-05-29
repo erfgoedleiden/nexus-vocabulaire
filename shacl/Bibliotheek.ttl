@@ -397,7 +397,7 @@ recordtypes:Bibliotheek
     rdfs:label "Op studiezaal"@nl, "In study room"@en ;
     sh:path schema:publicAccess ;
     sh:maxCount 1 ;
-    sh:order 34.0 ;
+    sh:order 33.5 ;
     sh:group bibliotheek:managementGroup ;
     sh:datatype xsd:boolean ;
   ] ;
