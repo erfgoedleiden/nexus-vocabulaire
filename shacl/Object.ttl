@@ -62,6 +62,30 @@ recordtypes:Object
       sh:datatype xsd:string ;
     ] ;
   sh:property [
+      rdfs:label "Type"@nl, "Type"@en ;
+      sh:description "Typering van de fysieke verschijningsvorm van het object"@nl ;
+      sh:path rico:hasOrHadPlaceType ;
+      sh:maxCount 1 ;
+      sh:order 2.3 ;
+      sh:group object:basicDataGroup ;
+      dash:editor memorix:VocabularyEditor ;
+      sh:class skos:Concept ;
+      memorix:conceptSchemeIn ( vocabularies:d55b9f82-3d5a-381e-89a5-03f330323bde ) ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
+      rdfs:label "Oorspronkelijke functie"@nl, "Original function"@en ;
+      sh:description "Functie(s) die leidend zijn geweest in het ontwerp van het object"@nl ;
+      sh:path schema:roleName ;
+      sh:maxCount 1 ;
+      sh:order 2.7 ;
+      sh:group object:basicDataGroup ;
+      dash:editor memorix:VocabularyEditor ;
+      sh:class skos:Concept ;
+      memorix:conceptSchemeIn ( vocabularies:64138f75-6476-3369-8e40-57bcc80cbfdb ) ;
+      sh:nodeKind sh:IRI ;
+    ] ;
+  sh:property [
       rdfs:label "Objectnaam"@nl, "Name"@en ;
       sh:path rico:title ;
       sh:maxCount 1 ;
@@ -189,30 +213,7 @@ recordtypes:Object
       sh:class object:ZoningPlan ;
       sh:group object:procedureDataGroup ;
     ] ;
-  sh:property [
-      rdfs:label "Type"@nl, "Type"@en ;
-      sh:description "Typering van de fysieke verschijningsvorm van het object"@nl ;
-      sh:path rico:hasOrHadPlaceType ;
-      sh:maxCount 1 ;
-      sh:order 15.0 ;
-      sh:group object:valueDataGroup ;
-      dash:editor memorix:VocabularyEditor ;
-      sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:d55b9f82-3d5a-381e-89a5-03f330323bde ) ;
-      sh:nodeKind sh:IRI ;
-    ] ;
-  sh:property [
-      rdfs:label "Oorspronkelijke functie"@nl, "Original function"@en ;
-      sh:description "Functie(s) die leidend zijn geweest in het ontwerp van het object"@nl ;
-      sh:path schema:roleName ;
-      sh:maxCount 1 ;
-      sh:order 16.0 ;
-      sh:group object:valueDataGroup ;
-      dash:editor memorix:VocabularyEditor ;
-      sh:class skos:Concept ;
-      memorix:conceptSchemeIn ( vocabularies:64138f75-6476-3369-8e40-57bcc80cbfdb ) ;
-      sh:nodeKind sh:IRI ;
-    ] ;
+
   sh:property [
       rdfs:label "Opdrachtgever"@nl, "Client"@en ;
       sh:description "Degene die de opdracht heeft gegeven tot ontwerp en realisatie van het object"@nl ;
