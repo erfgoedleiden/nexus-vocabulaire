@@ -445,7 +445,7 @@ av:Creator
     sh:order 2.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:c9597526-9900-3a65-a579-0fd9377aa5cf ) ;
+    memorix:conceptSchemeIn ( vocabularies:5b48e96c-6ad1-379f-a145-f079e9d90e20 ) ;
     sh:nodeKind sh:IRI ;
   ] ;
 .
