@@ -627,7 +627,7 @@ bibliotheek:Acquisition
     sh:order 1.0 ;
     dash:editor memorix:VocabularyEditor ;
     sh:class skos:Concept ;
-    memorix:conceptSchemeIn ( vocabularies:2008e956-98fe-453f-bb74-cd1b3227d8fd ) ;
+    memorix:conceptSchemeIn ( vocabularies:2084d192-a0a2-453e-9f45-3f9cb13f2e7b ) ;
     sh:nodeKind sh:IRI ;
   ] ;
   sh:property [
