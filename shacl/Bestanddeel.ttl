@@ -383,7 +383,7 @@ bestanddeel:HistoricalAddress
         sh:nodeKind sh:IRI ;
     ] ;
     sh:property [
-        rdfs:label "Huisnummer van"@nl, "House number from"@en ;
+        rdfs:label "Huisnummer"@nl, "House number"@en ;
         sh:maxCount 1 ;
         sh:path elo:huisnummerVan ;
         sh:order 3.0 ;
